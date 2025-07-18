@@ -1,5 +1,5 @@
 # POTCO Unity World Data Importer
-Imports Pirates of the Caribbean Online's World Data into Unity
+Imports Pirates of the Caribbean Online's World Data into Unity's Latest version 6000.1.11f1
 
 WorldData & Phase files were taken from an available Pirates Online Rewritten repo on github.
 
