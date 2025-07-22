@@ -1,42 +1,105 @@
-# POTCO Unity World Data Importer
-Imports Pirates of the Caribbean Online's World Data into Unity's Latest version 6000.1.11f1
+# 🏴‍☠️ POTCO Unity Tools
 
-WorldData & Phase files were taken from an available Pirates Online Rewritten repo on github.
+A collection of two Unity Editor tools designed for working with assets from *Pirates of the Caribbean Online*:
 
-All Models were converted using  Panda3D's bam2egg then imported using the Blender egg importer tool and exported into FBX. There may be some issues on rotations and sizes from exporting into fbx.
-All models LODS were removed using Panda3D's egg-trans tool, collisions have also been stripped away to help with visuals within Unity.
+- 🗺️ **World Data Importer**
+- 🛠️ **Procedural Cave Generator**
 
-Click on the top menu labled "POTCO" then select "World Data Importer"
-Click on "Select World .py File" then select which file to import.
+> Built using **Unity 6000.1.11f1**
 
-Importing the biggest Island which is Padres Del Fuego takes around 30 seconds for me, mostly anything else is instant.
+> ⚠️ This project uses world data and phase files from a publicly available **Pirates Online Rewritten** GitHub repository.
 
-# ***Issues***
-Some objects are imported at a small noticible inclination, have not been able to pin point on why
-may be due to parent objects who have child objects within it.
+---
 
-Alpha Textures do not work
-Textures for some models are broken such as islands
+## 📦 Model Conversion Pipeline
 
-Possible issues with FBX Size & Rotation
+- Models converted from `.bam` to `.egg` using **Panda3D’s `bam2egg` tool**
+- Imported into Blender using the **egg importer plugin**
+- Exported as **FBX** files for Unity
 
-Its not perfect at importing
+> ✅ All LODs and collision data removed via `egg-trans` to focus purely on visuals.
 
-Props with bones aren't working
-________________________________________________________________________
+---
 
-# ***To Maybe Add*** 
-World Data Exporter
+## 🧭 World Data Importer
 
-# Images
+### 📌 How to Use
 
- Mansion Interior
-<img width="2756" height="1190" alt="image" src="https://github.com/user-attachments/assets/0bc48425-a4c8-4776-bc17-4fcc4a55d750" />
+1. In Unity, click on the **`POTCO`** menu at the top.
+2. Select **`World Data Importer`**.
+3. Click **`Select World .py File`**, then choose a world file to import.
 
-Another Bilgewater concept by the Original Pirates Online Team, console tells you when a model fails to import.
-<img width="2763" height="1644" alt="image" src="https://github.com/user-attachments/assets/adaddf6f-5ec0-4484-8188-2a0e98b6a7d8" />
+> ⏱️ *Importing the largest island, **Padres Del Fuego**, takes around 30 seconds. Most others are near-instant.*
 
-Kingshead with some broken textures
-<img width="2768" height="1191" alt="image" src="https://github.com/user-attachments/assets/85458c8d-6f7d-48af-b757-96ed46af1cf0" />
+---
 
-<img width="2761" height="1129" alt="image" src="https://github.com/user-attachments/assets/0fb7e76d-fa1f-48d0-bb10-f96840525b09" />
+### 🐞 World Data Importer Known Issues
+
+- Some objects import at a slight, noticeable **inclination** (possibly due to nested parent-child transforms)
+- **Alpha textures** do not render properly
+- Some models (like islands) have **broken textures**
+- Inconsistent **FBX scale and rotation**
+- **Props with bones** are not supported
+
+> 🔧 Importing is functional but not yet perfect.
+
+---
+
+## 🧠 Planned Features
+
+- 🔄 **World Data Exporter**
+
+---
+
+## 🛠️ Procedural Cave Generator
+
+### 📌 How to Use
+
+1. In Unity, click on the **`POTCO`** menu at the top.
+2. Select **`Procedural Cave Generator`**.
+3. Configure your settings:
+
+   - **Cave Length** – number of cave pieces to generate  
+   - **Generation Delay** – controls how quickly each piece is spawned  
+   - **Cap Open Ends** – automatically caps unconnected connectors with dead-end pieces  
+
+4. Select which prefabs to include and assign their spawn weight.  
+   > A **Padres-themed preset** is included for best results.
+
+> ⚠️ Making cave pieces with 4 connectors too common may result in tangled or looping messes.
+
+### 🐞 Procedural Generator Known Issues
+
+- Caves might generate clipping over each other at times
+---
+
+## 🖼️ Procedural Cave Generation – Screenshots
+
+![Cave Generation](https://github.com/user-attachments/assets/87328a7a-390d-454c-9fbe-ce272e14ff66)
+
+---
+
+## 🌍 World Data Importer – Screenshots
+
+### 🏠 Mansion Interior
+
+<img width="2756" height="1190" alt="Mansion Interior" src="https://github.com/user-attachments/assets/0bc48425-a4c8-4776-bc17-4fcc4a55d750" />
+
+---
+
+### 🧱 Bilgewater Concept  
+*(Original concept by the Pirates Online team – console notifies when a model fails to import)*
+
+<img width="2763" height="1644" alt="Bilgewater Concept" src="https://github.com/user-attachments/assets/adaddf6f-5ec0-4484-8188-2a0e98b6a7d8" />
+
+---
+
+### 🏰 Kingshead (Broken Textures)
+
+<img width="2768" height="1191" alt="Kingshead Broken Textures" src="https://github.com/user-attachments/assets/85458c8d-6f7d-48af-b757-96ed46af1cf0" />
+
+---
+
+<img width="2761" height="1129" alt="Additional Import" src="https://github.com/user-attachments/assets/0fb7e76d-fa1f-48d0-bb10-f96840525b09" />
+
+---
