@@ -503,7 +503,6 @@ namespace POTCO.Editor
         /// <summary>
         /// Manually apply POTCOTypeInfo to selected objects
         /// </summary>
-        [UnityEditor.MenuItem("POTCO/Add POTCOTypeInfo to Selected")]
         public static void AddPOTCOTypeInfoToSelected()
         {
             GameObject[] selectedObjects = Selection.gameObjects;
@@ -536,7 +535,6 @@ namespace POTCO.Editor
         /// <summary>
         /// Refresh all POTCOTypeInfo components in the scene
         /// </summary>
-        [UnityEditor.MenuItem("POTCO/Refresh All POTCOTypeInfo")]
         public static void RefreshAllPOTCOTypeInfo()
         {
             POTCOTypeInfo[] allPOTCOComponents = GameObject.FindObjectsByType<POTCOTypeInfo>(FindObjectsSortMode.None);
