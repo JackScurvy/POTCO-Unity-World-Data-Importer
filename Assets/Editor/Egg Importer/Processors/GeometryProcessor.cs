@@ -46,48 +46,72 @@ public class GeometryProcessor
 
         Debug.Log($"Total triangles: {totalTriangles}");
 
-        // Collect all unique vertex indices used by this mesh
-        var usedVertexIndices = new HashSet<int>();
-        foreach (var submesh in subMeshes.Values)
+        // Use different approaches for skinned vs static meshes
+        Vector3[] meshVertices;
+        Vector3[] meshNormals;
+        Vector2[] meshUVs;
+        Color[] meshColors;
+        Dictionary<int, int> globalToLocalMap = null;
+        int[] sortedIndices = null;
+
+        if (hasSkeletalData && rootJoint != null && rootBoneObject != null)
         {
-            foreach (int vertexIndex in submesh)
+            Debug.Log($"Using all {masterVertices.Length} master vertices for SKINNED mesh (matching working version approach)");
+            meshVertices = masterVertices;
+            meshNormals = masterNormals;
+            meshUVs = masterUVs;
+            meshColors = masterColors;
+        }
+        else
+        {
+            Debug.Log($"Using optimized local vertices for STATIC mesh");
+            // Collect all unique vertex indices used by this mesh
+            var usedVertexIndices = new HashSet<int>();
+            foreach (var submesh in subMeshes.Values)
             {
-                if (vertexIndex >= 0 && vertexIndex < masterVertices.Length)
+                foreach (int vertexIndex in submesh)
                 {
-                    usedVertexIndices.Add(vertexIndex);
+                    if (vertexIndex >= 0 && vertexIndex < masterVertices.Length)
+                    {
+                        usedVertexIndices.Add(vertexIndex);
+                    }
                 }
             }
+
+            // Create local vertex arrays with only the vertices this mesh uses
+            sortedIndices = usedVertexIndices.OrderBy(x => x).ToArray();
+            var localVertices = new Vector3[sortedIndices.Length];
+            var localNormals = new Vector3[sortedIndices.Length];
+            var localUVs = new Vector2[sortedIndices.Length];
+            var localColors = new Color[sortedIndices.Length];
+
+            // Create mapping from global index to local index
+            globalToLocalMap = new Dictionary<int, int>(sortedIndices.Length);
+            for (int i = 0; i < sortedIndices.Length; i++)
+            {
+                int globalIndex = sortedIndices[i];
+                globalToLocalMap[globalIndex] = i;
+                localVertices[i] = masterVertices[globalIndex];
+                localNormals[i] = masterNormals[globalIndex];
+                localUVs[i] = masterUVs[globalIndex];
+                localColors[i] = masterColors[globalIndex];
+            }
+
+            meshVertices = localVertices;
+            meshNormals = localNormals;
+            meshUVs = localUVs;
+            meshColors = localColors;
+            Debug.Log($"Static mesh uses {meshVertices.Length} vertices out of {masterVertices.Length} total vertices");
         }
-
-        // Create local vertex arrays with only the vertices this mesh uses
-        var sortedIndices = usedVertexIndices.OrderBy(x => x).ToArray();
-        var localVertices = new Vector3[sortedIndices.Length];
-        var localNormals = new Vector3[sortedIndices.Length];
-        var localUVs = new Vector2[sortedIndices.Length];
-        var localColors = new Color[sortedIndices.Length];
-
-        // Create mapping from global index to local index - pre-size dictionary
-        var globalToLocalMap = new Dictionary<int, int>(sortedIndices.Length);
-        for (int i = 0; i < sortedIndices.Length; i++)
-        {
-            int globalIndex = sortedIndices[i];
-            globalToLocalMap[globalIndex] = i;
-            localVertices[i] = masterVertices[globalIndex];
-            localNormals[i] = masterNormals[globalIndex];
-            localUVs[i] = masterUVs[globalIndex];
-            localColors[i] = masterColors[globalIndex];
-        }
-
-        Debug.Log($"Mesh uses {localVertices.Length} vertices out of {masterVertices.Length} total vertices");
 
         // Calculate bounds to fix pivot point based on settings
         var settings = EggImporterSettings.Instance;
-        if (localVertices.Length > 0 && settings.pivotMode != EggImporterSettings.PivotMode.Original)
+        if (meshVertices.Length > 0 && settings.pivotMode != EggImporterSettings.PivotMode.Original)
         {
-            Vector3 min = localVertices[0];
-            Vector3 max = localVertices[0];
+            Vector3 min = meshVertices[0];
+            Vector3 max = meshVertices[0];
             
-            foreach (var vertex in localVertices)
+            foreach (var vertex in meshVertices)
             {
                 min = Vector3.Min(min, vertex);
                 max = Vector3.Max(max, vertex);
@@ -117,9 +141,9 @@ public class GeometryProcessor
             }
             
             // Offset all vertices to place pivot at origin
-            for (int i = 0; i < localVertices.Length; i++)
+            for (int i = 0; i < meshVertices.Length; i++)
             {
-                localVertices[i] -= pivotOffset;
+                meshVertices[i] -= pivotOffset;
             }
             
             // Adjust the GameObject position to compensate
@@ -129,10 +153,10 @@ public class GeometryProcessor
         }
 
         var mesh = new Mesh { name = go.name + "_mesh_" + System.Guid.NewGuid().ToString("N")[..8] };
-        mesh.vertices = localVertices;
-        mesh.normals = localNormals;
-        mesh.uv = localUVs;
-        mesh.colors = localColors;
+        mesh.vertices = meshVertices;
+        mesh.normals = meshNormals;
+        mesh.uv = meshUVs;
+        mesh.colors = meshColors;
         mesh.subMeshCount = materialNames.Count;
 
         // Pre-size materials list to avoid resizing
@@ -144,21 +168,31 @@ public class GeometryProcessor
             if (subMeshes.ContainsKey(matName))
             {
                 var globalTriangles = subMeshes[matName];
-                // Remap global vertex indices to local vertex indices - pre-size list
-                var localTriangles = new List<int>(globalTriangles.Count);
-                foreach (int globalIndex in globalTriangles)
+                
+                if (hasSkeletalData && rootJoint != null && rootBoneObject != null)
                 {
-                    if (globalToLocalMap.TryGetValue(globalIndex, out int localIndex))
-                    {
-                        localTriangles.Add(localIndex);
-                    }
-                    else
-                    {
-                        Debug.LogError($"Failed to remap global vertex index {globalIndex} to local index");
-                    }
+                    // Skinned mesh: use global indices directly
+                    Debug.Log($"Setting triangles for SKINNED submesh {j} ({matName}): {globalTriangles.Count} triangles (global indices)");
+                    mesh.SetTriangles(globalTriangles, j, false);
                 }
-                Debug.Log($"Setting triangles for submesh {j} ({matName}): {localTriangles.Count} triangles (remapped from global indices)");
-                mesh.SetTriangles(localTriangles, j, false);
+                else
+                {
+                    // Static mesh: remap global indices to local indices
+                    var localTriangles = new List<int>(globalTriangles.Count);
+                    foreach (int globalIndex in globalTriangles)
+                    {
+                        if (globalToLocalMap.TryGetValue(globalIndex, out int localIndex))
+                        {
+                            localTriangles.Add(localIndex);
+                        }
+                        else
+                        {
+                            Debug.LogError($"Failed to remap global vertex index {globalIndex} to local index");
+                        }
+                    }
+                    Debug.Log($"Setting triangles for STATIC submesh {j} ({matName}): {localTriangles.Count} triangles (remapped from global indices)");
+                    mesh.SetTriangles(localTriangles, j, false);
+                }
             }
             if (materialDict.TryGetValue(matName, out Material mat))
             {
@@ -192,7 +226,7 @@ public class GeometryProcessor
         if (hasSkeletalData && rootJoint != null && rootBoneObject != null)
         {
             Debug.Log("Setting up skinned mesh renderer");
-            SetupSkinnedMeshRenderer(go, mesh, rendererMaterials.ToArray(), ctx, localVertices, rootJoint, rootBoneObject, joints, globalToLocalMap, sortedIndices);
+            SetupSkinnedMeshRenderer(go, mesh, rendererMaterials.ToArray(), ctx, meshVertices, rootJoint, rootBoneObject, joints);
         }
         else
         {
@@ -204,13 +238,12 @@ public class GeometryProcessor
     }
 
     private void SetupSkinnedMeshRenderer(GameObject go, Mesh mesh, Material[] materials, 
-        AssetImportContext ctx, Vector3[] localVertices, EggJoint rootJoint, 
-        GameObject rootBoneObject, Dictionary<string, EggJoint> joints, Dictionary<int, int> globalToLocalMap, int[] sortedIndices)
+        AssetImportContext ctx, Vector3[] masterVertices, EggJoint rootJoint, 
+        GameObject rootBoneObject, Dictionary<string, EggJoint> joints)
     {
-        var boneWeights = new BoneWeight[localVertices.Length];
-        // Pre-size bone collections to avoid resizing (estimate based on typical joint counts)
-        var bones = new List<Transform>(64);
-        var bindPoses = new List<Matrix4x4>(64);
+        var boneWeights = new BoneWeight[masterVertices.Length];
+        var bones = new List<Transform>();
+        var bindPoses = new List<Matrix4x4>();
 
         CollectBonesAndBindPoses(rootJoint, bones, bindPoses, rootBoneObject.transform);
 
@@ -224,21 +257,18 @@ public class GeometryProcessor
             return;
         }
 
+        // Check for valid bone weights
         int verticesWithWeights = 0;
 
-        // Process bone weights for local vertices only
-        for (int localIndex = 0; localIndex < localVertices.Length; localIndex++)
+        for (int i = 0; i < masterVertices.Length; i++)
         {
-            int globalIndex = sortedIndices[localIndex];
-            // Pre-size weights list to avoid frequent resizing (most vertices have 1-4 weights)
-            var weights = new List<KeyValuePair<int, float>>(4);
-            
+            var weights = new List<KeyValuePair<int, float>>();
             foreach (var joint in joints.Values)
             {
-                if (joint.vertexWeights.ContainsKey(globalIndex))
+                if (joint.vertexWeights.ContainsKey(i))
                 {
                     int boneIndex = bones.FindIndex(b => b.name == joint.name);
-                    if (boneIndex >= 0) { weights.Add(new KeyValuePair<int, float>(boneIndex, joint.vertexWeights[globalIndex])); }
+                    if (boneIndex >= 0) { weights.Add(new KeyValuePair<int, float>(boneIndex, joint.vertexWeights[i])); }
                 }
             }
 
@@ -252,20 +282,21 @@ public class GeometryProcessor
             }
             else
             {
+                // If no weights, bind to root bone
                 if (bones.Count > 0)
                 {
                     weights.Add(new KeyValuePair<int, float>(0, 1.0f));
                 }
             }
 
-            boneWeights[localIndex] = new BoneWeight();
-            if (weights.Count > 0) { boneWeights[localIndex].boneIndex0 = weights[0].Key; boneWeights[localIndex].weight0 = weights[0].Value; }
-            if (weights.Count > 1) { boneWeights[localIndex].boneIndex1 = weights[1].Key; boneWeights[localIndex].weight1 = weights[1].Value; }
-            if (weights.Count > 2) { boneWeights[localIndex].boneIndex2 = weights[2].Key; boneWeights[localIndex].weight2 = weights[2].Value; }
-            if (weights.Count > 3) { boneWeights[localIndex].boneIndex3 = weights[3].Key; boneWeights[localIndex].weight3 = weights[3].Value; }
+            boneWeights[i] = new BoneWeight();
+            if (weights.Count > 0) { boneWeights[i].boneIndex0 = weights[0].Key; boneWeights[i].weight0 = weights[0].Value; }
+            if (weights.Count > 1) { boneWeights[i].boneIndex1 = weights[1].Key; boneWeights[i].weight1 = weights[1].Value; }
+            if (weights.Count > 2) { boneWeights[i].boneIndex2 = weights[2].Key; boneWeights[i].weight2 = weights[2].Value; }
+            if (weights.Count > 3) { boneWeights[i].boneIndex3 = weights[3].Key; boneWeights[i].weight3 = weights[3].Value; }
         }
 
-        Debug.Log($"Vertices with bone weights: {verticesWithWeights}/{localVertices.Length}");
+        Debug.Log($"Vertices with bone weights: {verticesWithWeights}/{masterVertices.Length}");
 
         mesh.boneWeights = boneWeights;
         mesh.bindposes = bindPoses.ToArray();
@@ -276,6 +307,7 @@ public class GeometryProcessor
         skinnedRenderer.bones = bones.ToArray();
         skinnedRenderer.rootBone = rootBoneObject.transform;
 
+        // Force update bounds
         skinnedRenderer.localBounds = mesh.bounds;
     }
 
