@@ -1,0 +1,54 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\ammunition\pir_m_gam_can_icepatchAmmo.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\ammunition\pir_m_gam_can_icepatchAmmo.egg'"
+}
+<Texture> minigame_cannon_palette_4amla_1 {
+  "phase_4/maps/minigame_cannon_palette_4amla_1.jpg"
+  <Scalar> alpha-file { "phase_4/maps/minigame_cannon_palette_4amla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_gam_can_icepatchAmmo.egg {
+  <Vertex> 0 {
+    -15.1588001251221 7.07718992233276 0.481480002403259
+    <UV> { 0.495580404996872 0.996094226837158 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -15.1421003341675 -7.3798999786377 0.481480002403259
+    <UV> { 0.00390624953433871 0.996094226837158 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    15.1358003616333 7.11232995986938 0.481480002403259
+    <UV> { 0.495580404996872 0.00390625 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    15.1526002883911 -7.34475994110107 0.481480002403259
+    <UV> { 0.00390624953433871 0.00390625 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> icepatch {
+    <Scalar> alpha { binary }
+    <Polygon> {
+      <TRef> { minigame_cannon_palette_4amla_1 }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_gam_can_icepatchAmmo.egg } }
+    }
+    <Polygon> {
+      <TRef> { minigame_cannon_palette_4amla_1 }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_gam_can_icepatchAmmo.egg } }
+    }
+  }
+}

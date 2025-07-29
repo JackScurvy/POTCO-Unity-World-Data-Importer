@@ -1,0 +1,217 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\effects\particleCards.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\effects\particleCards.egg'"
+}
+<Texture> particleWhiteGlow {
+  "phase_2/maps/particleWhiteGlow.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleWhiteGlow_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleStars {
+  "phase_2/maps/particleStars.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleStars_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleSplat {
+  "phase_2/maps/particleSplat.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleSplat_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleSplash3 {
+  "phase_2/maps/particleSplash3.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleSplash3_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleSplash2 {
+  "phase_2/maps/particleSplash2.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleSplash2_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleSparkles {
+  "phase_2/maps/particleSparkles.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleSparkles_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleSparkle {
+  "phase_2/maps/particleSparkle.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleSparkle_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleBlast {
+  "phase_2/maps/particleBlast.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleBlast_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> particleCards.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> particleSparkle {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleSparkle }
+          <VertexRef> { 0 1 2 <Ref> { particleCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleSparkle }
+          <VertexRef> { 2 1 3 <Ref> { particleCards.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleSparkles {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { particleSparkles }
+          <VertexRef> { 0 1 2 <Ref> { particleCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleSparkles }
+          <VertexRef> { 2 1 3 <Ref> { particleCards.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleWhiteGlow {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleWhiteGlow }
+          <VertexRef> { 0 1 2 <Ref> { particleCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleWhiteGlow }
+          <VertexRef> { 2 1 3 <Ref> { particleCards.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleBlast {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleBlast }
+          <VertexRef> { 0 1 2 <Ref> { particleCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleBlast }
+          <VertexRef> { 2 1 3 <Ref> { particleCards.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleStars {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleStars }
+          <VertexRef> { 0 1 2 <Ref> { particleCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleStars }
+          <VertexRef> { 2 1 3 <Ref> { particleCards.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleSplash2 {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleSplash2 }
+          <VertexRef> { 0 1 2 <Ref> { particleCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleSplash2 }
+          <VertexRef> { 2 1 3 <Ref> { particleCards.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleSplash3 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { particleSplash3 }
+          <VertexRef> { 0 1 2 <Ref> { particleCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleSplash3 }
+          <VertexRef> { 2 1 3 <Ref> { particleCards.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleSplat {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleSplat }
+          <VertexRef> { 0 1 2 <Ref> { particleCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleSplat }
+          <VertexRef> { 2 1 3 <Ref> { particleCards.egg } }
+        }
+      }
+    }
+  }
+}

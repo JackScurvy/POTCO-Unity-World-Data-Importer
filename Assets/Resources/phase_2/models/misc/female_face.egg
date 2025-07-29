@@ -1,0 +1,138 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\misc\female_face.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\misc\female_face.egg'"
+}
+<Texture> female_face_very_aged {
+  "phase_2/maps/female_face_very_aged.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> female_face_dark_a {
+  "phase_2/maps/female_face_dark_a.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> female_face_cauc_b {
+  "phase_2/maps/female_face_cauc_b.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> female_face_cauc_a {
+  "phase_2/maps/female_face_cauc_a.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> female_face_asian_a {
+  "phase_2/maps/female_face_asian_a.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> female_face.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> female_face_asian_a {
+        <Polygon> {
+          <TRef> { female_face_asian_a }
+          <VertexRef> { 0 1 2 <Ref> { female_face.egg } }
+        }
+        <Polygon> {
+          <TRef> { female_face_asian_a }
+          <VertexRef> { 2 1 3 <Ref> { female_face.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> female_face_cauc_a {
+        <Polygon> {
+          <TRef> { female_face_cauc_a }
+          <VertexRef> { 0 1 2 <Ref> { female_face.egg } }
+        }
+        <Polygon> {
+          <TRef> { female_face_cauc_a }
+          <VertexRef> { 2 1 3 <Ref> { female_face.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> female_face_cauc_b {
+        <Polygon> {
+          <TRef> { female_face_cauc_b }
+          <VertexRef> { 0 1 2 <Ref> { female_face.egg } }
+        }
+        <Polygon> {
+          <TRef> { female_face_cauc_b }
+          <VertexRef> { 2 1 3 <Ref> { female_face.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> female_face_dark_a {
+        <Polygon> {
+          <TRef> { female_face_dark_a }
+          <VertexRef> { 0 1 2 <Ref> { female_face.egg } }
+        }
+        <Polygon> {
+          <TRef> { female_face_dark_a }
+          <VertexRef> { 2 1 3 <Ref> { female_face.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> female_face_very_aged {
+        <Polygon> {
+          <TRef> { female_face_very_aged }
+          <VertexRef> { 0 1 2 <Ref> { female_face.egg } }
+        }
+        <Polygon> {
+          <TRef> { female_face_very_aged }
+          <VertexRef> { 2 1 3 <Ref> { female_face.egg } }
+        }
+      }
+    }
+  }
+}

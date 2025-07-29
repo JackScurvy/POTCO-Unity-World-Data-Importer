@@ -1,0 +1,171 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\misc\eye_iris.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\misc\eye_iris.egg'"
+}
+<Texture> pupilLightBrown {
+  "phase_2/maps/pupilLightBrown.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pupilLightBrown_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pupilHazel {
+  "phase_2/maps/pupilHazel.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pupilHazel_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pupilGreen {
+  "phase_2/maps/pupilGreen.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pupilGreen_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pupilDarkBrown {
+  "phase_2/maps/pupilDarkBrown.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pupilDarkBrown_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pupilBlue {
+  "phase_2/maps/pupilBlue.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pupilBlue_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pupilAqua {
+  "phase_2/maps/pupilAqua.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pupilAqua_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> eye_iris.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> pupilAqua {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pupilAqua }
+          <VertexRef> { 0 1 2 <Ref> { eye_iris.egg } }
+        }
+        <Polygon> {
+          <TRef> { pupilAqua }
+          <VertexRef> { 2 1 3 <Ref> { eye_iris.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pupilBlue {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pupilBlue }
+          <VertexRef> { 0 1 2 <Ref> { eye_iris.egg } }
+        }
+        <Polygon> {
+          <TRef> { pupilBlue }
+          <VertexRef> { 2 1 3 <Ref> { eye_iris.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pupilDarkBrown {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pupilDarkBrown }
+          <VertexRef> { 0 1 2 <Ref> { eye_iris.egg } }
+        }
+        <Polygon> {
+          <TRef> { pupilDarkBrown }
+          <VertexRef> { 2 1 3 <Ref> { eye_iris.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pupilGreen {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pupilGreen }
+          <VertexRef> { 0 1 2 <Ref> { eye_iris.egg } }
+        }
+        <Polygon> {
+          <TRef> { pupilGreen }
+          <VertexRef> { 2 1 3 <Ref> { eye_iris.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pupilHazel {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pupilHazel }
+          <VertexRef> { 0 1 2 <Ref> { eye_iris.egg } }
+        }
+        <Polygon> {
+          <TRef> { pupilHazel }
+          <VertexRef> { 2 1 3 <Ref> { eye_iris.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pupilLightBrown {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pupilLightBrown }
+          <VertexRef> { 0 1 2 <Ref> { eye_iris.egg } }
+        }
+        <Polygon> {
+          <TRef> { pupilLightBrown }
+          <VertexRef> { 2 1 3 <Ref> { eye_iris.egg } }
+        }
+      }
+    }
+  }
+}

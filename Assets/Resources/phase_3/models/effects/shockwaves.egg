@@ -1,0 +1,148 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\effects\shockwaves.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\effects\shockwaves.egg'"
+}
+<Texture> effectRedShockwave {
+  "phase_3/maps/effectRedShockwave.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effectRedShockwave_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectPulseShockwave {
+  "phase_3/maps/effectPulseShockwave.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effectPulseShockwave_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectFlashRays {
+  "phase_3/maps/effectFlashRays.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effectFlashRays_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectFlareRing {
+  "phase_3/maps/effectFlareRing.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effectFlareRing_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectDarkShockwave {
+  "phase_3/maps/effectDarkShockwave.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effectDarkShockwave_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> shockwaves.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> effectFlashRays {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { effectFlashRays }
+          <VertexRef> { 0 1 2 <Ref> { shockwaves.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectFlashRays }
+          <VertexRef> { 2 1 3 <Ref> { shockwaves.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectPulseShockwave {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectPulseShockwave }
+          <VertexRef> { 0 1 2 <Ref> { shockwaves.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectPulseShockwave }
+          <VertexRef> { 2 1 3 <Ref> { shockwaves.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectDarkShockwave {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectDarkShockwave }
+          <VertexRef> { 0 1 2 <Ref> { shockwaves.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectDarkShockwave }
+          <VertexRef> { 2 1 3 <Ref> { shockwaves.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectRedShockwave {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectRedShockwave }
+          <VertexRef> { 0 1 2 <Ref> { shockwaves.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectRedShockwave }
+          <VertexRef> { 2 1 3 <Ref> { shockwaves.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectFlareRing {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectFlareRing }
+          <VertexRef> { 0 1 2 <Ref> { shockwaves.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectFlareRing }
+          <VertexRef> { 2 1 3 <Ref> { shockwaves.egg } }
+        }
+      }
+    }
+  }
+}

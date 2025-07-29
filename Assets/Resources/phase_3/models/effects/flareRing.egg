@@ -1,0 +1,48 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\effects\flareRing.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\effects\flareRing.egg'"
+}
+<Texture> effectFlareRing {
+  "phase_3/maps/effectFlareRing.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effectFlareRing_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> flareRing.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> effectFlareRing {
+  <Scalar> alpha { blend }
+  <Polygon> {
+    <TRef> { effectFlareRing }
+    <VertexRef> { 0 1 2 <Ref> { flareRing.egg } }
+  }
+  <Polygon> {
+    <TRef> { effectFlareRing }
+    <VertexRef> { 2 1 3 <Ref> { flareRing.egg } }
+  }
+}

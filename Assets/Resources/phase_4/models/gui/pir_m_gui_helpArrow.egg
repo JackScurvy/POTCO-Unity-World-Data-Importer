@@ -1,0 +1,54 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\gui\pir_m_gui_helpArrow.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\gui\pir_m_gui_helpArrow.egg'"
+}
+<Texture> pir_t_gui_can_helpArrow {
+  "phase_4/maps/pir_t_gui_can_helpArrow.jpg"
+  <Scalar> alpha-file { "phase_4/maps/pir_t_gui_can_helpArrow_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_gui_helpArrow.egg {
+  <Vertex> 0 {
+    -0.166069999337196 0 -0.164853006601334
+    <UV> { 0 0 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0.164853006601334 0 -0.164853006601334
+    <UV> { 1 0 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -0.166069999337196 0 0.166069999337196
+    <UV> { 0 1 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.164853006601334 0 0.166069999337196
+    <UV> { 1 1 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> arrow {
+    <Scalar> alpha { binary }
+    <Polygon> {
+      <TRef> { pir_t_gui_can_helpArrow }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_gui_helpArrow.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_gui_can_helpArrow }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_gui_helpArrow.egg } }
+    }
+  }
+}

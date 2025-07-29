@@ -1,0 +1,46 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\gui\loadingScreen_01.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\gui\loadingScreen_01.egg'"
+}
+<Texture> loadingscreen_anvil {
+  "phase_2/maps/loadingscreen_anvil.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> loadingScreen_01.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> loadingscreen_anvil {
+  <Polygon> {
+    <TRef> { loadingscreen_anvil }
+    <VertexRef> { 0 1 2 <Ref> { loadingScreen_01.egg } }
+  }
+  <Polygon> {
+    <TRef> { loadingscreen_anvil }
+    <VertexRef> { 2 1 3 <Ref> { loadingScreen_01.egg } }
+  }
+}

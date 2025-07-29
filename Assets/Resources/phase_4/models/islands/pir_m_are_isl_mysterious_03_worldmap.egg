@@ -1,0 +1,145 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\islands\pir_m_are_isl_mysterious_03_worldmap.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\islands\pir_m_are_isl_mysterious_03_worldmap.egg'"
+}
+<Texture> island_dock_palette_4alla_1 {
+  "phase_3/maps/island_dock_palette_4alla_1.jpg"
+  <Scalar> alpha-file { "phase_3/maps/island_dock_palette_4alla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_are_isl_mysterious_03_worldmap.egg {
+  <Vertex> 0 {
+    0.152877002954483 -0.364800006151199 -0.00116143003106117
+    <UV> { 0.246094256639481 0.98328423500061 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0.227757006883621 0.289171010255814 -0.00116143003106117
+    <UV> { 0.00390625 0.98328423500061 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -0.0667228996753693 -0.341037005186081 -0.00116143003106117
+    <UV> { 0.246094256639481 0.518200755119324 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.00815626978874207 0.312934994697571 -0.00116143003106117
+    <UV> { 0.00390625 0.518200755119324 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.286323010921478 -0.317272990942001 -0.00116143003106117
+    <UV> { 0.246094256639481 0.98328423500061 }
+    <Normal> { 0 2.72465994211046e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.21144400537014 0.336697995662689 -0.00116143003106117
+    <UV> { 0.00390625 0.98328423500061 }
+    <Normal> { 0 2.72465994211046e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -0.237479001283646 -0.225906997919083 0.0146391000598669
+    <UV> { 0.253906011581421 0.518200755119324 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.160956993699074 -0.225906997919083 0.0146391000598669
+    <UV> { 0.496093988418579 0.518200755119324 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -0.237479001283646 0.201333001255989 0.0146391000598669
+    <UV> { 0.253906011581421 0.98328423500061 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    0.160956993699074 0.201333001255989 0.0146391000598669
+    <UV> { 0.496093988418579 0.98328423500061 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> worldmap {
+  <Group> collision_selection {
+    <Collide> { Polyset descend }
+    <Scalar> collide-mask { 0x00000001 }
+    <VertexPool> vpool-collision {
+      <Vertex> 0 {
+        -0.157238006591797 -0.222010985016823 -0.000335840974003077
+        <Normal> { 0.00591850047931075 -0.00653468770906329 0.999961137771606 }
+      }
+      <Vertex> 1 {
+        0.140548005700111 -0.204925000667572 -0.00198670011013746
+        <Normal> { 0.00591850047931075 -0.00653468770906329 0.999961137771606 }
+      }
+      <Vertex> 2 {
+        -0.171952977776527 0.181149005889893 0.00238588009960949
+        <Normal> { 0.00591850047931075 -0.00653468770906329 0.999961137771606 }
+      }
+      <Vertex> 3 {
+        -0.171952992677689 0.181149005889893 0.00238587963394821
+        <Normal> { -0.000810415076557547 -0.0119809173047543 0.999927937984467 }
+      }
+      <Vertex> 4 {
+        0.140548005700111 -0.204925000667572 -0.00198670011013746
+        <Normal> { -0.000810415076557547 -0.0119809173047543 0.999927937984467 }
+      }
+      <Vertex> 5 {
+        0.134074002504349 0.153962999582291 0.002308169612661
+        <Normal> { -0.000810415076557547 -0.0119809173047543 0.999927937984467 }
+      }
+    }
+    <Polygon> {
+      <VertexRef> { 0 1 2 <Ref> { vpool-collision } }
+    }
+    <Polygon> {
+      <VertexRef> { 3 4 5 <Ref> { vpool-collision } }
+    }
+  }
+  <Group> sketchmark {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { island_dock_palette_4alla_1 }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_are_isl_mysterious_03_worldmap.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_4alla_1 }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_are_isl_mysterious_03_worldmap.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_4alla_1 }
+      <VertexRef> { 2 3 4 <Ref> { pir_m_are_isl_mysterious_03_worldmap.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_4alla_1 }
+      <VertexRef> { 4 3 5 <Ref> { pir_m_are_isl_mysterious_03_worldmap.egg } }
+    }
+  }
+  <Group> top_mesh {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { island_dock_palette_4alla_1 }
+      <VertexRef> { 6 7 8 <Ref> { pir_m_are_isl_mysterious_03_worldmap.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_4alla_1 }
+      <VertexRef> { 8 7 9 <Ref> { pir_m_are_isl_mysterious_03_worldmap.egg } }
+    }
+  }
+}

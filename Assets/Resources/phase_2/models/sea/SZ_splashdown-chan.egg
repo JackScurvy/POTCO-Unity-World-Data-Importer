@@ -1,0 +1,21 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\sea\SZ_splashdown-chan.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\sea\SZ_splashdown-chan.egg'"
+}
+<Table> {
+  <Bundle> splashdown {
+    <Table> "<skeleton>" {
+      <Table> root {
+        <Xfm$Anim_S$> xform {
+          <Scalar> fps { 24 }
+        }
+        <Table> joint-scale-splash {
+          <Xfm$Anim_S$> xform {
+            <Scalar> fps { 24 }
+          }
+        }
+      }
+    }
+  }
+}

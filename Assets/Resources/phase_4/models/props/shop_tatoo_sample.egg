@@ -1,0 +1,52 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\props\shop_tatoo_sample.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\props\shop_tatoo_sample.egg'"
+}
+<Texture> props_shop_tattoo_palette_3cmla_1 {
+  "phase_4/maps/props_shop_tattoo_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> shop_tatoo_sample.egg {
+  <Vertex> 0 {
+    -1.88244998455048 3.51206806692428e-11 -1.88244998455048
+    <UV> { 0.00390625 0.0078125 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    1.88244998455048 3.51206806692428e-11 -1.88244998455048
+    <UV> { 0.496094256639481 0.0078125 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -1.88244998455048 -3.51206806692428e-11 1.88244998455048
+    <UV> { 0.00390625 0.9921875 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    1.88244998455048 -3.51206806692428e-11 1.88244998455048
+    <UV> { 0.496094256639481 0.9921875 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> shop_tatoo_sample {
+    <Polygon> {
+      <TRef> { props_shop_tattoo_palette_3cmla_1 }
+      <VertexRef> { 0 1 2 <Ref> { shop_tatoo_sample.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_shop_tattoo_palette_3cmla_1 }
+      <VertexRef> { 2 1 3 <Ref> { shop_tatoo_sample.egg } }
+    }
+  }
+}

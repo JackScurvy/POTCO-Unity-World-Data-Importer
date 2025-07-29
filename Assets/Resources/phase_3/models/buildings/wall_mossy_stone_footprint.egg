@@ -1,0 +1,56 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\buildings\wall_mossy_stone_footprint.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\buildings\wall_mossy_stone_footprint.egg'"
+}
+<Texture> footprints_palette_3cmla_1 {
+  "phase_3/maps/footprints_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> wall_mossy_stone_footprint.egg {
+  <Vertex> 0 {
+    2 -8 -6.75476230505012e-10
+    <UV> { 0.03125 0.4375 }
+    <Normal> { 0 -2.94405999579084e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    2 8 6.75476230505012e-10
+    <UV> { 0.28125 0.4375 }
+    <Normal> { 0 -2.94405999579084e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -2 -8 -6.75476230505012e-10
+    <UV> { 0.03125 0.9375 }
+    <Normal> { 0 -2.94405999579084e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -2 8 6.75476230505012e-10
+    <UV> { 0.28125 0.9375 }
+    <Normal> { 0 -2.94405999579084e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> footprint {
+    <Model> { 1 }
+    <Tag> Footprint {
+      Wall
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 0 1 2 <Ref> { wall_mossy_stone_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 2 1 3 <Ref> { wall_mossy_stone_footprint.egg } }
+    }
+  }
+}

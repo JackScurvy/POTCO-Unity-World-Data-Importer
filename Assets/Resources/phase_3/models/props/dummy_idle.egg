@@ -1,0 +1,66 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\props\dummy_idle.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\props\dummy_idle.egg'"
+}
+<Table> {
+  <Bundle> dummy {
+    <Table> "<skeleton>" {
+      <Table> def_base_2 {
+        <Xfm$Anim_S$> xform {
+          <Scalar> fps { 24 }
+          <S$Anim> z { <V> { 1.2407900094986 } }
+        }
+        <Table> def_body_1 {
+          <Xfm$Anim_S$> xform {
+            <Scalar> fps { 24 }
+            <S$Anim> z { <V> { 1.34765005111694 } }
+          }
+          <Table> def_body_2 {
+            <Xfm$Anim_S$> xform {
+              <Scalar> fps { 24 }
+              <S$Anim> z { <V> { 1.32642996311188 } }
+            }
+            <Table> def_head_1 {
+              <Xfm$Anim_S$> xform {
+                <Scalar> fps { 24 }
+                <S$Anim> r { <V> { -90 } }
+                <S$Anim> z { <V> { 0.814309000968933 } }
+              }
+              <Table> def_head_2 {
+                <Xfm$Anim_S$> xform {
+                  <Scalar> fps { 24 }
+                  <S$Anim> x { <V> { 1.02623999118805 } }
+                }
+              }
+            }
+            <Table> def_left_arm_1 {
+              <Xfm$Anim_S$> xform {
+                <Scalar> fps { 24 }
+                <S$Anim> x { <V> { 0.621496021747589 } }
+                <S$Anim> z { <V> { 0.313347995281219 } }
+              }
+            }
+            <Table> def_right_arm_1 {
+              <Xfm$Anim_S$> xform {
+                <Scalar> fps { 24 }
+                <S$Anim> h { <V> { 180 } }
+                <S$Anim> r { <V> { 180 } }
+                <S$Anim> x { <V> { -0.621496021747589 } }
+                <S$Anim> z { <V> { 0.313351988792419 } }
+              }
+            }
+          }
+          <Table> def_body_bot {
+            <Xfm$Anim_S$> xform {
+              <Scalar> fps { 24 }
+              <S$Anim> z { <V> { 0.207655996084213 } }
+            }
+          }
+        }
+      }
+    }
+    <Table> morph {
+    }
+  }
+}

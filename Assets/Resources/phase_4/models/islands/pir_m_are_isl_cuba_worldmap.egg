@@ -1,0 +1,155 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\islands\pir_m_are_isl_cuba_worldmap.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\islands\pir_m_are_isl_cuba_worldmap.egg'"
+}
+<Texture> pir_t_gui_map_cuba {
+  "phase_2/maps/pir_t_gui_map_cuba.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_gui_map_cuba_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_are_isl_cuba_worldmap.egg {
+  <Vertex> 0 {
+    0.219405993819237 -0.0943240970373154 0
+    <UV> { 0.992613017559052 0.00738688977435231 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0.217355996370316 0.0953494012355804 0
+    <UV> { 0.992613017559052 0.992613017559052 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -0.217355996370316 -0.0953494012355804 0
+    <UV> { 0.00738688977435231 0.00738688977435231 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -0.219405993819237 0.0943240970373154 0
+    <UV> { 0.00738688977435231 0.992613017559052 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> worldmap {
+  <Group> top_mesh {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { pir_t_gui_map_cuba }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_are_isl_cuba_worldmap.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_gui_map_cuba }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_are_isl_cuba_worldmap.egg } }
+    }
+  }
+  <Group> collision_selection {
+    <Collide> { Polyset descend }
+    <Scalar> collide-mask { 0x00000001 }
+    <VertexPool> vpool-collision {
+      <Vertex> 0 {
+        -0.146286994218826 0.0553105995059013 0
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 1 {
+        -0.124582998454571 0.0376754999160767 0
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 2 {
+        -0.0798164010047913 0.0383537001907825 0
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 3 {
+        -0.0825295001268387 0.0722675025463104 0
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 4 {
+        -0.176131993532181 0.0220750998705626 0
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 5 {
+        -0.153070002794266 0.0193620007485151 0
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 6 {
+        0.00632453989237547 0.0424234010279179 0
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 7 {
+        -0.00859745964407921 0.00986617989838123 0
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 8 {
+        0.0470210015773773 -0.0233692992478609 0
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 9 {
+        0.0789000019431114 -0.045074101537466 0
+        <Normal> { 0 0 0.999999940395355 }
+      }
+      <Vertex> 10 {
+        0.129091992974281 -0.00980379991233349 0
+        <Normal> { 0 0 0.999999940395355 }
+      }
+      <Vertex> 11 {
+        0.0700824037194252 0.0159706994891167 0
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 12 {
+        -0.0221629999577999 0.0641281977295876 0
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 13 {
+        0.13994500041008 -0.0254040993750095 0
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 14 {
+        0.0639778971672058 -0.0593179017305374 0
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 15 {
+        0.117562003433704 -0.0586396008729935 0
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 16 {
+        0.181997999548912 -0.0464306995272636 0
+        <Normal> { 0 0 1 }
+      }
+    }
+    <Polygon> {
+      <VertexRef> { 0 1 2 3 <Ref> { vpool-collision } }
+    }
+    <Polygon> {
+      <VertexRef> { 4 5 1 0 <Ref> { vpool-collision } }
+    }
+    <Polygon> {
+      <VertexRef> { 6 7 8 <Ref> { vpool-collision } }
+    }
+    <Polygon> {
+      <VertexRef> { 6 8 9 <Ref> { vpool-collision } }
+    }
+    <Polygon> {
+      <VertexRef> { 6 9 10 <Ref> { vpool-collision } }
+    }
+    <Polygon> {
+      <VertexRef> { 6 10 11 <Ref> { vpool-collision } }
+    }
+    <Polygon> {
+      <VertexRef> { 3 2 7 6 12 <Ref> { vpool-collision } }
+    }
+    <Polygon> {
+      <VertexRef> { 13 9 14 15 16 <Ref> { vpool-collision } }
+    }
+    <Polygon> {
+      <VertexRef> { 10 9 13 <Ref> { vpool-collision } }
+    }
+  }
+}

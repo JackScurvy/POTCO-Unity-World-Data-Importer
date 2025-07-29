@@ -1,0 +1,143 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_5\models\islands\pir_m_are_isl_cangrejos_ocean.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_5\models\islands\pir_m_are_isl_cangrejos_ocean.egg'"
+}
+<Texture> pir_t_are_isl_multi_grass {
+  "phase_5/maps/pir_t_are_isl_multi_grass.jpg"
+  <Scalar> format { luminance }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_are_isl_driftwood_ocean {
+  "phase_5/maps/pir_t_are_isl_driftwood_ocean.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_are_isl_driftwood_alpha {
+  "phase_5/maps/pir_t_are_isl_driftwood_alpha.jpg"
+  <Scalar> format { luminance }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_are_isl_cangrejos_ocean.egg {
+  <Vertex> 0 {
+    -1303.30004882813 -1216.30004882813 -7.79653355764687e-11
+    <UV> { 0 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    1207.71997070313 -1216.30004882813 -7.79653355764687e-11
+    <UV> { 1 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -1303.30004882813 1294.72998046875 7.79653355764687e-11
+    <UV> { 0 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    1207.71997070313 1294.72998046875 7.79653355764687e-11
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -994.319946289063 -847.217041015625 -5.75338526820346e-11
+    <UV> { 0 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    858.677978515625 -847.217041015625 -5.75338526820346e-11
+    <UV> { 1 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -994.319946289063 1005.78002929688 5.75338526820346e-11
+    <UV> { 0 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    858.677978515625 1005.78002929688 5.75338526820346e-11
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -8130.56005859375 -8130.56005859375 -68.9419021606445
+    <UV> { -200.419998168945 -200.419998168945 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.4384765625 0.3759765625 0.28125 1 }
+  }
+  <Vertex> 9 {
+    8130.56005859375 -8130.56005859375 -68.9419021606445
+    <UV> { 201.419998168945 -200.419998168945 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.4384765625 0.3759765625 0.28125 1 }
+  }
+  <Vertex> 10 {
+    -8130.56005859375 8130.56005859375 -68.9419021606445
+    <UV> { -200.419998168945 201.419998168945 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.4384765625 0.3759765625 0.28125 1 }
+  }
+  <Vertex> 11 {
+    8130.56005859375 8130.56005859375 -68.9419021606445
+    <UV> { 201.419998168945 201.419998168945 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.4384765625 0.3759765625 0.28125 1 }
+  }
+}
+<Group> whole_island {
+  <Group> water_color {
+    <DCS> { local }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_driftwood_ocean }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_are_isl_cangrejos_ocean.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_driftwood_ocean }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_are_isl_cangrejos_ocean.egg } }
+    }
+  }
+  <Group> water_alpha {
+    <DCS> { local }
+    <Transform> {
+      <Translate> { -67.8211975097656 79.2825012207031 0 }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_driftwood_alpha }
+      <VertexRef> { 4 5 6 <Ref> { pir_m_are_isl_cangrejos_ocean.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_driftwood_alpha }
+      <VertexRef> { 6 5 7 <Ref> { pir_m_are_isl_cangrejos_ocean.egg } }
+    }
+  }
+  <Group> sandfloor {
+    <Polygon> {
+      <TRef> { pir_t_are_isl_multi_grass }
+      <VertexRef> { 8 9 10 <Ref> { pir_m_are_isl_cangrejos_ocean.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_multi_grass }
+      <VertexRef> { 10 9 11 <Ref> { pir_m_are_isl_cangrejos_ocean.egg } }
+    }
+  }
+}

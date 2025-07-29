@@ -1,0 +1,214 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\char\pir_r_shp_mst_main_tri_skeleton_logic.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\char\pir_r_shp_mst_main_tri_skeleton_logic.egg'"
+}
+<Group> {
+  <Group> "model:collisions" {
+    <Group> "model:collision_sails" {
+      <Model> { 1 }
+      <Group> "model:collision_sail_0_right" {
+        <Collide> { Polyset descend }
+        <Scalar> collide-mask { 0x00000020 }
+        <VertexPool> vpool-collision {
+          <Vertex> 0 {
+            1.17940902709961 -166.65901184082 28.1961994171143
+            <Normal> { -0.993353664875031 0.115102276206017 3.19870741805062e-06 }
+          }
+          <Vertex> 1 {
+            19.8126010894775 -5.85363101959229 117.408996582031
+            <Normal> { -0.993353664875031 0.115102276206017 3.19870741805062e-06 }
+          }
+          <Vertex> 2 {
+            19.818302154541 -5.80196046829224 28.2646999359131
+            <Normal> { -0.993353664875031 0.115102276206017 3.19870741805062e-06 }
+          }
+          <Vertex> 3 {
+            0 -89.2272033691406 16.8139991760254
+            <Normal> { -1 0 0 }
+          }
+          <Vertex> 4 {
+            0 -11.5785999298096 95.2620010375977
+            <Normal> { -1 0 0 }
+          }
+          <Vertex> 5 {
+            0 -11.5785999298096 16.8139991760254
+            <Normal> { -1 0 0 }
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 <Ref> { vpool-collision } }
+        }
+        <Polygon> {
+          <VertexRef> { 3 4 5 <Ref> { vpool-collision } }
+        }
+      }
+      <Group> "model:collision_sail_0_left" {
+        <Collide> { Polyset descend }
+        <Scalar> collide-mask { 0x00000020 }
+        <VertexPool> vpool-collision.vpool1 {
+          <Vertex> 0 {
+            1.17941093444824 -166.65901184082 28.1961994171143
+            <Normal> { 0.993353605270386 -0.115102253854275 -3.18818069899862e-06 }
+          }
+          <Vertex> 1 {
+            19.8183002471924 -5.80195999145508 28.2646999359131
+            <Normal> { 0.993353605270386 -0.115102253854275 -3.18818069899862e-06 }
+          }
+          <Vertex> 2 {
+            19.8125991821289 -5.85362958908081 117.408996582031
+            <Normal> { 0.993353605270386 -0.115102253854275 -3.18818069899862e-06 }
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 <Ref> { vpool-collision.vpool1 } }
+        }
+      }
+      <Group> "model:collision_sail_1_left" {
+        <Collide> { Polyset descend }
+        <Scalar> collide-mask { 0x00000020 }
+        <VertexPool> vpool-collision.vpool2 {
+          <Vertex> 0 {
+            3.28658032417297 5.53760004043579 27.2632007598877
+            <Normal> { 0.886639416217804 -0.462461352348328 5.2063452216089e-08 }
+          }
+          <Vertex> 1 {
+            45.5477104187012 86.5614013671875 35.3205986022949
+            <Normal> { 0.886639416217804 -0.462461352348328 5.2063452216089e-08 }
+          }
+          <Vertex> 2 {
+            35.3257026672363 66.9636001586914 151.893997192383
+            <Normal> { 0.886639416217804 -0.462461352348328 5.2063452216089e-08 }
+          }
+          <Vertex> 3 {
+            3.20887351036072 5.38862800598145 106.698997497559
+            <Normal> { 0.886639416217804 -0.462461352348328 5.2063452216089e-08 }
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 3 <Ref> { vpool-collision.vpool2 } }
+        }
+      }
+      <Group> "model:collision_sail_1_right" {
+        <Collide> { Polyset descend }
+        <Scalar> collide-mask { 0x00000020 }
+        <VertexPool> vpool-collision.vpool3 {
+          <Vertex> 0 {
+            3.28658008575439 5.53759956359863 27.2632007598877
+            <Normal> { -0.886639475822449 0.462461411952972 -5.20897245337437e-08 }
+          }
+          <Vertex> 1 {
+            3.20887303352356 5.38862752914429 106.698997497559
+            <Normal> { -0.886639475822449 0.462461411952972 -5.20897245337437e-08 }
+          }
+          <Vertex> 2 {
+            35.3256988525391 66.9636001586914 151.893997192383
+            <Normal> { -0.886639475822449 0.462461411952972 -5.20897245337437e-08 }
+          }
+          <Vertex> 3 {
+            45.5477066040039 86.5614013671875 35.3205986022949
+            <Normal> { -0.886639475822449 0.462461411952972 -5.20897245337437e-08 }
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 3 <Ref> { vpool-collision.vpool3 } }
+        }
+      }
+      <Group> "model:collision_sail_2_front" {
+        <Collide> { Polyset descend }
+        <Scalar> collide-mask { 0x00000020 }
+        <VertexPool> vpool-collision.vpool4 {
+          <Vertex> 0 {
+            -31.2922992706299 -2.11852073669434 132.098983764648
+            <Normal> { 0.204853847622871 -0.978792548179626 3.9763577319718e-07 }
+          }
+          <Vertex> 1 {
+            34.2152938842773 11.5917196273804 125.664993286133
+            <Normal> { 0.204853847622871 -0.978792548179626 3.9763577319718e-07 }
+          }
+          <Vertex> 2 {
+            25.148099899292 9.69404029846191 166.630981445313
+            <Normal> { 0.204853847622871 -0.978792548179626 3.9763577319718e-07 }
+          }
+          <Vertex> 3 {
+            -19.8076038360596 0.285155296325684 172.714981079102
+            <Normal> { 0.204853847622871 -0.978792548179626 3.9763577319718e-07 }
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 3 <Ref> { vpool-collision.vpool4 } }
+        }
+      }
+      <Group> "model:collision_sail_2_back" {
+        <Collide> { Polyset descend }
+        <Scalar> collide-mask { 0x00000020 }
+        <VertexPool> vpool-collision.vpool5 {
+          <Vertex> 0 {
+            -31.2922992706299 -2.11852025985718 132.098983764648
+            <Normal> { -0.20485383272171 0.978792607784271 -3.93287393762876e-07 }
+          }
+          <Vertex> 1 {
+            -19.8076038360596 0.285154819488525 172.714981079102
+            <Normal> { -0.20485383272171 0.978792607784271 -3.93287393762876e-07 }
+          }
+          <Vertex> 2 {
+            25.148099899292 9.69403839111328 166.630981445313
+            <Normal> { -0.20485383272171 0.978792607784271 -3.93287393762876e-07 }
+          }
+          <Vertex> 3 {
+            34.2152976989746 11.5917167663574 125.664993286133
+            <Normal> { -0.20485383272171 0.978792607784271 -3.93287393762876e-07 }
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 3 <Ref> { vpool-collision.vpool5 } }
+        }
+      }
+    }
+    <Group> "model:collision_masts" {
+      <Model> { 1 }
+      <Group> "model:collision_mast_1" {
+        <Collide> { Tube descend }
+        <Scalar> collide-mask { 0x00000021 }
+        <VertexPool> vpool-collision.vpool6 {
+          <Vertex> 0 {
+            9.99999997475243e-07 0.323609739542007 126.074485778809
+          }
+          <Vertex> 1 {
+            -5.48451662063599 0.323609739542007 151.990005493164
+          }
+          <Vertex> 2 {
+            9.99999997475243e-07 0.323609739542007 177.905517578125
+          }
+          <Vertex> 3 {
+            5.48451852798462 0.323609739542007 151.990005493164
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 3 <Ref> { vpool-collision.vpool6 } }
+        }
+      }
+      <Group> "model:collision_mast_0" {
+        <Collide> { Tube descend }
+        <Scalar> collide-mask { 0x00000025 }
+        <VertexPool> vpool-collision.vpool7 {
+          <Vertex> 0 {
+            9.99999997475243e-07 0.323609739542007 137.043518066406
+          }
+          <Vertex> 1 {
+            5.48451852798462 0.323609739542007 65.9968490600586
+          }
+          <Vertex> 2 {
+            9.99999997475243e-07 0.323609739542007 -5.04981851577759
+          }
+          <Vertex> 3 {
+            -5.48451662063599 0.323609739542007 65.9968490600586
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 3 <Ref> { vpool-collision.vpool7 } }
+        }
+      }
+    }
+  }
+}

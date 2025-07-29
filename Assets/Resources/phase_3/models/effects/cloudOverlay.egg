@@ -1,0 +1,46 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\effects\cloudOverlay.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\effects\cloudOverlay.egg'"
+}
+<Texture> effectCloudOverlay {
+  "phase_3/maps/effectCloudOverlay.jpg"
+  <Scalar> format { luminance }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> cloudOverlay.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> effectCloudOverlay {
+  <Polygon> {
+    <TRef> { effectCloudOverlay }
+    <VertexRef> { 0 1 2 <Ref> { cloudOverlay.egg } }
+  }
+  <Polygon> {
+    <TRef> { effectCloudOverlay }
+    <VertexRef> { 2 1 3 <Ref> { cloudOverlay.egg } }
+  }
+}

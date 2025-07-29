@@ -1,0 +1,102 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\gui\triangle.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\gui\triangle.egg'"
+}
+<Texture> triangle_over {
+  "phase_2/maps/triangle_over.jpg"
+  <Scalar> alpha-file { "phase_2/maps/triangle_over_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> triangle_down {
+  "phase_2/maps/triangle_down.jpg"
+  <Scalar> alpha-file { "phase_2/maps/triangle_down_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> triangle {
+  "phase_2/maps/triangle.jpg"
+  <Scalar> alpha-file { "phase_2/maps/triangle_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> triangle.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> triangle {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { triangle }
+          <VertexRef> { 0 1 2 <Ref> { triangle.egg } }
+        }
+        <Polygon> {
+          <TRef> { triangle }
+          <VertexRef> { 2 1 3 <Ref> { triangle.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> triangle_down {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { triangle_down }
+          <VertexRef> { 0 1 2 <Ref> { triangle.egg } }
+        }
+        <Polygon> {
+          <TRef> { triangle_down }
+          <VertexRef> { 2 1 3 <Ref> { triangle.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> triangle_over {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { triangle_over }
+          <VertexRef> { 0 1 2 <Ref> { triangle.egg } }
+        }
+        <Polygon> {
+          <TRef> { triangle_over }
+          <VertexRef> { 2 1 3 <Ref> { triangle.egg } }
+        }
+      }
+    }
+  }
+}

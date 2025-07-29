@@ -1,0 +1,516 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\effects\soulflay.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\effects\soulflay.egg'"
+}
+<Texture> voodooGhost {
+  "phase_3/maps/voodooGhost.jpg"
+  <Scalar> alpha-file { "phase_3/maps/voodooGhost_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> soulflay.egg {
+  <Vertex> 0 {
+    -0.698400974273682 0 10.0594997406006
+    <UV> { 0.483431994915009 1.01338994503021 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 1 {
+    -0.22545200586319 0 10.0594997406006
+    <UV> { 0.577355980873108 1.01338994503021 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.996078491210938 }
+  }
+  <Vertex> 2 {
+    -0.530946016311646 0 12.4049997329712
+    <UV> { 0.446119010448456 1.14054000377655 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 3 {
+    0.27920800447464 0 2.03310812629809e-09
+    <UV> { 0.504510998725891 -0.130997002124786 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 4 {
+    1.14663004875183 0 2.03310812629809e-09
+    <UV> { 0.7431920170784 -0.130997002124786 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 5 {
+    0.481065988540649 0 1
+    <UV> { 0.55221700668335 -0.00384263996966183 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.247058838605881 }
+  }
+  <Vertex> 6 {
+    1.55849003791809 0 1
+    <UV> { 0.76373302936554 -0.00384263996966183 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.0862745121121407 }
+  }
+  <Vertex> 7 {
+    0.246254995465279 0 2
+    <UV> { 0.546765029430389 0.123311996459961 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.980392217636108 }
+  }
+  <Vertex> 8 {
+    1.57885003089905 0 2
+    <UV> { 0.777936995029449 0.123311996459961 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.227450996637344 }
+  }
+  <Vertex> 9 {
+    0.0444516986608505 0 3
+    <UV> { 0.587770998477936 0.250465989112854 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    1.05488002300262 0 3
+    <UV> { 0.781159996986389 0.250465989112854 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.423529446125031 }
+  }
+  <Vertex> 11 {
+    0.0108671002089977 0 4
+    <UV> { 0.597077012062073 0.377620011568069 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.960784375667572 }
+  }
+  <Vertex> 12 {
+    0.781782984733582 0 4
+    <UV> { 0.753693997859955 0.377620011568069 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.584313750267029 }
+  }
+  <Vertex> 13 {
+    0.246696993708611 0 5
+    <UV> { 0.548339009284973 0.50477397441864 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.337254911661148 }
+  }
+  <Vertex> 14 {
+    1.1486200094223 0 5
+    <UV> { 0.708068013191223 0.50477397441864 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.168627455830574 }
+  }
+  <Vertex> 15 {
+    0.448900997638702 0 6
+    <UV> { 0.507573008537292 0.631927013397217 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.894117712974548 }
+  }
+  <Vertex> 16 {
+    1.55211997032166 0 6
+    <UV> { 0.685835003852844 0.631927013397217 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 17 {
+    0.448980987071991 0 7.13151979446411
+    <UV> { 0.509212970733643 0.75908100605011 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.988235354423523 }
+  }
+  <Vertex> 18 {
+    1.74879002571106 0 7.13151979446411
+    <UV> { 0.692062020301819 0.75908100605011 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.239215701818466 }
+  }
+  <Vertex> 19 {
+    0.280892014503479 0 8.28946018218994
+    <UV> { 0.547394990921021 0.886234998703003 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.988235354423523 }
+  }
+  <Vertex> 20 {
+    1.6021900177002 0 8.28946018218994
+    <UV> { 0.748417019844055 0.886234998703003 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.200000017881393 }
+  }
+  <Vertex> 21 {
+    0.738561987876892 0 10.0594997406006
+    <UV> { 0.768800973892212 1.01338994503021 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.466666698455811 }
+  }
+  <Vertex> 22 {
+    0.168372005224228 0 12.4049997329712
+    <UV> { 0.722777009010315 1.14054000377655 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 23 {
+    -0.123604997992516 0 2.03310812629809e-09
+    <UV> { 0.393671989440918 -0.130997002124786 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 24 {
+    -0.337013006210327 0 1
+    <UV> { 0.391615986824036 -0.00384263996966183 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.215686291456223 }
+  }
+  <Vertex> 25 {
+    -0.585089027881622 0 2
+    <UV> { 0.402545988559723 0.123311996459961 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.99215692281723 }
+  }
+  <Vertex> 26 {
+    -0.807780027389526 0 3
+    <UV> { 0.424661010503769 0.250465989112854 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.149019613862038 }
+  }
+  <Vertex> 27 {
+    -0.797980010509491 0 4
+    <UV> { 0.432754009962082 0.377620011568069 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.400000035762787 }
+  }
+  <Vertex> 28 {
+    -0.966859996318817 0 5
+    <UV> { 0.333420008420944 0.50477397441864 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.941176533699036 }
+  }
+  <Vertex> 29 {
+    -0.663417994976044 0 6
+    <UV> { 0.327841013669968 0.631927013397217 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.149019613862038 }
+  }
+  <Vertex> 30 {
+    -0.649793028831482 0 7.13151979446411
+    <UV> { 0.354644000530243 0.75908100605011 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 31 {
+    -0.663186013698578 0 8.28946018218994
+    <UV> { 0.403762996196747 0.886234998703003 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 32 {
+    -0.78939300775528 0 2.03310812629809e-09
+    <UV> { 0.210473001003265 -0.130997002124786 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 33 {
+    -1.15508997440338 0 1
+    <UV> { 0.231013998389244 -0.00384263996966183 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 34 {
+    -1.41642999649048 0 2
+    <UV> { 0.25832799077034 0.123311996459961 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.223529428243637 }
+  }
+  <Vertex> 35 {
+    -1.66000998020172 0 3
+    <UV> { 0.26155099272728 0.250465989112854 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 36 {
+    -1.7496600151062 0 4
+    <UV> { 0.239412993192673 0.377620011568069 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 37 {
+    -1.6691700220108 0 5
+    <UV> { 0.209041997790337 0.50477397441864 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 38 {
+    -1.47388005256653 0 6
+    <UV> { 0.196882992982864 0.631927013397217 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.203921586275101 }
+  }
+  <Vertex> 39 {
+    -1.74856996536255 0 7.13151979446411
+    <UV> { 0.200075000524521 0.75908100605011 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.360784322023392 }
+  }
+  <Vertex> 40 {
+    -1.60725998878479 0 8.28946018218994
+    <UV> { 0.260131001472473 0.886234998703003 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.231372565031052 }
+  }
+  <Vertex> 41 {
+    -1.45648002624512 0 10.0594997406006
+    <UV> { 0.33288300037384 1.01338994503021 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 42 {
+    -0.920055985450745 0 12.4049997329712
+    <UV> { 0.292183011770248 1.14054000377655 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+}
+<Group> {
+  <Group> pPlane1 {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 0 1 2 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 3 4 5 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 5 4 6 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 5 6 7 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 7 6 8 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 7 8 9 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 9 8 10 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 9 10 11 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 11 10 12 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 11 12 13 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 13 12 14 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 13 14 15 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 15 14 16 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 15 16 17 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 17 16 18 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 17 18 19 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 19 18 20 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 19 20 1 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 1 20 21 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 1 21 2 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 2 21 22 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 23 3 24 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 24 3 5 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 24 5 25 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 25 5 7 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 25 7 26 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 26 7 9 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 26 9 27 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 27 9 11 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 27 11 28 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 28 11 13 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 28 13 29 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 29 13 15 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 29 15 30 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 30 15 17 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 30 17 31 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 31 17 19 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 31 19 0 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 0 19 1 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 32 23 33 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 33 23 24 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 33 24 34 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 34 24 25 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 34 25 35 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 35 25 26 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 35 26 36 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 36 26 27 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 36 27 37 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 37 27 28 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 37 28 38 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 38 28 29 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 38 29 39 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 39 29 30 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 39 30 40 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 40 30 31 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 40 31 41 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 41 31 0 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 41 0 42 <Ref> { soulflay.egg } }
+    }
+    <Polygon> {
+      <TRef> { voodooGhost }
+      <VertexRef> { 42 0 2 <Ref> { soulflay.egg } }
+    }
+  }
+}

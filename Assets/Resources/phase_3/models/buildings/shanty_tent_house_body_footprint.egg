@@ -1,0 +1,85 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\buildings\shanty_tent_house_body_footprint.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\buildings\shanty_tent_house_body_footprint.egg'"
+}
+<Texture> footprints_palette_3clla_1 {
+  "phase_3/maps/footprints_palette_3clla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> shanty_tent_house_body_footprint.egg {
+  <Vertex> 0 {
+    -15.8050003051758 10.0432996749878 0
+    <UV> { 0.136284753680229 0.82378476858139 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.69803923368454 0.529411792755127 0.486274540424347 1 }
+  }
+  <Vertex> 1 {
+    -14.0725002288818 -9.40017032623291 0
+    <UV> { 0.176215246319771 0.82378476858139 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.69803923368454 0.529411792755127 0.486274540424347 1 }
+  }
+  <Vertex> 2 {
+    -0.0478990003466606 9.05125999450684 0
+    <UV> { 0.136284753680229 0.86371523141861 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -0.0478994995355606 -6.35791015625 0
+    <UV> { 0.176215246319771 0.86371523141861 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    15.8821001052856 -9.39818000793457 0
+    <UV> { 0.204427003860474 0.795572996139526 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.69803923368454 0.529411792755127 0.486274540424347 1 }
+  }
+  <Vertex> 5 {
+    15.3737001419067 10.0934000015259 0
+    <UV> { 0.108073003590107 0.795572996139526 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.69803923368454 0.529411792755127 0.486274540424347 1 }
+  }
+  <Vertex> 6 {
+    -0.0478994995355606 -6.35791015625 0
+    <UV> { 0.204427003860474 0.891927003860474 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    -0.0478990003466606 9.05125999450684 0
+    <UV> { 0.108073003590107 0.891927003860474 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> footprint {
+    <Model> { 1 }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 0 1 2 <Ref> { shanty_tent_house_body_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 2 1 3 <Ref> { shanty_tent_house_body_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 4 5 6 <Ref> { shanty_tent_house_body_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 6 5 7 <Ref> { shanty_tent_house_body_footprint.egg } }
+    }
+  }
+}

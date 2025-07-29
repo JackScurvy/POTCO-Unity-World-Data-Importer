@@ -1,0 +1,103 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\props\pir_m_prp_gdn_wallVine.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\props\pir_m_prp_gdn_wallVine.egg'"
+}
+<Texture> vege_jungle_palette_4amla_1 {
+  "phase_3/maps/vege_jungle_palette_4amla_1.jpg"
+  <Scalar> alpha-file { "phase_3/maps/vege_jungle_palette_4amla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_prp_gdn_wallVine.egg {
+  <Vertex> 0 {
+    8.32205963134766 0 -5.17543022326983e-11
+    <UV> { 0.25195300579071 0.49804699420929 }
+    <Normal> { 5.39907007990337e-10 -1 -9.43033984235342e-10 }
+    <RGBA> { 0.8505859375 0.8076171875 0.9365234375 1 }
+  }
+  <Vertex> 1 {
+    8.32205963134766 0 30.5594005584717
+    <UV> { 0.49804699420929 0.49804699420929 }
+    <Normal> { 5.39907007990337e-10 -1 -9.43033984235342e-10 }
+    <RGBA> { 0.8505859375 0.8076171875 0.9365234375 1 }
+  }
+  <Vertex> 2 {
+    -7.73270988464355 0 -1.49002003669739
+    <UV> { 0.25195300579071 0.377846360206604 }
+    <Normal> { 5.39907007990337e-10 -1 -9.43033984235342e-10 }
+    <RGBA> { 0.8505859375 0.8076171875 0.9365234375 1 }
+  }
+  <Vertex> 3 {
+    -10.1552000045776 -1.67143976437245e-09 29.4717998504639
+    <UV> { 0.49804699420929 0.377635419368744 }
+    <Normal> { 5.39907007990337e-10 -1 -9.43033984235342e-10 }
+    <RGBA> { 0.8505859375 0.8076171875 0.9365234375 1 }
+  }
+}
+<Group> {
+  <Group> wallVine {
+    <Group> {
+      <Group> lod_high {
+        <SwitchCondition> {
+          <Distance> { 56 0 <Vertex> { 0 0 0 } }
+        }
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { vege_jungle_palette_4amla_1 }
+          <VertexRef> { 0 1 2 <Ref> { pir_m_prp_gdn_wallVine.egg } }
+        }
+        <Polygon> {
+          <TRef> { vege_jungle_palette_4amla_1 }
+          <VertexRef> { 2 1 3 <Ref> { pir_m_prp_gdn_wallVine.egg } }
+        }
+      }
+      <Group> lod_medium {
+        <SwitchCondition> {
+          <Distance> { 111 56 <Vertex> { 0 0 0 } }
+        }
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { vege_jungle_palette_4amla_1 }
+          <VertexRef> { 0 1 2 <Ref> { pir_m_prp_gdn_wallVine.egg } }
+        }
+        <Polygon> {
+          <TRef> { vege_jungle_palette_4amla_1 }
+          <VertexRef> { 2 1 3 <Ref> { pir_m_prp_gdn_wallVine.egg } }
+        }
+      }
+      <Group> lod_low {
+        <SwitchCondition> {
+          <Distance> { 370 111 <Vertex> { 0 0 0 } }
+        }
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { vege_jungle_palette_4amla_1 }
+          <VertexRef> { 0 1 2 <Ref> { pir_m_prp_gdn_wallVine.egg } }
+        }
+        <Polygon> {
+          <TRef> { vege_jungle_palette_4amla_1 }
+          <VertexRef> { 2 1 3 <Ref> { pir_m_prp_gdn_wallVine.egg } }
+        }
+      }
+      <Group> lod_superlow {
+        <SwitchCondition> {
+          <Distance> { 1480 370 <Vertex> { 0 0 0 } }
+        }
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { vege_jungle_palette_4amla_1 }
+          <VertexRef> { 0 1 2 <Ref> { pir_m_prp_gdn_wallVine.egg } }
+        }
+        <Polygon> {
+          <TRef> { vege_jungle_palette_4amla_1 }
+          <VertexRef> { 2 1 3 <Ref> { pir_m_prp_gdn_wallVine.egg } }
+        }
+      }
+    }
+  }
+}

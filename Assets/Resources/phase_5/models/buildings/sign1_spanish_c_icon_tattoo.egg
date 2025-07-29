@@ -1,0 +1,124 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_5\models\buildings\sign1_spanish_c_icon_tattoo.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_5\models\buildings\sign1_spanish_c_icon_tattoo.egg'"
+}
+<Texture> spanish_exterior_c_palette_4amla_1 {
+  "phase_5/maps/spanish_exterior_c_palette_4amla_1.jpg"
+  <Scalar> alpha-file { "phase_5/maps/spanish_exterior_c_palette_4amla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> sign1_spanish_c_icon_tattoo.egg {
+  <Vertex> 0 {
+    0.0680645033717155 4.93028020858765 -4.30867004394531
+    <UV> { 0.128917723894119 0.253906011581421 }
+    <Normal> { 1 -7.69571872893948e-09 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0.0680645033717155 4.93028020858765 -1.68613004684448
+    <UV> { 0.128917723894119 0.496093988418579 }
+    <Normal> { 1 -7.69571872893948e-09 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.0680387988686562 3.71655988693237 -4.30867004394531
+    <UV> { 0.245976805686951 0.253906011581421 }
+    <Normal> { 1 -7.69571872893948e-09 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.0680387988686562 3.71655988693237 -1.68613004684448
+    <UV> { 0.245976805686951 0.496093988418579 }
+    <Normal> { 1 -7.69571872893948e-09 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    0.068012997508049 2.50283002853394 -4.30867004394531
+    <UV> { 0.128917723894119 0.253906011581421 }
+    <Normal> { 1 -7.69571872893948e-09 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    0.068012997508049 2.50283002853394 -1.68613004684448
+    <UV> { 0.128917723894119 0.496093988418579 }
+    <Normal> { 1 -7.69571872893948e-09 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -0.0986547991633415 4.93028020858765 -1.68613004684448
+    <UV> { 0.128917723894119 0.496093988418579 }
+    <Normal> { -1 7.69571872893948e-09 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    -0.0986547991633415 4.93028020858765 -4.30867004394531
+    <UV> { 0.128917723894119 0.253906011581421 }
+    <Normal> { -1 7.69571872893948e-09 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -0.0986805036664009 3.71655988693237 -1.68613004684448
+    <UV> { 0.245976805686951 0.496093988418579 }
+    <Normal> { -1 7.69571872893948e-09 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    -0.0986805036664009 3.71655988693237 -4.30867004394531
+    <UV> { 0.245976805686951 0.253906011581421 }
+    <Normal> { -1 7.69571872893948e-09 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    -0.0987062975764275 2.50283002853394 -1.68613004684448
+    <UV> { 0.128917723894119 0.496093988418579 }
+    <Normal> { -1 7.69571872893948e-09 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    -0.0987062975764275 2.50283002853394 -4.30867004394531
+    <UV> { 0.128917723894119 0.253906011581421 }
+    <Normal> { -1 7.69571872893948e-09 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> icons {
+  <Scalar> alpha { binary }
+  <Polygon> {
+    <TRef> { spanish_exterior_c_palette_4amla_1 }
+    <VertexRef> { 0 1 2 <Ref> { sign1_spanish_c_icon_tattoo.egg } }
+  }
+  <Polygon> {
+    <TRef> { spanish_exterior_c_palette_4amla_1 }
+    <VertexRef> { 2 1 3 <Ref> { sign1_spanish_c_icon_tattoo.egg } }
+  }
+  <Polygon> {
+    <TRef> { spanish_exterior_c_palette_4amla_1 }
+    <VertexRef> { 2 3 4 <Ref> { sign1_spanish_c_icon_tattoo.egg } }
+  }
+  <Polygon> {
+    <TRef> { spanish_exterior_c_palette_4amla_1 }
+    <VertexRef> { 4 3 5 <Ref> { sign1_spanish_c_icon_tattoo.egg } }
+  }
+  <Polygon> {
+    <TRef> { spanish_exterior_c_palette_4amla_1 }
+    <VertexRef> { 6 7 8 <Ref> { sign1_spanish_c_icon_tattoo.egg } }
+  }
+  <Polygon> {
+    <TRef> { spanish_exterior_c_palette_4amla_1 }
+    <VertexRef> { 8 7 9 <Ref> { sign1_spanish_c_icon_tattoo.egg } }
+  }
+  <Polygon> {
+    <TRef> { spanish_exterior_c_palette_4amla_1 }
+    <VertexRef> { 8 9 10 <Ref> { sign1_spanish_c_icon_tattoo.egg } }
+  }
+  <Polygon> {
+    <TRef> { spanish_exterior_c_palette_4amla_1 }
+    <VertexRef> { 10 9 11 <Ref> { sign1_spanish_c_icon_tattoo.egg } }
+  }
+}

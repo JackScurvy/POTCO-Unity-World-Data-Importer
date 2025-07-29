@@ -1,0 +1,132 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\effects\combat_hit_spark.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\effects\combat_hit_spark.egg'"
+}
+<Texture> particleGlow {
+  "phase_3/maps/particleGlow.jpg"
+  <Scalar> alpha-file { "phase_3/maps/particleGlow_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> combat_hit_spark.egg {
+  <Vertex> 0 {
+    -1.63078647807957e-11 -0.5 -0.5
+    <UV> { 0 0 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    1.63078647807957e-11 0.5 -0.5
+    <UV> { 1 0 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -1.63078647807957e-11 -0.5 0.5
+    <UV> { 0 1 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    1.63078647807957e-11 0.5 0.5
+    <UV> { 1 1 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -0.5 -0.5 -1.63078647807957e-11
+    <UV> { 0 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    0.5 -0.5 -1.63078647807957e-11
+    <UV> { 1 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    -0.5 0.5 1.63078647807957e-11
+    <UV> { 0 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    0.5 0.5 1.63078647807957e-11
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> spark {
+    <Group> sparkplane_3 {
+      <Scalar> alpha { blend }
+      <Polygon> {
+        <TRef> { particleGlow }
+        <BFace> { 1 }
+        <VertexRef> { 0 1 2 <Ref> { combat_hit_spark.egg } }
+      }
+      <Polygon> {
+        <TRef> { particleGlow }
+        <BFace> { 1 }
+        <VertexRef> { 2 1 3 <Ref> { combat_hit_spark.egg } }
+      }
+    }
+    <Group> sparkplane_2 {
+      <Scalar> alpha { blend }
+      <Polygon> {
+        <TRef> { particleGlow }
+        <BFace> { 1 }
+        <VertexRef> { 4 5 6 <Ref> { combat_hit_spark.egg } }
+      }
+      <Polygon> {
+        <TRef> { particleGlow }
+        <BFace> { 1 }
+        <VertexRef> { 6 5 7 <Ref> { combat_hit_spark.egg } }
+      }
+    }
+    <Group> sparkplane_1 {
+      <Scalar> alpha { blend }
+      <Polygon> {
+        <TRef> { particleGlow }
+        <BFace> { 1 }
+        <VertexRef> { 8 9 10 <Ref> { combat_hit_spark.egg } }
+      }
+      <Polygon> {
+        <TRef> { particleGlow }
+        <BFace> { 1 }
+        <VertexRef> { 10 9 11 <Ref> { combat_hit_spark.egg } }
+      }
+    }
+  }
+}

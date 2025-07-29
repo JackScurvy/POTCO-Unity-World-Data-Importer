@@ -1,0 +1,89 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\textureCards\speedchatIcons.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\textureCards\speedchatIcons.egg'"
+}
+<Texture> gui_icons_palette_4alla_1 {
+  "phase_2/maps/gui_icons_palette_4alla_1.jpg"
+  <Scalar> alpha-file { "phase_2/maps/gui_icons_palette_4alla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> speedchatIcons.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0.43945300579071 0.158203199505806 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0.43945300579071 0.0996093973517418 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 0.498046785593033 0.158203199505806 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 0.498046785593033 0.0996093973517418 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.5 0 0.5
+    <UV> { 0.37695300579071 0.185546800494194 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.5 0 -0.5
+    <UV> { 0.37695300579071 0.12695300579071 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.5 0 0.5
+    <UV> { 0.435546785593033 0.185546800494194 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.5 0 -0.5
+    <UV> { 0.435546785593033 0.12695300579071 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> emotionIcon {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_icons_palette_4alla_1 }
+          <VertexRef> { 0 1 2 <Ref> { speedchatIcons.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_icons_palette_4alla_1 }
+          <VertexRef> { 2 1 3 <Ref> { speedchatIcons.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> chatArrow {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_icons_palette_4alla_1 }
+          <VertexRef> { 4 5 6 <Ref> { speedchatIcons.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_icons_palette_4alla_1 }
+          <VertexRef> { 6 5 7 <Ref> { speedchatIcons.egg } }
+        }
+      }
+    }
+  }
+}

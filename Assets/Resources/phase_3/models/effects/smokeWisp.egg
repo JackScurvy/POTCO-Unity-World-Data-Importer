@@ -1,0 +1,676 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\effects\smokeWisp.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\effects\smokeWisp.egg'"
+}
+<Texture> effectSmokeWisp {
+  "phase_3/maps/effectSmokeWisp.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effectSmokeWisp_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> smokeWisp.egg {
+  <Vertex> 0 {
+    -0.292558014392853 -3.99020538832673e-11 -0.0245635993778706
+    <UV> { 0.0502639003098011 0.0549883991479874 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 1 {
+    -0.0975191965699196 -3.99020538832673e-11 -0.0245635993778706
+    <UV> { 0.31768599152565 0.0556848011910915 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 2 {
+    -0.352898985147476 8.19476084212845e-11 2.9622700214386
+    <UV> { 0.0763973966240883 0.278950989246368 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.898039281368256 }
+  }
+  <Vertex> 3 {
+    -0.117633000016212 8.19476084212845e-11 2.9622700214386
+    <UV> { 0.340721994638443 0.324171990156174 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.898039281368256 }
+  }
+  <Vertex> 4 {
+    -0.232293993234634 3.26452857801751e-11 5.94909000396729
+    <UV> { 0.0112207997590303 0.511626005172729 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.800000071525574 }
+  }
+  <Vertex> 5 {
+    -0.0774314031004906 3.26452857801751e-11 5.94909000396729
+    <UV> { 0.284305989742279 0.483236998319626 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.800000071525574 }
+  }
+  <Vertex> 6 {
+    -0.164422005414963 4.96655494508502e-11 8.93591976165771
+    <UV> { 0.063330702483654 0.739944994449615 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 7 {
+    -0.054807398468256 4.96655494508502e-11 8.93591976165771
+    <UV> { 0.346480995416641 0.734447002410889 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 8 {
+    -0.164422005414963 6.6685330868399e-11 11.9228000640869
+    <UV> { 0.119952999055386 0.915997982025146 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 9 {
+    -0.054807398468256 6.6685330868399e-11 11.9228000640869
+    <UV> { 0.294649004936218 0.956861972808838 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 10 {
+    0.0975191965699196 -3.99020538832673e-11 -0.0245635993778706
+    <UV> { 0.674154996871948 0.0791265964508057 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 11 {
+    0.117633000016212 8.19476084212845e-11 2.9622700214386
+    <UV> { 0.508768975734711 0.313059985637665 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.898039281368256 }
+  }
+  <Vertex> 12 {
+    0.0774314031004906 3.26452857801751e-11 5.94909000396729
+    <UV> { 0.639599978923798 0.535474002361298 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.800000071525574 }
+  }
+  <Vertex> 13 {
+    0.054807398468256 4.96655494508502e-11 8.93591976165771
+    <UV> { 0.696587026119232 0.809116005897522 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 14 {
+    0.054807398468256 6.6685330868399e-11 11.9228000640869
+    <UV> { 0.564733028411865 0.986063003540039 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 15 {
+    0.292558014392853 -3.99020538832673e-11 -0.0245635993778706
+    <UV> { 0.947335004806519 0.0779848024249077 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 16 {
+    0.352898985147476 8.19476084212845e-11 2.9622700214386
+    <UV> { 0.951690971851349 0.271459013223648 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.898039281368256 }
+  }
+  <Vertex> 17 {
+    0.232293993234634 3.26452857801751e-11 5.94909000396729
+    <UV> { 0.903779983520508 0.508489012718201 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.800000071525574 }
+  }
+  <Vertex> 18 {
+    0.164422005414963 4.96655494508502e-11 8.93591976165771
+    <UV> { 0.982179999351501 0.723742008209229 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 19 {
+    0.164422005414963 6.6685330868399e-11 11.9228000640869
+    <UV> { 0.921202003955841 0.934638977050781 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 20 {
+    -0.706785976886749 0 -0.797414004802704
+    <UV> { 0.0502640008926392 0.64680802822113 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 21 {
+    -0.553574025630951 0 -0.745447993278503
+    <UV> { 0.31768599152565 0.647503972053528 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 22 {
+    -0.729653000831604 0 1.65428996086121
+    <UV> { 0.0763975009322166 0.870770990848541 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 23 {
+    -0.544842004776001 0 1.71697998046875
+    <UV> { 0.340721994638443 0.915991008281708 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 24 {
+    -0.610379993915558 0 4.15421009063721
+    <UV> { 0.0112209003418684 1.10344004631042 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 25 {
+    -0.488729000091553 0 4.19546985626221
+    <UV> { 0.284305989742279 1.07506000995636 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 26 {
+    -0.532531023025513 0 6.64007997512817
+    <UV> { 0.0633307993412018 1.33176004886627 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.298039227724075 }
+  }
+  <Vertex> 27 {
+    -0.446424007415771 0 6.66929006576538
+    <UV> { 0.346480995416641 1.3262699842453 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.298039227724075 }
+  }
+  <Vertex> 28 {
+    -0.507997989654541 0 9.10787010192871
+    <UV> { 0.119952999055386 1.50782001018524 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 29 {
+    -0.421891003847122 0 9.13706970214844
+    <UV> { 0.294649004936218 1.54867994785309 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 30 {
+    -0.400362998247147 0 -0.693482995033264
+    <UV> { 0.674154996871948 0.670946002006531 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 31 {
+    -0.360029995441437 0 1.77965998649597
+    <UV> { 0.508768975734711 0.904878973960876 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 32 {
+    -0.367076992988586 0 4.23674011230469
+    <UV> { 0.639600992202759 1.12729001045227 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 33 {
+    -0.36031699180603 0 6.69849014282227
+    <UV> { 0.696587026119232 1.40093994140625 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.298039227724075 }
+  }
+  <Vertex> 34 {
+    -0.335783988237381 0 9.16627979278564
+    <UV> { 0.564733028411865 1.57788002490997 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 35 {
+    -0.247152000665665 0 -0.641516983509064
+    <UV> { 0.94733601808548 0.669803977012634 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 36 {
+    -0.175218999385834 0 1.84233999252319
+    <UV> { 0.951690971851349 0.863277971744537 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 37 {
+    -0.245425999164581 0 4.27799987792969
+    <UV> { 0.903779983520508 1.10030996799469 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 38 {
+    -0.274210005998611 0 6.72770023345947
+    <UV> { 0.982179999351501 1.31555998325348 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.298039227724075 }
+  }
+  <Vertex> 39 {
+    -0.249677002429962 0 9.19548034667969
+    <UV> { 0.921202003955841 1.52646005153656 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 40 {
+    0.52300500869751 0 -1.15069997310638
+    <UV> { 0.31768599152565 -0.155647993087769 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 41 {
+    0.685525000095367 0 -1.17097997665405
+    <UV> { 0.0502640008926392 -0.156343996524811 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 42 {
+    0.55528199672699 0 0.745702028274536
+    <UV> { 0.340721994638443 0.112838998436928 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.69803923368454 }
+  }
+  <Vertex> 43 {
+    0.751321971416473 0 0.721238017082214
+    <UV> { 0.0763975009322166 0.0676190033555031 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.69803923368454 }
+  }
+  <Vertex> 44 {
+    0.537301003932953 0 2.64838004112244
+    <UV> { 0.284305989742279 0.27190500497818 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 45 {
+    0.666342973709106 0 2.63227009773254
+    <UV> { 0.0112209003418684 0.300294011831284 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 46 {
+    0.53396600484848 0 4.54922008514404
+    <UV> { 0.346480995416641 0.52311497926712 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.298039227724075 }
+  }
+  <Vertex> 47 {
+    0.625304996967316 0 4.53782987594604
+    <UV> { 0.0633307993412018 0.528612017631531 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.298039227724075 }
+  }
+  <Vertex> 48 {
+    0.549483001232147 0 6.44772005081177
+    <UV> { 0.294649004936218 0.745530009269714 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 49 {
+    0.640821993350983 0 6.43631982803345
+    <UV> { 0.119952999055386 0.704665005207062 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 50 {
+    0.36048498749733 0 -1.13041996955872
+    <UV> { 0.674154996871948 -0.132205992937088 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 51 {
+    0.359241992235184 0 0.770165026187897
+    <UV> { 0.508768975734711 0.101727001368999 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.69803923368454 }
+  }
+  <Vertex> 52 {
+    0.408257991075516 0 2.66447997093201
+    <UV> { 0.639600992202759 0.324142009019852 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 53 {
+    0.442627012729645 0 4.56061983108521
+    <UV> { 0.696587026119232 0.597783982753754 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.298039227724075 }
+  }
+  <Vertex> 54 {
+    0.458144992589951 0 6.45911979675293
+    <UV> { 0.564733028411865 0.774730026721954 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 55 {
+    0.197964996099472 0 -1.11013996601105
+    <UV> { 0.94733601808548 -0.133348003029823 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 56 {
+    0.163202002644539 0 0.794628977775574
+    <UV> { 0.951690971851349 0.0601266995072365 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.69803923368454 }
+  }
+  <Vertex> 57 {
+    0.279215008020401 0 2.68057990074158
+    <UV> { 0.903779983520508 0.297156989574432 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 58 {
+    0.351287990808487 0 4.57202005386353
+    <UV> { 0.982179999351501 0.512408971786499 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0.298039227724075 }
+  }
+  <Vertex> 59 {
+    0.366806000471115 0 6.47051000595093
+    <UV> { 0.921202003955841 0.723306000232697 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 0 }
+  }
+}
+<Group> {
+  <Group> smokeWisp {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 0 1 2 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 2 1 3 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 2 3 4 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 4 3 5 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 4 5 6 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 6 5 7 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 6 7 8 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 8 7 9 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 1 10 3 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 3 10 11 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 3 11 5 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 5 11 12 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 5 12 7 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 7 12 13 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 7 13 9 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 9 13 14 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 10 15 11 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 11 15 16 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 11 16 12 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 12 16 17 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 12 17 13 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 13 17 18 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 13 18 14 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 14 18 19 <Ref> { smokeWisp.egg } }
+    }
+  }
+  <Group> smokeWisp1 {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 20 21 22 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 22 21 23 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 22 23 24 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 24 23 25 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 24 25 26 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 26 25 27 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 26 27 28 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 28 27 29 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 21 30 23 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 23 30 31 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 23 31 25 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 25 31 32 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 25 32 27 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 27 32 33 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 27 33 29 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 29 33 34 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 30 35 31 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 31 35 36 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 31 36 32 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 32 36 37 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 32 37 33 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 33 37 38 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 33 38 34 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 34 38 39 <Ref> { smokeWisp.egg } }
+    }
+  }
+  <Group> smokeWisp2 {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 40 41 42 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 42 41 43 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 42 43 44 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 44 43 45 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 44 45 46 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 46 45 47 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 46 47 48 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 48 47 49 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 50 40 51 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 51 40 42 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 51 42 52 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 52 42 44 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 52 44 53 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 53 44 46 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 53 46 54 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 54 46 48 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 55 50 56 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 56 50 51 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 56 51 57 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 57 51 52 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 57 52 58 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 58 52 53 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 58 53 59 <Ref> { smokeWisp.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectSmokeWisp }
+      <VertexRef> { 59 53 54 <Ref> { smokeWisp.egg } }
+    }
+  }
+}

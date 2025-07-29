@@ -1,0 +1,46 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\shipparts\pir_m_shp_text_qar.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\shipparts\pir_m_shp_text_qar.egg'"
+}
+<Texture> ships_static_qar_palette_3cmla_1 {
+  "phase_3/maps/ships_static_qar_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_shp_text_qar.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0.945312976837158 0.49218761920929 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0.945312976837158 0.48242199420929 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 0.955078601837158 0.49218761920929 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 0.955078601837158 0.48242199420929 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> ships_static_qar_palette_3cmla_1 {
+  <Polygon> {
+    <TRef> { ships_static_qar_palette_3cmla_1 }
+    <VertexRef> { 0 1 2 <Ref> { pir_m_shp_text_qar.egg } }
+  }
+  <Polygon> {
+    <TRef> { ships_static_qar_palette_3cmla_1 }
+    <VertexRef> { 2 1 3 <Ref> { pir_m_shp_text_qar.egg } }
+  }
+}

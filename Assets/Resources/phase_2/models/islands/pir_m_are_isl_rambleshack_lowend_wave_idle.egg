@@ -1,0 +1,33 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\islands\pir_m_are_isl_rambleshack_lowend_wave_idle.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\islands\pir_m_are_isl_rambleshack_lowend_wave_idle.egg'"
+}
+<Table> {
+  <Bundle> pir_m_are_isl_rambleshack_wave {
+    <Table> "<skeleton>" {
+      <Table> lowend_wave {
+        <Xfm$Anim_S$> xform {
+          <Scalar> fps { 24 }
+        }
+        <Table> uvj_WakeWhiteTide1 {
+          <Xfm$Anim_S$> xform {
+            <Scalar> fps { 24 }
+          }
+        }
+        <Table> uvj_WakeWhiteTide2 {
+          <Xfm$Anim_S$> xform {
+            <Scalar> fps { 24 }
+          }
+        }
+      }
+      <Table> wave {
+        <Xfm$Anim_S$> xform {
+          <Scalar> fps { 24 }
+        }
+      }
+    }
+    <Table> morph {
+    }
+  }
+}

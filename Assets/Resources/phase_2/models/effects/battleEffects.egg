@@ -1,0 +1,307 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\effects\battleEffects.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\effects\battleEffects.egg'"
+}
+<Texture> hullBlank {
+  "phase_2/maps/hullBlank.jpg"
+  <Scalar> format { luminance }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectVoodooShockwave {
+  "phase_2/maps/effectVoodooShockwave.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectVoodooShockwave_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectSailHoleB {
+  "phase_2/maps/effectSailHoleB.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectSailHoleB_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectSailHoleA {
+  "phase_2/maps/effectSailHoleA.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectSailHoleA_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectHullBreach {
+  "phase_2/maps/effectHullBreach.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectHullBreach_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectHoleF {
+  "phase_2/maps/effectHoleF.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectHoleF_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectHoleE {
+  "phase_2/maps/effectHoleE.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectHoleE_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectHoleD {
+  "phase_2/maps/effectHoleD.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectHoleD_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectHoleC {
+  "phase_2/maps/effectHoleC.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectHoleC_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectHoleB {
+  "phase_2/maps/effectHoleB.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectHoleB_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectHoleA {
+  "phase_2/maps/effectHoleA.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectHoleA_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectHitSplatA {
+  "phase_2/maps/effectHitSplatA.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectHitSplatA_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> battleEffects.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> effectHitSplatA {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectHitSplatA }
+          <VertexRef> { 0 1 2 <Ref> { battleEffects.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectHitSplatA }
+          <VertexRef> { 2 1 3 <Ref> { battleEffects.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectHullBreach {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { effectHullBreach }
+          <VertexRef> { 0 1 2 <Ref> { battleEffects.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectHullBreach }
+          <VertexRef> { 2 1 3 <Ref> { battleEffects.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectHoleA {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { effectHoleA }
+          <VertexRef> { 0 1 2 <Ref> { battleEffects.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectHoleA }
+          <VertexRef> { 2 1 3 <Ref> { battleEffects.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectHoleB {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { effectHoleB }
+          <VertexRef> { 0 1 2 <Ref> { battleEffects.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectHoleB }
+          <VertexRef> { 2 1 3 <Ref> { battleEffects.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectHoleC {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { effectHoleC }
+          <VertexRef> { 0 1 2 <Ref> { battleEffects.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectHoleC }
+          <VertexRef> { 2 1 3 <Ref> { battleEffects.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectHoleD {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { effectHoleD }
+          <VertexRef> { 0 1 2 <Ref> { battleEffects.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectHoleD }
+          <VertexRef> { 2 1 3 <Ref> { battleEffects.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectHoleE {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectHoleE }
+          <VertexRef> { 0 1 2 <Ref> { battleEffects.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectHoleE }
+          <VertexRef> { 2 1 3 <Ref> { battleEffects.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectHoleF {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { effectHoleF }
+          <VertexRef> { 0 1 2 <Ref> { battleEffects.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectHoleF }
+          <VertexRef> { 2 1 3 <Ref> { battleEffects.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectSailHoleA {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { effectSailHoleA }
+          <VertexRef> { 0 1 2 <Ref> { battleEffects.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectSailHoleA }
+          <VertexRef> { 2 1 3 <Ref> { battleEffects.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectSailHoleB {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { effectSailHoleB }
+          <VertexRef> { 0 1 2 <Ref> { battleEffects.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectSailHoleB }
+          <VertexRef> { 2 1 3 <Ref> { battleEffects.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> hullBlank {
+        <Polygon> {
+          <TRef> { hullBlank }
+          <VertexRef> { 0 1 2 <Ref> { battleEffects.egg } }
+        }
+        <Polygon> {
+          <TRef> { hullBlank }
+          <VertexRef> { 2 1 3 <Ref> { battleEffects.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectVoodooShockwave {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectVoodooShockwave }
+          <VertexRef> { 0 1 2 <Ref> { battleEffects.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectVoodooShockwave }
+          <VertexRef> { 2 1 3 <Ref> { battleEffects.egg } }
+        }
+      }
+    }
+  }
+}

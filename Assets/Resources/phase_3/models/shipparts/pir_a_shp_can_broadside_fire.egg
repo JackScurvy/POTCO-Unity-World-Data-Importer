@@ -1,0 +1,48 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\shipparts\pir_a_shp_can_broadside_fire.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\shipparts\pir_a_shp_can_broadside_fire.egg'"
+}
+<Table> {
+  <Bundle> cannon_port {
+    <Table> "<skeleton>" {
+      <Table> master_group {
+        <Xfm$Anim_S$> xform {
+          <Scalar> fps { 24 }
+        }
+        <Table> def_cannon {
+          <Xfm$Anim_S$> xform {
+            <Scalar> fps { 24 }
+            <S$Anim> y {
+              <V> {
+                2.61735 2.61735 2.61735 2.61735 2.61735 2.61735 9.02457
+                8.78509 7.55136 6.09669 5.1944 5.03209 5.18739 5.51859
+                5.88399 6.14192 6.23564 6.2349 6.18766 6.14192 6.1256
+                6.12742 6.13648 6.14192 6.14191 6.14188 6.14184 6.14179
+                6.14174 6.14169 6.14165 6.14163 6.14162 6.08923 5.94208
+                5.71521 5.42366 5.08246 4.70664 4.31124 3.9113 3.52185
+                3.15793 2.83457 2.5668 2.44998 2.50102 2.61735 2.67715
+                2.66044 2.61735 2.59976 2.60855 2.61735 2.61735 2.61735
+                2.61735 2.61735 2.61735 2.61735 2.61735 2.61735 2.61735
+                2.61735 2.61735 2.61735 2.61735 2.61735 2.61735 2.61735
+                2.61735
+              }
+            }
+          }
+        }
+        <Table> def_door {
+          <Xfm$Anim_S$> xform {
+            <Scalar> fps { 24 }
+            <S$Anim> h { <V> { 180 } }
+            <S$Anim> p { <V> { -63.2920989990234 } }
+            <S$Anim> r { <V> { 180 } }
+            <S$Anim> y { <V> { -0.76003497838974 } }
+            <S$Anim> z { <V> { 3.09078001976013 } }
+          }
+        }
+      }
+    }
+    <Table> morph {
+    }
+  }
+}

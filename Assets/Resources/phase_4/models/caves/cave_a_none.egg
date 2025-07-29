@@ -1,0 +1,24 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\caves\cave_a_none.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\caves\cave_a_none.egg'"
+}
+<Group> cave_a {
+  <Dart> { structured }
+  <Group> uvj_WaterfallTexture {
+    <DCS> { net }
+    <Transform> {
+      <Translate> { 0 -1.46667003631592 -63.5951995849609 }
+    }
+  }
+  <Joint> uvj_WaterfallTexture {
+    <Transform> {
+      <Matrix4> {
+        1 0 0 0
+        0 1 0 0
+        0 0 1 0
+        0 -1.46667003631592 -63.5951995849609 1
+      }
+    }
+  }
+}

@@ -1,0 +1,956 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\vegetation\bush_leaves.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\vegetation\bush_leaves.egg'"
+}
+<Texture> vege_fern_bush_palette_4amla_1 {
+  "phase_3/maps/vege_fern_bush_palette_4amla_1.jpg"
+  <Scalar> alpha-file { "phase_3/maps/vege_fern_bush_palette_4amla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> vege_fern_bush_palette_3cmla_1 {
+  "phase_3/maps/vege_fern_bush_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> bush_leaves.egg {
+  <Vertex> 0 {
+    -7.86426019668579 -6.7039098739624 10.5155000686646
+    <UV> { 0.121618553996086 0.321628600358963 }
+    <Normal> { 0.27999809384346 -0.324757099151611 -0.90340131521225 }
+    <RGBA> { 0.556862771511078 0.474509835243225 0.0705882385373116 1 }
+  }
+  <Vertex> 1 {
+    -6.46221017837524 -9.29741954803467 11.4378995895386
+    <UV> { 0.00219922396354377 0.252199083566666 }
+    <Normal> { 0.262765944004059 -0.307282954454422 -0.914620816707611 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -8.53555011749268 -9.78470993041992 10.7294998168945
+    <UV> { 0.134350225329399 0.252199083566666 }
+    <Normal> { 0.33026397228241 -0.220387980341911 -0.917798936367035 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -3.11233997344971 -4.22614002227783 9.57380962371826
+    <UV> { 0.00219922396354377 0.437133580446243 }
+    <Normal> { -0.0925068408250809 -0.607487320899963 -0.788924396038055 }
+    <RGBA> { 0.556862771511078 0.333333343267441 0.0823529437184334 1 }
+  }
+  <Vertex> 4 {
+    -4.40465021133423 -5.85063982009888 10.5480003356934
+    <UV> { 0.00219922396354377 0.378163546323776 }
+    <Normal> { 0.0440432988107204 -0.477887958288193 -0.877315938472748 }
+    <RGBA> { 0.94901967048645 0.803921639919281 0.125490203499794 1 }
+  }
+  <Vertex> 5 {
+    -5.51900005340576 -3.30398988723755 8.96564960479736
+    <UV> { 0.121904514729977 0.437133580446243 }
+    <Normal> { 0.0626042932271957 -0.746474981307983 -0.662461936473846 }
+    <RGBA> { 0.556862771511078 0.333333343267441 0.0823529437184334 1 }
+  }
+  <Vertex> 6 {
+    -9.78691959381104 -8.44295024871826 10.0453996658325
+    <UV> { 0.247801035642624 0.252199083566666 }
+    <Normal> { 0.321019947528839 -0.322087943553925 -0.89062088727951 }
+    <RGBA> { 0.556862771511078 0.474509835243225 0.0705882385373116 1 }
+  }
+  <Vertex> 7 {
+    -9.97525024414063 -5.66512012481689 9.54852962493896
+    <UV> { 0.247801035642624 0.322463840246201 }
+    <Normal> { 0.316547960042953 -0.332177966833115 -0.888512909412384 }
+    <RGBA> { 0.556862771511078 0.474509835243225 0.0705882385373116 1 }
+  }
+  <Vertex> 8 {
+    -3.77369999885559 -1.65964996814728 7.33153009414673
+    <UV> { 0.134350225329399 0.495314866304398 }
+    <Normal> { 0.0461805127561092 -0.862358212471008 -0.504188120365143 }
+    <RGBA> { 0.556862771511078 0.333333343267441 0.0823529437184334 1 }
+  }
+  <Vertex> 9 {
+    -2.58156991004944 -2.20492005348206 7.27351999282837
+    <UV> { 0.00195312988944352 0.495314866304398 }
+    <Normal> { -0.159988030791283 -0.630637109279633 -0.759408116340637 }
+    <RGBA> { 0.556862771511078 0.333333343267441 0.0823529437184334 1 }
+  }
+  <Vertex> 10 {
+    -5.56756019592285 -6.99954986572266 11.4251003265381
+    <UV> { 0.00219922396354377 0.32329910993576 }
+    <Normal> { 0.242934972047806 -0.316798955202103 -0.916853845119476 }
+    <RGBA> { 0.556862771511078 0.474509835243225 0.0705882385373116 1 }
+  }
+  <Vertex> 11 {
+    -7.87526988983154 -2.44955992698669 6.77517986297607
+    <UV> { 0.247801035642624 0.437133580446243 }
+    <Normal> { 0.214433073997498 -0.841353237628937 -0.496128141880035 }
+    <RGBA> { 0.556862771511078 0.333333343267441 0.0823529437184334 1 }
+  }
+  <Vertex> 12 {
+    -5.79329013824463 -2.06404995918274 5.7776198387146
+    <UV> { 0.247801035642624 0.495314866304398 }
+    <Normal> { 0.228467971086502 -0.8749138712883 -0.426998943090439 }
+    <RGBA> { 0.556862771511078 0.333333343267441 0.0823529437184334 1 }
+  }
+  <Vertex> 13 {
+    -9.20952033996582 -3.62489008903503 8.15625
+    <UV> { 0.247801035642624 0.376493066549301 }
+    <Normal> { 0.28259813785553 -0.632806301116943 -0.720898389816284 }
+    <RGBA> { 0.556862771511078 0.474509835243225 0.0705882385373116 1 }
+  }
+  <Vertex> 14 {
+    -6.86499977111816 -4.77420997619629 10.0075998306274
+    <UV> { 0.115343645215034 0.377745926380157 }
+    <Normal> { 0.164379104971886 -0.562071323394775 -0.810589492321014 }
+    <RGBA> { 0.556862771511078 0.474509835243225 0.0705882385373116 1 }
+  }
+  <Vertex> 15 {
+    -3.94642996788025 -1.69423997402191 7.19862985610962
+    <UV> { 0.453242182731628 0.379023194313049 }
+    <Normal> { 0.0638212710618973 -0.96405154466629 -0.257936894893646 }
+    <RGBA> { 0.556862771511078 0.333333343267441 0.0823529437184334 1 }
+  }
+  <Vertex> 16 {
+    -0.135809004306793 0.0527965985238552 1.83129000663757
+    <UV> { 0.453125 0.494792968034744 }
+    <Normal> { 0.0638212710618973 -0.96405154466629 -0.257936894893646 }
+    <RGBA> { 0.556862771511078 0.474509835243225 0.0705882385373116 1 }
+  }
+  <Vertex> 17 {
+    -3.77369999885559 -1.65964996814728 7.33153009414673
+    <UV> { 0.57019579410553 0.379023194313049 }
+    <Normal> { 0.0461805127561092 -0.862358212471008 -0.504188120365143 }
+    <RGBA> { 0.556862771511078 0.333333343267441 0.0823529437184334 1 }
+  }
+  <Vertex> 18 {
+    0.019404599443078 -0.026342099532485 1.94605004787445
+    <UV> { 0.57019579410553 0.494792968034744 }
+    <Normal> { 0.0638212710618973 -0.96405154466629 -0.257936894893646 }
+    <RGBA> { 0.556862771511078 0.474509835243225 0.0705882385373116 1 }
+  }
+  <Vertex> 19 {
+    -3.89101004600525 3.66587996482849 9.58917999267578
+    <UV> { 0.247801035642624 0.376493066549301 }
+    <Normal> { -0.633554935455322 0.199036985635757 -0.747657954692841 }
+    <RGBA> { 0.784313797950745 0.69803923368454 0.011764707043767 1 }
+  }
+  <Vertex> 20 {
+    -2.78707003593445 3.24819993972778 8.24046039581299
+    <UV> { 0.247801035642624 0.437133580446243 }
+    <Normal> { -0.801719129085541 0.226476028561592 -0.553132057189941 }
+    <RGBA> { 0.450980424880981 0.403921604156494 0.00784313771873713 1 }
+  }
+  <Vertex> 21 {
+    -4.64136981964111 1.51415002346039 9.74392986297607
+    <UV> { 0.127243518829346 0.377745926380157 }
+    <Normal> { -0.627630949020386 0.184674993157387 -0.756289958953857 }
+    <RGBA> { 0.784313797950745 0.69803923368454 0.011764707043767 1 }
+  }
+  <Vertex> 22 {
+    -3.49430990219116 1.07273995876312 8.34049034118652
+    <UV> { 0.12530454993248 0.437133580446243 }
+    <Normal> { -0.797525584697723 0.230828866362572 -0.557378709316254 }
+    <RGBA> { 0.784313797950745 0.69803923368454 0.011764707043767 1 }
+  }
+  <Vertex> 23 {
+    -5.00657987594604 4.11780023574829 10.690299987793
+    <UV> { 0.247801035642624 0.322463840246201 }
+    <Normal> { -0.397437006235123 0.152052998542786 -0.904944062232971 }
+    <RGBA> { 0.784313797950745 0.69803923368454 0.011764707043767 1 }
+  }
+  <Vertex> 24 {
+    -5.92688989639282 2.3938000202179 10.7276000976563
+    <UV> { 0.130118638277054 0.321628600358963 }
+    <Normal> { -0.385128051042557 0.13671001791954 -0.912681102752686 }
+    <RGBA> { 0.784313797950745 0.69803923368454 0.011764707043767 1 }
+  }
+  <Vertex> 25 {
+    -2.37852001190186 2.01855993270874 6.66974020004272
+    <UV> { 0.247801035642624 0.495314866304398 }
+    <Normal> { -0.834827780723572 0.236636936664581 -0.497056871652603 }
+    <RGBA> { 0.450980424880981 0.403921604156494 0.00784313771873713 1 }
+  }
+  <Vertex> 26 {
+    -2.72095990180969 0.448565989732742 6.55941009521484
+    <UV> { 0.132650211453438 0.495314866304398 }
+    <Normal> { -0.829814851284027 0.24230594933033 -0.502687931060791 }
+    <RGBA> { 0.784313797950745 0.69803923368454 0.011764707043767 1 }
+  }
+  <Vertex> 27 {
+    -6.29253005981445 0.518247008323669 10.6212997436523
+    <UV> { 0.00219922396354377 0.32329910993576 }
+    <Normal> { -0.372734010219574 0.121412999927998 -0.919960975646973 }
+    <RGBA> { 0.784313797950745 0.69803923368454 0.011764707043767 1 }
+  }
+  <Vertex> 28 {
+    -5.29393005371094 -0.569526016712189 9.80832958221436
+    <UV> { 0.00219922396354377 0.378163546323776 }
+    <Normal> { -0.621488988399506 0.170205995440483 -0.764710009098053 }
+    <RGBA> { 0.784313797950745 0.69803923368454 0.011764707043767 1 }
+  }
+  <Vertex> 29 {
+    -4.17321014404297 -0.987869024276733 8.44071006774902
+    <UV> { 0.00219922396354377 0.437133580446243 }
+    <Normal> { -0.793294131755829 0.235164031386375 -0.561589062213898 }
+    <RGBA> { 0.450980424880981 0.403921604156494 0.00784313771873713 1 }
+  }
+  <Vertex> 30 {
+    -3.21661996841431 -0.996040999889374 6.64874982833862
+    <UV> { 0.00195312988944352 0.495314866304398 }
+    <Normal> { -0.824729681015015 0.247950911521912 -0.5082728266716 }
+    <RGBA> { 0.450980424880981 0.403921604156494 0.00784313771873713 1 }
+  }
+  <Vertex> 31 {
+    -7.1347599029541 3.9721200466156 11.1239004135132
+    <UV> { 0.247801035642624 0.252199083566666 }
+    <Normal> { -0.38369619846344 0.131439059972763 -0.914057433605194 }
+    <RGBA> { 0.784313797950745 0.69803923368454 0.011764707043767 1 }
+  }
+  <Vertex> 32 {
+    -8.23361968994141 2.95065999031067 11.2562999725342
+    <UV> { 0.125000134110451 0.252199083566666 }
+    <Normal> { -0.28774306178093 0.0987088233232498 -0.952607214450836 }
+    <RGBA> { 0.784313797950745 0.69803923368454 0.011764707043767 1 }
+  }
+  <Vertex> 33 {
+    -7.98753023147583 1.25546002388 11.0453996658325
+    <UV> { 0.00219922396354377 0.252199083566666 }
+    <Normal> { -0.380737066268921 0.112664021551609 -0.917794167995453 }
+    <RGBA> { 0.784313797950745 0.69803923368454 0.011764707043767 1 }
+  }
+  <Vertex> 34 {
+    0.019404599443078 -0.983187019824982 1.94605004787445
+    <UV> { 0.57019579410553 0.494792968034744 }
+    <Normal> { -0.807109177112579 0.219945058226585 -0.547904133796692 }
+    <RGBA> { 0.450980424880981 0.403921604156494 0.00784313771873713 1 }
+  }
+  <Vertex> 35 {
+    -2.72095990180969 0.448565989732742 6.55941009521484
+    <UV> { 0.57019579410553 0.379023194313049 }
+    <Normal> { -0.807109177112579 0.219945058226585 -0.547904133796692 }
+    <RGBA> { 0.784313797950745 0.69803923368454 0.011764707043767 1 }
+  }
+  <Vertex> 36 {
+    0.0782620012760162 -0.836247026920319 1.92016005516052
+    <UV> { 0.453125 0.494792968034744 }
+    <Normal> { -0.807109177112579 0.219945058226585 -0.547904133796692 }
+    <RGBA> { 0.450980424880981 0.403921604156494 0.00784313771873713 1 }
+  }
+  <Vertex> 37 {
+    -2.68046998977661 0.634208023548126 6.57246017456055
+    <UV> { 0.453242182731628 0.379023194313049 }
+    <Normal> { -0.807109177112579 0.219945058226585 -0.547904133796692 }
+    <RGBA> { 0.784313797950745 0.69803923368454 0.011764707043767 1 }
+  }
+  <Vertex> 38 {
+    -4.39900016784668 2.32182002067566 7.20252990722656
+    <UV> { 0.12530454993248 0.437133580446243 }
+    <Normal> { -0.359278976917267 -0.115261994302273 -0.926084935665131 }
+    <RGBA> { 0.501960813999176 0.545098066329956 0.152941182255745 1 }
+  }
+  <Vertex> 39 {
+    -2.48161005973816 2.50617003440857 5.00515985488892
+    <UV> { 0.247801035642624 0.495314866304398 }
+    <Normal> { -0.736238121986389 -0.165079027414322 -0.656279146671295 }
+    <RGBA> { 0.450980424880981 0.486274540424347 0.137254908680916 1 }
+  }
+  <Vertex> 40 {
+    -3.05502009391785 1.13062000274658 5.97759008407593
+    <UV> { 0.125000134110451 0.495314866304398 }
+    <Normal> { -0.662396967411041 0.0909639000892639 -0.743609964847565 }
+    <RGBA> { 0.450980424880981 0.486274540424347 0.137254908680916 1 }
+  }
+  <Vertex> 41 {
+    -4.163489818573 -0.531673014163971 6.0031099319458
+    <UV> { 0.00195312988944352 0.495314866304398 }
+    <Normal> { -0.392409950494766 0.328700959682465 -0.859051883220673 }
+    <RGBA> { 0.450980424880981 0.486274540424347 0.137254908680916 1 }
+  }
+  <Vertex> 42 {
+    -5.9268798828125 0.264210999011993 6.95793008804321
+    <UV> { 0.00219922396354377 0.437133580446243 }
+    <Normal> { -0.203900024294853 0.241709023714066 -0.948684096336365 }
+    <RGBA> { 0.501960813999176 0.545098066329956 0.152941182255745 1 }
+  }
+  <Vertex> 43 {
+    -8.05967998504639 1.75792002677917 7.13978004455566
+    <UV> { 0.00219922396354377 0.32329910993576 }
+    <Normal> { 0.131804063916206 0.033235315233469 -0.990718483924866 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 44 {
+    -7.52168989181519 3.62007999420166 7.44857978820801
+    <UV> { 0.130118638277054 0.321628600358963 }
+    <Normal> { 0.0249073021113873 -0.210655018687248 -0.97724312543869 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 45 {
+    -8.32754993438721 5.60786008834839 5.63234996795654
+    <UV> { 0.247801035642624 0.252199083566666 }
+    <Normal> { -0.190996944904327 -0.645449817180634 -0.739536821842194 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 46 {
+    -3.26638007164001 4.38960981369019 5.3949499130249
+    <UV> { 0.247801035642624 0.437133580446243 }
+    <Normal> { -0.498123079538345 -0.435427069664001 -0.749851107597351 }
+    <RGBA> { 0.501960813999176 0.545098066329956 0.152941182255745 1 }
+  }
+  <Vertex> 47 {
+    -9.87893009185791 4.67476987838745 6.40579986572266
+    <UV> { 0.125000134110451 0.252199083566666 }
+    <Normal> { -0.00556509103626013 -0.362361073493958 -0.932021200656891 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 48 {
+    -9.86060047149658 2.96847009658813 6.85706996917725
+    <UV> { 0.00219922396354377 0.252199083566666 }
+    <Normal> { 0.264535903930664 -0.076903373003006 -0.961304664611816 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 49 {
+    -0.125835999846458 -1.0161999464035 1.89498996734619
+    <UV> { 0.57019579410553 0.494792968034744 }
+    <Normal> { -0.776102423667908 0.0979501530528069 -0.622953295707703 }
+    <RGBA> { 0.501960813999176 0.545098066329956 0.152941182255745 1 }
+  }
+  <Vertex> 50 {
+    -3.05502009391785 1.13062000274658 5.97759008407593
+    <UV> { 0.57019579410553 0.379023194313049 }
+    <Normal> { -0.662396967411041 0.0909639000892639 -0.743609964847565 }
+    <RGBA> { 0.450980424880981 0.486274540424347 0.137254908680916 1 }
+  }
+  <Vertex> 51 {
+    -0.0175467003136873 -0.866777002811432 1.87932002544403
+    <UV> { 0.453125 0.494792968034744 }
+    <Normal> { -0.776102423667908 0.0979501530528069 -0.622953295707703 }
+    <RGBA> { 0.501960813999176 0.545098066329956 0.152941182255745 1 }
+  }
+  <Vertex> 52 {
+    -2.93927001953125 1.40828001499176 5.78130006790161
+    <UV> { 0.453242182731628 0.379023194313049 }
+    <Normal> { -0.776102900505066 0.0979484915733337 -0.622952938079834 }
+    <RGBA> { 0.450980424880981 0.486274540424347 0.137254908680916 1 }
+  }
+  <Vertex> 53 {
+    -9.86060047149658 2.96847009658813 6.85707998275757
+    <UV> { 0.00219922396354377 0.252199083566666 }
+    <Normal> { -0.0480699092149734 -0.188546031713486 -0.980887174606323 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 54 {
+    -5.9268798828125 0.264210999011993 6.95793008804321
+    <UV> { 0.00219922396354377 0.437133580446243 }
+    <Normal> { -0.177943050861359 0.132693037390709 -0.975053250789642 }
+    <RGBA> { 0.501960813999176 0.545098066329956 0.152941182255745 1 }
+  }
+  <Vertex> 55 {
+    -8.32754993438721 5.60786008834839 5.63234996795654
+    <UV> { 0.247801035642624 0.252199083566666 }
+    <Normal> { -0.150389984250069 -0.435718953609467 -0.887429893016815 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 56 {
+    -3.26638007164001 4.38960981369019 5.39493989944458
+    <UV> { 0.247801035642624 0.437133580446243 }
+    <Normal> { -0.474893063306808 -0.392021059989929 -0.787906110286713 }
+    <RGBA> { 0.501960813999176 0.545098066329956 0.152941182255745 1 }
+  }
+  <Vertex> 57 {
+    -2.93927001953125 1.40828001499176 5.78130006790161
+    <UV> { 0.453242182731628 0.379023194313049 }
+    <Normal> { -0.77610182762146 0.0979509800672531 -0.62295389175415 }
+    <RGBA> { 0.450980424880981 0.486274540424347 0.137254908680916 1 }
+  }
+  <Vertex> 58 {
+    -1.84081995487213 -2.85128998756409 8.72947978973389
+    <UV> { 0.00219922396354377 0.49804699420929 }
+    <Normal> { 0.20676101744175 -0.492741048336029 -0.845255076885223 }
+    <RGBA> { 0.94901967048645 0.803921639919281 0.125490203499794 1 }
+  }
+  <Vertex> 59 {
+    -6.64568996429443 -0.625544011592865 6.33776998519897
+    <UV> { 0.247801035642624 0.49804699420929 }
+    <Normal> { 0.20676101744175 -0.492741048336029 -0.845255076885223 }
+    <RGBA> { 0.556862771511078 0.474509835243225 0.0705882385373116 1 }
+  }
+  <Vertex> 60 {
+    -7.98753023147583 1.25546002388 11.0453996658325
+    <UV> { 0.00219922396354377 0.252199083566666 }
+    <Normal> { -0.380737066268921 0.112664021551609 -0.917794167995453 }
+    <RGBA> { 0.787109375 0.7021484375 0.0146484375 1 }
+  }
+  <Vertex> 61 {
+    -7.1347599029541 3.9721200466156 11.1239004135132
+    <UV> { 0.247801035642624 0.252199083566666 }
+    <Normal> { -0.38369619846344 0.131439059972763 -0.914057433605194 }
+    <RGBA> { 0.787109375 0.7021484375 0.0146484375 1 }
+  }
+  <Vertex> 62 {
+    -2.7990300655365 -1.24546003341675 7.09295988082886
+    <UV> { 0.00219922396354377 0.49804699420929 }
+    <Normal> { -0.558051943778992 0.164610996842384 -0.813314974308014 }
+    <RGBA> { 0.787109375 0.7021484375 0.0146484375 1 }
+  }
+  <Vertex> 63 {
+    -1.39611005783081 2.98993992805481 6.87380981445313
+    <UV> { 0.247801035642624 0.49804699420929 }
+    <Normal> { -0.558051943778992 0.164610996842384 -0.813314974308014 }
+    <RGBA> { 0.787109375 0.7021484375 0.0146484375 1 }
+  }
+  <Vertex> 64 {
+    -3.8203399181366 -0.779199004173279 6.92747020721436
+    <UV> { 0.00219922396354377 0.49804699420929 }
+    <Normal> { -0.148964941501617 -0.296410888433456 -0.943371653556824 }
+    <RGBA> { 0.501960813999176 0.545098066329956 0.152941182255745 1 }
+  }
+  <Vertex> 65 {
+    -1.15983998775482 3.34619998931885 5.36448001861572
+    <UV> { 0.247801035642624 0.49804699420929 }
+    <Normal> { -0.148964941501617 -0.296410888433456 -0.943371653556824 }
+    <RGBA> { 0.501960813999176 0.545098066329956 0.152941182255745 1 }
+  }
+}
+<Group> {
+  <Group> bush_leaves {
+    <Group> {
+      <Group> lod_high {
+        <SwitchCondition> {
+          <Distance> { 50 0 <Vertex> { 0 0 0 } }
+        }
+        <Group> Leaf_H_01 {
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 0 1 2 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 3 4 5 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 6 7 2 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 2 7 0 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 8 9 5 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 5 9 3 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 4 10 0 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 0 10 1 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 11 12 5 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 5 12 8 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 13 11 14 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 14 11 5 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 5 4 14 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 14 4 0 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 14 0 13 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 13 0 7 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_3cmla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 15 16 17 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_3cmla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 17 16 18 <Ref> { bush_leaves.egg } }
+          }
+        }
+        <Group> Leaf_H_02 {
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 19 20 21 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 21 20 22 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 23 19 24 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 24 19 21 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 20 25 22 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 22 25 26 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 27 24 28 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 28 24 21 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 28 21 29 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 29 21 22 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 29 22 30 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 30 22 26 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 31 23 32 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 32 23 24 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 32 24 33 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 33 24 27 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_3cmla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 34 35 36 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_3cmla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 36 35 37 <Ref> { bush_leaves.egg } }
+          }
+        }
+        <Group> Leaf_H_04 {
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 38 39 40 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 40 41 38 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 38 41 42 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 42 43 38 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 38 43 44 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 45 46 38 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 38 46 39 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 45 38 47 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 47 38 44 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 47 44 48 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 48 44 43 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_3cmla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 49 50 51 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_3cmla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 51 50 52 <Ref> { bush_leaves.egg } }
+          }
+        }
+      }
+      <Group> lod_medium {
+        <SwitchCondition> {
+          <Distance> { 100 50 <Vertex> { 0 0 0 } }
+        }
+        <Group> Leaf_H_01 {
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 6 13 2 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 2 13 14 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 13 12 14 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 14 12 8 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 8 9 14 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 14 9 4 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 14 4 2 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 2 4 1 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_3cmla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 15 16 17 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_3cmla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 17 16 18 <Ref> { bush_leaves.egg } }
+          }
+        }
+        <Group> Leaf_H_02 {
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 31 19 32 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 32 19 21 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 19 25 21 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 21 25 26 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 26 30 21 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 21 30 28 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 21 28 32 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 32 28 33 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_3cmla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 34 35 36 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_3cmla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 36 35 37 <Ref> { bush_leaves.egg } }
+          }
+        }
+        <Group> Leaf_H_04 {
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 53 38 54 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 38 39 40 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 40 41 38 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 38 41 54 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 53 47 38 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 38 47 55 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 55 56 38 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <Scalar> alpha { binary }
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 38 56 39 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_3cmla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 49 50 51 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_3cmla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 51 50 57 <Ref> { bush_leaves.egg } }
+          }
+        }
+      }
+      <Group> lod_low {
+        <SwitchCondition> {
+          <Distance> { 400 100 <Vertex> { 0 0 0 } }
+        }
+        <Group> Leaf_H_01 {
+          <Scalar> alpha { binary }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 1 6 58 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 58 6 59 <Ref> { bush_leaves.egg } }
+          }
+        }
+        <Group> Leaf_H_02 {
+          <Scalar> alpha { binary }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 60 61 62 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 62 61 63 <Ref> { bush_leaves.egg } }
+          }
+        }
+        <Group> Leaf_H_04 {
+          <Scalar> alpha { binary }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 53 55 64 <Ref> { bush_leaves.egg } }
+          }
+          <Polygon> {
+            <TRef> { vege_fern_bush_palette_4amla_1 }
+            <BFace> { 1 }
+            <VertexRef> { 64 55 65 <Ref> { bush_leaves.egg } }
+          }
+        }
+      }
+    }
+  }
+}

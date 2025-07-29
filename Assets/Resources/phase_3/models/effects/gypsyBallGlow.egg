@@ -1,0 +1,100 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\effects\gypsyBallGlow.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\effects\gypsyBallGlow.egg'"
+}
+<Texture> effects_palette_4amla_1 {
+  "phase_3/maps/effects_palette_4amla_1.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effects_palette_4amla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectSoftGlow {
+  "phase_3/maps/effectSoftGlow.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effectSoftGlow_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> gypsyBallGlow.egg {
+  <Vertex> 0 {
+    -0.5 0.00871064979583025 -0.5
+    <UV> { 0.503906011581421 0.378906011581421 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0.5 0.00871064979583025 -0.5
+    <UV> { 0.621093988418579 0.378906011581421 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -0.5 0.00871064979583025 0.5
+    <UV> { 0.503906011581421 0.496093988418579 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0.00871064979583025 0.5
+    <UV> { 0.621093988418579 0.496093988418579 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -1.68096995353699 -0.473897010087967 -1.68096995353699
+    <UV> { 0 0 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    1.68096995353699 -0.473897010087967 -1.68096995353699
+    <UV> { 1 0 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -1.68096995353699 -0.473897010087967 1.68096995353699
+    <UV> { 0 1 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    1.68096995353699 -0.473897010087967 1.68096995353699
+    <UV> { 1 1 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> ball {
+    <Scalar> alpha { binary }
+    <Polygon> {
+      <TRef> { effects_palette_4amla_1 }
+      <VertexRef> { 0 1 2 <Ref> { gypsyBallGlow.egg } }
+    }
+    <Polygon> {
+      <TRef> { effects_palette_4amla_1 }
+      <VertexRef> { 2 1 3 <Ref> { gypsyBallGlow.egg } }
+    }
+  }
+  <Group> glow_aura {
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { effectSoftGlow }
+      <VertexRef> { 4 5 6 <Ref> { gypsyBallGlow.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { effectSoftGlow }
+      <VertexRef> { 6 5 7 <Ref> { gypsyBallGlow.egg } }
+    }
+  }
+}

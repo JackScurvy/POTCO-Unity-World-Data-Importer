@@ -1,0 +1,79 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\effects\blinders.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\effects\blinders.egg'"
+}
+<Texture> effectSmokeBlind {
+  "phase_2/maps/effectSmokeBlind.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectSmokeBlind_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectDirtBlind {
+  "phase_2/maps/effectDirtBlind.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectDirtBlind_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> blinders.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> effectSmokeBlind {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectSmokeBlind }
+          <VertexRef> { 0 1 2 <Ref> { blinders.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectSmokeBlind }
+          <VertexRef> { 2 1 3 <Ref> { blinders.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectDirtBlind {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectDirtBlind }
+          <VertexRef> { 0 1 2 <Ref> { blinders.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectDirtBlind }
+          <VertexRef> { 2 1 3 <Ref> { blinders.egg } }
+        }
+      }
+    }
+  }
+}

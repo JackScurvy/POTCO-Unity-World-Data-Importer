@@ -1,0 +1,145 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_5\models\islands\pir_m_are_isl_kingshead_ocean.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_5\models\islands\pir_m_are_isl_kingshead_ocean.egg'"
+}
+<Texture> pir_t_are_isl_multi_grass {
+  "phase_5/maps/pir_t_are_isl_multi_grass.jpg"
+  <Scalar> format { luminance }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_are_isl_kingshead_ocean {
+  "phase_5/maps/pir_t_are_isl_kingshead_ocean.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_are_isl_kingshead_alpha {
+  "phase_5/maps/pir_t_are_isl_kingshead_alpha.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_are_isl_kingshead_ocean.egg {
+  <Vertex> 0 {
+    -8130.56005859375 -8130.56005859375 -9.06781005859375
+    <UV> { -201.419998168945 -200.419998168945 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.4384765625 0.3759765625 0.28125 1 }
+  }
+  <Vertex> 1 {
+    8130.56005859375 -8130.56005859375 -9.06781005859375
+    <UV> { 200.419998168945 -200.419998168945 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.4384765625 0.3759765625 0.28125 1 }
+  }
+  <Vertex> 2 {
+    -8130.56005859375 8130.56005859375 -9.06781005859375
+    <UV> { -201.419998168945 201.419998168945 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.4384765625 0.3759765625 0.28125 1 }
+  }
+  <Vertex> 3 {
+    8130.56005859375 8130.56005859375 -9.06781005859375
+    <UV> { 200.419998168945 201.419998168945 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.4384765625 0.3759765625 0.28125 1 }
+  }
+  <Vertex> 4 {
+    -1285.38000488281 -1346.68994140625 -8.25078061428286e-11
+    <UV> { 0 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    1371.93994140625 -1346.68994140625 -8.25078061428286e-11
+    <UV> { 1 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -1285.38000488281 1310.63000488281 8.25078061428286e-11
+    <UV> { 0 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    1371.93994140625 1310.63000488281 8.25078061428286e-11
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -2656.25024414063 -2593.98999023438 -1.4501440326331e-10
+    <UV> { 0 0 }
+    <Normal> { 0 0 1.55519998073578 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    2376.740234375 -2593.990234375 -1.4501440326331e-10
+    <UV> { 1 0 }
+    <Normal> { 0 0 1.55519998073578 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    -2656.25 2484.31982421875 1.4501440326331e-10
+    <UV> { 0 1 }
+    <Normal> { 0 0 1.55519998073578 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    2376.73999023438 2484.32006835938 1.4501440326331e-10
+    <UV> { 1 1 }
+    <Normal> { 0 0 1.55519998073578 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> whole_island {
+  <Group> sandfloor {
+    <Polygon> {
+      <TRef> { pir_t_are_isl_multi_grass }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_are_isl_kingshead_ocean.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_multi_grass }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_are_isl_kingshead_ocean.egg } }
+    }
+  }
+  <Group> water_alpha {
+    <DCS> { local }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_kingshead_alpha }
+      <VertexRef> { 4 5 6 <Ref> { pir_m_are_isl_kingshead_ocean.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_kingshead_alpha }
+      <VertexRef> { 6 5 7 <Ref> { pir_m_are_isl_kingshead_ocean.egg } }
+    }
+  }
+  <Group> water_color {
+    <DCS> { local }
+    <Transform> {
+      <Scale> { 1.55520284175873 1.55520284175873 1.55519998073578 }
+      <Rotate> { 42.8151137596978 0 0 -1 }
+      <Translate> { -144.352005004883 -125.03800201416 0 }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_kingshead_ocean }
+      <VertexRef> { 8 9 10 <Ref> { pir_m_are_isl_kingshead_ocean.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_kingshead_ocean }
+      <VertexRef> { 10 9 11 <Ref> { pir_m_are_isl_kingshead_ocean.egg } }
+    }
+  }
+}

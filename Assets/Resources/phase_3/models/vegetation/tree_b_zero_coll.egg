@@ -1,0 +1,28 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\vegetation\tree_b_zero_coll.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\vegetation\tree_b_zero_coll.egg'"
+}
+<Group> {
+  <Group> collision {
+    <Collide> { Tube descend }
+    <Scalar> collide-mask { 0x00000001 }
+    <VertexPool> vpool-collision {
+      <Vertex> 0 {
+        -0.182857945561409 1.1990532875061 19.1690044403076
+      }
+      <Vertex> 1 {
+        5.53603553771973 1.1990532875061 6.83583402633667
+      }
+      <Vertex> 2 {
+        -0.182857945561409 1.1990532875061 -5.49733591079712
+      }
+      <Vertex> 3 {
+        -5.90175151824951 1.1990532875061 6.83583402633667
+      }
+    }
+    <Polygon> {
+      <VertexRef> { 0 1 2 3 <Ref> { vpool-collision } }
+    }
+  }
+}

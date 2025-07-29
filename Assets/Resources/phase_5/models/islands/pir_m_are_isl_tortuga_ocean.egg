@@ -1,0 +1,254 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_5\models\islands\pir_m_are_isl_tortuga_ocean.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_5\models\islands\pir_m_are_isl_tortuga_ocean.egg'"
+}
+<Texture> pir_t_are_isl_tortuga_swamp_color {
+  "phase_5/maps/pir_t_are_isl_tortuga_swamp_color.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_are_isl_tortuga_swamp_alpha {
+  "phase_5/maps/pir_t_are_isl_tortuga_swamp_alpha.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_are_isl_tortuga_ocean {
+  "phase_5/maps/pir_t_are_isl_tortuga_ocean.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_are_isl_tortuga_alpha {
+  "phase_5/maps/pir_t_are_isl_tortuga_alpha.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_are_isl_multi_sand {
+  "phase_5/maps/pir_t_are_isl_multi_sand.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_are_isl_tortuga_ocean.egg {
+  <Vertex> 0 {
+    -3821.32006835938 -4649.93994140625 0.186767995357513
+    <UV> { 0 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    3735.11987304688 -4649.93994140625 0.186767995357513
+    <UV> { 1 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -3821.32006835938 3179.77978515625 0.186767995357513
+    <UV> { 0 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    3735.11987304688 3179.77978515625 0.186767995357513
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -3282.80004882813 -3891.15991210938 -2.07405717600473e-10
+    <UV> { 0 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    3141.55981445313 -3891.15991210938 -2.07405717600473e-10
+    <UV> { 1 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -3282.80004882813 2525.18994140625 2.07405717600473e-10
+    <UV> { 0 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    3141.55981445313 2525.18994140625 2.07405717600473e-10
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -46.6011047363281 521.752014160156 7.91601853511459e-11
+    <UV> { 32 64 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.505882382392883 0.564705908298492 0.639215707778931 1 }
+  }
+  <Vertex> 9 {
+    -475.390014648438 521.752014160156 7.91601853511459e-11
+    <UV> { 0 64 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.403921604156494 0.435294151306152 0.615686297416687 1 }
+  }
+  <Vertex> 10 {
+    -46.6011047363281 -243.942001342773 -1.3227913209235e-10
+    <UV> { 32 3.82090945549862e-08 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.39607846736908 0.400000035762787 0.549019634723663 1 }
+  }
+  <Vertex> 11 {
+    -475.390014648438 -243.942001342773 -1.3227913209235e-10
+    <UV> { 0 3.82090945549862e-08 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.623529434204102 0.65490198135376 0.705882370471954 1 }
+  }
+  <Vertex> 12 {
+    -46.6011352539063 521.752014160156 7.91601853511459e-11
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 13 {
+    -475.390014648438 521.752014160156 7.91601853511459e-11
+    <UV> { 0 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 14 {
+    -46.6011352539063 -243.941986083984 -1.3227913209235e-10
+    <UV> { 1 -8.62356130948427e-10 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 15 {
+    -475.390014648438 -243.941986083984 -1.3227913209235e-10
+    <UV> { 0 -8.62356130948427e-10 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 16 {
+    -8130.56005859375 -8130.56005859375 -68.9419021606445
+    <UV> { -200.419998168945 -200.419998168945 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.4384765625 0.3759765625 0.28125 1 }
+  }
+  <Vertex> 17 {
+    8130.56005859375 -8130.56005859375 -68.9419021606445
+    <UV> { 201.419998168945 -200.419998168945 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.4384765625 0.3759765625 0.28125 1 }
+  }
+  <Vertex> 18 {
+    -8130.56005859375 8130.56005859375 -68.9419021606445
+    <UV> { -200.419998168945 201.419998168945 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.4384765625 0.3759765625 0.28125 1 }
+  }
+  <Vertex> 19 {
+    8130.56005859375 8130.56005859375 -68.9419021606445
+    <UV> { 201.419998168945 201.419998168945 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.4384765625 0.3759765625 0.28125 1 }
+  }
+}
+<Group> whole_island {
+  <Group> water_color {
+    <DCS> { local }
+    <Transform> {
+      <Translate> { -43.0960998535156 -735.078979492188 0.186767995357513 }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_tortuga_ocean }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_are_isl_tortuga_ocean.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_tortuga_ocean }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_are_isl_tortuga_ocean.egg } }
+    }
+  }
+  <Group> water_alpha {
+    <DCS> { local }
+    <Transform> {
+      <Translate> { -70.6210021972656 -682.989013671875 0 }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_tortuga_alpha }
+      <VertexRef> { 4 5 6 <Ref> { pir_m_are_isl_tortuga_ocean.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_tortuga_alpha }
+      <VertexRef> { 6 5 7 <Ref> { pir_m_are_isl_tortuga_ocean.egg } }
+    }
+  }
+  <Group> water_color_swamp {
+    <DCS> { local }
+    <Transform> {
+      <Translate> { -317.295013427734 138.651992797852 0 }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_tortuga_swamp_color }
+      <VertexRef> { 8 9 10 <Ref> { pir_m_are_isl_tortuga_ocean.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_tortuga_swamp_color }
+      <VertexRef> { 10 9 11 <Ref> { pir_m_are_isl_tortuga_ocean.egg } }
+    }
+  }
+  <Group> water_alpha_swamp {
+    <DCS> { local }
+    <Transform> {
+      <Translate> { -636.544006347656 330.201995849609 0 }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_tortuga_swamp_alpha }
+      <VertexRef> { 12 13 14 <Ref> { pir_m_are_isl_tortuga_ocean.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_tortuga_swamp_alpha }
+      <VertexRef> { 14 13 15 <Ref> { pir_m_are_isl_tortuga_ocean.egg } }
+    }
+  }
+  <Group> water_swamp_ns {
+    <DCS> { local }
+    <Transform> {
+      <Translate> { -636.544006347656 330.201995849609 0 }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_tortuga_swamp_color }
+      <VertexRef> { 8 9 10 <Ref> { pir_m_are_isl_tortuga_ocean.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_tortuga_swamp_color }
+      <VertexRef> { 10 9 11 <Ref> { pir_m_are_isl_tortuga_ocean.egg } }
+    }
+  }
+  <Group> sandfloor {
+    <Polygon> {
+      <TRef> { pir_t_are_isl_multi_sand }
+      <VertexRef> { 16 17 18 <Ref> { pir_m_are_isl_tortuga_ocean.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_are_isl_multi_sand }
+      <VertexRef> { 18 17 19 <Ref> { pir_m_are_isl_tortuga_ocean.egg } }
+    }
+  }
+}

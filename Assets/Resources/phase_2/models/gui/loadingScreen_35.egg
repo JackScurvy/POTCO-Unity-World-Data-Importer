@@ -1,0 +1,46 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\gui\loadingScreen_35.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\gui\loadingScreen_35.egg'"
+}
+<Texture> loadingscreen_tutorial_timing {
+  "phase_2/maps/loadingscreen_tutorial_timing.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> loadingScreen_35.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> loadingscreen_tutorial_timing {
+  <Polygon> {
+    <TRef> { loadingscreen_tutorial_timing }
+    <VertexRef> { 0 1 2 <Ref> { loadingScreen_35.egg } }
+  }
+  <Polygon> {
+    <TRef> { loadingscreen_tutorial_timing }
+    <VertexRef> { 2 1 3 <Ref> { loadingScreen_35.egg } }
+  }
+}

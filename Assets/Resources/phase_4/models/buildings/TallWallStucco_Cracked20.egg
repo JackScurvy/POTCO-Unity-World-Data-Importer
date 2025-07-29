@@ -1,0 +1,284 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\buildings\TallWallStucco_Cracked20.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\buildings\TallWallStucco_Cracked20.egg'"
+}
+<Texture> props_walls_palette_3cmla_1 {
+  "phase_3/maps/props_walls_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> TallWallStucco_Cracked20.egg {
+  <Vertex> 0 {
+    0 -1 15
+    <UV> { 0.50195300579071 0.49804699420929 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0 -1 -4
+    <UV> { 0.50195300579071 0.25195300579071 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    20 -1 15
+    <UV> { 0.74804699420929 0.49804699420929 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    20 -1 -4
+    <UV> { 0.74804699420929 0.25195300579071 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    20 -1 15
+    <UV> { 0.50195300579071 0.315086930990219 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    20 1 15
+    <UV> { 0.50195300579071 0.25195300579071 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0 -1 15
+    <UV> { 0.74804699420929 0.315086930990219 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0 1 15
+    <UV> { 0.74804699420929 0.25195300579071 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    0 1 -4
+    <UV> { 0.50195300579071 0.25195300579071 }
+    <Normal> { 0 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    0 1 15
+    <UV> { 0.50195300579071 0.49804699420929 }
+    <Normal> { 0 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    20 1 -4
+    <UV> { 0.74804699420929 0.25195300579071 }
+    <Normal> { 0 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    20 1 15
+    <UV> { 0.74804699420929 0.49804699420929 }
+    <Normal> { 0 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 12 {
+    0 -1 15
+    <UV> { 0.50195300579071 0.496813833713531 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 13 {
+    0 -1 -4
+    <UV> { 0.50195300579071 0.252675473690033 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 14 {
+    20 -1 15
+    <UV> { 0.74804699420929 0.496813833713531 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 15 {
+    20 -1 -4
+    <UV> { 0.74804699420929 0.252675473690033 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 16 {
+    0 1 15
+    <UV> { 0.50195300579071 0.496813833713531 }
+    <Normal> { 0 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 17 {
+    20 1 15
+    <UV> { 0.74804699420929 0.496813833713531 }
+    <Normal> { 0 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> TallWallStucco_Cracked20 {
+    <Group> {
+      <Group> lod_high {
+        <SwitchCondition> {
+          <Distance> { 41 0 <Vertex> { 0 0 0 } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 0 1 2 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 2 1 3 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 4 5 6 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 6 5 7 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 8 9 10 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 10 9 11 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+      }
+      <Group> lod_medium {
+        <SwitchCondition> {
+          <Distance> { 83 41 <Vertex> { 0 0 0 } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 12 13 14 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 14 13 15 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 4 5 6 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 6 5 7 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 8 16 10 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 10 16 17 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+      }
+      <Group> lod_low {
+        <SwitchCondition> {
+          <Distance> { 277 83 <Vertex> { 0 0 0 } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 12 13 14 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 14 13 15 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 4 5 6 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 6 5 7 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 8 16 10 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 10 16 17 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+      }
+      <Group> lod_superlow {
+        <SwitchCondition> {
+          <Distance> { 1108 277 <Vertex> { 0 0 0 } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 12 13 14 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 14 13 15 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 8 16 10 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+        <Polygon> {
+          <TRef> { props_walls_palette_3cmla_1 }
+          <VertexRef> { 10 16 17 <Ref> { TallWallStucco_Cracked20.egg } }
+        }
+      }
+    }
+  }
+  <Group> collisions {
+    <Group> collision_wall {
+      <Collide> { Polyset descend }
+      <Scalar> collide-mask { 0x00000005 }
+      <VertexPool> vpool-collision {
+        <Vertex> 0 {
+          -1.16415363460298e-10 -1 -3.99999976158142
+          <Normal> { -0.00106499763205647 -0.999999403953552 0 }
+        }
+        <Vertex> 1 {
+          20 -1.02129995822906 -3.99999976158142
+          <Normal> { -0.00106499763205647 -0.999999403953552 0 }
+        }
+        <Vertex> 2 {
+          20 -1.02129995822906 14.9999990463257
+          <Normal> { -0.00106499763205647 -0.999999403953552 0 }
+        }
+        <Vertex> 3 {
+          -1.16415363460298e-10 -1 14.9999990463257
+          <Normal> { -0.00106499763205647 -0.999999403953552 0 }
+        }
+        <Vertex> 4 {
+          20 1 15
+          <Normal> { 0 1 0 }
+        }
+        <Vertex> 5 {
+          20 1 -4
+          <Normal> { 0 1 0 }
+        }
+        <Vertex> 6 {
+          0 1 -4
+          <Normal> { 0 1 0 }
+        }
+        <Vertex> 7 {
+          0 1 15
+          <Normal> { 0 1 0 }
+        }
+      }
+      <Polygon> {
+        <VertexRef> { 0 1 2 3 <Ref> { vpool-collision } }
+      }
+      <Polygon> {
+        <VertexRef> { 4 5 6 7 <Ref> { vpool-collision } }
+      }
+    }
+  }
+}

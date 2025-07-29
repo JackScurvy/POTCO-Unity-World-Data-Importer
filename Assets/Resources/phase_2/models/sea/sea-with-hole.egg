@@ -1,0 +1,82 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\sea\sea-with-hole.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\sea\sea-with-hole.egg'"
+}
+<Texture> sea2 {
+  "phase_2/maps/sea2.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> sea-with-hole.egg {
+  <Vertex> 0 {
+    200 -200 0
+    <UV> { 101.263000488281 95.6716995239258 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    15840 -15340 0
+    <UV> { 200 0.179588004946709 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    200 200 0
+    <UV> { 101.263000488281 98.1969985961914 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    15840 16340 0
+    <UV> { 200.001007080078 200.179992675781 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -200 200 0
+    <UV> { 98.7378005981445 98.1947021484375 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -15840 16340 0
+    <UV> { 0.000897941994480789 200 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -200 -200 0
+    <UV> { 98.7378005981445 95.6695022583008 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    -15840 -15340 0
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> g1 {
+  <Polygon> {
+    <TRef> { sea2 }
+    <VertexRef> { 0 1 2 <Ref> { sea-with-hole.egg } }
+  }
+  <Polygon> {
+    <TRef> { sea2 }
+    <VertexRef> { 2 1 3 <Ref> { sea-with-hole.egg } }
+  }
+  <Polygon> {
+    <TRef> { sea2 }
+    <VertexRef> { 2 3 4 <Ref> { sea-with-hole.egg } }
+  }
+  <Polygon> {
+    <TRef> { sea2 }
+    <VertexRef> { 4 3 5 <Ref> { sea-with-hole.egg } }
+  }
+  <Polygon> {
+    <TRef> { sea2 }
+    <VertexRef> { 4 5 6 <Ref> { sea-with-hole.egg } }
+  }
+  <Polygon> {
+    <TRef> { sea2 }
+    <VertexRef> { 6 5 7 <Ref> { sea-with-hole.egg } }
+  }
+}

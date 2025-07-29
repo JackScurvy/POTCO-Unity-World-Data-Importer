@@ -1,0 +1,48 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\effects\swordtrail_effects.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\effects\swordtrail_effects.egg'"
+}
+<Texture> swordtrail_lines {
+  "phase_3/maps/swordtrail_lines.jpg"
+  <Scalar> alpha-file { "phase_3/maps/swordtrail_lines_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> swordtrail_effects.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> swordtrail_lines {
+  <Scalar> alpha { blend }
+  <Polygon> {
+    <TRef> { swordtrail_lines }
+    <VertexRef> { 0 1 2 <Ref> { swordtrail_effects.egg } }
+  }
+  <Polygon> {
+    <TRef> { swordtrail_lines }
+    <VertexRef> { 2 1 3 <Ref> { swordtrail_effects.egg } }
+  }
+}

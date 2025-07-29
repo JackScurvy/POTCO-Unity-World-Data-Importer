@@ -1,0 +1,117 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\textureCards\sailTextures.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\textureCards\sailTextures.egg'"
+}
+<Texture> ship_sail_stripe_r_y {
+  "phase_3/maps/ship_sail_stripe_r_y.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> ship_sail_check_r_w {
+  "phase_3/maps/ship_sail_check_r_w.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> ship_sailBP {
+  "phase_3/maps/ship_sailBP.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> ship_sail {
+  "phase_3/maps/ship_sail.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> sailTextures.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> ship_sail {
+        <Polygon> {
+          <TRef> { ship_sail }
+          <VertexRef> { 0 1 2 <Ref> { sailTextures.egg } }
+        }
+        <Polygon> {
+          <TRef> { ship_sail }
+          <VertexRef> { 2 1 3 <Ref> { sailTextures.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> ship_sail_check_r_w {
+        <Polygon> {
+          <TRef> { ship_sail_check_r_w }
+          <VertexRef> { 0 1 2 <Ref> { sailTextures.egg } }
+        }
+        <Polygon> {
+          <TRef> { ship_sail_check_r_w }
+          <VertexRef> { 2 1 3 <Ref> { sailTextures.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> ship_sail_stripe_r_y {
+        <Polygon> {
+          <TRef> { ship_sail_stripe_r_y }
+          <VertexRef> { 0 1 2 <Ref> { sailTextures.egg } }
+        }
+        <Polygon> {
+          <TRef> { ship_sail_stripe_r_y }
+          <VertexRef> { 2 1 3 <Ref> { sailTextures.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> ship_sailBP {
+        <Polygon> {
+          <TRef> { ship_sailBP }
+          <VertexRef> { 0 1 2 <Ref> { sailTextures.egg } }
+        }
+        <Polygon> {
+          <TRef> { ship_sailBP }
+          <VertexRef> { 2 1 3 <Ref> { sailTextures.egg } }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\sea\oceanWater2-low2.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\sea\oceanWater2-low2.egg'"
+}
+<Texture> oceanWater2-low2 {
+  "phase_2/maps/oceanWater2-low2.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> oceanWater2-low2.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> oceanWater2-low2 {
+  <Polygon> {
+    <TRef> { oceanWater2-low2 }
+    <VertexRef> { 0 1 2 <Ref> { oceanWater2-low2.egg } }
+  }
+  <Polygon> {
+    <TRef> { oceanWater2-low2 }
+    <VertexRef> { 2 1 3 <Ref> { oceanWater2-low2.egg } }
+  }
+}

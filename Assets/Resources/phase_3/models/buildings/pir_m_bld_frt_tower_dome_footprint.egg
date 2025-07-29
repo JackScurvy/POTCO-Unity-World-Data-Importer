@@ -1,0 +1,110 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\buildings\pir_m_bld_frt_tower_dome_footprint.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\buildings\pir_m_bld_frt_tower_dome_footprint.egg'"
+}
+<Texture> footprints_palette_3cmla_1 {
+  "phase_3/maps/footprints_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_bld_frt_tower_dome_footprint.egg {
+  <Vertex> 0 {
+    0 25 0
+    <UV> { 0.34375 0.4375 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.709803938865662 0.709803938865662 0.709803938865662 1 }
+  }
+  <Vertex> 1 {
+    0 0 0
+    <UV> { 0.46875 0.9375 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    17.6777000427246 17.6777000427246 0
+    <UV> { 0.59375 0.4375 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.509803950786591 0.509803950786591 0.509803950786591 1 }
+  }
+  <Vertex> 3 {
+    25 0 0
+    <UV> { 0.34375 0.4375 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.709803938865662 0.709803938865662 0.709803938865662 1 }
+  }
+  <Vertex> 4 {
+    -17.6777000427246 17.6777000427246 0
+    <UV> { 0.59375 0.4375 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.509803950786591 0.509803950786591 0.509803950786591 1 }
+  }
+  <Vertex> 5 {
+    -25 0 0
+    <UV> { 0.34375 0.4375 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.709803938865662 0.709803938865662 0.709803938865662 1 }
+  }
+  <Vertex> 6 {
+    -17.6777000427246 -17.6777000427246 0
+    <UV> { 0.59375 0.4375 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.509803950786591 0.509803950786591 0.509803950786591 1 }
+  }
+  <Vertex> 7 {
+    0 -25 0
+    <UV> { 0.34375 0.4375 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.709803938865662 0.709803938865662 0.709803938865662 1 }
+  }
+  <Vertex> 8 {
+    17.6777000427246 -17.6777000427246 0
+    <UV> { 0.59375 0.4375 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.509803950786591 0.509803950786591 0.509803950786591 1 }
+  }
+}
+<Group> {
+  <Group> footprint {
+    <Model> { 1 }
+    <Tag> Footprint {
+      FortColumn
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_bld_frt_tower_dome_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_bld_frt_tower_dome_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 0 4 1 <Ref> { pir_m_bld_frt_tower_dome_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 1 4 5 <Ref> { pir_m_bld_frt_tower_dome_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 5 6 1 <Ref> { pir_m_bld_frt_tower_dome_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 1 6 7 <Ref> { pir_m_bld_frt_tower_dome_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 7 8 1 <Ref> { pir_m_bld_frt_tower_dome_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 1 8 3 <Ref> { pir_m_bld_frt_tower_dome_footprint.egg } }
+    }
+  }
+}

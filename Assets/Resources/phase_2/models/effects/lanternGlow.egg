@@ -1,0 +1,48 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\effects\lanternGlow.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\effects\lanternGlow.egg'"
+}
+<Texture> particleGlow {
+  "phase_2/maps/particleGlow.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleGlow_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> lanternGlow.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> particleGlow {
+  <Scalar> alpha { blend }
+  <Polygon> {
+    <TRef> { particleGlow }
+    <VertexRef> { 0 1 2 <Ref> { lanternGlow.egg } }
+  }
+  <Polygon> {
+    <TRef> { particleGlow }
+    <VertexRef> { 2 1 3 <Ref> { lanternGlow.egg } }
+  }
+}

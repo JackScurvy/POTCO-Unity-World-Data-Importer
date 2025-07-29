@@ -1,0 +1,171 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\gui\potcLogo.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\gui\potcLogo.egg'"
+}
+<Texture> loading_window_texture {
+  "phase_2/maps/loading_window_texture.jpg"
+  <Scalar> alpha-file { "phase_2/maps/loading_window_texture_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> potcLogo.egg {
+  <Vertex> 0 {
+    -0.442451000213623 2.47920763779552e-11 -0.0179756004363298
+    <UV> { 0 0.905209004878998 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0.0764651969075203 4.69902866617744e-11 -0.243753001093864
+    <UV> { 0.459681004285812 0.505200028419495 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.141797006130219 2.36510394602263e-11 -0.20804600417614
+    <UV> { 0.517554998397827 0.568462014198303 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -0.442451000213623 4.69902866617744e-11 -0.243753001093864
+    <UV> { 0 0.505200028419495 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.372276991605759 4.69902866617744e-11 -0.243753001093864
+    <UV> { 0.0621634013950825 0.505200028419495 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    0.410504996776581 2.46298936107392e-11 -0.237727999687195
+    <UV> { 0.755589008331299 0.515874028205872 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.457343012094498 2.28832421761416e-11 -0.0355852991342545
+    <UV> { 0.797080993652344 0.874010026454926 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.472552001476288 2.99985314367035e-11 0.0300552994012833
+    <UV> { 0.810554027557373 0.990305006504059 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -0.442451000213623 2.93644622506584e-11 0.0242046006023884
+    <UV> { 0 0.979938983917236 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    -0.0927323997020721 -0.0215661991387606 0.102642998099327
+    <UV> { 0.509141981601715 0.446464002132416 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    0.13918000459671 -0.0215661991387606 0.150123998522758
+    <UV> { 0.714944005012512 0.528810977935791 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    -0.082125797867775 -0.0215661991387606 0.170953005552292
+    <UV> { 0.518554985523224 0.564935028553009 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 12 {
+    -0.107175998389721 -0.0215661991387606 0.173309996724129
+    <UV> { 0.496324986219406 0.56902402639389 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 13 {
+    -0.108640000224113 -0.0215661991387606 0.127943992614746
+    <UV> { 0.495025992393494 0.490343004465103 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 14 {
+    -0.113840997219086 -0.0215661991387606 -0.0333019010722637
+    <UV> { 0.490410000085831 0.210691004991531 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 15 {
+    0.136138007044792 -0.0215661991387606 -0.0647953972220421
+    <UV> { 0.712244987487793 0.15607100725174 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> logo_top {
+    <Group> banner {
+      <Scalar> alpha { blend }
+      <Polygon> {
+        <TRef> { loading_window_texture }
+        <VertexRef> { 0 1 2 <Ref> { potcLogo.egg } }
+      }
+      <Polygon> {
+        <TRef> { loading_window_texture }
+        <VertexRef> { 3 4 0 <Ref> { potcLogo.egg } }
+      }
+      <Polygon> {
+        <TRef> { loading_window_texture }
+        <VertexRef> { 0 4 1 <Ref> { potcLogo.egg } }
+      }
+      <Polygon> {
+        <TRef> { loading_window_texture }
+        <VertexRef> { 5 6 2 <Ref> { potcLogo.egg } }
+      }
+      <Polygon> {
+        <TRef> { loading_window_texture }
+        <VertexRef> { 2 6 0 <Ref> { potcLogo.egg } }
+      }
+      <Polygon> {
+        <TRef> { loading_window_texture }
+        <VertexRef> { 6 7 0 <Ref> { potcLogo.egg } }
+      }
+      <Polygon> {
+        <TRef> { loading_window_texture }
+        <VertexRef> { 0 7 8 <Ref> { potcLogo.egg } }
+      }
+    }
+    <Group> skull {
+      <Scalar> alpha { blend }
+      <Polygon> {
+        <TRef> { loading_window_texture }
+        <VertexRef> { 9 10 11 <Ref> { potcLogo.egg } }
+      }
+      <Polygon> {
+        <TRef> { loading_window_texture }
+        <VertexRef> { 12 13 11 <Ref> { potcLogo.egg } }
+      }
+      <Polygon> {
+        <TRef> { loading_window_texture }
+        <VertexRef> { 11 13 9 <Ref> { potcLogo.egg } }
+      }
+      <Polygon> {
+        <TRef> { loading_window_texture }
+        <VertexRef> { 14 15 9 <Ref> { potcLogo.egg } }
+      }
+      <Polygon> {
+        <TRef> { loading_window_texture }
+        <VertexRef> { 9 15 10 <Ref> { potcLogo.egg } }
+      }
+    }
+  }
+}

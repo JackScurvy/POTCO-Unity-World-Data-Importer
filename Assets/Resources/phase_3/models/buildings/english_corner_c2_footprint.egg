@@ -1,0 +1,63 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\buildings\english_corner_c2_footprint.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\buildings\english_corner_c2_footprint.egg'"
+}
+<Texture> footprints_palette_3clla_1 {
+  "phase_3/maps/footprints_palette_3clla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> english_corner_c2_footprint.egg {
+  <Vertex> 0 {
+    1.68798995018005 -5.45996999740601 2.07681649655456e-11
+    <UV> { 0.03125 0.84375 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -6.67630004882813 6.67630004882813 -3.89635441966352e-11
+    <UV> { 0.28125 0.96875 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.69803923368454 0.529411792755127 0.486274540424347 1 }
+  }
+  <Vertex> 2 {
+    -6.67630004882813 -5.45996999740601 7.1558592384946e-11
+    <UV> { 0.28125 0.84375 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.69803923368454 0.529411792755127 0.486274540424347 1 }
+  }
+  <Vertex> 3 {
+    10.052300453186 -5.45996999740601 2.07681649655456e-11
+    <UV> { 0.28125 0.84375 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.69803923368454 0.529411792755127 0.486274540424347 1 }
+  }
+  <Vertex> 4 {
+    10.052300453186 6.67630004882813 -3.89635441966352e-11
+    <UV> { 0.28125 0.71875 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.69803923368454 0.529411792755127 0.486274540424347 1 }
+  }
+}
+<Group> {
+  <Group> footprint {
+    <Model> { 1 }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 0 1 2 <Ref> { english_corner_c2_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 3 4 0 <Ref> { english_corner_c2_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 0 4 1 <Ref> { english_corner_c2_footprint.egg } }
+    }
+  }
+}

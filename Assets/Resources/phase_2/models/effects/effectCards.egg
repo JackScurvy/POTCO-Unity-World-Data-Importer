@@ -1,0 +1,192 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\effects\effectCards.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\effects\effectCards.egg'"
+}
+<Texture> effectWitch {
+  "phase_2/maps/effectWitch.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectWitch_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectTaboo {
+  "phase_2/maps/effectTaboo.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectTaboo_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectPirate {
+  "phase_2/maps/effectPirate.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectPirate_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectMojo {
+  "phase_2/maps/effectMojo.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectMojo_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectJolly {
+  "phase_2/maps/effectJolly.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectJolly_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectCloth {
+  "phase_2/maps/effectCloth.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectCloth_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> blank {
+  "phase_2/maps/blank.jpg"
+  <Scalar> format { luminance }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> effectCards.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> effectCloth {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectCloth }
+          <VertexRef> { 0 1 2 <Ref> { effectCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectCloth }
+          <VertexRef> { 2 1 3 <Ref> { effectCards.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectMojo {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectMojo }
+          <VertexRef> { 0 1 2 <Ref> { effectCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectMojo }
+          <VertexRef> { 2 1 3 <Ref> { effectCards.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectPirate {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectPirate }
+          <VertexRef> { 0 1 2 <Ref> { effectCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectPirate }
+          <VertexRef> { 2 1 3 <Ref> { effectCards.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectTaboo {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectTaboo }
+          <VertexRef> { 0 1 2 <Ref> { effectCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectTaboo }
+          <VertexRef> { 2 1 3 <Ref> { effectCards.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectWitch {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectWitch }
+          <VertexRef> { 0 1 2 <Ref> { effectCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectWitch }
+          <VertexRef> { 2 1 3 <Ref> { effectCards.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectJolly {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectJolly }
+          <VertexRef> { 0 1 2 <Ref> { effectCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectJolly }
+          <VertexRef> { 2 1 3 <Ref> { effectCards.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> blank {
+        <Polygon> {
+          <TRef> { blank }
+          <VertexRef> { 0 1 2 <Ref> { effectCards.egg } }
+        }
+        <Polygon> {
+          <TRef> { blank }
+          <VertexRef> { 2 1 3 <Ref> { effectCards.egg } }
+        }
+      }
+    }
+  }
+}

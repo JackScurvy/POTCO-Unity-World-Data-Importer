@@ -1,0 +1,54 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\vegetation\moss_a.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\vegetation\moss_a.egg'"
+}
+<Texture> vege_jungle_palette_4amla_1 {
+  "phase_3/maps/vege_jungle_palette_4amla_1.jpg"
+  <Scalar> alpha-file { "phase_3/maps/vege_jungle_palette_4amla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> moss_a.egg {
+  <Vertex> 0 {
+    8.2885103225708 1.4582200050354 9.75592041015625
+    <UV> { 0.62695300579071 0.49804699420929 }
+    <Normal> { 0.0450894050300121 -0.992897152900696 0.110101014375687 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -7.53514003753662 1.08282005786896 12.8507995605469
+    <UV> { 0.74804699420929 0.49804699420929 }
+    <Normal> { 0.0450894050300121 -0.992897152900696 0.110101014375687 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    7.53514003753662 -1.08282005786896 -12.8507995605469
+    <UV> { 0.62695300579071 0.37695300579071 }
+    <Normal> { 0.0450894050300121 -0.992897152900696 0.110101014375687 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -8.2885103225708 -1.4582200050354 -9.75592041015625
+    <UV> { 0.74804699420929 0.37695300579071 }
+    <Normal> { 0.0450894050300121 -0.992897152900696 0.110101014375687 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> moss_a {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { vege_jungle_palette_4amla_1 }
+      <VertexRef> { 0 1 2 <Ref> { moss_a.egg } }
+    }
+    <Polygon> {
+      <TRef> { vege_jungle_palette_4amla_1 }
+      <VertexRef> { 2 1 3 <Ref> { moss_a.egg } }
+    }
+  }
+}

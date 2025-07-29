@@ -1,0 +1,52 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\caves\cave_d_lava.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\caves\cave_d_lava.egg'"
+}
+<Texture> caves_palette_3cmla_3 {
+  "phase_4/maps/caves_palette_3cmla_3.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> cave_d_lava.egg {
+  <Vertex> 0 {
+    91.6911010742188 -299.303985595703 -5.59986189363482e-11
+    <UV> { 0.25195300579071 0.99804699420929 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 0.87109375 0.66015625 1 }
+  }
+  <Vertex> 1 {
+    772.426025390625 -299.303985595703 -5.15378850707293e-11
+    <UV> { 0.25195300579071 0.62695300579071 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 0.87109375 0.66015625 1 }
+  }
+  <Vertex> 2 {
+    92.6454010009766 419.761993408203 6.64106131198494e-11
+    <UV> { 0.62304699420929 0.99804699420929 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 0.87109375 0.66015625 1 }
+  }
+  <Vertex> 3 {
+    772.426025390625 419.761993408203 1.6083469278616e-10
+    <UV> { 0.62304699420929 0.62695300579071 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 0.87109375 0.66015625 1 }
+  }
+}
+<Group> {
+  <Group> cave_lava {
+    <Polygon> {
+      <TRef> { caves_palette_3cmla_3 }
+      <VertexRef> { 0 1 2 <Ref> { cave_d_lava.egg } }
+    }
+    <Polygon> {
+      <TRef> { caves_palette_3cmla_3 }
+      <VertexRef> { 2 1 3 <Ref> { cave_d_lava.egg } }
+    }
+  }
+}

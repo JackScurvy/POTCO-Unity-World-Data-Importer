@@ -1,0 +1,245 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\gui\chatbox.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\gui\chatbox.egg'"
+}
+<Texture> gui_palette_1llla_1 {
+  "phase_2/maps/gui_palette_1llla_1.jpg"
+  <Scalar> format { luminance }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> chatbox.egg {
+  <Vertex> 0 {
+    1 0 0
+    <UV> { 0.0477136336266994 0.504808366298676 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    3.38134002685547 0 1.27032005786896
+    <UV> { 0.290062189102173 0.609014689922333 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    2.18573999404907 0 1.27032005786896
+    <UV> { 0.171436205506325 0.609014689922333 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    1 0 2
+    <UV> { 0.0537883043289185 0.667247951030731 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    0.682419002056122 0 1.38241004943848
+    <UV> { 0.0222782976925373 0.618209302425385 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    1 0 1.27032005786896
+    <UV> { 0.0537883043289185 0.609014689922333 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    9.99450016021729 0 1.27032005786896
+    <UV> { 0.946211993694305 0.609014689922333 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    10.3121004104614 0 1.38241004943848
+    <UV> { 0.977721929550171 0.618209302425385 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    10 0 2
+    <UV> { 0.946211993694305 0.667247951030731 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    0.476924985647202 0 2
+    <UV> { 0.00188946910202503 0.667247951030731 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    0.514288008213043 0 1.64394998550415
+    <UV> { 0.00559653155505657 0.639663755893707 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    10.5176000595093 0 2
+    <UV> { 0.998108386993408 0.667247951030731 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 12 {
+    10.4801998138428 0 1.64394998550415
+    <UV> { 0.994403541088104 0.639663755893707 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 13 {
+    0.476925015449524 0 3
+    <UV> { 0.00188946910202503 0.936520576477051 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 14 {
+    1 0 3
+    <UV> { 0.0537883043289185 0.936520576477051 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 15 {
+    10 0 3
+    <UV> { 0.946211993694305 0.936520576477051 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 16 {
+    10.5175800323486 0 3
+    <UV> { 0.998108386993408 0.936520576477051 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 17 {
+    10.4802198410034 0 3.33626198768616
+    <UV> { 0.994403541088104 0.96410471200943 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 18 {
+    0.514288008213043 0 3.33626198768616
+    <UV> { 0.00559653155505657 0.96410471200943 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 19 {
+    1 0 3.70988702774048
+    <UV> { 0.0537883043289185 0.994753777980804 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 20 {
+    0.682419002056122 0 3.5978000164032
+    <UV> { 0.0222782976925373 0.985559225082397 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 21 {
+    9.99450016021729 0 3.70988702774048
+    <UV> { 0.946211993694305 0.994753777980804 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 22 {
+    10.3120803833008 0 3.5978000164032
+    <UV> { 0.977721929550171 0.985559225082397 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> chatBalloon {
+  <Group> bottom {
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 0 1 2 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 3 4 5 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 6 7 8 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 9 10 3 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 3 10 4 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 11 8 12 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 12 8 7 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 5 2 3 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 3 2 1 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 3 1 8 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 8 1 6 <Ref> { chatbox.egg } }
+    }
+  }
+  <Group> middle {
+    <Transform> {
+      <Translate> { 1 0 2 }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 13 9 14 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 14 9 3 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 14 3 15 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 15 3 8 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 15 8 16 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 16 8 11 <Ref> { chatbox.egg } }
+    }
+  }
+  <Group> top {
+    <Transform> {
+      <Translate> { 1 0 3 }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 15 16 17 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 18 13 14 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 19 20 14 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 14 20 18 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 19 14 21 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 21 14 15 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 21 15 22 <Ref> { chatbox.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_1llla_1 }
+      <VertexRef> { 22 15 17 <Ref> { chatbox.egg } }
+    }
+  }
+}

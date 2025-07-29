@@ -1,0 +1,815 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\textureCards\sailLogo.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\textureCards\sailLogo.egg'"
+}
+<Texture> ship_sailBP_patches {
+  "phase_2/maps/ship_sailBP_patches.jpg"
+  <Scalar> alpha-file { "phase_2/maps/ship_sailBP_patches_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_logo_wasp {
+  "phase_2/maps/pir_t_shp_logo_wasp.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_logo_wasp_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_logo_spider {
+  "phase_2/maps/pir_t_shp_logo_spider.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_logo_spider_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_logo_snake {
+  "phase_2/maps/pir_t_shp_logo_snake.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_logo_snake_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_logo_bandit_04 {
+  "phase_2/maps/pir_t_shp_logo_bandit_04.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_logo_bandit_04_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_logo_bandit_03 {
+  "phase_2/maps/pir_t_shp_logo_bandit_03.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_logo_bandit_03_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_logo_bandit_02 {
+  "phase_2/maps/pir_t_shp_logo_bandit_02.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_logo_bandit_02_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_logo_bandit_01 {
+  "phase_2/maps/pir_t_shp_logo_bandit_01.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_logo_bandit_01_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_logo_StormCloud {
+  "phase_2/maps/pir_t_shp_logo_StormCloud.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_logo_StormCloud_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_logo_SkullCross {
+  "phase_2/maps/pir_t_shp_logo_SkullCross.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_logo_SkullCross_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_logo_Shark {
+  "phase_2/maps/pir_t_shp_logo_Shark.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_logo_Shark_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_logo_Octopus {
+  "phase_2/maps/pir_t_shp_logo_Octopus.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_logo_Octopus_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_logo_Mermaid {
+  "phase_2/maps/pir_t_shp_logo_Mermaid.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_logo_Mermaid_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_log_wolf_a {
+  "phase_2/maps/pir_t_shp_log_wolf_a.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_log_wolf_a_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_log_unicorn {
+  "phase_2/maps/pir_t_shp_log_unicorn.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_log_unicorn_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_log_swordandshield {
+  "phase_2/maps/pir_t_shp_log_swordandshield.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_log_swordandshield_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_log_spanishbull {
+  "phase_2/maps/pir_t_shp_log_spanishbull.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_log_spanishbull_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_log_rose {
+  "phase_2/maps/pir_t_shp_log_rose.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_log_rose_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_log_piercedheart {
+  "phase_2/maps/pir_t_shp_log_piercedheart.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_log_piercedheart_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_log_navyTreasure_a {
+  "phase_2/maps/pir_t_shp_log_navyTreasure_a.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_log_navyTreasure_a_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_log_lion {
+  "phase_2/maps/pir_t_shp_log_lion.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_log_lion_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_log_hawk_solid {
+  "phase_2/maps/pir_t_shp_log_hawk_solid.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_log_hawk_solid_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_log_flame {
+  "phase_2/maps/pir_t_shp_log_flame.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_log_flame_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_log_eitcTreasure_a {
+  "phase_2/maps/pir_t_shp_log_eitcTreasure_a.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_log_eitcTreasure_a_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_log_dragon {
+  "phase_2/maps/pir_t_shp_log_dragon.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_log_dragon_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_shp_log_angelwings {
+  "phase_2/maps/pir_t_shp_log_angelwings.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_shp_log_angelwings_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> logo_spanish_flag {
+  "phase_2/maps/logo_spanish_flag.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> logo_redSkull {
+  "phase_2/maps/logo_redSkull.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> logo_french_flag {
+  "phase_2/maps/logo_french_flag.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> logo_eitc_emblem {
+  "phase_2/maps/logo_eitc_emblem.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> logo_eitc {
+  "phase_2/maps/logo_eitc.jpg"
+  <Scalar> alpha-file { "phase_2/maps/logo_eitc_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> sailLogo.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> logo_redSkull {
+        <Polygon> {
+          <TRef> { logo_redSkull }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { logo_redSkull }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> ship_sailBP_patches {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { ship_sailBP_patches }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { ship_sailBP_patches }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> logo_eitc {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { logo_eitc }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { logo_eitc }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> logo_eitc_emblem {
+        <Polygon> {
+          <TRef> { logo_eitc_emblem }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { logo_eitc_emblem }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> logo_french_flag {
+        <Polygon> {
+          <TRef> { logo_french_flag }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { logo_french_flag }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> logo_spanish_flag {
+        <Polygon> {
+          <TRef> { logo_spanish_flag }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { logo_spanish_flag }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_logo_bandit_01 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_bandit_01 }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_bandit_01 }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_logo_bandit_02 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_bandit_02 }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_bandit_02 }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_logo_bandit_03 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_bandit_03 }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_bandit_03 }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_logo_bandit_04 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_bandit_04 }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_bandit_04 }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_log_eitcTreasure_a {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_eitcTreasure_a }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_eitcTreasure_a }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_log_navyTreasure_a {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_navyTreasure_a }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_navyTreasure_a }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_log_unicorn {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_unicorn }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_unicorn }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_log_lion {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_lion }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_lion }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_logo_wasp {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_wasp }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_wasp }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_logo_spider {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_spider }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_spider }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_logo_snake {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_snake }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_snake }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_log_dragon {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_dragon }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_dragon }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_log_angelwings {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_angelwings }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_angelwings }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_log_flame {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_flame }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_flame }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_log_hawk_solid {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_hawk_solid }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_hawk_solid }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_log_piercedheart {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_piercedheart }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_piercedheart }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_log_spanishbull {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_spanishbull }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_spanishbull }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_log_swordandshield {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_swordandshield }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_swordandshield }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_log_hawk_solid {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_hawk_solid }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_hawk_solid }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_log_wolf_a {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_wolf_a }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_wolf_a }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_log_rose {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_rose }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_log_rose }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_logo_SkullCross {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_SkullCross }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_SkullCross }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_logo_Octopus {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_Octopus }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_Octopus }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_logo_Shark {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_Shark }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_Shark }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_logo_Mermaid {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_Mermaid }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_Mermaid }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_shp_logo_StormCloud {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_StormCloud }
+          <BFace> { 1 }
+          <VertexRef> { 0 1 2 <Ref> { sailLogo.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_shp_logo_StormCloud }
+          <BFace> { 1 }
+          <VertexRef> { 2 1 3 <Ref> { sailLogo.egg } }
+        }
+      }
+    }
+  }
+}

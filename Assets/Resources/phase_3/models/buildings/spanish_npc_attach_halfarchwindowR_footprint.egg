@@ -1,0 +1,93 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\buildings\spanish_npc_attach_halfarchwindowR_footprint.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\buildings\spanish_npc_attach_halfarchwindowR_footprint.egg'"
+}
+<Texture> footprints_palette_3cmla_1 {
+  "phase_3/maps/footprints_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> spanish_npc_attach_halfarchwindowR_footprint.egg {
+  <Vertex> 0 {
+    0 0 0
+    <UV> { 0.185605496168137 0.4375 }
+    <Normal> { 3.78925057997748e-10 5.7936999642294e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -9.36724031674885e-10 1.31536996364594 -1.48432002800014e-10
+    <UV> { 0.185605496168137 0.483124703168869 }
+    <Normal> { 3.78925057997748e-10 5.7936999642294e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -3.38530993461609 1.85287563070347e-09 3.72259889580562e-10
+    <UV> { 0.126894250512123 0.4375 }
+    <Normal> { 3.78925057997748e-10 5.7936999642294e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -1.83303999900818 1.24055004119873 5.67474123247536e-10
+    <UV> { 0.153815254569054 0.480529755353928 }
+    <Normal> { 3.78925057997748e-10 5.7936999642294e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -1.83303999900818 13.1600999832153 5.18228182588842e-10
+    <UV> { 0.153815254569054 0.893969476222992 }
+    <Normal> { 3.78925057997748e-10 5.7936999642294e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -3.38530993461609 14.4006004333496 3.05915098808285e-10
+    <UV> { 0.126894250512123 0.936999022960663 }
+    <Normal> { 3.78925057997748e-10 5.7936999642294e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -0.0138839995488524 13.0996999740601 -4.1470588074688e-10
+    <UV> { 0.185364753007889 0.891875028610229 }
+    <Normal> { 3.78925057997748e-10 5.7936999642294e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    -0.0138841001316905 14.4151000976563 -4.11278650025437e-10
+    <UV> { 0.185364753007889 0.9375 }
+    <Normal> { 3.78925057997748e-10 5.7936999642294e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> footprint {
+    <Model> { 1 }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 0 1 2 <Ref> { spanish_npc_attach_halfarchwindowR_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 2 1 3 <Ref> { spanish_npc_attach_halfarchwindowR_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 3 4 2 <Ref> { spanish_npc_attach_halfarchwindowR_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 2 4 5 <Ref> { spanish_npc_attach_halfarchwindowR_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 6 7 4 <Ref> { spanish_npc_attach_halfarchwindowR_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 4 7 5 <Ref> { spanish_npc_attach_halfarchwindowR_footprint.egg } }
+    }
+  }
+}

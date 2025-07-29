@@ -1,0 +1,530 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\effects\deathsoul.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\effects\deathsoul.egg'"
+}
+<Texture> Jolly_skull {
+  "phase_3/maps/Jolly_skull.jpg"
+  <Scalar> alpha-file { "phase_3/maps/Jolly_skull_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> deathsoul.egg {
+  <Vertex> 0 {
+    -1.19146001338959 -3.33543992042542 1.14058451572419e-07
+    <UV> { 7.76138986413599e-10 1.0254499912262 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.490196108818054 }
+  }
+  <Vertex> 1 {
+    -0.828486979007721 -3.33543992042542 1.14058451572419e-07
+    <UV> { 0.154790997505188 1.0254499912262 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.270588248968124 }
+  }
+  <Vertex> 2 {
+    -0.971719980239868 -2.53846001625061 8.68049951918692e-08
+    <UV> { 7.76138986413599e-10 1.51032996177673 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.48235297203064 }
+  }
+  <Vertex> 3 {
+    -0.719328999519348 -2.53846001625061 8.68049951918692e-08
+    <UV> { 0.340566992759705 1.60594999790192 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.65490198135376 }
+  }
+  <Vertex> 4 {
+    -1.09467005729675 -1.61544001102448 5.52414647359001e-08
+    <UV> { 7.76138986413599e-10 1.99521994590759 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.321568638086319 }
+  }
+  <Vertex> 5 {
+    -0.734082996845245 -1.61544001102448 5.52414647359001e-08
+    <UV> { 0.170113995671272 1.99165999889374 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -0.764819025993347 -0.754537999629974 2.58021266574815e-08
+    <UV> { -0.0379125997424126 2.48009991645813 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    -1.1331399679184 -0.754537999629974 2.58021266574815e-08
+    <UV> { 7.76138986413599e-10 2.48009991645813 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.321568638086319 }
+  }
+  <Vertex> 8 {
+    -1.49222004413605 0.670795023441315 -2.2915138231383e-08
+    <UV> { 7.76138986413599e-10 2.96497011184692 }
+    <Normal> { -6.45723918779595e-10 3.35201484347181e-08 1 }
+    <RGBA> { 1 1 1 0.176470592617989 }
+  }
+  <Vertex> 9 {
+    -1.03411996364594 0.670795023441315 -2.2915138231383e-08
+    <UV> { 0.366614013910294 3.13046002388 }
+    <Normal> { -7.55417006725878e-10 3.39020900241849e-08 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    1.48345005512238 1.49913001060486 -5.12408178110491e-08
+    <UV> { 1 3.44985008239746 }
+    <Normal> { 1.2432342932911e-09 3.49186315418137e-08 1 }
+    <RGBA> { 1 1 1 0.0549019649624825 }
+  }
+  <Vertex> 11 {
+    1.06419003009796 1.49913001060486 -5.07917832237581e-08
+    <UV> { 0.86932897567749 3.64194989204407 }
+    <Normal> { 5.29419008632459e-10 3.37229053570809e-08 1 }
+    <RGBA> { 1 1 1 0.956862807273865 }
+  }
+  <Vertex> 12 {
+    1.50785005092621 0.0851441025733948 -2.84633294711512e-09
+    <UV> { 1 2.96497011184692 }
+    <Normal> { 3.10807851677808e-10 3.32965583993428e-08 1 }
+    <RGBA> { 1 1 1 0.023529414087534 }
+  }
+  <Vertex> 13 {
+    1.13530004024506 0.0851441025733948 -2.84633294711512e-09
+    <UV> { 0.780309021472931 2.72660994529724 }
+    <Normal> { -7.55417006725878e-10 3.37713323972366e-08 1 }
+    <RGBA> { 1 1 1 0.956862807273865 }
+  }
+  <Vertex> 14 {
+    -1.88025999069214 3.11366009712219 -1.06541214961453e-07
+    <UV> { 0.0264778006821871 3.95459008216858 }
+    <Normal> { -8.66529070719935e-10 3.33619105674643e-08 1 }
+    <RGBA> { 1 1 1 0.0274509824812412 }
+  }
+  <Vertex> 15 {
+    -1.27872002124786 3.11366009712219 -1.06054791615406e-07
+    <UV> { 0.181268006563187 3.87455010414124 }
+    <Normal> { -4.28635626992246e-10 3.5184562818813e-08 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 16 {
+    -1.86570000648499 4.73442983627319 -1.62013122917415e-07
+    <UV> { 7.76138986413599e-10 4.41961002349854 }
+    <Normal> { -6.67110366947554e-10 3.5112744711796e-08 1 }
+    <RGBA> { 1 1 1 0.0156862754374743 }
+  }
+  <Vertex> 17 {
+    -1.26612997055054 4.73442983627319 -1.62013122917415e-07
+    <UV> { -0.118271999061108 4.41961002349854 }
+    <Normal> { 0 3.47237296693947e-08 1 }
+    <RGBA> { 1 1 1 0.929411828517914 }
+  }
+  <Vertex> 18 {
+    0.949590981006622 3.11366009712219 -1.06054791615406e-07
+    <UV> { 0.830417990684509 4.03219985961914 }
+    <Normal> { 3.77235825910205e-10 3.46569137832375e-08 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 19 {
+    1.70139002799988 4.73442983627319 -1.62013307658526e-07
+    <UV> { 0.765190005302429 4.38823986053467 }
+    <Normal> { 0 3.46246906701708e-08 1 }
+    <RGBA> { 1 1 1 0.921568691730499 }
+  }
+  <Vertex> 20 {
+    1.34438002109528 3.11366009712219 -1.06541214961453e-07
+    <UV> { 1.25153994560242 3.855299949646 }
+    <Normal> { 1.29463406661756e-09 3.36347589779962e-08 1 }
+    <RGBA> { 1 1 1 0.0901960805058479 }
+  }
+  <Vertex> 21 {
+    2.30096006393433 4.73442983627319 -1.62013307658526e-07
+    <UV> { 0.964133024215698 4.28060007095337 }
+    <Normal> { 4.40110364818835e-10 3.3758762896241e-08 1 }
+    <RGBA> { 1 1 1 0.345098048448563 }
+  }
+  <Vertex> 22 {
+    -1.89675998687744 9.21259021759033 -3.15276224682748e-07
+    <UV> { 7.76138986413599e-10 5.38935995101929 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 23 {
+    -2.01759004592896 6.81298017501831 -2.33151610018467e-07
+    <UV> { -0.0992920994758606 5.04348993301392 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 24 {
+    -1.13378000259399 9.21259021759033 -3.15276224682748e-07
+    <UV> { 0.154262006282806 5.3310399055481 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.125490203499794 }
+  }
+  <Vertex> 25 {
+    -1.52216994762421 6.81298017501831 -2.33151610018467e-07
+    <UV> { -0.0332897007465363 5.04348993301392 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.831372618675232 }
+  }
+  <Vertex> 26 {
+    -1.7913099527359 11.8850002288818 -4.06732311830638e-07
+    <UV> { -0.165441006422043 6.12211990356445 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.00784313771873713 }
+  }
+  <Vertex> 27 {
+    -0.980726003646851 11.8850002288818 -4.06732311830638e-07
+    <UV> { 0.0879566967487335 6.04262018203735 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 28 {
+    0.486461013555527 -2.53846001625061 8.68049951918692e-08
+    <UV> { 1.11498999595642 1.51032996177673 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.156862750649452 }
+  }
+  <Vertex> 29 {
+    0.790503025054932 -3.33543992042542 1.14058451572419e-07
+    <UV> { 0.845209002494812 1.0254499912262 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.0862745121121407 }
+  }
+  <Vertex> 30 {
+    0.738852977752686 -2.53846001625061 8.68049951918692e-08
+    <UV> { 0.953664004802704 1.62285995483398 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.376470625400543 }
+  }
+  <Vertex> 31 {
+    1.153480052948 -3.33543992042542 1.14058451572419e-07
+    <UV> { 1 1.0254499912262 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.160784319043159 }
+  }
+  <Vertex> 32 {
+    0.776463985443115 -1.61544001102448 5.52414647359001e-08
+    <UV> { 0.737342000007629 2.10607004165649 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.921568691730499 }
+  }
+  <Vertex> 33 {
+    0.858610987663269 -0.754537999629974 2.58021266574815e-08
+    <UV> { 0.670194983482361 2.37399005889893 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.956862807273865 }
+  }
+  <Vertex> 34 {
+    1.13705003261566 -1.61544001102448 5.52414647359001e-08
+    <UV> { 1.12332999706268 1.99521994590759 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.14509804546833 }
+  }
+  <Vertex> 35 {
+    1.32879996299744 -0.754537999629974 2.58021266574815e-08
+    <UV> { 1 2.48009991645813 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.113725498318672 }
+  }
+  <Vertex> 36 {
+    -1.77948999404907 1.49913001060486 -5.12408178110491e-08
+    <UV> { 7.76138986413599e-10 3.44985008239746 }
+    <Normal> { -8.48007719600474e-10 3.38100818453313e-08 1 }
+    <RGBA> { 1 1 1 0.011764707043767 }
+  }
+  <Vertex> 37 {
+    -1.15803003311157 1.49913001060486 -5.07917832237581e-08
+    <UV> { 0.347027987241745 3.54142999649048 }
+    <Normal> { -9.74842984113877e-10 3.32916876288891e-08 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 38 {
+    2.65539002418518 6.81298017501831 -2.33160406537536e-07
+    <UV> { 0.774937987327576 4.56027984619141 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 39 {
+    1.81432998180389 6.81298017501831 -2.33160406537536e-07
+    <UV> { 0.558286011219025 4.63733005523682 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 40 {
+    2.29541993141174 9.21259021759033 -3.15276224682748e-07
+    <UV> { 0.576390027999878 5.04958009719849 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.0313725508749485 }
+  }
+  <Vertex> 41 {
+    2.77649998664856 11.8850002288818 -4.06732311830638e-07
+    <UV> { 0.627867996692657 5.92920017242432 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.0980392247438431 }
+  }
+  <Vertex> 42 {
+    3.05839991569519 9.21259021759033 -3.15276224682748e-07
+    <UV> { 0.878001987934113 5.25697994232178 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.0196078438311815 }
+  }
+  <Vertex> 43 {
+    3.55759000778198 11.8850002288818 -4.06732311830638e-07
+    <UV> { 0.844272971153259 5.96050977706909 }
+    <Normal> { 0 3.42285417787025e-08 1 }
+    <RGBA> { 1 1 1 0.352941185235977 }
+  }
+}
+<Group> {
+  <Group> plane {
+    <Billboard> { axis }
+    <Transform> {
+      <Rotate> { 90.000001961151 1 0 0 }
+    }
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 0 1 2 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 2 1 3 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 4 2 5 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 5 2 3 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 5 6 4 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 4 6 7 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 7 6 8 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 8 6 9 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 10 11 12 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 12 11 13 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 14 15 16 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 16 15 17 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 15 18 17 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 17 18 19 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 20 21 18 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 18 21 19 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 22 23 24 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 24 23 25 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 22 24 26 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 26 24 27 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 3 1 28 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 28 1 29 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 28 29 30 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 30 29 31 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 3 28 5 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 5 28 32 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 5 32 6 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 6 32 33 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 28 30 32 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 32 30 34 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 32 34 33 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 33 34 35 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 9 6 13 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 13 6 33 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 13 33 12 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 12 33 35 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 36 8 37 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 37 8 9 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 37 9 11 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 11 9 13 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 10 20 11 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 11 20 18 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 11 18 37 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 37 18 15 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 37 15 36 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 36 15 14 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 21 38 19 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 19 38 39 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 19 39 17 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 17 39 25 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 17 25 16 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 16 25 23 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 25 39 24 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 24 39 40 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 24 40 27 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 27 40 41 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 39 38 40 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 40 38 42 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 40 42 41 <Ref> { deathsoul.egg } }
+    }
+    <Polygon> {
+      <TRef> { Jolly_skull }
+      <VertexRef> { 41 42 43 <Ref> { deathsoul.egg } }
+    }
+  }
+}

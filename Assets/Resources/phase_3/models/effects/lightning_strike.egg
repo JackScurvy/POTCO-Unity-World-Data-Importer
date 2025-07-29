@@ -1,0 +1,56 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\effects\lightning_strike.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\effects\lightning_strike.egg'"
+}
+<Texture> effects_palette_4amla_1 {
+  "phase_3/maps/effects_palette_4amla_1.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effects_palette_4amla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> lightning_strike.egg {
+  <Vertex> 0 {
+    88.6762008666992 -4.614336343578e-11 -20.9640007019043
+    <UV> { 0.24609400331974 0.00390625 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    88.6762008666992 -4.614336343578e-11 292.278015136719
+    <UV> { 0.24609400331974 0.496094256639481 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -56.6085014343262 4.614336343578e-11 -20.9638996124268
+    <UV> { 0.00390599993988872 0.00390625 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -56.6085014343262 4.614336343578e-11 292.278015136719
+    <UV> { 0.00390599993988872 0.496094256639481 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> pPlane1 {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { effects_palette_4amla_1 }
+      <BFace> { 1 }
+      <VertexRef> { 0 1 2 <Ref> { lightning_strike.egg } }
+    }
+    <Polygon> {
+      <TRef> { effects_palette_4amla_1 }
+      <BFace> { 1 }
+      <VertexRef> { 2 1 3 <Ref> { lightning_strike.egg } }
+    }
+  }
+}

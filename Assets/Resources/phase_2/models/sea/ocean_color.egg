@@ -1,0 +1,96 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\sea\ocean_color.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\sea\ocean_color.egg'"
+}
+<Texture> ocean_color_default {
+  "phase_2/maps/ocean_color_default.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> ocean_color_1 {
+  "phase_2/maps/ocean_color_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> default_inv_alpha {
+  "phase_2/maps/default_inv_alpha.jpg"
+  <Scalar> format { luminance }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> ocean_color.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> default_inv_alpha {
+        <Polygon> {
+          <TRef> { default_inv_alpha }
+          <VertexRef> { 0 1 2 <Ref> { ocean_color.egg } }
+        }
+        <Polygon> {
+          <TRef> { default_inv_alpha }
+          <VertexRef> { 2 1 3 <Ref> { ocean_color.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> ocean_color_default {
+        <Polygon> {
+          <TRef> { ocean_color_default }
+          <VertexRef> { 0 1 2 <Ref> { ocean_color.egg } }
+        }
+        <Polygon> {
+          <TRef> { ocean_color_default }
+          <VertexRef> { 2 1 3 <Ref> { ocean_color.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> ocean_color_1 {
+        <Polygon> {
+          <TRef> { ocean_color_1 }
+          <VertexRef> { 0 1 2 <Ref> { ocean_color.egg } }
+        }
+        <Polygon> {
+          <TRef> { ocean_color_1 }
+          <VertexRef> { 2 1 3 <Ref> { ocean_color.egg } }
+        }
+      }
+    }
+  }
+}

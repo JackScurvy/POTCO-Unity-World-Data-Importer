@@ -1,0 +1,234 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\textureCards\basic_unlimited.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\textureCards\basic_unlimited.egg'"
+}
+<Texture> gui_but_palette_4alla_1 {
+  "phase_2/maps/gui_but_palette_4alla_1.jpg"
+  <Scalar> alpha-file { "phase_2/maps/gui_but_palette_4alla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> but_nav_over {
+  "phase_2/maps/but_nav_over.jpg"
+  <Scalar> alpha-file { "phase_2/maps/but_nav_over_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> but_nav_down {
+  "phase_2/maps/but_nav_down.jpg"
+  <Scalar> alpha-file { "phase_2/maps/but_nav_down_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> but_nav_disabled {
+  "phase_2/maps/but_nav_disabled.jpg"
+  <Scalar> alpha-file { "phase_2/maps/but_nav_disabled_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> but_nav {
+  "phase_2/maps/but_nav.jpg"
+  <Scalar> alpha-file { "phase_2/maps/but_nav_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> basic_unlimited.egg {
+  <Vertex> 0 {
+    -0.179167002439499 0 0.179167002439499
+    <UV> { 0.6875 0.99804699420929 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.179167002439499 0 -0.179167002439499
+    <UV> { 0.6875 0.833984017372131 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.179167002439499 0 0.179167002439499
+    <UV> { 0.851562976837158 0.99804699420929 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.179167002439499 0 -0.179167002439499
+    <UV> { 0.851562976837158 0.833984017372131 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.714582979679108 0 0.506250023841858
+    <UV> { 0.00195312988944352 0.482421785593033 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.714582979679108 0 -0.506250023841858
+    <UV> { 0.00195312988944352 0.011718800291419 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.714582979679108 0 0.506250023841858
+    <UV> { 0.667969107627869 0.482421785593033 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.714582979679108 0 -0.506250023841858
+    <UV> { 0.667969107627869 0.011718800291419 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -0.731249988079071 0 0.550000011920929
+    <UV> { 0.00195312988944352 0.99804699420929 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    -0.731249988079071 0 -0.550000011920929
+    <UV> { 0.00195312988944352 0.48632800579071 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    0.731249988079071 0 0.550000011920929
+    <UV> { 0.683594107627869 0.99804699420929 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    0.731249988079071 0 -0.550000011920929
+    <UV> { 0.683594107627869 0.48632800579071 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 12 {
+    -0.243750005960464 0 0.0604166984558105
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 13 {
+    -0.243750005960464 0 -0.0604166984558105
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 14 {
+    0.243750005960464 0 0.0604166984558105
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 15 {
+    0.243750005960464 0 -0.0604166984558105
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> but_compass {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_but_palette_4alla_1 }
+          <VertexRef> { 0 1 2 <Ref> { basic_unlimited.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_but_palette_4alla_1 }
+          <VertexRef> { 2 1 3 <Ref> { basic_unlimited.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> but_message_panel {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_but_palette_4alla_1 }
+          <VertexRef> { 4 5 6 <Ref> { basic_unlimited.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_but_palette_4alla_1 }
+          <VertexRef> { 6 5 7 <Ref> { basic_unlimited.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> but_message_panel_border {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_but_palette_4alla_1 }
+          <VertexRef> { 8 9 10 <Ref> { basic_unlimited.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_but_palette_4alla_1 }
+          <VertexRef> { 10 9 11 <Ref> { basic_unlimited.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> but_nav {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { but_nav }
+          <VertexRef> { 12 13 14 <Ref> { basic_unlimited.egg } }
+        }
+        <Polygon> {
+          <TRef> { but_nav }
+          <VertexRef> { 14 13 15 <Ref> { basic_unlimited.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> but_nav_disabled {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { but_nav_disabled }
+          <VertexRef> { 12 13 14 <Ref> { basic_unlimited.egg } }
+        }
+        <Polygon> {
+          <TRef> { but_nav_disabled }
+          <VertexRef> { 14 13 15 <Ref> { basic_unlimited.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> but_nav_down {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { but_nav_down }
+          <VertexRef> { 12 13 14 <Ref> { basic_unlimited.egg } }
+        }
+        <Polygon> {
+          <TRef> { but_nav_down }
+          <VertexRef> { 14 13 15 <Ref> { basic_unlimited.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> but_nav_over {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { but_nav_over }
+          <VertexRef> { 12 13 14 <Ref> { basic_unlimited.egg } }
+        }
+        <Polygon> {
+          <TRef> { but_nav_over }
+          <VertexRef> { 14 13 15 <Ref> { basic_unlimited.egg } }
+        }
+      }
+    }
+  }
+}

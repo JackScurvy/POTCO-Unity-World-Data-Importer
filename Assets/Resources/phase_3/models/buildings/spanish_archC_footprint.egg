@@ -1,0 +1,149 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\buildings\spanish_archC_footprint.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\buildings\spanish_archC_footprint.egg'"
+}
+<Texture> footprints_palette_3cmla_1 {
+  "phase_3/maps/footprints_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> spanish_archC_footprint.egg {
+  <Vertex> 0 {
+    -8.62471961975098 1.7346099615097 1.23677998398186e-10
+    <UV> { 0.108436748385429 0.751155972480774 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -13.7693996429443 1.76487004756927 -4.67029137585229e-10
+    <UV> { 0.0663494989275932 0.751650989055634 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -8.65023040771484 -2.25578999519348 -4.67029137585229e-10
+    <UV> { 0.108228251338005 0.685866475105286 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -13.7948999404907 -2.22552990913391 1.23677998398186e-10
+    <UV> { 0.0661407485604286 0.686361491680145 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -10.7372999191284 -4.23433017730713 2.47119685825581e-11
+    <UV> { 0.107109747827053 0.653494477272034 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -10.7372999191284 3.53415989875793 -2.06257164125923e-11
+    <UV> { 0.107109747827053 0.780599474906921 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -15.1703996658325 -4.23433017730713 -1.76188057199322e-11
+    <UV> { 0.0708432495594025 0.653494477272034 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    -15.1703996658325 3.53417992591858 -1.76188057199322e-11
+    <UV> { 0.0708432495594025 0.780600011348724 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    15.3888998031616 -4.23433017730713 -1.76188057199322e-11
+    <UV> { 0.0708432495594025 0.653494477272034 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    15.3888998031616 3.53416991233826 -1.76188057199322e-11
+    <UV> { 0.0708432495594025 0.780600011348724 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    10.9558000564575 -4.23433017730713 2.47119685825581e-11
+    <UV> { 0.107109747827053 0.653494477272034 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    10.9558000564575 3.53415989875793 -2.06257164125923e-11
+    <UV> { 0.107109747827053 0.780599474906921 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 12 {
+    13.7093000411987 -2.40059995651245 -4.67029137585229e-10
+    <UV> { 0.0686279982328415 0.68349701166153 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 13 {
+    13.7348003387451 1.58980000019073 1.23677998398186e-10
+    <UV> { 0.0684195011854172 0.748786509037018 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 14 {
+    8.72043991088867 -2.37034010887146 1.23677998398186e-10
+    <UV> { 0.109440997242928 0.683992505073547 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 15 {
+    8.74594020843506 1.62005996704102 -4.67029137585229e-10
+    <UV> { 0.109232500195503 0.749282002449036 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> footprint {
+    <Model> { 1 }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 0 1 2 <Ref> { spanish_archC_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 2 1 3 <Ref> { spanish_archC_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 4 5 6 <Ref> { spanish_archC_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 6 5 7 <Ref> { spanish_archC_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 8 9 10 <Ref> { spanish_archC_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 10 9 11 <Ref> { spanish_archC_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 12 13 14 <Ref> { spanish_archC_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 14 13 15 <Ref> { spanish_archC_footprint.egg } }
+    }
+  }
+}

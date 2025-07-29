@@ -1,0 +1,56 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\buildings\TallWallStone_Corner_footprint.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\buildings\TallWallStone_Corner_footprint.egg'"
+}
+<Texture> props_walls_palette_3cmla_1 {
+  "phase_3/maps/props_walls_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> TallWallStone_Corner_footprint.egg {
+  <Vertex> 0 {
+    -0.299618989229202 1.46019995212555 -6.75476230505012e-10
+    <UV> { 0.972656488418579 0.98242199420929 }
+    <Normal> { -5.60008817096502e-10 -9.51484002698066e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.299618989229202 -1.3188099861145 -6.75476230505012e-10
+    <UV> { 0.980468988418579 0.99023449420929 }
+    <Normal> { -5.60008817096502e-10 -9.51484002698066e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    1.82138001918793 0.766184985637665 6.75476230505012e-10
+    <UV> { 0.964843988418579 0.99804699420929 }
+    <Normal> { -5.60008817096502e-10 -9.51484002698066e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    2.50185990333557 -1.324049949646 6.75476230505012e-10
+    <UV> { 0.980468988418579 0.99804699420929 }
+    <Normal> { -5.60008817096502e-10 -9.51484002698066e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> footprint {
+    <Model> { 1 }
+    <Tag> Footprint {
+      Column
+    }
+    <Polygon> {
+      <TRef> { props_walls_palette_3cmla_1 }
+      <VertexRef> { 0 1 2 <Ref> { TallWallStone_Corner_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_walls_palette_3cmla_1 }
+      <VertexRef> { 2 1 3 <Ref> { TallWallStone_Corner_footprint.egg } }
+    }
+  }
+}

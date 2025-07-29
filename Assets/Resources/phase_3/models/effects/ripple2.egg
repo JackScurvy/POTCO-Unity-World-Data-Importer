@@ -1,0 +1,54 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\effects\ripple2.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\effects\ripple2.egg'"
+}
+<Texture> water_ripple2 {
+  "phase_3/maps/water_ripple2.jpg"
+  <Scalar> alpha-file { "phase_3/maps/water_ripple2_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> ripple2.egg {
+  <Vertex> 0 {
+    -1 -1 -3.26158926255982e-11
+    <UV> { 0 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    1 -1 -3.26158926255982e-11
+    <UV> { 1 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -1 1 3.26158926255982e-11
+    <UV> { 0 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    1 1 3.26158926255982e-11
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> ripple {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { water_ripple2 }
+      <VertexRef> { 0 1 2 <Ref> { ripple2.egg } }
+    }
+    <Polygon> {
+      <TRef> { water_ripple2 }
+      <VertexRef> { 2 1 3 <Ref> { ripple2.egg } }
+    }
+  }
+}

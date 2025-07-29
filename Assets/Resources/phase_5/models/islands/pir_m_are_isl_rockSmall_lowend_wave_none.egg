@@ -1,0 +1,42 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_5\models\islands\pir_m_are_isl_rockSmall_lowend_wave_none.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_5\models\islands\pir_m_are_isl_rockSmall_lowend_wave_none.egg'"
+}
+<Group> pir_m_are_isl_rockSmall_wave {
+  <Dart> { structured }
+  <Group> uvj_WakeWhiteTide1 {
+    <DCS> { net }
+    <Transform> {
+      <Rotate> { 180 -0.999999999999998 4.37113882867378e-08 4.37113882867378e-08 }
+    }
+  }
+  <Group> uvj_WakeWhiteTide2 {
+    <DCS> { net }
+    <Transform> {
+      <Rotate> { 180 -0.999999999999998 4.37113882867378e-08 4.37113882867378e-08 }
+    }
+  }
+  <Joint> wave {
+    <Joint> uvj_WakeWhiteTide1 {
+      <Transform> {
+        <Matrix4> {
+          1 0 0 0
+          0 -1 0 0
+          0 0 -1 0
+          0 0 0 1
+        }
+      }
+    }
+    <Joint> uvj_WakeWhiteTide2 {
+      <Transform> {
+        <Matrix4> {
+          1 0 0 0
+          0 -1 0 0
+          0 0 -1 0
+          0 0 0 1
+        }
+      }
+    }
+  }
+}

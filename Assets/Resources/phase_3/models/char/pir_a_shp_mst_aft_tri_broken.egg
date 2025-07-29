@@ -1,0 +1,80 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\char\pir_a_shp_mst_aft_tri_broken.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\char\pir_a_shp_mst_aft_tri_broken.egg'"
+}
+<Table> {
+  <Bundle> aft_tri {
+    <Table> "<skeleton>" {
+      <Table> transform {
+        <Xfm$Anim_S$> xform {
+          <Scalar> fps { 24 }
+          <S$Anim> h { <V> { 90 } }
+          <S$Anim> p { <V> { -70 } }
+          <S$Anim> r { <V> { 158 } }
+          <S$Anim> x { <V> { -236.054992675781 } }
+          <S$Anim> y { <V> { 19.6207008361816 } }
+          <S$Anim> z { <V> { -502.326995849609 } }
+        }
+        <Table> def_mast_base {
+          <Xfm$Anim_S$> xform {
+            <Scalar> fps { 24 }
+            <S$Anim> x { <V> { -0.407148003578186 } }
+            <S$Anim> y { <V> { -0.671253025531769 } }
+            <S$Anim> z { <V> { -1.24832999706268 } }
+          }
+          <Table> def_mast_1 {
+            <Xfm$Anim_S$> xform {
+              <Scalar> fps { 24 }
+              <S$Anim> h { <V> { 90 } }
+              <S$Anim> r { <V> { -71.7565002441406 } }
+              <S$Anim> y { <V> { 6.57130002975464 } }
+              <S$Anim> z { <V> { 19.9356994628906 } }
+            }
+            <Table> def_mast_2 {
+              <Xfm$Anim_S$> xform {
+                <Scalar> fps { 24 }
+                <S$Anim> x { <V> { 35.9613990783691 } }
+              }
+              <Table> def_sail_0_a_2 {
+                <Xfm$Anim_S$> xform {
+                  <Scalar> fps { 24 }
+                  <S$Anim> h { <V> { -99.3840026855469 } }
+                  <S$Anim> p { <V> { -63.4579010009766 } }
+                  <S$Anim> r { <V> { 67.3653030395508 } }
+                  <S$Anim> x { <V> { 10.6009998321533 } }
+                  <S$Anim> y { <V> { -38.1237983703613 } }
+                  <S$Anim> z { <V> { -8.05819988250732 } }
+                }
+                <Table> def_sail_0_a_3 {
+                  <Xfm$Anim_S$> xform {
+                    <Scalar> fps { 24 }
+                    <S$Anim> h { <V> { 19.2602996826172 } }
+                    <S$Anim> p { <V> { 1.26197004318237 } }
+                    <S$Anim> r { <V> { 21.4669990539551 } }
+                    <S$Anim> x { <V> { 50.2756996154785 } }
+                    <S$Anim> y { <V> { -4.76754999160767 } }
+                    <S$Anim> z { <V> { -5.80265998840332 } }
+                  }
+                  <Table> def_line_1 {
+                    <Xfm$Anim_S$> xform {
+                      <Scalar> fps { 24 }
+                      <S$Anim> h { <V> { -30.3922004699707 } }
+                      <S$Anim> p { <V> { 19.7064990997314 } }
+                      <S$Anim> r { <V> { -91.0559005737305 } }
+                      <S$Anim> x { <V> { 21.2756004333496 } }
+                      <S$Anim> y { <V> { -12.082200050354 } }
+                      <S$Anim> z { <V> { 14.0406999588013 } }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    <Table> morph {
+    }
+  }
+}

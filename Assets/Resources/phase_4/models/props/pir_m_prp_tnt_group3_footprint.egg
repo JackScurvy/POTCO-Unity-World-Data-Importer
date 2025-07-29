@@ -1,0 +1,117 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\props\pir_m_prp_tnt_group3_footprint.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\props\pir_m_prp_tnt_group3_footprint.egg'"
+}
+<Texture> pir_t_bld_eng_shingles_footprint {
+  "phase_3/maps/pir_t_bld_eng_shingles_footprint.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_prp_tnt_group3_footprint.egg {
+  <Vertex> 0 {
+    -3.99762010574341 1.75600004196167 0
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -4.17257022857666 12.2517995834351 0
+    <UV> { 0 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -10.46399974823 -1.23073995113373 0
+    <UV> { 1 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.69803923368454 0.529411792755127 0.486274540424347 1 }
+  }
+  <Vertex> 3 {
+    -16.4493999481201 8.4633903503418 0
+    <UV> { 0 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.69803923368454 0.529411792755127 0.486274540424347 1 }
+  }
+  <Vertex> 4 {
+    10.1968002319336 -1.98326003551483 0
+    <UV> { 1 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    3.98165011405945 4.34880018234253 0
+    <UV> { 0 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    5.88393020629883 -6.09835004806519 0
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.69803923368454 0.529411792755127 0.486274540424347 1 }
+  }
+  <Vertex> 7 {
+    1.08608996868134 -0.412216991186142 0
+    <UV> { 0 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.69803923368454 0.529411792755127 0.486274540424347 1 }
+  }
+  <Vertex> 8 {
+    -4.93065977096558 3.53674006462097 0.506088972091675
+    <UV> { 1 0 }
+    <Normal> { -0.0120448991656303 -0.0548134967684746 0.998423933982849 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    -8.11555957794189 -6.58446979522705 0
+    <UV> { 1 1 }
+    <Normal> { -0.0120448991656303 -0.0548134967684746 0.998423933982849 }
+    <RGBA> { 0.69803923368454 0.529411792755127 0.486274540424347 1 }
+  }
+  <Vertex> 10 {
+    2.92701005935669 0.207378998398781 0.506088972091675
+    <UV> { 0 0 }
+    <Normal> { -0.0120448991656303 -0.0548134967684746 0.998423933982849 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    3.66830992698669 -7.57121992111206 0
+    <UV> { 0 1 }
+    <Normal> { -0.0120448991656303 -0.0548134967684746 0.998423933982849 }
+    <RGBA> { 0.69803923368454 0.529411792755127 0.486274540424347 1 }
+  }
+}
+<Group> {
+  <Group> footprint {
+    <Model> { 1 }
+    <Polygon> {
+      <TRef> { pir_t_bld_eng_shingles_footprint }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_prp_tnt_group3_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_bld_eng_shingles_footprint }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_prp_tnt_group3_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_bld_eng_shingles_footprint }
+      <VertexRef> { 4 5 6 <Ref> { pir_m_prp_tnt_group3_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_bld_eng_shingles_footprint }
+      <VertexRef> { 6 5 7 <Ref> { pir_m_prp_tnt_group3_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_bld_eng_shingles_footprint }
+      <VertexRef> { 8 9 10 <Ref> { pir_m_prp_tnt_group3_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_bld_eng_shingles_footprint }
+      <VertexRef> { 10 9 11 <Ref> { pir_m_prp_tnt_group3_footprint.egg } }
+    }
+  }
+}

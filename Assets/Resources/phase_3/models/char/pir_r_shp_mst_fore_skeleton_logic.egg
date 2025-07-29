@@ -1,0 +1,160 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\char\pir_r_shp_mst_fore_skeleton_logic.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\char\pir_r_shp_mst_fore_skeleton_logic.egg'"
+}
+<Group> {
+  <Group> "model:collisions" {
+    <Group> "model:collision_sails" {
+      <Model> { 1 }
+      <Transform> {
+        <Translate> { -1.05734002590179 -40.5731010437012 186.029998779297 }
+      }
+      <Group> "model:collision_sail_0_front" {
+        <Collide> { Polyset descend }
+        <Scalar> collide-mask { 0x00000020 }
+        <VertexPool> vpool-collision {
+          <Vertex> 0 {
+            -28.6341037750244 -80.4946060180664 -19.5829162597656
+            <Normal> { 0.513442397117615 -0.858123958110809 5.52971268774627e-09 }
+          }
+          <Vertex> 1 {
+            30.5699005126953 -45.0709991455078 -19.9933166503906
+            <Normal> { 0.513442397117615 -0.858123958110809 5.52971268774627e-09 }
+          }
+          <Vertex> 2 {
+            30.5699005126953 -45.0709991455078 30.8762969970703
+            <Normal> { 0.513442397117615 -0.858123958110809 5.52971268774627e-09 }
+          }
+          <Vertex> 3 {
+            -28.6341037750244 -80.4945983886719 22.8865051269531
+            <Normal> { 0.513442397117615 -0.858123958110809 5.52971268774627e-09 }
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 3 <Ref> { vpool-collision } }
+        }
+      }
+      <Group> "model:collision_sail_0_back" {
+        <Collide> { Polyset descend }
+        <Scalar> collide-mask { 0x00000020 }
+        <VertexPool> vpool-collision.vpool1 {
+          <Vertex> 0 {
+            -28.6341037750244 -80.4946060180664 -19.5829162597656
+            <Normal> { -0.51344245672226 0.858124077320099 5.52971357592469e-09 }
+          }
+          <Vertex> 1 {
+            -28.6341037750244 -80.4946136474609 22.8865051269531
+            <Normal> { -0.51344245672226 0.858124077320099 5.52971357592469e-09 }
+          }
+          <Vertex> 2 {
+            30.5699024200439 -45.0709991455078 30.8762969970703
+            <Normal> { -0.51344245672226 0.858124077320099 5.52971357592469e-09 }
+          }
+          <Vertex> 3 {
+            30.5699024200439 -45.0709991455078 -19.9933166503906
+            <Normal> { -0.51344245672226 0.858124077320099 5.52971357592469e-09 }
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 3 <Ref> { vpool-collision.vpool1 } }
+        }
+      }
+      <Group> "model:collision_sail_1_front" {
+        <Collide> { Polyset descend }
+        <Scalar> collide-mask { 0x00000020 }
+        <VertexPool> vpool-collision.vpool2 {
+          <Vertex> 0 {
+            -20.0298004150391 -81.1725006103516 31.73779296875
+            <Normal> { 0.576936364173889 -0.816789031028748 7.48125916771869e-09 }
+          }
+          <Vertex> 1 {
+            27.0213031768799 -47.938102722168 31.73779296875
+            <Normal> { 0.576936364173889 -0.816789031028748 7.48125916771869e-09 }
+          }
+          <Vertex> 2 {
+            27.0213031768799 -47.938102722168 82.6073989868164
+            <Normal> { 0.576936364173889 -0.816789031028748 7.48125916771869e-09 }
+          }
+          <Vertex> 3 {
+            -20.0298004150391 -81.1725006103516 82.6073989868164
+            <Normal> { 0.576936364173889 -0.816789031028748 7.48125916771869e-09 }
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 3 <Ref> { vpool-collision.vpool2 } }
+        }
+      }
+      <Group> "model:collision_sail_1_back" {
+        <Collide> { Polyset descend }
+        <Scalar> collide-mask { 0x00000020 }
+        <VertexPool> vpool-collision.vpool3 {
+          <Vertex> 0 {
+            -20.0298004150391 -81.1725006103516 31.73779296875
+            <Normal> { -0.576936423778534 0.816789031028748 7.48126005589711e-09 }
+          }
+          <Vertex> 1 {
+            -20.0298004150391 -81.1725006103516 82.6073989868164
+            <Normal> { -0.576936423778534 0.816789031028748 7.48126005589711e-09 }
+          }
+          <Vertex> 2 {
+            27.0213012695313 -47.938102722168 82.6073989868164
+            <Normal> { -0.576936423778534 0.816789031028748 7.48126005589711e-09 }
+          }
+          <Vertex> 3 {
+            27.0213012695313 -47.938102722168 31.73779296875
+            <Normal> { -0.576936423778534 0.816789031028748 7.48126005589711e-09 }
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 3 <Ref> { vpool-collision.vpool3 } }
+        }
+      }
+    }
+    <Group> "model:collision_masts" {
+      <Model> { 1 }
+      <Group> "model:collision_mast_0" {
+        <Collide> { Tube descend }
+        <Scalar> collide-mask { 0x00000021 }
+        <VertexPool> vpool-collision.vpool4 {
+          <Vertex> 0 {
+            -0.493350148200989 6.85016441345215 -3.03135466575623
+          }
+          <Vertex> 1 {
+            -4.59304141998291 -34.3899536132813 15.4691171646118
+          }
+          <Vertex> 2 {
+            3.37904024124146 -75.0593643188477 33.9695892333984
+          }
+          <Vertex> 3 {
+            7.47873210906982 -33.8192443847656 15.4691171646118
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 3 <Ref> { vpool-collision.vpool4 } }
+        }
+      }
+      <Group> "model:collision_mast_1" {
+        <Collide> { Tube descend }
+        <Scalar> collide-mask { 0x00000021 }
+        <VertexPool> vpool-collision.vpool5 {
+          <Vertex> 0 {
+            3.51566648483276 -65.1995391845703 27.4138927459717
+          }
+          <Vertex> 1 {
+            0.224459886550903 -65.1995391845703 64.7830963134766
+          }
+          <Vertex> 2 {
+            3.51566648483276 -65.1995391845703 102.152305603027
+          }
+          <Vertex> 3 {
+            6.8068733215332 -65.1995391845703 64.7830963134766
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 3 <Ref> { vpool-collision.vpool5 } }
+        }
+      }
+    }
+  }
+}

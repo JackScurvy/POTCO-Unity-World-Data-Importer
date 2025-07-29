@@ -1,0 +1,99 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_5\models\misc\volcanoParticles.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_5\models\misc\volcanoParticles.egg'"
+}
+<Texture> effects_palette_4amla_1 {
+  "phase_3/maps/effects_palette_4amla_1.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effects_palette_4amla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effects_palette_2tmla_1 {
+  "phase_3/maps/effects_palette_2tmla_1.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effects_palette_2tmla_1_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> volcanoParticles.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0.0078125 0.984375 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0.0078125 0.015625 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 0.4921875 0.984375 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 0.4921875 0.015625 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.5 0 0.5
+    <UV> { 0.503906011581421 0.996093988418579 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.5 0 -0.5
+    <UV> { 0.503906011581421 0.503906011581421 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.5 0 0.5
+    <UV> { 0.996093988418579 0.996093988418579 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.5 0 -0.5
+    <UV> { 0.996093988418579 0.503906011581421 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> volcanoSmoke {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effects_palette_2tmla_1 }
+          <VertexRef> { 0 1 2 <Ref> { volcanoParticles.egg } }
+        }
+        <Polygon> {
+          <TRef> { effects_palette_2tmla_1 }
+          <VertexRef> { 2 1 3 <Ref> { volcanoParticles.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> volcanoLava {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effects_palette_4amla_1 }
+          <VertexRef> { 4 5 6 <Ref> { volcanoParticles.egg } }
+        }
+        <Polygon> {
+          <TRef> { effects_palette_4amla_1 }
+          <VertexRef> { 6 5 7 <Ref> { volcanoParticles.egg } }
+        }
+      }
+    }
+  }
+}

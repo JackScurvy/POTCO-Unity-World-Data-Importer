@@ -1,0 +1,33 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\sea\wake_still.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\sea\wake_still.egg'"
+}
+<Table> {
+  <Bundle> wake {
+    <Table> "<skeleton>" {
+      <Table> def_wake_1 {
+        <Xfm$Anim_S$> xform {
+          <Scalar> fps { 24 }
+        }
+        <Table> def_wake_2 {
+          <Xfm$Anim_S$> xform {
+            <Scalar> fps { 24 }
+          }
+          <Table> def_wake_3 {
+            <Xfm$Anim_S$> xform {
+              <Scalar> fps { 24 }
+            }
+            <Table> def_wake_4 {
+              <Xfm$Anim_S$> xform {
+                <Scalar> fps { 24 }
+              }
+            }
+          }
+        }
+      }
+    }
+    <Table> morph {
+    }
+  }
+}

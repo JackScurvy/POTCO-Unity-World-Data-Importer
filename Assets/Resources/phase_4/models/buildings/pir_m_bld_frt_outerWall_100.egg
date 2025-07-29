@@ -1,0 +1,111 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\buildings\pir_m_bld_frt_outerWall_100.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\buildings\pir_m_bld_frt_outerWall_100.egg'"
+}
+<Texture> fort_ext_tileset_a {
+  "phase_3/maps/fort_ext_tileset_a.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_bld_frt_outerWall_100.egg {
+  <Vertex> 0 {
+    25 0.0341921001672745 0
+    <UV> { 5.30999994277954 -0.997120022773743 }
+    <Normal> { 0.989949524402618 0 0.14142107963562 }
+    <RGBA> { 0.427451014518738 0.427451014518738 0.427451014518738 1 }
+  }
+  <Vertex> 1 {
+    12.5 0.161261007189751 87.5
+    <UV> { 5.30999994277954 0.98683899641037 }
+    <Normal> { 0.989949524402618 0 0.14142107963562 }
+    <RGBA> { 0.890196144580841 0.890196144580841 0.890196144580841 1 }
+  }
+  <Vertex> 2 {
+    25 -99.9022979736328 0
+    <UV> { 3.08999991416931 -0.997120022773743 }
+    <Normal> { 0.989949524402618 0 0.14142107963562 }
+    <RGBA> { 0.388235330581665 0.388235330581665 0.388235330581665 1 }
+  }
+  <Vertex> 3 {
+    12.5 -99.8386993408203 87.5
+    <UV> { 3.08999991416931 0.98683899641037 }
+    <Normal> { 0.989949524402618 0 0.14142107963562 }
+    <RGBA> { 0.890196144580841 0.890196144580841 0.890196144580841 1 }
+  }
+  <Vertex> 4 {
+    -12.5 -99.8386993408203 87.5
+    <UV> { 3.07999992370605 1.6599999666214 }
+    <Normal> { 0 -3.67453178995447e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    12.5 -99.8386993408203 87.5
+    <UV> { 3.08999991416931 0.98683899641037 }
+    <Normal> { 0 -3.67453178995447e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -12.5 0.161261007189751 87.5
+    <UV> { 5.30000019073486 1.6599999666214 }
+    <Normal> { 0 -3.67453178995447e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    12.5 0.161261007189751 87.5
+    <UV> { 5.30999994277954 0.98683899641037 }
+    <Normal> { 0 -3.67453178995447e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> collisions {
+    <Group> wall_01 {
+      <Collide> { Polyset descend }
+      <Scalar> collide-mask { 0x00000005 }
+      <VertexPool> vpool-collision {
+        <Vertex> 0 {
+          24.9999980926514 -100 -1.64661514645559e-07
+          <Normal> { 0.989949584007263 0 0.141421362757683 }
+        }
+        <Vertex> 1 {
+          24.9999980926514 0.1075080037117 -1.64661514645559e-07
+          <Normal> { 0.989949584007263 0 0.141421362757683 }
+        }
+        <Vertex> 2 {
+          12.4999980926514 0.1075080037117 87.5
+          <Normal> { 0.989949584007263 0 0.141421362757683 }
+        }
+        <Vertex> 3 {
+          12.4999980926514 -100 87.5
+          <Normal> { 0.989949584007263 0 0.141421362757683 }
+        }
+      }
+      <Polygon> {
+        <VertexRef> { 0 1 2 3 <Ref> { vpool-collision } }
+      }
+    }
+  }
+  <Group> outerWall_100 {
+    <Polygon> {
+      <TRef> { fort_ext_tileset_a }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_bld_frt_outerWall_100.egg } }
+    }
+    <Polygon> {
+      <TRef> { fort_ext_tileset_a }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_bld_frt_outerWall_100.egg } }
+    }
+    <Polygon> {
+      <TRef> { fort_ext_tileset_a }
+      <VertexRef> { 4 5 6 <Ref> { pir_m_bld_frt_outerWall_100.egg } }
+    }
+    <Polygon> {
+      <TRef> { fort_ext_tileset_a }
+      <VertexRef> { 6 5 7 <Ref> { pir_m_bld_frt_outerWall_100.egg } }
+    }
+  }
+}

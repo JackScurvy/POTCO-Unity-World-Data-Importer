@@ -1,0 +1,108 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\char\pir_r_shp_mst_aft_skeleton_logic.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\char\pir_r_shp_mst_aft_skeleton_logic.egg'"
+}
+<Group> {
+  <Group> "model:collisions" {
+    <Group> "model:collision_sails" {
+      <Model> { 1 }
+      <Group> "model:collision_sail_0_back" {
+        <Collide> { Polyset descend }
+        <Scalar> collide-mask { 0x00000020 }
+        <VertexPool> vpool-collision {
+          <Vertex> 0 {
+            -8.09803009033203 -18.1208000183105 12.0657997131348
+            <Normal> { 0.977817833423615 -0.209457516670227 1.67620028967974e-09 }
+          }
+          <Vertex> 1 {
+            4.05868101119995 38.6307983398438 33.730899810791
+            <Normal> { 0.977817833423615 -0.209457516670227 1.67620028967974e-09 }
+          }
+          <Vertex> 2 {
+            -8.09803009033203 -18.1208000183105 42.8216018676758
+            <Normal> { 0.977817833423615 -0.209457516670227 1.67620028967974e-09 }
+          }
+          <Vertex> 3 {
+            -8.09803104400635 -18.1208019256592 42.821605682373
+            <Normal> { 0.977979481220245 -0.208631813526154 0.00537076685577631 }
+          }
+          <Vertex> 4 {
+            4.05868148803711 38.6307983398438 33.7309036254883
+            <Normal> { 0.977979481220245 -0.208631813526154 0.00537076685577631 }
+          }
+          <Vertex> 5 {
+            4.05868148803711 40.2213020324707 95.5152053833008
+            <Normal> { 0.977979481220245 -0.208631813526154 0.00537076685577631 }
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 <Ref> { vpool-collision } }
+        }
+        <Polygon> {
+          <VertexRef> { 3 4 5 <Ref> { vpool-collision } }
+        }
+      }
+      <Group> "model:collision_sail_0_front" {
+        <Collide> { Polyset descend }
+        <Scalar> collide-mask { 0x00000020 }
+        <VertexPool> vpool-collision.vpool1 {
+          <Vertex> 0 {
+            -8.09803009033203 -18.1208000183105 12.0657997131348
+            <Normal> { -0.977817833423615 0.209457531571388 1.67620028967974e-09 }
+          }
+          <Vertex> 1 {
+            -8.09803009033203 -18.1208000183105 42.8216018676758
+            <Normal> { -0.977817833423615 0.209457531571388 1.67620028967974e-09 }
+          }
+          <Vertex> 2 {
+            4.05868101119995 38.6307983398438 33.730899810791
+            <Normal> { -0.977817833423615 0.209457531571388 1.67620028967974e-09 }
+          }
+          <Vertex> 3 {
+            4.05868148803711 38.6307983398438 33.7309036254883
+            <Normal> { -0.977979481220245 0.208631813526154 -0.00537076452746987 }
+          }
+          <Vertex> 4 {
+            -8.09803104400635 -18.1208019256592 42.821605682373
+            <Normal> { -0.977979481220245 0.208631813526154 -0.00537076452746987 }
+          }
+          <Vertex> 5 {
+            4.05868148803711 40.2213020324707 95.5152053833008
+            <Normal> { -0.977979481220245 0.208631813526154 -0.00537076452746987 }
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 <Ref> { vpool-collision.vpool1 } }
+        }
+        <Polygon> {
+          <VertexRef> { 3 4 5 <Ref> { vpool-collision.vpool1 } }
+        }
+      }
+    }
+    <Group> "model:collision_masts" {
+      <Model> { 1 }
+      <Group> "model:collision_mast_0" {
+        <Collide> { Tube descend }
+        <Scalar> collide-mask { 0x00000021 }
+        <VertexPool> vpool-collision.vpool2 {
+          <Vertex> 0 {
+            3.55552697181702 -0.115724742412567 -6.66542625427246
+          }
+          <Vertex> 1 {
+            -4.13675975799561 5.81856870651245 72.1751403808594
+          }
+          <Vertex> 2 {
+            3.55552697181702 11.7528629302979 151.015716552734
+          }
+          <Vertex> 3 {
+            11.2478141784668 5.81856870651245 72.1751403808594
+          }
+        }
+        <Polygon> {
+          <VertexRef> { 0 1 2 3 <Ref> { vpool-collision.vpool2 } }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\buildings\english_wall_no_col_60_footprint.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\buildings\english_wall_no_col_60_footprint.egg'"
+}
+<Texture> footprints_palette_3cmla_1 {
+  "phase_3/maps/footprints_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> english_wall_no_col_60_footprint.egg {
+  <Vertex> 0 {
+    2.40049004554749 2.497230052948 8.56955784112046e-10
+    <UV> { 0.03125 0.709177494049072 }
+    <Normal> { 7.12871983665764e-10 4.05284583671062e-10 1 }
+    <RGBA> { 1 0.92578125 0.86328125 1 }
+  }
+  <Vertex> 1 {
+    60 2.5 -1.33653232925468e-09
+    <UV> { 0.28125 0.709201514720917 }
+    <Normal> { 7.12871983665764e-10 4.05284583671062e-10 1 }
+    <RGBA> { 1 0.92578125 0.86328125 1 }
+  }
+  <Vertex> 2 {
+    2.40049004554749 2.5 -7.65198016061674e-10
+    <UV> { 0.03125 0.709201514720917 }
+    <Normal> { 7.12871983665764e-10 4.05284583671062e-10 1 }
+    <RGBA> { 1 0.92578125 0.86328125 1 }
+  }
+  <Vertex> 3 {
+    2.40049004554749 -2.5 -7.65198016061674e-10
+    <UV> { 0.03125 0.665798485279083 }
+    <Normal> { 7.12871983665764e-10 4.05284583671062e-10 1 }
+    <RGBA> { 1 0.92578125 0.86328125 1 }
+  }
+  <Vertex> 4 {
+    60 -2.5 -7.65197016860952e-10
+    <UV> { 0.28125 0.665798485279083 }
+    <Normal> { 7.12871983665764e-10 4.05284583671062e-10 1 }
+    <RGBA> { 1 0.92578125 0.86328125 1 }
+  }
+}
+<Group> {
+  <Group> footprint {
+    <Model> { 1 }
+    <Tag> Footprint {
+      Wall
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 0 1 2 <Ref> { english_wall_no_col_60_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 3 4 0 <Ref> { english_wall_no_col_60_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 0 4 1 <Ref> { english_wall_no_col_60_footprint.egg } }
+    }
+  }
+}

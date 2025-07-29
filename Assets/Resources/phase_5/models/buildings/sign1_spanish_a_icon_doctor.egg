@@ -1,0 +1,124 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_5\models\buildings\sign1_spanish_a_icon_doctor.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_5\models\buildings\sign1_spanish_a_icon_doctor.egg'"
+}
+<Texture> spanish_exterior_a_palette_4amla_1 {
+  "phase_5/maps/spanish_exterior_a_palette_4amla_1.jpg"
+  <Scalar> alpha-file { "phase_5/maps/spanish_exterior_a_palette_4amla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> sign1_spanish_a_icon_doctor.egg {
+  <Vertex> 0 {
+    -0.0987078994512558 4.69718980789185 -1.44766998291016
+    <UV> { 0.441761136054993 0.495851814746857 }
+    <Normal> { -1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.0987078994512558 4.67305994033813 -4.70193004608154
+    <UV> { 0.441761136054993 0.256327867507935 }
+    <Normal> { -1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -0.0987078994512558 3.74127006530762 -1.44058001041412
+    <UV> { 0.495546638965607 0.495851814746857 }
+    <Normal> { -1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -0.0987078994512558 3.71713995933533 -4.69484996795654
+    <UV> { 0.495546638965607 0.256327867507935 }
+    <Normal> { -1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.0987078994512558 2.78535008430481 -1.43350005149841
+    <UV> { 0.441761136054993 0.495851814746857 }
+    <Normal> { -1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.0987078994512558 2.76121997833252 -4.68775987625122
+    <UV> { 0.441761136054993 0.256327867507935 }
+    <Normal> { -1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.0680133998394012 4.67305994033813 -4.70193004608154
+    <UV> { 0.441761136054993 0.256327867507935 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.0680133998394012 4.69718980789185 -1.44766998291016
+    <UV> { 0.441761136054993 0.495851814746857 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    0.0680133998394012 3.71713995933533 -4.69484996795654
+    <UV> { 0.495546638965607 0.256327867507935 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    0.0680133998394012 3.74127006530762 -1.44058001041412
+    <UV> { 0.495546638965607 0.495851814746857 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    0.0680133998394012 2.76121997833252 -4.68775987625122
+    <UV> { 0.441761136054993 0.256327867507935 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    0.0680133998394012 2.78535008430481 -1.43350005149841
+    <UV> { 0.441761136054993 0.495851814746857 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> icons {
+  <Scalar> alpha { binary }
+  <Polygon> {
+    <TRef> { spanish_exterior_a_palette_4amla_1 }
+    <VertexRef> { 0 1 2 <Ref> { sign1_spanish_a_icon_doctor.egg } }
+  }
+  <Polygon> {
+    <TRef> { spanish_exterior_a_palette_4amla_1 }
+    <VertexRef> { 2 1 3 <Ref> { sign1_spanish_a_icon_doctor.egg } }
+  }
+  <Polygon> {
+    <TRef> { spanish_exterior_a_palette_4amla_1 }
+    <VertexRef> { 2 3 4 <Ref> { sign1_spanish_a_icon_doctor.egg } }
+  }
+  <Polygon> {
+    <TRef> { spanish_exterior_a_palette_4amla_1 }
+    <VertexRef> { 4 3 5 <Ref> { sign1_spanish_a_icon_doctor.egg } }
+  }
+  <Polygon> {
+    <TRef> { spanish_exterior_a_palette_4amla_1 }
+    <VertexRef> { 6 7 8 <Ref> { sign1_spanish_a_icon_doctor.egg } }
+  }
+  <Polygon> {
+    <TRef> { spanish_exterior_a_palette_4amla_1 }
+    <VertexRef> { 8 7 9 <Ref> { sign1_spanish_a_icon_doctor.egg } }
+  }
+  <Polygon> {
+    <TRef> { spanish_exterior_a_palette_4amla_1 }
+    <VertexRef> { 8 9 10 <Ref> { sign1_spanish_a_icon_doctor.egg } }
+  }
+  <Polygon> {
+    <TRef> { spanish_exterior_a_palette_4amla_1 }
+    <VertexRef> { 10 9 11 <Ref> { sign1_spanish_a_icon_doctor.egg } }
+  }
+}

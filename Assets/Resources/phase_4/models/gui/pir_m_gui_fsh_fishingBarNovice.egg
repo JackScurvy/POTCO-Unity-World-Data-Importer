@@ -1,0 +1,150 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\gui\pir_m_gui_fsh_fishingBarNovice.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\gui\pir_m_gui_fsh_fishingBarNovice.egg'"
+}
+<Texture> minigame_fishing_palette_4alla_1 {
+  "phase_4/maps/minigame_fishing_palette_4alla_1.jpg"
+  <Scalar> alpha-file { "phase_4/maps/minigame_fishing_palette_4alla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> minigame_fishing_palette_1llla_1 {
+  "phase_4/maps/minigame_fishing_palette_1llla_1.jpg"
+  <Scalar> format { luminance }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_gui_fsh_fishingBarNovice.egg {
+  <Vertex> 0 {
+    -0.110940001904964 0 -0.446718007326126
+    <UV> { 0.407999962568283 0.50195300579071 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0.118303000926971 0 -0.446718007326126
+    <UV> { 0.531217932701111 0.50195300579071 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -0.110940001904964 0 0.446718007326126
+    <UV> { 0.407999962568283 0.99804699420929 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.118303000926971 0 0.446718007326126
+    <UV> { 0.531217932701111 0.99804699420929 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.0352357998490334 0.0418199002742767 -0.376828998327255
+    <UV> { 0.03125 0.03125 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    0.0401507019996643 0.0418199002742767 -0.376828998327255
+    <UV> { 0.237320318818092 0.03125 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -0.0352357998490334 0.0418199002742767 0.258195012807846
+    <UV> { 0.03125 0.96875 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.0401507019996643 0.0418199002742767 0.258195012807846
+    <UV> { 0.237320318818092 0.96875 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -0.0352357998490334 0.0203182995319366 -0.376828998327255
+    <UV> { 0.296875 0.03125 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    0.0401507019996643 0.0203182995319366 -0.376828998327255
+    <UV> { 0.502945303916931 0.03125 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    -0.0352357998490334 0.0203182995319366 0.210103034973145
+    <UV> { 0.296875 0.96875 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    0.0401507019996643 0.0203182995319366 0.210103034973145
+    <UV> { 0.502945303916931 0.96875 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> bar {
+    <DCS> { local }
+    <Transform> {
+      <Translate> { 0.00368174002505839 0 0 }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { minigame_fishing_palette_4alla_1 }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_gui_fsh_fishingBarNovice.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { minigame_fishing_palette_4alla_1 }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_gui_fsh_fishingBarNovice.egg } }
+    }
+  }
+  <Group> background {
+    <DCS> { local }
+    <Transform> {
+      <Translate> { 0.00245742010883987 -0.00202776002697647 -0.00032333898707293 }
+    }
+    <Polygon> {
+      <TRef> { minigame_fishing_palette_1llla_1 }
+      <VertexRef> { 4 5 6 <Ref> { pir_m_gui_fsh_fishingBarNovice.egg } }
+    }
+    <Polygon> {
+      <TRef> { minigame_fishing_palette_1llla_1 }
+      <VertexRef> { 6 5 7 <Ref> { pir_m_gui_fsh_fishingBarNovice.egg } }
+    }
+  }
+  <Group> meter {
+    <DCS> { local }
+    <Transform> {
+      <Translate> { 0.00245742010883987 0.0203182995319366 -0.376735985279083 }
+    }
+    <Polygon> {
+      <TRef> { minigame_fishing_palette_1llla_1 }
+      <VertexRef> { 8 9 10 <Ref> { pir_m_gui_fsh_fishingBarNovice.egg } }
+    }
+    <Polygon> {
+      <TRef> { minigame_fishing_palette_1llla_1 }
+      <VertexRef> { 10 9 11 <Ref> { pir_m_gui_fsh_fishingBarNovice.egg } }
+    }
+  }
+  <Group> text {
+    <DCS> { net }
+    <Transform> {
+      <Translate> { 0.0047558699734509 0 0.304374992847443 }
+    }
+  }
+}

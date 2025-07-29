@@ -1,0 +1,141 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\gui\new_story_quest_icon.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\gui\new_story_quest_icon.egg'"
+}
+<Texture> gui_palette_4alla_1 {
+  "phase_2/maps/gui_palette_4alla_1.jpg"
+  <Scalar> alpha-file { "phase_2/maps/gui_palette_4alla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> new_story_quest_icon.egg {
+  <Vertex> 0 {
+    -0.473150014877319 0 0.461400002241135
+    <UV> { 0.0497888587415218 0.70816445350647 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0.473150014877319 0 0.396380990743637
+    <UV> { 0.171251505613327 0.700563311576843 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -0.338519006967545 0 0.461741000413895
+    <UV> { 0.0659784525632858 0.708204388618469 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -0.473150014877319 0 -0.461741000413895
+    <UV> { 0.0497888587415218 0.593543946743011 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    0.473150014877319 0 -0.461741000413895
+    <UV> { 0.171251505613327 0.593543946743011 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.473150014877319 0 -0.191155999898911
+    <UV> { 0.0497888587415218 0.614995777606964 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.473150014877319 0 -0.191155999898911
+    <UV> { 0.171251505613327 0.614995777606964 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    -0.473150014877319 0 0.0930534973740578
+    <UV> { 0.0497888587415218 0.680214762687683 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    0.473150014877319 0 0.0930534973740578
+    <UV> { 0.171251505613327 0.680214762687683 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    -0.4410620033741 0 0.344188988208771
+    <UV> { 0.232933357357979 0.597509920597076 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    -0.357122987508774 0 -0.425246000289917
+    <UV> { 0.237412095069885 0.556455910205841 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    0.381689012050629 0 0.239157006144524
+    <UV> { 0.276831984519958 0.591905832290649 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 12 {
+    0.381689012050629 0 -0.381787002086639
+    <UV> { 0.276831984519958 0.558774948120117 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> new_story_quest_icon {
+    <Group> pPlane1 {
+      <Scalar> alpha { blend }
+      <Polygon> {
+        <TRef> { gui_palette_4alla_1 }
+        <VertexRef> { 0 1 2 <Ref> { new_story_quest_icon.egg } }
+      }
+      <Polygon> {
+        <TRef> { gui_palette_4alla_1 }
+        <VertexRef> { 3 4 5 <Ref> { new_story_quest_icon.egg } }
+      }
+      <Polygon> {
+        <TRef> { gui_palette_4alla_1 }
+        <VertexRef> { 5 4 6 <Ref> { new_story_quest_icon.egg } }
+      }
+      <Polygon> {
+        <TRef> { gui_palette_4alla_1 }
+        <VertexRef> { 5 6 7 <Ref> { new_story_quest_icon.egg } }
+      }
+      <Polygon> {
+        <TRef> { gui_palette_4alla_1 }
+        <VertexRef> { 7 6 8 <Ref> { new_story_quest_icon.egg } }
+      }
+      <Polygon> {
+        <TRef> { gui_palette_4alla_1 }
+        <VertexRef> { 7 8 0 <Ref> { new_story_quest_icon.egg } }
+      }
+      <Polygon> {
+        <TRef> { gui_palette_4alla_1 }
+        <VertexRef> { 0 8 1 <Ref> { new_story_quest_icon.egg } }
+      }
+    }
+    <Group> pPlane2 {
+      <Scalar> alpha { blend }
+      <Polygon> {
+        <TRef> { gui_palette_4alla_1 }
+        <VertexRef> { 9 10 11 <Ref> { new_story_quest_icon.egg } }
+      }
+      <Polygon> {
+        <TRef> { gui_palette_4alla_1 }
+        <VertexRef> { 11 10 12 <Ref> { new_story_quest_icon.egg } }
+      }
+    }
+  }
+}

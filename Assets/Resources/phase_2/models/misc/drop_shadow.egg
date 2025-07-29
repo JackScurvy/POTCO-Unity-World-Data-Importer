@@ -1,0 +1,50 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\misc\drop_shadow.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\misc\drop_shadow.egg'"
+}
+<Texture> effects2_palette_2tmla_1 {
+  "phase_2/maps/effects2_palette_2tmla_1.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effects2_palette_2tmla_1_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> drop_shadow.egg {
+  <Vertex> 0 {
+    -4 -4 0.025000000372529
+    <UV> { 0.03125 0.0625 }
+    <RGBA> { 1 1 1 0.6982421875 }
+  }
+  <Vertex> 1 {
+    4 -4 0.025000000372529
+    <UV> { 0.46875 0.0625 }
+    <RGBA> { 1 1 1 0.6982421875 }
+  }
+  <Vertex> 2 {
+    -4 4 0.025000000372529
+    <UV> { 0.03125 0.9375 }
+    <RGBA> { 1 1 1 0.6982421875 }
+  }
+  <Vertex> 3 {
+    4 4 0.025000000372529
+    <UV> { 0.46875 0.9375 }
+    <RGBA> { 1 1 1 0.6982421875 }
+  }
+}
+<Group> drop-shadow {
+  <Scalar> alpha { blend_no_occlude }
+  <Scalar> draw-order { 0 }
+  <Scalar> bin { shadow }
+  <Polygon> {
+    <TRef> { effects2_palette_2tmla_1 }
+    <VertexRef> { 0 1 2 <Ref> { drop_shadow.egg } }
+  }
+  <Polygon> {
+    <TRef> { effects2_palette_2tmla_1 }
+    <VertexRef> { 2 1 3 <Ref> { drop_shadow.egg } }
+  }
+}

@@ -1,0 +1,124 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_5\models\buildings\sign1_shanty_a_icon_jeweler.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_5\models\buildings\sign1_shanty_a_icon_jeweler.egg'"
+}
+<Texture> shanty_a_palette_4amla_1 {
+  "phase_3/maps/shanty_a_palette_4amla_1.jpg"
+  <Scalar> alpha-file { "phase_3/maps/shanty_a_palette_4amla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> sign1_shanty_a_icon_jeweler.egg {
+  <Vertex> 0 {
+    -0.0987060964107513 4.97756004333496 -2.26672005653381
+    <UV> { 0.795235693454742 0.245592087507248 }
+    <Normal> { -1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.0987060964107513 4.97756004333496 -3.62986993789673
+    <UV> { 0.795235693454742 0.130411729216576 }
+    <Normal> { -1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -0.0987060964107513 3.76343011856079 -2.26672005653381
+    <UV> { 0.905438780784607 0.245592087507248 }
+    <Normal> { -1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -0.0987060964107513 3.76343011856079 -3.62986993789673
+    <UV> { 0.905438780784607 0.130411729216576 }
+    <Normal> { -1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.0987060964107513 2.54929995536804 -2.26672005653381
+    <UV> { 0.795235693454742 0.245592087507248 }
+    <Normal> { -1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.0987060964107513 2.54929995536804 -3.62986993789673
+    <UV> { 0.795235693454742 0.130411729216576 }
+    <Normal> { -1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.0680131986737251 4.97881984710693 -3.62986993789673
+    <UV> { 0.795235693454742 0.130411729216576 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.0680131986737251 4.97881984710693 -2.26672005653381
+    <UV> { 0.795235693454742 0.245592087507248 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    0.0680131986737251 3.76467990875244 -3.62986993789673
+    <UV> { 0.905438780784607 0.130411729216576 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    0.0680131986737251 3.76467990875244 -2.26672005653381
+    <UV> { 0.905438780784607 0.245592087507248 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    0.0680131986737251 2.55054998397827 -3.62986993789673
+    <UV> { 0.795235693454742 0.130411729216576 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    0.0680131986737251 2.55054998397827 -2.26672005653381
+    <UV> { 0.795235693454742 0.245592087507248 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> icons {
+  <Scalar> alpha { binary }
+  <Polygon> {
+    <TRef> { shanty_a_palette_4amla_1 }
+    <VertexRef> { 0 1 2 <Ref> { sign1_shanty_a_icon_jeweler.egg } }
+  }
+  <Polygon> {
+    <TRef> { shanty_a_palette_4amla_1 }
+    <VertexRef> { 2 1 3 <Ref> { sign1_shanty_a_icon_jeweler.egg } }
+  }
+  <Polygon> {
+    <TRef> { shanty_a_palette_4amla_1 }
+    <VertexRef> { 2 3 4 <Ref> { sign1_shanty_a_icon_jeweler.egg } }
+  }
+  <Polygon> {
+    <TRef> { shanty_a_palette_4amla_1 }
+    <VertexRef> { 4 3 5 <Ref> { sign1_shanty_a_icon_jeweler.egg } }
+  }
+  <Polygon> {
+    <TRef> { shanty_a_palette_4amla_1 }
+    <VertexRef> { 6 7 8 <Ref> { sign1_shanty_a_icon_jeweler.egg } }
+  }
+  <Polygon> {
+    <TRef> { shanty_a_palette_4amla_1 }
+    <VertexRef> { 8 7 9 <Ref> { sign1_shanty_a_icon_jeweler.egg } }
+  }
+  <Polygon> {
+    <TRef> { shanty_a_palette_4amla_1 }
+    <VertexRef> { 8 9 10 <Ref> { sign1_shanty_a_icon_jeweler.egg } }
+  }
+  <Polygon> {
+    <TRef> { shanty_a_palette_4amla_1 }
+    <VertexRef> { 10 9 11 <Ref> { sign1_shanty_a_icon_jeweler.egg } }
+  }
+}

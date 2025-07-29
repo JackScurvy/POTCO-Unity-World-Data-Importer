@@ -1,0 +1,41 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_5\models\islands\pir_m_are_isl_pearl_wave_idle.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_5\models\islands\pir_m_are_isl_pearl_wave_idle.egg'"
+}
+<Table> {
+  <Bundle> pir_m_are_isl_pearl_wave {
+    <Table> "<skeleton>" {
+      <Table> lowend_wave {
+        <Xfm$Anim_S$> xform {
+          <Scalar> fps { 24 }
+        }
+        <Table> uvj_WakeWhiteTide1 {
+          <Xfm$Anim_S$> xform {
+            <Scalar> fps { 24 }
+            <S$Anim> h { <V> { -180 } }
+            <S$Anim> p { <V> { -2.18948435228537e-13 } }
+            <S$Anim> r { <V> { 180 } }
+          }
+        }
+      }
+      <Table> wave {
+        <Xfm$Anim_S$> xform {
+          <Scalar> fps { 24 }
+        }
+        <Table> uvj_WakeWhiteTide2 {
+          <Xfm$Anim_S$> xform {
+            <Scalar> fps { 24 }
+            <S$Anim> h { <V> { -180 } }
+            <S$Anim> p { <V> { -2.18948435228537e-13 } }
+            <S$Anim> r { <V> { 180 } }
+            <S$Anim> x { <V> { 0.0399999991059303 } }
+            <S$Anim> y { <V> { -0.462253004312515 } }
+          }
+        }
+      }
+    }
+    <Table> morph {
+    }
+  }
+}

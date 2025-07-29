@@ -1,0 +1,167 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\gui\pir_m_gui_gen_loadingBar.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\gui\pir_m_gui_gen_loadingBar.egg'"
+}
+<Texture> pir_t_gui_gen_loadingBarFrame {
+  "phase_2/maps/pir_t_gui_gen_loadingBarFrame.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_gui_gen_loadingBarFrame_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_gui_gen_loadingBar {
+  "phase_2/maps/pir_t_gui_gen_loadingBar.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_gui_gen_loadingBar.egg {
+  <Vertex> 0 {
+    -0.0164042003452778 4.40342831642404e-11 -0.469819009304047
+    <UV> { 0 0 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0.0164042003452778 4.40342831642404e-11 -0.469819009304047
+    <UV> { 0.03125 0 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -0.0164042003452778 -4.40342831642404e-11 0.469819009304047
+    <UV> { 0 1 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.0164042003452778 -4.40342831642404e-11 0.469819009304047
+    <UV> { 0.03125 1 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -3.14961004257202 -0.0676378011703491 -0.524933993816376
+    <UV> { 0.00191306998021901 0.015625 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    3.14961004257202 -0.0676378011703491 -0.524933993816376
+    <UV> { 6.00191020965576 0.015625 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -3.14961004257202 -0.0676378011703491 0.524933993816376
+    <UV> { 0.00191306998021901 0.5 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    3.14961004257202 -0.0676378011703491 0.524933993816376
+    <UV> { 6.00191020965576 0.5 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -4.1994800567627 -0.0676378011703491 -0.524933993816376
+    <UV> { 0.0260001998394728 0.515625 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    -3.14961004257202 -0.0676378011703491 -0.524933993816376
+    <UV> { 0.937551975250244 0.515625 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    -4.1994800567627 -0.0676378011703491 0.524933993816376
+    <UV> { 0.0260001998394728 1 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    -3.14961004257202 -0.0676378011703491 0.524933993816376
+    <UV> { 0.937551975250244 1 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 12 {
+    3.14961004257202 -0.0676378011703491 -0.524933993816376
+    <UV> { 0.937551975250244 1 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 13 {
+    4.1994800567627 -0.0676378011703491 -0.524933993816376
+    <UV> { 0.0260001998394728 1 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 14 {
+    3.14961004257202 -0.0676378011703491 0.524933993816376
+    <UV> { 0.937551975250244 0.515625 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 15 {
+    4.1994800567627 -0.0676378011703491 0.524933993816376
+    <UV> { 0.0260001998394728 0.515625 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> loading_bar {
+    <Polygon> {
+      <TRef> { pir_t_gui_gen_loadingBar }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_gui_gen_loadingBar.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_gui_gen_loadingBar }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_gui_gen_loadingBar.egg } }
+    }
+  }
+  <Group> loading_bar_frame_middle {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { pir_t_gui_gen_loadingBarFrame }
+      <VertexRef> { 4 5 6 <Ref> { pir_m_gui_gen_loadingBar.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_gui_gen_loadingBarFrame }
+      <VertexRef> { 6 5 7 <Ref> { pir_m_gui_gen_loadingBar.egg } }
+    }
+  }
+  <Group> loading_bar_frame_left {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { pir_t_gui_gen_loadingBarFrame }
+      <VertexRef> { 8 9 10 <Ref> { pir_m_gui_gen_loadingBar.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_gui_gen_loadingBarFrame }
+      <VertexRef> { 10 9 11 <Ref> { pir_m_gui_gen_loadingBar.egg } }
+    }
+  }
+  <Group> loading_bar_frame_right {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { pir_t_gui_gen_loadingBarFrame }
+      <VertexRef> { 12 13 14 <Ref> { pir_m_gui_gen_loadingBar.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_gui_gen_loadingBarFrame }
+      <VertexRef> { 14 13 15 <Ref> { pir_m_gui_gen_loadingBar.egg } }
+    }
+  }
+}

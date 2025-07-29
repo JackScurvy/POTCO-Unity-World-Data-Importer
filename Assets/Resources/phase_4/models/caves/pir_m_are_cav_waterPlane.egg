@@ -1,0 +1,89 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\caves\pir_m_are_cav_waterPlane.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\caves\pir_m_are_cav_waterPlane.egg'"
+}
+<Texture> pir_t_are_cav_water {
+  "phase_4/maps/pir_t_are_cav_water.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_are_cav_waterPlane.egg {
+  <Vertex> 0 {
+    165.00700378418 -214.649993896484 -15.6237001419067
+    <UV> { -0.981032490730286 -1.01873052120209 }
+    <Normal> { 0 -4.60761012677224e-10 1 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 1 {
+    165.00700378418 7.91527986526489 -15.6237001419067
+    <UV> { 1.01880955696106 -0.993598520755768 }
+    <Normal> { 0 -4.60761012677224e-10 1 }
+    <RGBA> { 0.94901967048645 1 0.94901967048645 0.498039245605469 }
+  }
+  <Vertex> 2 {
+    -71.7759017944336 -214.649993896484 -15.6237001419067
+    <UV> { -1.00616455078125 0.981111466884613 }
+    <Normal> { 0 -4.60761012677224e-10 1 }
+    <RGBA> { 1 1 1 0.498039245605469 }
+  }
+  <Vertex> 3 {
+    -71.7759017944336 7.91527986526489 -15.6237001419067
+    <UV> { 0.993677496910095 1.00624346733093 }
+    <Normal> { 0 -4.60761012677224e-10 1 }
+    <RGBA> { 0.94901967048645 1 0.94901967048645 0.498039245605469 }
+  }
+  <Vertex> 4 {
+    165.00700378418 -214.649993896484 -15.7781000137329
+    <UV> { 1.01880955696106 -0.993598520755768 }
+    <Normal> { 0 -4.60761012677224e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    165.00700378418 7.91527986526489 -15.7781000137329
+    <UV> { -0.981032490730286 -1.01873052120209 }
+    <Normal> { 0 -4.60761012677224e-10 1 }
+    <RGBA> { 0.94901967048645 1 0.94901967048645 1 }
+  }
+  <Vertex> 6 {
+    -71.7759017944336 -214.649993896484 -15.7781000137329
+    <UV> { 0.993677496910095 1.00624346733093 }
+    <Normal> { 0 -4.60761012677224e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    -71.7759017944336 7.91527986526489 -15.7781000137329
+    <UV> { -1.00616455078125 0.981111466884613 }
+    <Normal> { 0 -4.60761012677224e-10 1 }
+    <RGBA> { 0.94901967048645 1 0.94901967048645 1 }
+  }
+}
+<Group> {
+  <Group> pool {
+    <Group> water_top {
+      <Scalar> alpha { blend }
+      <Polygon> {
+        <TRef> { pir_t_are_cav_water }
+        <VertexRef> { 0 1 2 <Ref> { pir_m_are_cav_waterPlane.egg } }
+      }
+      <Polygon> {
+        <TRef> { pir_t_are_cav_water }
+        <VertexRef> { 2 1 3 <Ref> { pir_m_are_cav_waterPlane.egg } }
+      }
+    }
+    <Group> water_bottom {
+      <Polygon> {
+        <TRef> { pir_t_are_cav_water }
+        <VertexRef> { 4 5 6 <Ref> { pir_m_are_cav_waterPlane.egg } }
+      }
+      <Polygon> {
+        <TRef> { pir_t_are_cav_water }
+        <VertexRef> { 6 5 7 <Ref> { pir_m_are_cav_waterPlane.egg } }
+      }
+    }
+  }
+}

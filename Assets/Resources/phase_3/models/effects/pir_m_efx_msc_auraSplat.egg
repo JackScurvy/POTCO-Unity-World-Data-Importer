@@ -1,0 +1,54 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\effects\pir_m_efx_msc_auraSplat.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\effects\pir_m_efx_msc_auraSplat.egg'"
+}
+<Texture> pir_t_efx_msc_particleSplat {
+  "phase_3/maps/pir_t_efx_msc_particleSplat.jpg"
+  <Scalar> alpha-file { "phase_3/maps/pir_t_efx_msc_particleSplat_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_efx_msc_auraSplat.egg {
+  <Vertex> 0 {
+    -0.0820209980010986 -0.0820209980010986 -6.55303103447302e-11
+    <UV> { 0 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0.0820209980010986 -0.0820209980010986 -6.55303103447302e-11
+    <UV> { 1 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -0.0820209980010986 0.0820209980010986 6.55303103447302e-11
+    <UV> { 0 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.0820209980010986 0.0820209980010986 6.55303103447302e-11
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> pPlane1 {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { pir_t_efx_msc_particleSplat }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_efx_msc_auraSplat.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_efx_msc_particleSplat }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_efx_msc_auraSplat.egg } }
+    }
+  }
+}

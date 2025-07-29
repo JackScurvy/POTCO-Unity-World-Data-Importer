@@ -1,0 +1,52 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\handheld\pir_m_hnd_tol_writingPaper.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\handheld\pir_m_hnd_tol_writingPaper.egg'"
+}
+<Texture> pir_t_hnd_tol_paper_letter {
+  "phase_3/maps/pir_t_hnd_tol_paper_letter.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_hnd_tol_writingPaper.egg {
+  <Vertex> 0 {
+    -0.402534991502762 -0.578019022941589 -0.00829572044312954
+    <UV> { 0 0 }
+    <Normal> { 0 3.74250352930261e-10 1 }
+    <RGBA> { 0.501960813999176 0.470588266849518 0.423529446125031 1 }
+  }
+  <Vertex> 1 {
+    0.402534008026123 -0.578019022941589 -0.00829572044312954
+    <UV> { 1 0 }
+    <Normal> { 0 3.74250352930261e-10 1 }
+    <RGBA> { 1 0.941176533699036 0.847058892250061 1 }
+  }
+  <Vertex> 2 {
+    -0.402534008026123 0.578019976615906 -0.00829572044312954
+    <UV> { 0 1 }
+    <Normal> { 0 3.74250352930261e-10 1 }
+    <RGBA> { 1 0.941176533699036 0.847058892250061 1 }
+  }
+  <Vertex> 3 {
+    0.402534991502762 0.578019022941589 -0.00829572044312954
+    <UV> { 1 1 }
+    <Normal> { 0 3.74250352930261e-10 1 }
+    <RGBA> { 1 0.941176533699036 0.847058892250061 1 }
+  }
+}
+<Group> {
+  <Group> writingPaper {
+    <Polygon> {
+      <TRef> { pir_t_hnd_tol_paper_letter }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_hnd_tol_writingPaper.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_hnd_tol_paper_letter }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_hnd_tol_writingPaper.egg } }
+    }
+  }
+}

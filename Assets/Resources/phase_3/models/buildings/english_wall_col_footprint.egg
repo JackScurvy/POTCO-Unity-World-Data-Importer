@@ -1,0 +1,56 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\buildings\english_wall_col_footprint.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\buildings\english_wall_col_footprint.egg'"
+}
+<Texture> footprints_palette_3cmla_1 {
+  "phase_3/maps/footprints_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> english_wall_col_footprint.egg {
+  <Vertex> 0 {
+    3.94796991348267 -5.39461994171143 0
+    <UV> { 0.03125 0.9375 }
+    <Normal> { -9.549300239442e-10 -7.61147977978993e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    3.94796991348267 5.39461994171143 0
+    <UV> { 0.03125 0.4375 }
+    <Normal> { -9.549300239442e-10 -7.61147977978993e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -4.65184020996094 -5.39461994171143 -4.386964680414e-10
+    <UV> { 0.230517998337746 0.9375 }
+    <Normal> { -9.549300239442e-10 -7.61147977978993e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -4.65184020996094 5.39461994171143 0
+    <UV> { 0.230517998337746 0.4375 }
+    <Normal> { -9.549300239442e-10 -7.61147977978993e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> footprint {
+    <Model> { 1 }
+    <Tag> Footprint {
+      Column
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 0 1 2 <Ref> { english_wall_col_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 2 1 3 <Ref> { english_wall_col_footprint.egg } }
+    }
+  }
+}

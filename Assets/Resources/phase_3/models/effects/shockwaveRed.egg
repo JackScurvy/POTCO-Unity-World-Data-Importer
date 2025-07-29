@@ -1,0 +1,50 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\effects\shockwaveRed.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\effects\shockwaveRed.egg'"
+}
+<Texture> effectRedShockwave {
+  "phase_3/maps/effectRedShockwave.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effectRedShockwave_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> shockwaveRed.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> effectRedShockwave {
+  <Scalar> alpha { blend }
+  <Polygon> {
+    <TRef> { effectRedShockwave }
+    <BFace> { 1 }
+    <VertexRef> { 0 1 2 <Ref> { shockwaveRed.egg } }
+  }
+  <Polygon> {
+    <TRef> { effectRedShockwave }
+    <BFace> { 1 }
+    <VertexRef> { 2 1 3 <Ref> { shockwaveRed.egg } }
+  }
+}

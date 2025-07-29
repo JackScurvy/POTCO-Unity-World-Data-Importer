@@ -1,0 +1,102 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\gui\gmLogo_tflip.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\gui\gmLogo_tflip.egg'"
+}
+<Texture> skullLogo_2 {
+  "phase_2/maps/skullLogo_2.jpg"
+  <Scalar> alpha-file { "phase_2/maps/skullLogo_2_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> skullLogo_1 {
+  "phase_2/maps/skullLogo_1.jpg"
+  <Scalar> alpha-file { "phase_2/maps/skullLogo_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> skullLogo_0 {
+  "phase_2/maps/skullLogo_0.jpg"
+  <Scalar> alpha-file { "phase_2/maps/skullLogo_0_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> gmLogo_tflip.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 10 }
+    <Group> {
+      <Group> skullLogo_0 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { skullLogo_0 }
+          <VertexRef> { 0 1 2 <Ref> { gmLogo_tflip.egg } }
+        }
+        <Polygon> {
+          <TRef> { skullLogo_0 }
+          <VertexRef> { 2 1 3 <Ref> { gmLogo_tflip.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> skullLogo_1 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { skullLogo_1 }
+          <VertexRef> { 0 1 2 <Ref> { gmLogo_tflip.egg } }
+        }
+        <Polygon> {
+          <TRef> { skullLogo_1 }
+          <VertexRef> { 2 1 3 <Ref> { gmLogo_tflip.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> skullLogo_2 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { skullLogo_2 }
+          <VertexRef> { 0 1 2 <Ref> { gmLogo_tflip.egg } }
+        }
+        <Polygon> {
+          <TRef> { skullLogo_2 }
+          <VertexRef> { 2 1 3 <Ref> { gmLogo_tflip.egg } }
+        }
+      }
+    }
+  }
+}

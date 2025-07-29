@@ -1,0 +1,58 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\buildings\burned_half_house_footprint.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\buildings\burned_half_house_footprint.egg'"
+}
+<Texture> footprints_palette_3clla_1 {
+  "phase_3/maps/footprints_palette_3clla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> burned_half_house_footprint.egg {
+  <Vertex> 0 {
+    -19.2210006713867 -13.3162002563477 -1.27089880286313e-10
+    <UV> { 0.03125 0.71875 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.921568691730499 0.843137323856354 0.823529481887817 1 }
+  }
+  <Vertex> 1 {
+    0.794322967529297 -17.7777004241943 -1.27089880286313e-10
+    <UV> { 0.244753748178482 0.71875 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.14509804546833 0.109803929924965 0.10196079313755 1 }
+  }
+  <Vertex> 2 {
+    -15.0250997543335 5.5074896812439 2.6052165633117e-11
+    <UV> { 0.03125 0.96875 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.14509804546833 0.109803929924965 0.10196079313755 1 }
+  }
+  <Vertex> 3 {
+    4.99018907546997 1.04601049423218 2.6052165633117e-11
+    <UV> { 0.244753748178482 0.96875 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 0.14509804546833 0.109803929924965 0.10196079313755 1 }
+  }
+}
+<Group> {
+  <Group> footprint {
+    <Model> { 1 }
+    <Transform> {
+      <Scale> { 1.17498528957367 0.943710744380951 1 }
+      <Rotate> { 12.5660098391598 0 0 -1 }
+      <Translate> { -7.1153998374939 -6.1350998878479 0 }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 0 1 2 <Ref> { burned_half_house_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 2 1 3 <Ref> { burned_half_house_footprint.egg } }
+    }
+  }
+}

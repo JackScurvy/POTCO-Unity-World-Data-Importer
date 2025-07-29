@@ -1,0 +1,52 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\handheld\writing_paper.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\handheld\writing_paper.egg'"
+}
+<Texture> props_furniture_palette_3cmla_1 {
+  "phase_4/maps/props_furniture_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> writing_paper.egg {
+  <Vertex> 0 {
+    -0.402534991502762 -0.578019022941589 -0.00829572044312954
+    <UV> { 0.00195312988944352 0.12695300579071 }
+    <Normal> { 0 3.74250352930261e-10 1 }
+    <RGBA> { 0.501960813999176 0.470588266849518 0.423529446125031 1 }
+  }
+  <Vertex> 1 {
+    0.402534008026123 -0.578019022941589 -0.00829572044312954
+    <UV> { 0.0605469308793545 0.12695300579071 }
+    <Normal> { 0 3.74250352930261e-10 1 }
+    <RGBA> { 1 0.941176533699036 0.847058892250061 1 }
+  }
+  <Vertex> 2 {
+    -0.402534008026123 0.578019976615906 -0.00829572044312954
+    <UV> { 0.00195312988944352 0.24804699420929 }
+    <Normal> { 0 3.74250352930261e-10 1 }
+    <RGBA> { 1 0.941176533699036 0.847058892250061 1 }
+  }
+  <Vertex> 3 {
+    0.402534991502762 0.578019022941589 -0.00829572044312954
+    <UV> { 0.0605469308793545 0.24804699420929 }
+    <Normal> { 0 3.74250352930261e-10 1 }
+    <RGBA> { 1 0.941176533699036 0.847058892250061 1 }
+  }
+}
+<Group> {
+  <Group> desk_governers_office_group {
+    <Polygon> {
+      <TRef> { props_furniture_palette_3cmla_1 }
+      <VertexRef> { 0 1 2 <Ref> { writing_paper.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_furniture_palette_3cmla_1 }
+      <VertexRef> { 2 1 3 <Ref> { writing_paper.egg } }
+    }
+  }
+}

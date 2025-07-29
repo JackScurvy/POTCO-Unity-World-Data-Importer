@@ -1,0 +1,88 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\props\pir_m_prp_fnc_woodGate_footprint.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\props\pir_m_prp_fnc_woodGate_footprint.egg'"
+}
+<Texture> footprints_palette_3cmla_1 {
+  "phase_3/maps/footprints_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_prp_fnc_woodGate_footprint.egg {
+  <Vertex> 0 {
+    3.83644008636475 0.387587010860443 -5.91043158859605e-10
+    <UV> { 0.03125 0.4375 }
+    <Normal> { -4.33665992005672e-10 7.0758604531207e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    3.61239004135132 -0.179588004946709 0
+    <UV> { 0.03125 0.9375 }
+    <Normal> { -4.33665992005672e-10 7.0758604531207e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    11.3270998001099 0.50764000415802 -7.36012972790689e-10
+    <UV> { 0.28125 0.4375 }
+    <Normal> { -4.33665992005672e-10 7.0758604531207e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    11.6281995773315 -0.054917398840189 0
+    <UV> { 0.28125 0.9375 }
+    <Normal> { -4.33665992005672e-10 7.0758604531207e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -11.6159000396729 0.238424003124237 0
+    <UV> { 0.03125 0.4375 }
+    <Normal> { -8.38054015073197e-10 -1.7417700615141e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -11.6160001754761 -0.466601997613907 -5.48823708701462e-10
+    <UV> { 0.03125 0.9375 }
+    <Normal> { -8.38054015073197e-10 -1.7417700615141e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -4.13943004608154 0.394645988941193 -2.56631993433842e-10
+    <UV> { 0.28125 0.4375 }
+    <Normal> { -8.38054015073197e-10 -1.7417700615141e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    -4.15697002410889 -0.288576990365982 5.06607200634335e-10
+    <UV> { 0.28125 0.9375 }
+    <Normal> { -8.38054015073197e-10 -1.7417700615141e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> footprint {
+    <Model> { 1 }
+    <Tag> Footprint {
+      Wall
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_prp_fnc_woodGate_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_prp_fnc_woodGate_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 4 5 6 <Ref> { pir_m_prp_fnc_woodGate_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3cmla_1 }
+      <VertexRef> { 6 5 7 <Ref> { pir_m_prp_fnc_woodGate_footprint.egg } }
+    }
+  }
+}

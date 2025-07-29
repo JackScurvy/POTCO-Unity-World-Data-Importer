@@ -1,0 +1,48 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\textureCards\offscreenFlash.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\textureCards\offscreenFlash.egg'"
+}
+<Texture> gui_palette_2tlla_1 {
+  "phase_2/maps/gui_palette_2tlla_1.jpg"
+  <Scalar> alpha-file { "phase_2/maps/gui_palette_2tlla_1_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> offscreenFlash.egg {
+  <Vertex> 0 {
+    -0.0666666999459267 0 0.133332997560501
+    <UV> { 0.93945300579071 0.996093988418579 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.0666666999459267 0 -0.133332997560501
+    <UV> { 0.93945300579071 0.753906011581421 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.0666666999459267 0 0.133332997560501
+    <UV> { 0.998046815395355 0.996093988418579 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.0666666999459267 0 -0.133332997560501
+    <UV> { 0.998046815395355 0.753906011581421 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> offscreen_flash {
+  <Scalar> alpha { blend }
+  <Polygon> {
+    <TRef> { gui_palette_2tlla_1 }
+    <VertexRef> { 0 1 2 <Ref> { offscreenFlash.egg } }
+  }
+  <Polygon> {
+    <TRef> { gui_palette_2tlla_1 }
+    <VertexRef> { 2 1 3 <Ref> { offscreenFlash.egg } }
+  }
+}

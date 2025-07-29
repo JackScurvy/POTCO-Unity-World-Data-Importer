@@ -1,0 +1,233 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\props\portrait_clubhearts.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\props\portrait_clubhearts.egg'"
+}
+<Texture> wall_hangings_palette_3cmla_1 {
+  "phase_4/maps/wall_hangings_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> clubhearts_portrait {
+  "phase_4/maps/clubhearts_portrait.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> portrait_clubhearts.egg {
+  <Vertex> 0 {
+    1.88554000854492 0.15633100271225 -0.867390990257263
+    <UV> { 0.0034940498881042 0.312507003545761 }
+    <Normal> { -1.52131862662941e-09 1 1.27337951294493e-09 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    1.88554000854492 0.15633100271225 -2.39395999908447
+    <UV> { 0.0034940498881042 0.0225320998579264 }
+    <Normal> { 1.66191516104419e-09 1 2.21003348954696e-09 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.658366024494171 0.15633100271225 -0.331927001476288
+    <UV> { 0.326636999845505 0.414501994848251 }
+    <Normal> { 1.63720759172037e-09 1 2.0552002322205e-09 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.458326011896133 0.15633200109005 -2.39395999908447
+    <UV> { 0.379312008619308 0.022860100492835 }
+    <Normal> { 1.00348140907869e-09 1 2.53350918022477e-09 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.187827005982399 0.15633200109005 0.0578843988478184
+    <UV> { 0.549458980560303 0.488741993904114 }
+    <Normal> { 1.79999659621899e-09 1 9.94661797371066e-10 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -1.26678001880646 0.15633299946785 -2.39394998550415
+    <UV> { 0.833571970462799 0.0232565999031067 }
+    <Normal> { 2.31239138948069e-09 1 2.63204391615091e-09 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -1.88554000854492 0.15633200109005 0.839960992336273
+    <UV> { 0.996505975723267 0.637688994407654 }
+    <Normal> { 1.77703851633737e-09 1 1.06805009281175e-09 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    -1.88554000854492 0.15633200109005 -2.39395999908447
+    <UV> { 0.996505975723267 0.0233989004045725 }
+    <Normal> { -2.76050049485832e-09 1 2.40710318344384e-09 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -1.88554000854492 0.15633200109005 2.39394998550415
+    <UV> { 0.996505975723267 0.932874023914337 }
+    <Normal> { 2.05054884183653e-09 1 1.354441003798e-09 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    -0.663540005683899 0.15633000433445 2.39394998550415
+    <UV> { 0.674724996089935 0.932592988014221 }
+    <Normal> { 2.72100564302491e-09 1 1.134611626874e-09 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    0.922806978225708 0.15633100271225 2.39394998550415
+    <UV> { 0.257003992795944 0.932228982448578 }
+    <Normal> { -1.84553139437327e-09 1 1.57689417079609e-09 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    1.88554000854492 0.15633100271225 2.39394998550415
+    <UV> { 0.0034940498881042 0.932007014751434 }
+    <Normal> { -2.81848522298844e-09 1 8.85873541189852e-10 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 12 {
+    -1.88554000854492 0.15633100271225 2.39395999908447
+    <UV> { 0.286764860153198 0.436078816652298 }
+    <Normal> { -0.114290021359921 0.98966920375824 0.0865603163838387 }
+    <RGBA> { 0.258823543787003 0.200000017881393 0.184313729405403 1 }
+  }
+  <Vertex> 13 {
+    -2.5585401058197 1.63852231782613e-09 3.29273009300232
+    <UV> { 0.253906011581421 0.496094256639481 }
+    <Normal> { -0.114290021359921 0.98966920375824 0.0865603163838387 }
+    <RGBA> { 0.258823543787003 0.200000017881393 0.184313729405403 1 }
+  }
+  <Vertex> 14 {
+    1.88554000854492 0.15633200109005 2.39395999908447
+    <UV> { 0.46222859621048 0.436078816652298 }
+    <Normal> { 0.114292979240417 0.989668846130371 0.0865602865815163 }
+    <RGBA> { 0.886274576187134 0.882353007793427 0.603921592235565 1 }
+  }
+  <Vertex> 15 {
+    2.5585401058197 -1.54213053438212e-09 3.29273009300232
+    <UV> { 0.496093988418579 0.496094256639481 }
+    <Normal> { 0.114292979240417 0.989668846130371 0.0865602865815163 }
+    <RGBA> { 0.886274576187134 0.882353007793427 0.603921592235565 1 }
+  }
+  <Vertex> 16 {
+    1.88554000854492 0.15633200109005 -2.39395999908447
+    <UV> { 0.46222859621048 0.0628994107246399 }
+    <Normal> { 0.114292979240417 0.989668846130371 -0.0865602865815163 }
+    <RGBA> { 0.168627455830574 0.188235312700272 0.160784319043159 1 }
+  }
+  <Vertex> 17 {
+    2.5585401058197 -1.54213053438212e-09 -3.29273009300232
+    <UV> { 0.496093988418579 0.00390625 }
+    <Normal> { 0.114292979240417 0.989668846130371 -0.0865602865815163 }
+    <RGBA> { 0.168627455830574 0.188235312700272 0.160784319043159 1 }
+  }
+  <Vertex> 18 {
+    -1.88554000854492 0.15633100271225 -2.39395999908447
+    <UV> { 0.286764860153198 0.0628994107246399 }
+    <Normal> { -0.114290021359921 0.98966920375824 -0.0865603163838387 }
+    <RGBA> { 0.258823543787003 0.200000017881393 0.184313729405403 1 }
+  }
+  <Vertex> 19 {
+    -2.5585401058197 1.63852231782613e-09 -3.29273009300232
+    <UV> { 0.253906011581421 0.00390625 }
+    <Normal> { -0.114290021359921 0.98966920375824 -0.0865603163838387 }
+    <RGBA> { 0.713725507259369 0.658823549747467 0.450980424880981 1 }
+  }
+}
+<Group> {
+  <Group> portrait_clubhearts {
+    <Group> picture {
+      <Polygon> {
+        <TRef> { clubhearts_portrait }
+        <VertexRef> { 0 1 2 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { clubhearts_portrait }
+        <VertexRef> { 2 1 3 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { clubhearts_portrait }
+        <VertexRef> { 2 3 4 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { clubhearts_portrait }
+        <VertexRef> { 4 3 5 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { clubhearts_portrait }
+        <VertexRef> { 4 5 6 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { clubhearts_portrait }
+        <VertexRef> { 6 5 7 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { clubhearts_portrait }
+        <VertexRef> { 6 8 4 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { clubhearts_portrait }
+        <VertexRef> { 4 8 9 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { clubhearts_portrait }
+        <VertexRef> { 4 9 2 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { clubhearts_portrait }
+        <VertexRef> { 2 9 10 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { clubhearts_portrait }
+        <VertexRef> { 2 10 0 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { clubhearts_portrait }
+        <VertexRef> { 0 10 11 <Ref> { portrait_clubhearts.egg } }
+      }
+    }
+    <Group> frame {
+      <Polygon> {
+        <TRef> { wall_hangings_palette_3cmla_1 }
+        <VertexRef> { 12 13 14 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { wall_hangings_palette_3cmla_1 }
+        <VertexRef> { 14 13 15 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { wall_hangings_palette_3cmla_1 }
+        <VertexRef> { 14 15 16 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { wall_hangings_palette_3cmla_1 }
+        <VertexRef> { 16 15 17 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { wall_hangings_palette_3cmla_1 }
+        <VertexRef> { 16 17 18 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { wall_hangings_palette_3cmla_1 }
+        <VertexRef> { 18 17 19 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { wall_hangings_palette_3cmla_1 }
+        <VertexRef> { 18 19 12 <Ref> { portrait_clubhearts.egg } }
+      }
+      <Polygon> {
+        <TRef> { wall_hangings_palette_3cmla_1 }
+        <VertexRef> { 12 19 13 <Ref> { portrait_clubhearts.egg } }
+      }
+    }
+  }
+}

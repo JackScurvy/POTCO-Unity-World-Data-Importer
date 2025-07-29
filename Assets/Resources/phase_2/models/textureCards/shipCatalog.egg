@@ -1,0 +1,285 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\textureCards\shipCatalog.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\textureCards\shipCatalog.egg'"
+}
+<Texture> Catalog_War_Sloop {
+  "phase_2/maps/Catalog_War_Sloop.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> Catalog_War_Galleon {
+  "phase_2/maps/Catalog_War_Galleon.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> Catalog_War_Frigate {
+  "phase_2/maps/Catalog_War_Frigate.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> Catalog_War_Brig {
+  "phase_2/maps/Catalog_War_Brig.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> Catalog_Regular_Sloop {
+  "phase_2/maps/Catalog_Regular_Sloop.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> Catalog_Regular_Galleon {
+  "phase_2/maps/Catalog_Regular_Galleon.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> Catalog_Regular_Frigate {
+  "phase_2/maps/Catalog_Regular_Frigate.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> Catalog_Regular_Brig {
+  "phase_2/maps/Catalog_Regular_Brig.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> Catalog_Light_Sloop {
+  "phase_2/maps/Catalog_Light_Sloop.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> Catalog_Light_Galleon {
+  "phase_2/maps/Catalog_Light_Galleon.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> Catalog_Light_Frigate {
+  "phase_2/maps/Catalog_Light_Frigate.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> Catalog_Light_Brig {
+  "phase_2/maps/Catalog_Light_Brig.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> shipCatalog.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> Catalog_Light_Sloop {
+        <Polygon> {
+          <TRef> { Catalog_Light_Sloop }
+          <VertexRef> { 0 1 2 <Ref> { shipCatalog.egg } }
+        }
+        <Polygon> {
+          <TRef> { Catalog_Light_Sloop }
+          <VertexRef> { 2 1 3 <Ref> { shipCatalog.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> Catalog_Light_Galleon {
+        <Polygon> {
+          <TRef> { Catalog_Light_Galleon }
+          <VertexRef> { 0 1 2 <Ref> { shipCatalog.egg } }
+        }
+        <Polygon> {
+          <TRef> { Catalog_Light_Galleon }
+          <VertexRef> { 2 1 3 <Ref> { shipCatalog.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> Catalog_Light_Frigate {
+        <Polygon> {
+          <TRef> { Catalog_Light_Frigate }
+          <VertexRef> { 0 1 2 <Ref> { shipCatalog.egg } }
+        }
+        <Polygon> {
+          <TRef> { Catalog_Light_Frigate }
+          <VertexRef> { 2 1 3 <Ref> { shipCatalog.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> Catalog_Light_Brig {
+        <Polygon> {
+          <TRef> { Catalog_Light_Brig }
+          <VertexRef> { 0 1 2 <Ref> { shipCatalog.egg } }
+        }
+        <Polygon> {
+          <TRef> { Catalog_Light_Brig }
+          <VertexRef> { 2 1 3 <Ref> { shipCatalog.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> Catalog_Regular_Sloop {
+        <Polygon> {
+          <TRef> { Catalog_Regular_Sloop }
+          <VertexRef> { 0 1 2 <Ref> { shipCatalog.egg } }
+        }
+        <Polygon> {
+          <TRef> { Catalog_Regular_Sloop }
+          <VertexRef> { 2 1 3 <Ref> { shipCatalog.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> Catalog_Regular_Galleon {
+        <Polygon> {
+          <TRef> { Catalog_Regular_Galleon }
+          <VertexRef> { 0 1 2 <Ref> { shipCatalog.egg } }
+        }
+        <Polygon> {
+          <TRef> { Catalog_Regular_Galleon }
+          <VertexRef> { 2 1 3 <Ref> { shipCatalog.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> Catalog_Regular_Frigate {
+        <Polygon> {
+          <TRef> { Catalog_Regular_Frigate }
+          <VertexRef> { 0 1 2 <Ref> { shipCatalog.egg } }
+        }
+        <Polygon> {
+          <TRef> { Catalog_Regular_Frigate }
+          <VertexRef> { 2 1 3 <Ref> { shipCatalog.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> Catalog_Regular_Brig {
+        <Polygon> {
+          <TRef> { Catalog_Regular_Brig }
+          <VertexRef> { 0 1 2 <Ref> { shipCatalog.egg } }
+        }
+        <Polygon> {
+          <TRef> { Catalog_Regular_Brig }
+          <VertexRef> { 2 1 3 <Ref> { shipCatalog.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> Catalog_War_Sloop {
+        <Polygon> {
+          <TRef> { Catalog_War_Sloop }
+          <VertexRef> { 0 1 2 <Ref> { shipCatalog.egg } }
+        }
+        <Polygon> {
+          <TRef> { Catalog_War_Sloop }
+          <VertexRef> { 2 1 3 <Ref> { shipCatalog.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> Catalog_War_Galleon {
+        <Polygon> {
+          <TRef> { Catalog_War_Galleon }
+          <VertexRef> { 0 1 2 <Ref> { shipCatalog.egg } }
+        }
+        <Polygon> {
+          <TRef> { Catalog_War_Galleon }
+          <VertexRef> { 2 1 3 <Ref> { shipCatalog.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> Catalog_War_Frigate {
+        <Polygon> {
+          <TRef> { Catalog_War_Frigate }
+          <VertexRef> { 0 1 2 <Ref> { shipCatalog.egg } }
+        }
+        <Polygon> {
+          <TRef> { Catalog_War_Frigate }
+          <VertexRef> { 2 1 3 <Ref> { shipCatalog.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> Catalog_War_Brig {
+        <Polygon> {
+          <TRef> { Catalog_War_Brig }
+          <VertexRef> { 0 1 2 <Ref> { shipCatalog.egg } }
+        }
+        <Polygon> {
+          <TRef> { Catalog_War_Brig }
+          <VertexRef> { 2 1 3 <Ref> { shipCatalog.egg } }
+        }
+      }
+    }
+  }
+}

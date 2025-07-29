@@ -1,0 +1,116 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\islands\pir_m_are_isl_mysterious_05_worldmap.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\islands\pir_m_are_isl_mysterious_05_worldmap.egg'"
+}
+<Texture> island_dock_palette_4alla_1 {
+  "phase_3/maps/island_dock_palette_4alla_1.jpg"
+  <Scalar> alpha-file { "phase_3/maps/island_dock_palette_4alla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_are_isl_mysterious_05_worldmap.egg {
+  <Vertex> 0 {
+    0.216022998094559 -0.425651997327805 -0.00170672999229282
+    <UV> { 0.246094256639481 0.98328423500061 }
+    <Normal> { 0 -2.9770400034046e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0.310921013355255 0.339222013950348 -0.00170672999229282
+    <UV> { 0.00390625 0.98328423500061 }
+    <Normal> { 0 -2.9770400034046e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -0.0622861981391907 -0.397859007120132 -0.00170672999229282
+    <UV> { 0.246094256639481 0.518200755119324 }
+    <Normal> { 0 -2.9770400034046e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.0326115004718304 0.367015987634659 -0.00170672999229282
+    <UV> { 0.00390625 0.518200755119324 }
+    <Normal> { 0 -2.9770400034046e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.340595006942749 -0.370065003633499 -0.00170672999229282
+    <UV> { 0.246094256639481 0.98328423500061 }
+    <Normal> { 0 2.86943996341549e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.245698004961014 0.394809007644653 -0.00170672999229282
+    <UV> { 0.00390625 0.98328423500061 }
+    <Normal> { 0 2.86943996341549e-10 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.278137981891632 -0.0218083914369345 0.177185997366905
+    <UV> { 0.503906011581421 0.507812976837158 }
+    <Normal> { -7.16305625925173e-10 -7.49387829568349e-10 1.22987997531891 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.0410498939454556 0.280472993850708 0.177185997366905
+    <UV> { 0.746093988418579 0.507812976837158 }
+    <Normal> { -7.16305625925173e-10 -7.49387829568349e-10 1.22987997531891 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -0.032307792454958 -0.265156000852585 0.177185997366905
+    <UV> { 0.503906011581421 0.992187976837158 }
+    <Normal> { -7.16305625925173e-10 -7.49387829568349e-10 1.22987997531891 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    -0.269338011741638 0.0370706915855408 0.177185997366905
+    <UV> { 0.746093988418579 0.992187976837158 }
+    <Normal> { -7.16305625925173e-10 -7.49387829568349e-10 1.22987997531891 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> worldmap {
+  <Group> sketchmark {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { island_dock_palette_4alla_1 }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_are_isl_mysterious_05_worldmap.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_4alla_1 }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_are_isl_mysterious_05_worldmap.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_4alla_1 }
+      <VertexRef> { 2 3 4 <Ref> { pir_m_are_isl_mysterious_05_worldmap.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_4alla_1 }
+      <VertexRef> { 4 3 5 <Ref> { pir_m_are_isl_mysterious_05_worldmap.egg } }
+    }
+  }
+  <Group> top_mesh {
+    <DCS> { local }
+    <Transform> {
+      <Scale> { 1.22987639904022 1.22987639904022 1.22987997531891 }
+      <Rotate> { 136.293052220678 0 0 1 }
+      <Translate> { -0.0154242999851704 0.0124626997858286 0.177185997366905 }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { island_dock_palette_4alla_1 }
+      <VertexRef> { 6 7 8 <Ref> { pir_m_are_isl_mysterious_05_worldmap.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { island_dock_palette_4alla_1 }
+      <VertexRef> { 8 7 9 <Ref> { pir_m_are_isl_mysterious_05_worldmap.egg } }
+    }
+  }
+}

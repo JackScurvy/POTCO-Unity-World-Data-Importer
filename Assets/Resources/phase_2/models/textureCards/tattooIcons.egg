@@ -1,0 +1,122 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\textureCards\tattooIcons.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\textureCards\tattooIcons.egg'"
+}
+<Texture> gui_shop_icons_palette_4alla_1 {
+  "phase_2/maps/gui_shop_icons_palette_4alla_1.jpg"
+  <Scalar> alpha-file { "phase_2/maps/gui_shop_icons_palette_4alla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> tattooIcons.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0.253906011581421 0.996093988418579 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0.253906011581421 0.753906011581421 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 0.496093988418579 0.996093988418579 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 0.496093988418579 0.753906011581421 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.5 0 0.5
+    <UV> { 0.503906011581421 0.746093988418579 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.5 0 -0.5
+    <UV> { 0.503906011581421 0.503906011581421 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.5 0 0.5
+    <UV> { 0.746093988418579 0.746093988418579 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.5 0 -0.5
+    <UV> { 0.746093988418579 0.503906011581421 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -0.5 0 0.5
+    <UV> { 0.00390625 0.496093988418579 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    -0.5 0 -0.5
+    <UV> { 0.00390625 0.253906011581421 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    0.5 0 0.5
+    <UV> { 0.246094256639481 0.496093988418579 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    0.5 0 -0.5
+    <UV> { 0.246094256639481 0.253906011581421 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> icon_shop_tailor_arm {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_shop_icons_palette_4alla_1 }
+          <VertexRef> { 0 1 2 <Ref> { tattooIcons.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_shop_icons_palette_4alla_1 }
+          <VertexRef> { 2 1 3 <Ref> { tattooIcons.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> icon_shop_tailor_chest_male {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_shop_icons_palette_4alla_1 }
+          <VertexRef> { 4 5 6 <Ref> { tattooIcons.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_shop_icons_palette_4alla_1 }
+          <VertexRef> { 6 5 7 <Ref> { tattooIcons.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> icon_shop_tailor_face_male {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_shop_icons_palette_4alla_1 }
+          <VertexRef> { 8 9 10 <Ref> { tattooIcons.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_shop_icons_palette_4alla_1 }
+          <VertexRef> { 10 9 11 <Ref> { tattooIcons.egg } }
+        }
+      }
+    }
+  }
+}

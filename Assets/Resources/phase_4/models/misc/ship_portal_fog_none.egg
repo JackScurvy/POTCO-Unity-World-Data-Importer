@@ -1,0 +1,24 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\misc\ship_portal_fog_none.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\misc\ship_portal_fog_none.egg'"
+}
+<Group> ship_portal_fog {
+  <Dart> { structured }
+  <Group> uvj_FogTexture {
+    <DCS> { net }
+    <Transform> {
+      <Translate> { 0.0743656978011131 -0.743656992912292 0 }
+    }
+  }
+  <Joint> uvj_FogTexture {
+    <Transform> {
+      <Matrix4> {
+        1 0 0 0
+        0 1 0 0
+        0 0 1 0
+        0.0743656978011131 -0.743656992912292 0 1
+      }
+    }
+  }
+}

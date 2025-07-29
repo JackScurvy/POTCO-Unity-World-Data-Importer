@@ -1,0 +1,122 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\gui\compass_gui.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\gui\compass_gui.egg'"
+}
+<Texture> gui_palette_4alla_1 {
+  "phase_2/maps/gui_palette_4alla_1.jpg"
+  <Scalar> alpha-file { "phase_2/maps/gui_palette_4alla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> compass_gui.egg {
+  <Vertex> 0 {
+    -0.03125 0 0.09375
+    <UV> { 0.985351979732513 0.999023914337158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.03125 0 -0.09375
+    <UV> { 0.985351979732513 0.969726979732513 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.03125 0 0.09375
+    <UV> { 0.999023914337158 0.999023914337158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.03125 0 -0.09375
+    <UV> { 0.999023914337158 0.969726979732513 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.120833002030849 0 0.118749998509884
+    <UV> { 0.829101979732513 0.780273914337158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.120833002030849 0 -0.118749998509884
+    <UV> { 0.829101979732513 0.750976979732513 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.120833002030849 0 0.118749998509884
+    <UV> { 0.858398914337158 0.780273914337158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.120833002030849 0 -0.118749998509884
+    <UV> { 0.858398914337158 0.750976979732513 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -0.118749998509884 0 0.118749998509884
+    <UV> { 0.96679699420929 0.811523914337158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    -0.118749998509884 0 -0.118749998509884
+    <UV> { 0.96679699420929 0.782226979732513 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    0.118749998509884 0 0.118749998509884
+    <UV> { 0.996093928813934 0.811523914337158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    0.118749998509884 0 -0.118749998509884
+    <UV> { 0.996093928813934 0.782226979732513 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> compass_icon_exclamation {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 0 1 2 <Ref> { compass_gui.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 2 1 3 <Ref> { compass_gui.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> compass_icon_objective_grey {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 4 5 6 <Ref> { compass_gui.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 6 5 7 <Ref> { compass_gui.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> compass_icon_objective_green {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 8 9 10 <Ref> { compass_gui.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 10 9 11 <Ref> { compass_gui.egg } }
+        }
+      }
+    }
+  }
+}

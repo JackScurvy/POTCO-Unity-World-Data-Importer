@@ -1,0 +1,74 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\effects\arrow_ground.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\effects\arrow_ground.egg'"
+}
+<Texture> gui_palette_4alla_1 {
+  "phase_2/maps/gui_palette_4alla_1.jpg"
+  <Scalar> alpha-file { "phase_2/maps/gui_palette_4alla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> arrow_ground.egg {
+  <Vertex> 0 {
+    -0.180381998419762 0.911772012710571 2.97381841374289e-11
+    <UV> { 0.288887292146683 0.584223031997681 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -1.24039995670319 -1.05546998977661 -3.44249143080511e-11
+    <UV> { 0.244632735848427 0.503124177455902 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0 1.05546998977661 3.44249143080511e-11
+    <UV> { 0.294101238250732 0.590146899223328 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0 -1.05546998977661 -3.44249143080511e-11
+    <UV> { 0.294101238250732 0.503124177455902 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    0.180381998419762 0.911772012710571 2.97381841374289e-11
+    <UV> { 0.288887292146683 0.584223031997681 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    1.24039995670319 -1.05546998977661 -3.44249143080511e-11
+    <UV> { 0.244632735848427 0.503124177455902 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> arrow_ground {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { gui_palette_4alla_1 }
+      <VertexRef> { 0 1 2 <Ref> { arrow_ground.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_4alla_1 }
+      <VertexRef> { 2 1 3 <Ref> { arrow_ground.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_4alla_1 }
+      <VertexRef> { 2 3 4 <Ref> { arrow_ground.egg } }
+    }
+    <Polygon> {
+      <TRef> { gui_palette_4alla_1 }
+      <VertexRef> { 4 3 5 <Ref> { arrow_ground.egg } }
+    }
+  }
+}

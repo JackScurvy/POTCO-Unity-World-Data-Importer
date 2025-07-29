@@ -1,0 +1,974 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\effects\particleMaps.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\effects\particleMaps.egg'"
+}
+<Texture> pir_t_efx_msc_vomit {
+  "phase_2/maps/pir_t_efx_msc_vomit.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_efx_msc_vomit_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_efx_msc_lavaSplash {
+  "phase_2/maps/pir_t_efx_msc_lavaSplash.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_efx_msc_lavaSplash_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_efx_msc_glowingRays {
+  "phase_2/maps/pir_t_efx_msc_glowingRays.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_efx_msc_glowingRays_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_efx_msc_glowRays {
+  "phase_2/maps/pir_t_efx_msc_glowRays.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_efx_msc_glowRays_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_efx_env_waterSplash {
+  "phase_2/maps/pir_t_efx_env_waterSplash.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_efx_env_waterSplash_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_efx_env_bubble {
+  "phase_2/maps/pir_t_efx_env_bubble.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_efx_env_bubble_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleWhiteSteam {
+  "phase_2/maps/particleWhiteSteam.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleWhiteSteam_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleWhiteSmoke {
+  "phase_2/maps/particleWhiteSmoke.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleWhiteSmoke_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleVolcanoSmoke {
+  "phase_2/maps/particleVolcanoSmoke.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleVolcanoSmoke_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleTwisterDebris_03 {
+  "phase_2/maps/particleTwisterDebris_03.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleTwisterDebris_03_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleTwisterDebris_02 {
+  "phase_2/maps/particleTwisterDebris_02.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleTwisterDebris_02_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleTwisterDebris_01 {
+  "phase_2/maps/particleTwisterDebris_01.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleTwisterDebris_01_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleTwisterDebris_00 {
+  "phase_2/maps/particleTwisterDebris_00.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleTwisterDebris_00_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleSplash {
+  "phase_2/maps/particleSplash.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleSplash_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleSpark {
+  "phase_2/maps/particleSpark.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleSpark_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleSmoke {
+  "phase_2/maps/particleSmoke.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleSmoke_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleRockShower {
+  "phase_2/maps/particleRockShower.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleRockShower_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleGunSmoke {
+  "phase_2/maps/particleGunSmoke.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleGunSmoke_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleGroundFog {
+  "phase_2/maps/particleGroundFog.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleGroundFog_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleGreenBlood {
+  "phase_2/maps/particleGreenBlood.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleGreenBlood_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleGlowFire {
+  "phase_2/maps/particleGlowFire.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleGlowFire_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleGlowBlue {
+  "phase_2/maps/particleGlowBlue.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleGlowBlue_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleGlow {
+  "phase_2/maps/particleGlow.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleGlow_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleFlameSmoke {
+  "phase_2/maps/particleFlameSmoke.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleFlameSmoke_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleFlame {
+  "phase_2/maps/particleFlame.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleFlame_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleFire2 {
+  "phase_2/maps/particleFire2.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleFire2_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleFire {
+  "phase_2/maps/particleFire.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleFire_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleEvilSmoke {
+  "phase_2/maps/particleEvilSmoke.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleEvilSmoke_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleDust {
+  "phase_2/maps/particleDust.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleDust_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleDot {
+  "phase_2/maps/particleDot.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleDot_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleDirtClod {
+  "phase_2/maps/particleDirtClod.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleDirtClod_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleDarkSmoke {
+  "phase_2/maps/particleDarkSmoke.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleDarkSmoke_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleBlackSmoke {
+  "phase_2/maps/particleBlackSmoke.jpg"
+  <Scalar> alpha-file { "phase_2/maps/particleBlackSmoke_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleApocalypse {
+  "phase_2/maps/particleApocalypse.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectYellowGlowRing {
+  "phase_2/maps/effectYellowGlowRing.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectYellowGlowRing_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectWindBlur {
+  "phase_2/maps/effectWindBlur.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectWindBlur_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectSoftGlow {
+  "phase_2/maps/effectSoftGlow.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectSoftGlow_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectSoftBlueGlow {
+  "phase_2/maps/effectSoftBlueGlow.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectSoftBlueGlow_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectFury {
+  "phase_2/maps/effectFury.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectFury_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectDarkGlow {
+  "phase_2/maps/effectDarkGlow.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectDarkGlow_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectCandle {
+  "phase_2/maps/effectCandle.jpg"
+  <Scalar> alpha-file { "phase_2/maps/effectCandle_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> particleMaps.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> particleBlackSmoke {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleBlackSmoke }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleBlackSmoke }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleDirtClod {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleDirtClod }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleDirtClod }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleDot {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleDot }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleDot }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleDust {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleDust }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleDust }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleFire {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleFire }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleFire }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleFlame {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleFlame }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleFlame }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleGlow {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleGlow }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleGlow }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleGlowFire {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleGlowFire }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleGlowFire }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleGreenBlood {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleGreenBlood }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleGreenBlood }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleGunSmoke {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleGunSmoke }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleGunSmoke }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleRockShower {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { particleRockShower }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleRockShower }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleSmoke {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleSmoke }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleSmoke }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleSpark {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleSpark }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleSpark }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleSplash {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleSplash }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleSplash }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleFlameSmoke {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleFlameSmoke }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleFlameSmoke }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectYellowGlowRing {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectYellowGlowRing }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectYellowGlowRing }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectSoftGlow {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectSoftGlow }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectSoftGlow }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleWhiteSmoke {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleWhiteSmoke }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleWhiteSmoke }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleVolcanoSmoke {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleVolcanoSmoke }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleVolcanoSmoke }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_efx_msc_lavaSplash {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_efx_msc_lavaSplash }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_efx_msc_lavaSplash }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleTwisterDebris_00 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { particleTwisterDebris_00 }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleTwisterDebris_00 }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleTwisterDebris_01 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { particleTwisterDebris_01 }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleTwisterDebris_01 }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleTwisterDebris_02 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { particleTwisterDebris_02 }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleTwisterDebris_02 }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleTwisterDebris_03 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { particleTwisterDebris_03 }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleTwisterDebris_03 }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleApocalypse {
+        <Polygon> {
+          <TRef> { particleApocalypse }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleApocalypse }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectSoftBlueGlow {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectSoftBlueGlow }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectSoftBlueGlow }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectDarkGlow {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectDarkGlow }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectDarkGlow }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectCandle {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectCandle }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectCandle }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleGlowBlue {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleGlowBlue }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleGlowBlue }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleEvilSmoke {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleEvilSmoke }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleEvilSmoke }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleDarkSmoke {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleDarkSmoke }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleDarkSmoke }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectFury {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { effectFury }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectFury }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleGroundFog {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleGroundFog }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleGroundFog }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleWhiteSteam {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleWhiteSteam }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleWhiteSteam }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> effectWindBlur {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effectWindBlur }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { effectWindBlur }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleFire2 {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { particleFire2 }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleFire2 }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_efx_env_waterSplash {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_efx_env_waterSplash }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_efx_env_waterSplash }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_efx_env_bubble {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_efx_env_bubble }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_efx_env_bubble }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_efx_msc_vomit {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { pir_t_efx_msc_vomit }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_efx_msc_vomit }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_efx_msc_glowRays {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_efx_msc_glowRays }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_efx_msc_glowRays }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_efx_msc_glowingRays {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_efx_msc_glowingRays }
+          <VertexRef> { 0 1 2 <Ref> { particleMaps.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_efx_msc_glowingRays }
+          <VertexRef> { 2 1 3 <Ref> { particleMaps.egg } }
+        }
+      }
+    }
+  }
+}

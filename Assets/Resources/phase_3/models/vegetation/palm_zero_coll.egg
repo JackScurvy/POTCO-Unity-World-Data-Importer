@@ -1,0 +1,28 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\vegetation\palm_zero_coll.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\vegetation\palm_zero_coll.egg'"
+}
+<Group> {
+  <Group> collision {
+    <Collide> { Tube descend }
+    <Scalar> collide-mask { 0x00000001 }
+    <VertexPool> vpool-collision {
+      <Vertex> 0 {
+        9.99999997475243e-07 0 50.967342376709
+      }
+      <Vertex> 1 {
+        2.79264211654663 0 24.0873508453369
+      }
+      <Vertex> 2 {
+        9.99999997475243e-07 0 -2.79264116287231
+      }
+      <Vertex> 3 {
+        -2.792640209198 0 24.0873508453369
+      }
+    }
+    <Polygon> {
+      <VertexRef> { 0 1 2 3 <Ref> { vpool-collision } }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\handheld\cards_2_high.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\handheld\cards_2_high.egg'"
+}
+<Texture> card_back {
+  "phase_4/maps/card_back.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> cards_2_high.egg {
+  <Vertex> 0 {
+    0.0684828981757164 -0.104285001754761 -0.0329426005482674
+    <UV> { -3.83817810867271e-10 -7.45124961731847e-10 }
+    <Normal> { 0 0 -1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.000344288011547178 0.136053994297981 -0.0329426005482674
+    <UV> { 1 -7.45124961731847e-10 }
+    <Normal> { 0 0 -1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.469047993421555 0.0104269003495574 -0.0329426005482674
+    <UV> { -3.83817810867271e-10 1 }
+    <Normal> { 0 0 -1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.400220990180969 0.250766009092331 -0.0329426005482674
+    <UV> { 1 1 }
+    <Normal> { 0 0 -1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    0.105359002947807 -0.0298204999417067 -0.0294714998453856
+    <UV> { -4.27468366259731e-10 4.34945163219069e-10 }
+    <Normal> { 0 0 -1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.0935686975717545 0.121597997844219 -0.0294714998453856
+    <UV> { 1 4.34945163219069e-10 }
+    <Normal> { 0 0 -1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.357724010944366 0.301726013422012 -0.0294714998453856
+    <UV> { -4.27468366259731e-10 1 }
+    <Normal> { 0 0 -1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.15879599750042 0.453144997358322 -0.0294714998453856
+    <UV> { 1 1 }
+    <Normal> { 0 0 -1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> cards_2_group {
+    <Polygon> {
+      <TRef> { card_back }
+      <VertexRef> { 0 1 2 <Ref> { cards_2_high.egg } }
+    }
+    <Polygon> {
+      <TRef> { card_back }
+      <VertexRef> { 2 1 3 <Ref> { cards_2_high.egg } }
+    }
+    <Polygon> {
+      <TRef> { card_back }
+      <VertexRef> { 4 5 6 <Ref> { cards_2_high.egg } }
+    }
+    <Polygon> {
+      <TRef> { card_back }
+      <VertexRef> { 6 5 7 <Ref> { cards_2_high.egg } }
+    }
+  }
+}

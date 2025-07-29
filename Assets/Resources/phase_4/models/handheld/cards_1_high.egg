@@ -1,0 +1,52 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\handheld\cards_1_high.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\handheld\cards_1_high.egg'"
+}
+<Texture> card_back {
+  "phase_4/maps/card_back.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> cards_1_high.egg {
+  <Vertex> 0 {
+    0.36906298995018 0.13188000023365 0
+    <UV> { 0 0.131419003009796 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0.194248005747795 0.340216994285583 0
+    <UV> { 1 0.131419003009796 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.0891415998339653 -0.103000998497009 0
+    <UV> { 0 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -0.0856733992695808 0.105334997177124 0
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> cards_1_group {
+    <Polygon> {
+      <TRef> { card_back }
+      <VertexRef> { 0 1 2 <Ref> { cards_1_high.egg } }
+    }
+    <Polygon> {
+      <TRef> { card_back }
+      <VertexRef> { 2 1 3 <Ref> { cards_1_high.egg } }
+    }
+  }
+}

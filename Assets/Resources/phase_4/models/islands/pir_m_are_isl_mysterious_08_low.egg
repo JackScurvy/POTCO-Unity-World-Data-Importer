@@ -1,0 +1,737 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\islands\pir_m_are_isl_mysterious_08_low.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\islands\pir_m_are_isl_mysterious_08_low.egg'"
+}
+<Texture> island_dock_palette_3cmla_1 {
+  "phase_3/maps/island_dock_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> clouds_heavy {
+  "phase_3/maps/clouds_heavy.jpg"
+  <Scalar> alpha-file { "phase_3/maps/clouds_heavy_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_are_isl_mysterious_08_low.egg {
+  <Vertex> 0 {
+    1127.18994140625 -305.022003173828 -39.9912986755371
+    <UV> { 0.504938125610352 0.579110682010651 }
+    <Normal> { 0.742747068405151 -0.208734020590782 0.636205077171326 }
+    <RGBA> { 0.329411774873734 0.560784339904785 0.639215707778931 1 }
+  }
+  <Vertex> 1 {
+    1069.80004882813 534.932983398438 -32.4883995056152
+    <UV> { 0.593163430690765 0.53989589214325 }
+    <Normal> { 0.715089023113251 0.346534013748169 0.607092976570129 }
+    <RGBA> { 0.329411774873734 0.560784339904785 0.639215707778931 1 }
+  }
+  <Vertex> 2 {
+    854.047973632813 32.1324005126953 326.858001708984
+    <UV> { 0.563804149627686 0.589784681797028 }
+    <Normal> { 0.612039148807526 -0.0526602156460285 0.789072215557098 }
+    <RGBA> { 0.407843172550201 0.980392217636108 1 1 }
+  }
+  <Vertex> 3 {
+    -19.1294994354248 327.506011962891 520.400024414063
+    <UV> { 0.667540073394775 0.596760153770447 }
+    <Normal> { -0.708784997463226 0.179046988487244 0.68232399225235 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    92.2319030761719 132.011001586914 658.674011230469
+    <UV> { 0.645116150379181 0.611022353172302 }
+    <Normal> { -0.776597261428833 0.00321316090412438 0.629989206790924 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    95.0964965820313 287.994995117188 691.27197265625
+    <UV> { 0.654112219810486 0.593340456485748 }
+    <Normal> { -0.778855979442596 0.204964995384216 0.592767000198364 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    318.157989501953 3.78849005699158 551.921020507813
+    <UV> { 0.615580081939697 0.609871506690979 }
+    <Normal> { 0.227739006280899 -0.474093019962311 0.850512027740479 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    42.2294006347656 -337.324005126953 334.907989501953
+    <UV> { 0.622062027454376 0.667068541049957 }
+    <Normal> { -0.289672821760178 -0.497108668088913 0.817907452583313 }
+    <RGBA> { 0.407843172550201 0.980392217636108 1 1 }
+  }
+  <Vertex> 8 {
+    499.373992919922 -400.606994628906 512.744995117188
+    <UV> { 0.562311351299286 0.634497404098511 }
+    <Normal> { 0.252378910779953 -0.324917882680893 0.911445677280426 }
+    <RGBA> { 0.407843172550201 0.980392217636108 1 1 }
+  }
+  <Vertex> 9 {
+    -40.7438011169434 34.3311004638672 525.112976074219
+    <UV> { 0.652206182479858 0.631109178066254 }
+    <Normal> { -0.49180993437767 -0.329395949840546 0.805990874767303 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    159.554000854492 -54.0227012634277 520.400024414063
+    <UV> { 0.627526044845581 0.627250194549561 }
+    <Normal> { -0.163976088166237 -0.572463274002075 0.803366422653198 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    92.2319030761719 132.011001586914 658.674011230469
+    <UV> { 0.645116150379181 0.611022353172302 }
+    <Normal> { 0.00562373735010624 -0.207722902297974 0.978171527385712 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 12 {
+    -681.309997558594 -239.201995849609 -24.0874004364014
+    <UV> { 0.728203117847443 0.727132618427277 }
+    <Normal> { -0.659992814064026 -0.122230969369411 0.741261780261993 }
+    <RGBA> { 0.407843172550201 0.980392217636108 1 1 }
+  }
+  <Vertex> 13 {
+    -433.303985595703 -188.100006103516 205.154998779297
+    <UV> { 0.67705637216568 0.683016836643219 }
+    <Normal> { -0.561031639575958 -0.21824486553669 0.798506498336792 }
+    <RGBA> { 0.407843172550201 0.980392217636108 1 1 }
+  }
+  <Vertex> 14 {
+    -636.585021972656 162.317993164063 -24.0711002349854
+    <UV> { 0.746093988418579 0.677886605262756 }
+    <Normal> { -0.681097149848938 0.0931845232844353 0.726239144802094 }
+    <RGBA> { 0.329411774873734 0.560784339904785 0.639215707778931 1 }
+  }
+  <Vertex> 15 {
+    -551.375 670.296997070313 -25.1863994598389
+    <UV> { 0.739543318748474 0.594907164573669 }
+    <Normal> { -0.627041935920715 0.296743988990784 0.720250964164734 }
+    <RGBA> { 0.329411774873734 0.560784339904785 0.639215707778931 1 }
+  }
+  <Vertex> 16 {
+    -15.7763996124268 669.56201171875 420.85400390625
+    <UV> { 0.687551617622375 0.558186888694763 }
+    <Normal> { -0.28313285112381 0.580719709396362 0.763282656669617 }
+    <RGBA> { 0.407843172550201 0.980392217636108 1 1 }
+  }
+  <Vertex> 17 {
+    -218.802001953125 1005.63000488281 -25.3397006988525
+    <UV> { 0.727223932743073 0.534465253353119 }
+    <Normal> { -0.248636052012444 0.715947151184082 0.652380108833313 }
+    <RGBA> { 0.329411774873734 0.560784339904785 0.639215707778931 1 }
+  }
+  <Vertex> 18 {
+    92.2319030761719 132.011001586914 658.674011230469
+    <UV> { 0.645116150379181 0.611022353172302 }
+    <Normal> { 0.00562373735010624 -0.207722902297974 0.978171527385712 }
+    <RGBA> { 0.61176472902298 0.788235366344452 0.850980460643768 1 }
+  }
+  <Vertex> 19 {
+    174.509002685547 248.451995849609 638.27001953125
+    <UV> { 0.644059002399445 0.592316269874573 }
+    <Normal> { -0.210316970944405 -0.27737295627594 0.937459886074066 }
+    <RGBA> { 0.121568635106087 0.215686291456223 0.247058838605881 1 }
+  }
+  <Vertex> 20 {
+    95.0964965820313 287.994995117188 691.27197265625
+    <UV> { 0.654112219810486 0.593340456485748 }
+    <Normal> { 0.338626891374588 -0.436905860900879 0.833333730697632 }
+    <RGBA> { 0.61176472902298 0.788235366344452 0.850980460643768 1 }
+  }
+  <Vertex> 21 {
+    139.223007202148 344.683990478516 730.848022460938
+    <UV> { 0.653202533721924 0.583953738212585 }
+    <Normal> { -0.430185854434967 -0.415415853261948 0.801479756832123 }
+    <RGBA> { 0.61176472902298 0.788235366344452 0.850980460643768 1 }
+  }
+  <Vertex> 22 {
+    272.528015136719 267.578002929688 732.140991210938
+    <UV> { 0.635689198970795 0.583437144756317 }
+    <Normal> { -0.540780007839203 -0.510349035263062 0.66865599155426 }
+    <RGBA> { 0.61176472902298 0.788235366344452 0.850980460643768 1 }
+  }
+  <Vertex> 23 {
+    322.372985839844 162.100006103516 734.543029785156
+    <UV> { 0.624583423137665 0.591835737228394 }
+    <Normal> { -0.281077086925507 -0.340488106012344 0.897253334522247 }
+    <RGBA> { 0.61176472902298 0.788235366344452 0.850980460643768 1 }
+  }
+  <Vertex> 24 {
+    -548.205993652344 -495.503997802734 -24.0921001434326
+    <UV> { 0.695165038108826 0.743252396583557 }
+    <Normal> { -0.515902817249298 -0.379793882369995 0.767854750156403 }
+    <RGBA> { 0.329411774873734 0.560784339904785 0.639215707778931 1 }
+  }
+  <Vertex> 25 {
+    -305.536010742188 -725.953002929688 -24.0711002349854
+    <UV> { 0.649011731147766 0.746093988418579 }
+    <Normal> { -0.379277169704437 -0.44672018289566 0.810302376747131 }
+    <RGBA> { 0.329411774873734 0.560784339904785 0.639215707778931 1 }
+  }
+  <Vertex> 26 {
+    300.540985107422 959.900024414063 -25.6025009155273
+    <UV> { 0.67413341999054 0.503906011581421 }
+    <Normal> { 0.187628984451294 0.809749960899353 0.55596798658371 }
+    <RGBA> { 0.329411774873734 0.560784339904785 0.639215707778931 1 }
+  }
+  <Vertex> 27 {
+    322.825012207031 635.346984863281 415.856994628906
+    <UV> { 0.652676045894623 0.538755893707275 }
+    <Normal> { 0.221842005848885 0.689564049243927 0.689411044120789 }
+    <RGBA> { 0.407843172550201 0.980392217636108 1 1 }
+  }
+  <Vertex> 28 {
+    -217.789001464844 391.829010009766 334.907989501953
+    <UV> { 0.690632462501526 0.603200435638428 }
+    <Normal> { -0.649500846862793 0.145694971084595 0.746271848678589 }
+    <RGBA> { 0.407843172550201 0.980392217636108 1 1 }
+  }
+  <Vertex> 29 {
+    230.930999755859 102.157997131348 694.085021972656
+    <UV> { 0.629888832569122 0.604838311672211 }
+    <Normal> { -0.0867493078112602 -0.403195023536682 0.910993039608002 }
+    <RGBA> { 0.61176472902298 0.788235366344452 0.850980460643768 1 }
+  }
+  <Vertex> 30 {
+    129.294998168945 -1028.18994140625 -25.1863994598389
+    <UV> { 0.572892785072327 0.738777041435242 }
+    <Normal> { -0.255676954984665 -0.464230895042419 0.848008811473846 }
+    <RGBA> { 0.329411774873734 0.560784339904785 0.639215707778931 1 }
+  }
+  <Vertex> 31 {
+    787.726989746094 506.490997314453 312.643005371094
+    <UV> { 0.615496277809143 0.56010377407074 }
+    <Normal> { 0.509010255336761 0.377822190523148 0.773407399654388 }
+    <RGBA> { 0.407843172550201 0.980392217636108 1 1 }
+  }
+  <Vertex> 32 {
+    693.682983398438 -697.857971191406 263.407012939453
+    <UV> { 0.535285830497742 0.669627010822296 }
+    <Normal> { 0.271143883466721 -0.542013764381409 0.795425713062286 }
+    <RGBA> { 0.600000023841858 0.792156934738159 0.831372618675232 1 }
+  }
+  <Vertex> 33 {
+    396.398010253906 256.825988769531 558.573974609375
+    <UV> { 0.623035609722137 0.576131045818329 }
+    <Normal> { 0.63156533241272 0.284637153148651 0.721184372901917 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 34 {
+    307.355987548828 434.071014404297 558.573974609375
+    <UV> { 0.642209887504578 0.562380850315094 }
+    <Normal> { 0.375308871269226 0.520249783992767 0.767126739025116 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 35 {
+    322.372985839844 162.100006103516 734.543029785156
+    <UV> { 0.624583423137665 0.591835737228394 }
+    <Normal> { 0.762129724025726 0.380838841199875 0.52356481552124 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 36 {
+    272.528015136719 267.578002929688 732.140991210938
+    <UV> { 0.635689198970795 0.583437144756317 }
+    <Normal> { 0.51713901758194 0.612058043479919 0.598291039466858 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 37 {
+    459.658996582031 130.899993896484 558.573974609375
+    <UV> { 0.609413027763367 0.585899949073792 }
+    <Normal> { 0.584708034992218 -0.178168013691902 0.791437089443207 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 38 {
+    87.0390014648438 458.582000732422 551.921020507813
+    <UV> { 0.665035843849182 0.574772119522095 }
+    <Normal> { -0.306504160165787 0.555179297924042 0.773195385932922 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 39 {
+    139.223007202148 344.683990478516 730.848022460938
+    <UV> { 0.653202533721924 0.583953738212585 }
+    <Normal> { 0.207861050963402 0.770471215248108 0.602634131908417 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 40 {
+    139.223007202148 344.683990478516 730.848022460938
+    <UV> { 0.653202533721924 0.583953738212585 }
+    <Normal> { -0.430185854434967 -0.415415853261948 0.801479756832123 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 41 {
+    586.026000976563 -1161.2099609375 -7.11398983001709
+    <UV> { 0.503906011581421 0.710416555404663 }
+    <Normal> { 0.335120052099228 -0.533343076705933 0.776685118675232 }
+    <RGBA> { 0.329411774873734 0.560784339904785 0.639215707778931 1 }
+  }
+  <Vertex> 42 {
+    322.372985839844 162.100006103516 734.543029785156
+    <UV> { 0.624583423137665 0.591835737228394 }
+    <Normal> { -0.281077086925507 -0.340488106012344 0.897253334522247 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 43 {
+    230.930999755859 102.157997131348 694.085021972656
+    <UV> { 0.629888832569122 0.604838311672211 }
+    <Normal> { -0.0867493078112602 -0.403195023536682 0.910993039608002 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 44 {
+    -1322.14001464844 -791.216979980469 -51.3185005187988
+    <UV> { -0.0175880007445812 0.0885206013917923 }
+    <Normal> { -0.615636944770813 -0.67371791601181 0.408772945404053 }
+    <RGBA> { 1 1 1 0.011764707043767 }
+  }
+  <Vertex> 45 {
+    -1351.23999023438 -844.2919921875 -210.570999145508
+    <UV> { -0.0178282000124454 -0.0772773325443268 }
+    <Normal> { -0.618617296218872 -0.709626376628876 0.337258160114288 }
+    <RGBA> { 1 1 1 0.0274509824812412 }
+  }
+  <Vertex> 46 {
+    -881.406982421875 -1124.80004882813 61.002498626709
+    <UV> { 0.203621998429298 0.0913856029510498 }
+    <Normal> { -0.549595892429352 -0.737390875816345 0.392681926488876 }
+    <RGBA> { 1 1 1 0.254901975393295 }
+  }
+  <Vertex> 47 {
+    -917.918029785156 -1217.30004882813 -206.389999389648
+    <UV> { 0.20286700129509 -0.0852765738964081 }
+    <Normal> { -0.545169830322266 -0.773742735385895 0.322663903236389 }
+    <RGBA> { 1 1 1 0.737254917621613 }
+  }
+  <Vertex> 48 {
+    205.811004638672 -1346.21997070313 172.490005493164
+    <UV> { 0.639831006526947 0.12213359773159 }
+    <Normal> { 0.2118881046772 -0.913186430931091 0.34812918305397 }
+    <RGBA> { 0.858823597431183 0.858823597431183 0.858823597431183 0.752941250801086 }
+  }
+  <Vertex> 49 {
+    213.309005737305 -1447.75 -215.565994262695
+    <UV> { 0.641182005405426 -0.0828288495540619 }
+    <Normal> { 0.209112927317619 -0.937767624855042 0.27724289894104 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 50 {
+    815.468994140625 -1096.92004394531 65.7807006835938
+    <UV> { 0.861845016479492 0.0928336009383202 }
+    <Normal> { 0.477742999792099 -0.78764396905899 0.389073997735977 }
+    <RGBA> { 0.670588254928589 0.670588254928589 0.670588254928589 0.701960802078247 }
+  }
+  <Vertex> 51 {
+    908.752014160156 -1158.46997070313 -206.087997436523
+    <UV> { 0.862841010093689 -0.0597506985068321 }
+    <Normal> { 0.471098005771637 -0.818628013134003 0.328503996133804 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 52 {
+    -1270.4599609375 -759.737976074219 49.372501373291
+    <UV> { -0.0175880994647741 0.195359602570534 }
+    <Normal> { -0.608708083629608 -0.633490085601807 0.477666050195694 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 53 {
+    -887.731018066406 -1062.32995605469 142.710998535156
+    <UV> { 0.202164992690086 0.177612602710724 }
+    <Normal> { -0.550591230392456 -0.696479320526123 0.460180222988129 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 54 {
+    198.852996826172 -1276.65002441406 337.049987792969
+    <UV> { 0.639831006526947 0.226001605391502 }
+    <Normal> { 0.21347488462925 -0.883243501186371 0.417503774166107 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 55 {
+    776.580993652344 -1046.84997558594 183.615005493164
+    <UV> { 0.862841010093689 0.180731594562531 }
+    <Normal> { 0.482147008180618 -0.75307697057724 0.447670996189117 }
+    <RGBA> { 0.996078491210938 0.996078491210938 0.996078491210938 0 }
+  }
+  <Vertex> 56 {
+    -443.977996826172 -1474.89001464844 -223.227996826172
+    <UV> { 0.431143999099731 -0.0566674992442131 }
+    <Normal> { -0.22728805243969 -0.927520215511322 0.296726077795029 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 57 {
+    -428.569000244141 -1371.43005371094 122.418998718262
+    <UV> { 0.427161008119583 0.143950596451759 }
+    <Normal> { -0.240741968154907 -0.89823991060257 0.367706954479218 }
+    <RGBA> { 1 1 1 0.686274528503418 }
+  }
+  <Vertex> 58 {
+    -417.696990966797 -1302 272.252990722656
+    <UV> { 0.427161008119583 0.226185604929924 }
+    <Normal> { -0.252736926078796 -0.863486766815186 0.436479866504669 }
+    <RGBA> { 1 1 1 0 }
+  }
+  <Vertex> 59 {
+    1357.88000488281 -837.469970703125 -215.783996582031
+    <UV> { 1 -0.0578996017575264 }
+    <Normal> { 0.551385819911957 -0.744719743728638 0.375986874103546 }
+    <RGBA> { 1 1 1 0.0196078438311815 }
+  }
+  <Vertex> 60 {
+    1259.0400390625 -796.159973144531 -2.14991998672485
+    <UV> { 1.00999999046326 0.0882486030459404 }
+    <Normal> { 0.548102200031281 -0.718087255954742 0.428876131772995 }
+    <RGBA> { 1 1 1 0.0274509824812412 }
+  }
+  <Vertex> 61 {
+    1209.17004394531 -763.833984375 98.5411987304688
+    <UV> { 1.00999999046326 0.188123598694801 }
+    <Normal> { 0.542890131473541 -0.688929200172424 0.480257123708725 }
+    <RGBA> { 1 1 1 0 }
+  }
+}
+<Group> horizon_lod {
+  <Group> hill {
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 3 4 5 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 6 7 8 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 9 10 11 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 12 13 14 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 13 7 9 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 15 16 17 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 18 19 20 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 20 19 21 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 21 19 22 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 22 19 23 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 12 24 13 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 13 24 25 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 17 16 26 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 26 16 27 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 16 15 28 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 28 15 14 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 18 29 19 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 19 29 23 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 25 30 13 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 13 30 7 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 1 26 31 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 31 26 27 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 8 7 32 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 32 7 30 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 6 10 7 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 7 10 9 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 33 34 35 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 35 34 36 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 37 2 31 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 31 2 1 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 14 13 28 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 28 13 9 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 28 9 3 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 3 9 4 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 27 16 34 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 34 16 38 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 34 38 36 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 36 38 39 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 16 28 38 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 38 28 3 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 38 3 40 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 40 3 5 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 27 34 31 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 31 34 33 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 31 33 37 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 37 33 35 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 37 6 2 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 2 6 8 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 2 8 0 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 0 8 32 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 0 32 41 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 41 32 30 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 37 42 6 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 6 42 43 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 6 43 10 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { island_dock_palette_3cmla_1 }
+      <VertexRef> { 10 43 11 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+  }
+  <Group> fog {
+    <Billboard> { axis }
+    <Model> { 1 }
+    <Transform> {
+      <Translate> { 197.753997802734 102.103996276855 217.511001586914 }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 44 45 46 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 46 45 47 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 48 49 50 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 50 49 51 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 52 44 53 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 53 44 46 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 54 48 55 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 55 48 50 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 47 56 46 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 46 56 57 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 46 57 53 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 53 57 58 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 56 49 57 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 57 49 48 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 57 48 58 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 58 48 54 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 51 59 50 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 50 59 60 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 50 60 55 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+    <Polygon> {
+      <Scalar> alpha { blend }
+      <TRef> { clouds_heavy }
+      <VertexRef> { 55 60 61 <Ref> { pir_m_are_isl_mysterious_08_low.egg } }
+    }
+  }
+}

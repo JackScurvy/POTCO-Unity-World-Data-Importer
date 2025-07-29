@@ -1,0 +1,84 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\buildings\sign1_eng_b_icon_storage.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\buildings\sign1_eng_b_icon_storage.egg'"
+}
+<Texture> english_exterior_b_palette_4amla_1 {
+  "phase_4/maps/english_exterior_b_palette_4amla_1.jpg"
+  <Scalar> alpha-file { "phase_4/maps/english_exterior_b_palette_4amla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> sign1_eng_b_icon_storage.egg {
+  <Vertex> 0 {
+    -0.0987062975764275 2.29645991325378 -1.68315005302429
+    <UV> { 0.785157024860382 0.371093988418579 }
+    <Normal> { -1 5.44705003324708e-10 -4.34153601958087e-10 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.0987062975764275 5.21266984939575 -1.68315005302429
+    <UV> { 0.668086171150208 0.371093988418579 }
+    <Normal> { -1 5.44705003324708e-10 -4.34153601958087e-10 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -0.0987062975764275 2.29645991325378 -4.39813995361328
+    <UV> { 0.785157024860382 0.253906011581421 }
+    <Normal> { -1 5.44705003324708e-10 -4.34153601958087e-10 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -0.0987062975764275 5.21266984939575 -4.39813995361328
+    <UV> { 0.668086171150208 0.253906011581421 }
+    <Normal> { -1 5.44705003324708e-10 -4.34153601958087e-10 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    0.068012997508049 5.21266984939575 -4.39813995361328
+    <UV> { 0.668086171150208 0.253906011581421 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    0.068012997508049 5.21267986297607 -1.68315005302429
+    <UV> { 0.668086171150208 0.371093988418579 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.068012997508049 2.29645991325378 -4.39813995361328
+    <UV> { 0.785157024860382 0.253906011581421 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.068012997508049 2.29645991325378 -1.68315005302429
+    <UV> { 0.785157024860382 0.371093988418579 }
+    <Normal> { 1 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> icons {
+  <Scalar> alpha { binary }
+  <Polygon> {
+    <TRef> { english_exterior_b_palette_4amla_1 }
+    <VertexRef> { 0 1 2 <Ref> { sign1_eng_b_icon_storage.egg } }
+  }
+  <Polygon> {
+    <TRef> { english_exterior_b_palette_4amla_1 }
+    <VertexRef> { 2 1 3 <Ref> { sign1_eng_b_icon_storage.egg } }
+  }
+  <Polygon> {
+    <TRef> { english_exterior_b_palette_4amla_1 }
+    <VertexRef> { 4 5 6 <Ref> { sign1_eng_b_icon_storage.egg } }
+  }
+  <Polygon> {
+    <TRef> { english_exterior_b_palette_4amla_1 }
+    <VertexRef> { 6 5 7 <Ref> { sign1_eng_b_icon_storage.egg } }
+  }
+}

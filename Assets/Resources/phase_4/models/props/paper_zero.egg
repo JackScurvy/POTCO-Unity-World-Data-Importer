@@ -1,0 +1,139 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\props\paper_zero.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\props\paper_zero.egg'"
+}
+<Texture> props_furniture_palette_3cmla_1 {
+  "phase_4/maps/props_furniture_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> paper_zero.egg {
+  <Vertex> 0 {
+    -0.123250998556614 0.300000011920929 9.6555076434246e-11
+    <UV> { 0.31445300579071 0.22070300579071 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+    // def_root:1
+  }
+  <Vertex> 1 {
+    -0.123250998556614 -0.300000011920929 9.6555076434246e-11
+    <UV> { 0.345583707094193 0.22070300579071 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+    // def_root:1
+  }
+  <Vertex> 2 {
+    0.123250998556614 0.300000011920929 1.28883653749412e-10
+    <UV> { 0.31445300579071 0.248046800494194 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+    // def_root:1
+  }
+  <Vertex> 3 {
+    0.123250998556614 -0.300000011920929 1.28883653749412e-10
+    <UV> { 0.345583707094193 0.248046800494194 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+    // def_root:1
+  }
+  <Vertex> 4 {
+    -0.123250998556614 0.300000011920929 9.6555076434246e-11
+    <UV> { 0.345639914274216 0.22070300579071 }
+    <Normal> { 0 0 -1 }
+    <RGBA> { 1 1 1 1 }
+    // def_root:1
+  }
+  <Vertex> 5 {
+    0.123250998556614 0.300000011920929 1.28883653749412e-10
+    <UV> { 0.345639914274216 0.248046800494194 }
+    <Normal> { 0 0 -1 }
+    <RGBA> { 1 1 1 1 }
+    // def_root:1
+  }
+  <Vertex> 6 {
+    -0.123250998556614 -0.300000011920929 9.6555076434246e-11
+    <UV> { 0.373046785593033 0.22070300579071 }
+    <Normal> { 0 0 -1 }
+    <RGBA> { 1 1 1 1 }
+    // def_root:1
+  }
+  <Vertex> 7 {
+    0.123250998556614 -0.300000011920929 1.28883653749412e-10
+    <UV> { 0.373046785593033 0.248046800494194 }
+    <Normal> { 0 0 -1 }
+    <RGBA> { 1 1 1 1 }
+    // def_root:1
+  }
+  <Vertex> 8 {
+    -0.0532034002244473 -0.0532034002244473 0.00999999977648258
+    <UV> { 0.965285658836365 0.471233010292053 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+    // def_seal:1
+  }
+  <Vertex> 9 {
+    0.0532034002244473 -0.0532034002244473 0.00999999977648258
+    <UV> { 0.991922795772552 0.471233010292053 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+    // def_seal:1
+  }
+  <Vertex> 10 {
+    -0.0532034002244473 0.0532034002244473 0.00999999977648258
+    <UV> { 0.965285658836365 0.497693449258804 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+    // def_seal:1
+  }
+  <Vertex> 11 {
+    0.0532034002244473 0.0532034002244473 0.00999999977648258
+    <UV> { 0.991922795772552 0.497693449258804 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+    // def_seal:1
+  }
+}
+<Group> paper {
+  <Dart> { structured }
+  <Polygon> {
+    <TRef> { props_furniture_palette_3cmla_1 }
+    <VertexRef> { 0 1 2 <Ref> { paper_zero.egg } }
+  }
+  <Polygon> {
+    <TRef> { props_furniture_palette_3cmla_1 }
+    <VertexRef> { 2 1 3 <Ref> { paper_zero.egg } }
+  }
+  <Polygon> {
+    <TRef> { props_furniture_palette_3cmla_1 }
+    <VertexRef> { 4 5 6 <Ref> { paper_zero.egg } }
+  }
+  <Polygon> {
+    <TRef> { props_furniture_palette_3cmla_1 }
+    <VertexRef> { 6 5 7 <Ref> { paper_zero.egg } }
+  }
+  <Polygon> {
+    <TRef> { props_furniture_palette_3cmla_1 }
+    <VertexRef> { 8 9 10 <Ref> { paper_zero.egg } }
+  }
+  <Polygon> {
+    <TRef> { props_furniture_palette_3cmla_1 }
+    <VertexRef> { 10 9 11 <Ref> { paper_zero.egg } }
+  }
+  <Joint> def_root {
+    <Joint> def_seal {
+      <VertexRef> {
+        8 9 10 11
+        <Ref> { paper_zero.egg }
+      }
+    }
+    <VertexRef> {
+      0 1 2 3 4 5 6 7
+      <Ref> { paper_zero.egg }
+    }
+  }
+}

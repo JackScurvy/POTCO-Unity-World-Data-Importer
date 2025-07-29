@@ -1,0 +1,53 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\minigames\pir_m_gui_fsh_rewardScreen.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\minigames\pir_m_gui_fsh_rewardScreen.egg'"
+}
+<Texture> minigame_fishing_palette_3cmla_1 {
+  "phase_4/maps/minigame_fishing_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_gui_fsh_rewardScreen.egg {
+  <Vertex> 0 {
+    -0.631752014160156 0 -0.984251976013184
+    <UV> { 0.00195312988944352 0.00195312988944352 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0.631752014160156 0 -0.984251976013184
+    <UV> { 0.247902184724808 0.00195312988944352 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -0.631752014160156 0 0.984251976013184
+    <UV> { 0.00195312988944352 0.498047143220901 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.631752014160156 0 0.984251976013184
+    <UV> { 0.247902184724808 0.498047143220901 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> rewardScreen {
+    <DCS> { local }
+    <Polygon> {
+      <TRef> { minigame_fishing_palette_3cmla_1 }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_gui_fsh_rewardScreen.egg } }
+    }
+    <Polygon> {
+      <TRef> { minigame_fishing_palette_3cmla_1 }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_gui_fsh_rewardScreen.egg } }
+    }
+  }
+}

@@ -1,0 +1,149 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\gui\ship_damage.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\gui\ship_damage.egg'"
+}
+<Texture> ship_damage_background {
+  "phase_2/maps/ship_damage_background.jpg"
+  <Scalar> alpha-file { "phase_2/maps/ship_damage_background_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> gui_palette_2tlla_1 {
+  "phase_2/maps/gui_palette_2tlla_1.jpg"
+  <Scalar> alpha-file { "phase_2/maps/gui_palette_2tlla_1_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> ship_damage.egg {
+  <Vertex> 0 {
+    1.97293996810913 0 2
+    <UV> { 1 1 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -1.99098002910614 0 2
+    <UV> { 1.5920428309002e-09 1 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    1.97293996810913 0 -2
+    <UV> { 1 0 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -1.99098002910614 0 -2
+    <UV> { 2.38806840968664e-09 0 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    0 -0.0352879017591476 2
+    <UV> { 0.56054699420929 0.996093988418579 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -2 -0.0352879017591476 2
+    <UV> { 0.43945300579071 0.996093988418579 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0 -0.0352879017591476 -2
+    <UV> { 0.56054699420929 0.503906011581421 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    -2 -0.0352879017591476 -2
+    <UV> { 0.43945300579071 0.503906011581421 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    2 -0.0352879017591476 2
+    <UV> { 0.43945300579071 0.996093988418579 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    2 -0.0352879017591476 -2
+    <UV> { 0.43945300579071 0.503906011581421 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    -1.01654984430155e-09 -0.0352879017591476 1.85530635993247e-11
+    <UV> { 0.56054699420929 0.75 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    -0.694557011127472 -0.0352879017591476 -2
+    <UV> { 0.43945300579071 0.841012477874756 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 12 {
+    0.693313002586365 -0.0352879017591476 -2
+    <UV> { 0.43945300579071 0.672459244728088 }
+    <Normal> { 0 -1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> ship_damage_meter {
+    <Group> background {
+      <Scalar> alpha { blend }
+      <Polygon> {
+        <TRef> { ship_damage_background }
+        <VertexRef> { 0 1 2 <Ref> { ship_damage.egg } }
+      }
+      <Polygon> {
+        <TRef> { ship_damage_background }
+        <VertexRef> { 2 1 3 <Ref> { ship_damage.egg } }
+      }
+    }
+    <Group> hp_bar_left {
+      <Scalar> alpha { blend }
+      <Polygon> {
+        <TRef> { gui_palette_2tlla_1 }
+        <VertexRef> { 4 5 6 <Ref> { ship_damage.egg } }
+      }
+      <Polygon> {
+        <TRef> { gui_palette_2tlla_1 }
+        <VertexRef> { 6 5 7 <Ref> { ship_damage.egg } }
+      }
+    }
+    <Group> hp_bar_right {
+      <Scalar> alpha { blend }
+      <Polygon> {
+        <TRef> { gui_palette_2tlla_1 }
+        <VertexRef> { 4 6 8 <Ref> { ship_damage.egg } }
+      }
+      <Polygon> {
+        <TRef> { gui_palette_2tlla_1 }
+        <VertexRef> { 8 6 9 <Ref> { ship_damage.egg } }
+      }
+    }
+    <Group> hp_bar_bottom {
+      <Scalar> alpha { blend }
+      <Polygon> {
+        <TRef> { gui_palette_2tlla_1 }
+        <VertexRef> { 10 11 12 <Ref> { ship_damage.egg } }
+      }
+    }
+  }
+}

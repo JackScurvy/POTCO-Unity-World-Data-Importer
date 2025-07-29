@@ -1,0 +1,102 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\effects\particleWasp_tflip.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\effects\particleWasp_tflip.egg'"
+}
+<Texture> particleWasp_2 {
+  "phase_3/maps/particleWasp_2.jpg"
+  <Scalar> alpha-file { "phase_3/maps/particleWasp_2_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleWasp_1 {
+  "phase_3/maps/particleWasp_1.jpg"
+  <Scalar> alpha-file { "phase_3/maps/particleWasp_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> particleWasp_0 {
+  "phase_3/maps/particleWasp_0.jpg"
+  <Scalar> alpha-file { "phase_3/maps/particleWasp_0_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> particleWasp_tflip.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> particleWasp_0 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { particleWasp_0 }
+          <VertexRef> { 0 1 2 <Ref> { particleWasp_tflip.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleWasp_0 }
+          <VertexRef> { 2 1 3 <Ref> { particleWasp_tflip.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleWasp_1 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { particleWasp_1 }
+          <VertexRef> { 0 1 2 <Ref> { particleWasp_tflip.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleWasp_1 }
+          <VertexRef> { 2 1 3 <Ref> { particleWasp_tflip.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> particleWasp_2 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { particleWasp_2 }
+          <VertexRef> { 0 1 2 <Ref> { particleWasp_tflip.egg } }
+        }
+        <Polygon> {
+          <TRef> { particleWasp_2 }
+          <VertexRef> { 2 1 3 <Ref> { particleWasp_tflip.egg } }
+        }
+      }
+    }
+  }
+}

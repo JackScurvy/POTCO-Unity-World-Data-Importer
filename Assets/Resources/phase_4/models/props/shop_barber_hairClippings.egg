@@ -1,0 +1,132 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\props\shop_barber_hairClippings.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\props\shop_barber_hairClippings.egg'"
+}
+<Texture> props_shop_barber_palette_4amla_1 {
+  "phase_4/maps/props_shop_barber_palette_4amla_1.jpg"
+  <Scalar> alpha-file { "phase_4/maps/props_shop_barber_palette_4amla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> shop_barber_hairClippings.egg {
+  <Vertex> 0 {
+    4.06695649379785e-10 -1.32161998748779 0
+    <UV> { 0.495491325855255 0.990981638431549 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    0 0 0
+    <UV> { 0.00450912117958069 0.990981638431549 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -1.13397002220154 -1.13397002220154 0
+    <UV> { 0.495491325855255 0.0090182414278388 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    -1.32161998748779 -5.44196285257037e-11 0
+    <UV> { 0.00450912117958069 0.0090182414278388 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    4.06695649379785e-10 1.32161998748779 0
+    <UV> { 0.00450912117958069 0.0090182414278388 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -1.13397002220154 1.13397002220154 0
+    <UV> { 0.495491325855255 0.0090182414278388 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -1.32161998748779 -5.44196285257037e-11 0
+    <UV> { 0.495491325855255 0.990981638431549 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    1.32161998748779 -2.21257803745267e-11 0
+    <UV> { 0.00450912117958069 0.0090182414278388 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    1.13397002220154 1.13397002220154 0
+    <UV> { 0.495491325855255 0.0090182414278388 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    4.06695649379785e-10 1.32161998748779 0
+    <UV> { 0.495491325855255 0.990981638431549 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    1.32161998748779 -2.21257803745267e-11 0
+    <UV> { 0.495491325855255 0.990981638431549 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    1.13397002220154 -1.13397002220154 0
+    <UV> { 0.495491325855255 0.0090182414278388 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 12 {
+    4.06695649379785e-10 -1.32161998748779 0
+    <UV> { 0.00450912117958069 0.0090182414278388 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> hairClippings {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { props_shop_barber_palette_4amla_1 }
+      <VertexRef> { 0 1 2 <Ref> { shop_barber_hairClippings.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_shop_barber_palette_4amla_1 }
+      <VertexRef> { 2 1 3 <Ref> { shop_barber_hairClippings.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_shop_barber_palette_4amla_1 }
+      <VertexRef> { 4 5 1 <Ref> { shop_barber_hairClippings.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_shop_barber_palette_4amla_1 }
+      <VertexRef> { 1 5 6 <Ref> { shop_barber_hairClippings.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_shop_barber_palette_4amla_1 }
+      <VertexRef> { 7 8 1 <Ref> { shop_barber_hairClippings.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_shop_barber_palette_4amla_1 }
+      <VertexRef> { 1 8 9 <Ref> { shop_barber_hairClippings.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_shop_barber_palette_4amla_1 }
+      <VertexRef> { 10 1 11 <Ref> { shop_barber_hairClippings.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_shop_barber_palette_4amla_1 }
+      <VertexRef> { 11 1 12 <Ref> { shop_barber_hairClippings.egg } }
+    }
+  }
+}

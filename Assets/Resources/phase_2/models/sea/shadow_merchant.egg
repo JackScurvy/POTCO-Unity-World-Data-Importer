@@ -1,0 +1,646 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\sea\shadow_merchant.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\sea\shadow_merchant.egg'"
+}
+<Texture> shadow_merchant {
+  "phase_2/maps/shadow_merchant.jpg"
+  <Scalar> alpha-file { "phase_2/maps/shadow_merchant_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> shadow_merchant.egg {
+  <Vertex> 0 {
+    -25.1914005279541 -54.1666984558105 -4.13946273092325e-11
+    <UV> { 0.199920997023582 0.0957728996872902 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -32.3154983520508 -54.1666984558105 -4.13391092191073e-11
+    <UV> { 0.137924998998642 0.0965308025479317 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -25.1914005279541 -60.8544998168945 -4.23153040385316e-11
+    <UV> { 0.199958994984627 0.0656870976090431 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    25.1914005279541 -54.1666984558105 -4.13946273092325e-11
+    <UV> { 0.800149023532867 0.0957728996872902 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    25.1914005279541 -60.8544998168945 -4.23153040385316e-11
+    <UV> { 0.800112009048462 0.0656870976090431 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    32.3154983520508 -54.1666984558105 -4.13391092191073e-11
+    <UV> { 0.862146019935608 0.0965308025479317 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -8.49701976776123 -75.0975036621094 -4.43941515493318e-11
+    <UV> { 0.395449995994568 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    -8.49701976776123 -54.1666984558105 -4.15249397367479e-11
+    <UV> { 0.395139992237091 0.0939968004822731 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -25.1914005279541 -33.3333015441895 -1.2291026529887e-10
+    <UV> { 0.200866997241974 0.255569994449615 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    -8.49701976776123 -33.3333015441895 -1.20215712384741e-10
+    <UV> { 0.395426005125046 0.255569994449615 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    -25.1914005279541 -16.6667003631592 -6.04097119549785e-11
+    <UV> { 0.200866997241974 0.400000005960464 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    -8.49701976776123 -16.6667003631592 -5.94007829035625e-11
+    <UV> { 0.395426005125046 0.400000005960464 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 12 {
+    -25.1914005279541 0 4.75480523010052e-11
+    <UV> { 0.200866997241974 0.526880025863647 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 13 {
+    -8.49701976776123 0 -4.26742981229911e-11
+    <UV> { 0.395426005125046 0.526880025863647 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 14 {
+    -25.1914005279541 16.6667003631592 5.62649926649783e-11
+    <UV> { 0.200866997241974 0.643742978572845 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 15 {
+    -8.49701976776123 16.6667003631592 5.63342775206088e-11
+    <UV> { 0.395426005125046 0.643742978572845 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 16 {
+    -25.1914005279541 33.3333015441895 1.12241854699491e-10
+    <UV> { 0.200866997241974 0.760604977607727 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 17 {
+    -8.49701976776123 33.3333015441895 1.13009657187746e-10
+    <UV> { 0.395426005125046 0.760604977607727 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 18 {
+    -25.1914005279541 49.8807983398438 1.46341022633223e-10
+    <UV> { 0.200870007276535 0.87746798992157 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 19 {
+    -8.49701976776123 49.8807983398438 1.42840059225158e-10
+    <UV> { 0.395431995391846 0.87746798992157 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 20 {
+    -25.1914005279541 66.4645004272461 4.28207504177269e-11
+    <UV> { 0.200841993093491 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 21 {
+    -8.49701976776123 66.4645004272461 4.09990583150055e-11
+    <UV> { 0.396284013986588 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 22 {
+    -39.6082992553711 -33.3333015441895 -1.25237570314241e-10
+    <UV> { 2.56358738681683e-08 0.255569994449615 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 23 {
+    -39.6082992553711 -16.6667003631592 -6.12811953959458e-11
+    <UV> { 2.56358738681683e-08 0.400000005960464 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 24 {
+    -39.6082992553711 0 2.30038869897253e-11
+    <UV> { 2.56358738681683e-08 0.526880025863647 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 25 {
+    -39.6082992553711 16.6667003631592 5.62052349106779e-11
+    <UV> { 2.56358738681683e-08 0.643742978572845 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 26 {
+    -39.6082992553711 33.3333015441895 1.11578551953428e-10
+    <UV> { 2.56358738681683e-08 0.760604977607727 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 27 {
+    -39.6082992553711 49.8807983398438 1.4936439585167e-10
+    <UV> { 2.56358738681683e-08 0.87746798992157 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 28 {
+    -39.6082992553711 66.4645004272461 4.43941515493318e-11
+    <UV> { 2.56358738681683e-08 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 29 {
+    8.49701976776123 -75.0975036621094 -4.43941515493318e-11
+    <UV> { 0.60462099313736 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 30 {
+    8.49701976776123 -54.1666984558105 -4.15249397367479e-11
+    <UV> { 0.604929983615875 0.0939968004822731 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 31 {
+    8.49701976776123 -33.3333015441895 -1.20215712384741e-10
+    <UV> { 0.604645013809204 0.255569994449615 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 32 {
+    8.49701976776123 -16.6667003631592 -5.94007829035625e-11
+    <UV> { 0.604645013809204 0.400000005960464 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 33 {
+    8.49701976776123 0 -4.26742981229911e-11
+    <UV> { 0.604645013809204 0.526880025863647 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 34 {
+    8.49701976776123 16.6667003631592 5.63342775206088e-11
+    <UV> { 0.604645013809204 0.643742978572845 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 35 {
+    8.49701976776123 33.3333015441895 1.13009657187746e-10
+    <UV> { 0.604645013809204 0.760604977607727 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 36 {
+    8.49701976776123 49.8807983398438 1.42840059225158e-10
+    <UV> { 0.604638993740082 0.87746798992157 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 37 {
+    8.49701976776123 66.4645004272461 4.09990583150055e-11
+    <UV> { 0.603787004947662 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 38 {
+    25.1914005279541 -33.3333015441895 -1.2291026529887e-10
+    <UV> { 0.799202978610992 0.255569994449615 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 39 {
+    25.1914005279541 -16.6667003631592 -6.04097119549785e-11
+    <UV> { 0.799202978610992 0.400000005960464 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 40 {
+    25.1914005279541 0 4.75480523010052e-11
+    <UV> { 0.799202978610992 0.526880025863647 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 41 {
+    25.1914005279541 16.6667003631592 5.62649926649783e-11
+    <UV> { 0.799202978610992 0.643742978572845 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 42 {
+    25.1914005279541 33.3333015441895 1.12241854699491e-10
+    <UV> { 0.799202978610992 0.760604977607727 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 43 {
+    25.1914005279541 49.8807983398438 1.46341022633223e-10
+    <UV> { 0.799199998378754 0.87746798992157 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 44 {
+    25.1914005279541 66.4645004272461 4.28207504177269e-11
+    <UV> { 0.799228012561798 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 45 {
+    39.6082992553711 -33.3333015441895 -1.25237570314241e-10
+    <UV> { 1 0.255569994449615 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 46 {
+    39.6082992553711 -16.6667003631592 -6.12811953959458e-11
+    <UV> { 1 0.400000005960464 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 47 {
+    39.6082992553711 0 2.30038869897253e-11
+    <UV> { 1 0.526880025863647 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 48 {
+    39.6082992553711 16.6667003631592 5.62052349106779e-11
+    <UV> { 1 0.643742978572845 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 49 {
+    39.6082992553711 33.3333015441895 1.11578551953428e-10
+    <UV> { 1 0.760604977607727 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 50 {
+    39.6082992553711 49.8807983398438 1.4936439585167e-10
+    <UV> { 1 0.87746798992157 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 51 {
+    39.6082992553711 66.4645004272461 4.43941515493318e-11
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> shadow_ship1 {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 0 1 2 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 3 4 5 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 2 6 0 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 0 6 7 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 0 7 8 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 8 7 9 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 8 9 10 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 10 9 11 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 10 11 12 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 12 11 13 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 12 13 14 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 14 13 15 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 14 15 16 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 16 15 17 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 16 17 18 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 18 17 19 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 18 19 20 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 20 19 21 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 1 0 22 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 22 0 8 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 22 8 23 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 23 8 10 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 23 10 24 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 24 10 12 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 24 12 25 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 25 12 14 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 25 14 26 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 26 14 16 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 26 16 27 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 27 16 18 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 27 18 28 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 28 18 20 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 6 29 7 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 7 29 30 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 7 30 9 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 9 30 31 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 9 31 11 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 11 31 32 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 11 32 13 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 13 32 33 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 13 33 15 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 15 33 34 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 15 34 17 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 17 34 35 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 17 35 19 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 19 35 36 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 19 36 21 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 21 36 37 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 29 4 30 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 30 4 3 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 30 3 31 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 31 3 38 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 31 38 32 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 32 38 39 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 32 39 33 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 33 39 40 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 33 40 34 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 34 40 41 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 34 41 35 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 35 41 42 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 35 42 36 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 36 42 43 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 36 43 37 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 37 43 44 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 3 5 38 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 38 5 45 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 38 45 39 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 39 45 46 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 39 46 40 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 40 46 47 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 40 47 41 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 41 47 48 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 41 48 42 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 42 48 49 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 42 49 43 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 43 49 50 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 43 50 44 <Ref> { shadow_merchant.egg } }
+    }
+    <Polygon> {
+      <TRef> { shadow_merchant }
+      <VertexRef> { 44 50 51 <Ref> { shadow_merchant.egg } }
+    }
+  }
+}

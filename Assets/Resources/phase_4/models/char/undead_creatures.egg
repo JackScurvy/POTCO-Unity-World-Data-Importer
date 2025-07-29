@@ -1,0 +1,79 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\char\undead_creatures.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\char\undead_creatures.egg'"
+}
+<Texture> alligator_undead {
+  "phase_4/maps/alligator_undead.jpg"
+  <Scalar> alpha-file { "phase_4/maps/alligator_undead_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> alligator {
+  "phase_4/maps/alligator.jpg"
+  <Scalar> alpha-file { "phase_4/maps/alligator_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> undead_creatures.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> alligator_undead {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { alligator_undead }
+          <VertexRef> { 0 1 2 <Ref> { undead_creatures.egg } }
+        }
+        <Polygon> {
+          <TRef> { alligator_undead }
+          <VertexRef> { 2 1 3 <Ref> { undead_creatures.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> alligator {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { alligator }
+          <VertexRef> { 0 1 2 <Ref> { undead_creatures.egg } }
+        }
+        <Polygon> {
+          <TRef> { alligator }
+          <VertexRef> { 2 1 3 <Ref> { undead_creatures.egg } }
+        }
+      }
+    }
+  }
+}

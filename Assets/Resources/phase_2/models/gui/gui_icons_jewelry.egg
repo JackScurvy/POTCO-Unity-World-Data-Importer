@@ -1,0 +1,704 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\gui\gui_icons_jewelry.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\gui\gui_icons_jewelry.egg'"
+}
+<Texture> pir_t_ico_jwl_stud {
+  "phase_2/maps/pir_t_ico_jwl_stud.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_stud_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_spike_ring {
+  "phase_2/maps/pir_t_ico_jwl_spike_ring.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_spike_ring_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_spike {
+  "phase_2/maps/pir_t_ico_jwl_spike.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_spike_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_ring_no_gem {
+  "phase_2/maps/pir_t_ico_jwl_ring_no_gem.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_ring_no_gem_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_ring_gem {
+  "phase_2/maps/pir_t_ico_jwl_ring_gem.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_ring_gem_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_ring_doubleband {
+  "phase_2/maps/pir_t_ico_jwl_ring_doubleband.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_ring_doubleband_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_ring {
+  "phase_2/maps/pir_t_ico_jwl_ring.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_ring_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_nose_spike {
+  "phase_2/maps/pir_t_ico_jwl_nose_spike.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_nose_spike_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_nose_loop_spike {
+  "phase_2/maps/pir_t_ico_jwl_nose_loop_spike.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_nose_loop_spike_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_nose_loop_double_spike {
+  "phase_2/maps/pir_t_ico_jwl_nose_loop_double_spike.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_nose_loop_double_spike_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_nose_loop {
+  "phase_2/maps/pir_t_ico_jwl_nose_loop.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_nose_loop_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_nose_double_spike {
+  "phase_2/maps/pir_t_ico_jwl_nose_double_spike.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_nose_double_spike_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_nose {
+  "phase_2/maps/pir_t_ico_jwl_nose.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_nose_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_lip_spike {
+  "phase_2/maps/pir_t_ico_jwl_lip_spike.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_lip_spike_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_lip {
+  "phase_2/maps/pir_t_ico_jwl_lip.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_lip_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_knuckles {
+  "phase_2/maps/pir_t_ico_jwl_knuckles.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_knuckles_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_ear_loop_large_double {
+  "phase_2/maps/pir_t_ico_jwl_ear_loop_large_double.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_ear_loop_large_double_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_ear_loop_large {
+  "phase_2/maps/pir_t_ico_jwl_ear_loop_large.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_ear_loop_large_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_ear_loop {
+  "phase_2/maps/pir_t_ico_jwl_ear_loop.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_ear_loop_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_ear_double_loop {
+  "phase_2/maps/pir_t_ico_jwl_ear_double_loop.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_ear_double_loop_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_ear {
+  "phase_2/maps/pir_t_ico_jwl_ear.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_ear_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_double_ring {
+  "phase_2/maps/pir_t_ico_jwl_double_ring.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_double_ring_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> pir_t_ico_jwl_brow_lip_ring {
+  "phase_2/maps/pir_t_ico_jwl_brow_lip_ring.jpg"
+  <Scalar> alpha-file { "phase_2/maps/pir_t_ico_jwl_brow_lip_ring_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> gui_icons_jewelry_palette_4alla_1 {
+  "phase_2/maps/gui_icons_jewelry_palette_4alla_1.jpg"
+  <Scalar> alpha-file { "phase_2/maps/gui_icons_jewelry_palette_4alla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> gui_icons_jewelry.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 1 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 1 0 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.5 0 0.5
+    <UV> { 0.0078125 0.992187976837158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.5 0 -0.5
+    <UV> { 0.0078125 0.507812976837158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.5 0 0.5
+    <UV> { 0.4921875 0.992187976837158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.5 0 -0.5
+    <UV> { 0.4921875 0.507812976837158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -0.5 0 0.5
+    <UV> { 0.0078125 0.4921875 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    -0.5 0 -0.5
+    <UV> { 0.0078125 0.0078125 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    0.5 0 0.5
+    <UV> { 0.4921875 0.4921875 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    0.5 0 -0.5
+    <UV> { 0.4921875 0.0078125 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 12 {
+    -0.5 0 0.5
+    <UV> { 0.507812976837158 0.4921875 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 13 {
+    -0.5 0 -0.5
+    <UV> { 0.507812976837158 0.0078125 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 14 {
+    0.5 0 0.5
+    <UV> { 0.992187976837158 0.4921875 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 15 {
+    0.5 0 -0.5
+    <UV> { 0.992187976837158 0.0078125 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 16 {
+    -0.5 0 0.5
+    <UV> { 0.507812976837158 0.992187976837158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 17 {
+    -0.5 0 -0.5
+    <UV> { 0.507812976837158 0.507812976837158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 18 {
+    0.5 0 0.5
+    <UV> { 0.992187976837158 0.992187976837158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 19 {
+    0.5 0 -0.5
+    <UV> { 0.992187976837158 0.507812976837158 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> pir_t_ico_jwl_brow_lip_ring {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_brow_lip_ring }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_brow_lip_ring }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_double_ring {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_double_ring }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_double_ring }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_ear {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ear }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ear }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_ear_double_loop {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ear_double_loop }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ear_double_loop }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_ear_loop {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ear_loop }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ear_loop }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_ear_loop_large {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ear_loop_large }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ear_loop_large }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_ear_loop_large_double {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ear_loop_large_double }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ear_loop_large_double }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_knuckles {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_knuckles }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_knuckles }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_lip {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_lip }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_lip }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_lip_spike {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_lip_spike }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_lip_spike }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_nose {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_nose }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_nose }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_nose_double_spike {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_nose_double_spike }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_nose_double_spike }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_nose_loop {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_nose_loop }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_nose_loop }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_nose_loop_double_spike {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_nose_loop_double_spike }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_nose_loop_double_spike }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_nose_loop_spike {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_nose_loop_spike }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_nose_loop_spike }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_nose_spike {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_nose_spike }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_nose_spike }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_ring {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ring }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ring }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_ring_doubleband {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ring_doubleband }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ring_doubleband }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_ring_gem {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ring_gem }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ring_gem }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_ring_no_gem {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ring_no_gem }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_ring_no_gem }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_spike {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_spike }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_spike }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_spike_ring {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_spike_ring }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_spike_ring }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_jwl_stud {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_stud }
+          <VertexRef> { 0 1 2 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { pir_t_ico_jwl_stud }
+          <VertexRef> { 2 1 3 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_tat_arm {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_icons_jewelry_palette_4alla_1 }
+          <VertexRef> { 4 5 6 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_icons_jewelry_palette_4alla_1 }
+          <VertexRef> { 6 5 7 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_tat_chest {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_icons_jewelry_palette_4alla_1 }
+          <VertexRef> { 8 9 10 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_icons_jewelry_palette_4alla_1 }
+          <VertexRef> { 10 9 11 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_tat_face {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_icons_jewelry_palette_4alla_1 }
+          <VertexRef> { 12 13 14 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_icons_jewelry_palette_4alla_1 }
+          <VertexRef> { 14 13 15 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_ico_tat_base {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_icons_jewelry_palette_4alla_1 }
+          <VertexRef> { 16 17 18 <Ref> { gui_icons_jewelry.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_icons_jewelry_palette_4alla_1 }
+          <VertexRef> { 18 17 19 <Ref> { gui_icons_jewelry.egg } }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\gui\ship_battle.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\gui\ship_battle.egg'"
+}
+<Texture> gui_palette_4alla_1 {
+  "phase_2/maps/gui_palette_4alla_1.jpg"
+  <Scalar> alpha-file { "phase_2/maps/gui_palette_4alla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> ship_battle.egg {
+  <Vertex> 0 {
+    -0.181250005960464 0 0.181250005960464
+    <UV> { 0.797851979732513 0.607421875 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.181250005960464 0 -0.181250005960464
+    <UV> { 0.797851979732513 0.546875 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.181250005960464 0 0.181250005960464
+    <UV> { 0.858398914337158 0.607421875 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.181250005960464 0 -0.181250005960464
+    <UV> { 0.858398914337158 0.546875 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.714582979679108 0 0.0395832993090153
+    <UV> { 0.735351979732513 0.482421904802322 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.714582979679108 0 -0.0395832993090153
+    <UV> { 0.735351979732513 0.46875 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.714582979679108 0 0.0395832993090153
+    <UV> { 0.983398973941803 0.482421904802322 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.714582979679108 0 -0.0395832993090153
+    <UV> { 0.983398973941803 0.46875 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> ship_battle_dish02 {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 0 1 2 <Ref> { ship_battle.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 2 1 3 <Ref> { ship_battle.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> ship_battle_speed_bar {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 4 5 6 <Ref> { ship_battle.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 6 5 7 <Ref> { ship_battle.egg } }
+        }
+      }
+    }
+  }
+}

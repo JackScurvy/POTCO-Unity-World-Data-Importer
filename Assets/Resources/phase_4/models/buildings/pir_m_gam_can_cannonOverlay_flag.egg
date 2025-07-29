@@ -1,0 +1,108 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\buildings\pir_m_gam_can_cannonOverlay_flag.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\buildings\pir_m_gam_can_cannonOverlay_flag.egg'"
+}
+<Texture> props_storage_palette_3cmla_1 {
+  "phase_3/maps/props_storage_palette_3cmla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+  <Scalar> uv-name { uvWrinkles }
+}
+<VertexPool> pir_m_gam_can_cannonOverlay_flag.egg {
+  <Vertex> 0 {
+    0.913578987121582 19.0083999633789 -10.3844995498657
+    <UV> uvWrinkles { 0.74804699420929 0.517809569835663 }
+    <Normal> { -0.982084155082703 0.188365027308464 0.00541746057569981 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.913573026657104 9.50417995452881 -11.1526002883911
+    <UV> uvWrinkles { 0.686523497104645 0.509881258010864 }
+    <Normal> { -0.996707797050476 -0.00516568915918469 0.0809126868844032 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.913578987121582 18.3668994903564 11.9207000732422
+    <UV> uvWrinkles { 0.743894398212433 0.74804699420929 }
+    <Normal> { -0.997943341732025 0.0627758204936981 0.0129741039127111 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.913578987121582 1.12869780188873e-09 -11.9207000732422
+    <UV> uvWrinkles { 0.625 0.50195300579071 }
+    <Normal> { -0.999998331069946 1.84494397537094e-09 -0.00183590059168637 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    0.913577020168304 -19.0083999633789 -10.3844995498657
+    <UV> uvWrinkles { 0.50195300579071 0.517809569835663 }
+    <Normal> { -0.982084155082703 -0.188365027308464 0.00541729060932994 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    0.913573026657104 -18.3668994903564 11.9207000732422
+    <UV> uvWrinkles { 0.506105661392212 0.74804699420929 }
+    <Normal> { -0.997943341732025 -0.062775619328022 0.0129740042611957 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    -0.913577020168304 -9.50417995452881 -11.1526002883911
+    <UV> uvWrinkles { 0.563476502895355 0.509881258010864 }
+    <Normal> { -0.996707797050476 0.0051657990552485 0.0809125825762749 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    -0.179676994681358 1.31229505040409e-09 9.62664985656738
+    <UV> uvWrinkles { 0.625 0.724367618560791 }
+    <Normal> { -0.998794317245483 1.64351765530313e-09 0.0490911155939102 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -0.737399995326996 2.0538206690901e-09 -1.72062003612518
+    <UV> uvWrinkles { 0.625 0.607239425182343 }
+    <Normal> { -0.998507261276245 1.63910096606656e-09 -0.0546187162399292 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> flag {
+    <DCS> { local }
+    <Polygon> {
+      <TRef> { props_storage_palette_3cmla_1 }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_gam_can_cannonOverlay_flag.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_storage_palette_3cmla_1 }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_gam_can_cannonOverlay_flag.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_storage_palette_3cmla_1 }
+      <VertexRef> { 4 5 6 <Ref> { pir_m_gam_can_cannonOverlay_flag.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_storage_palette_3cmla_1 }
+      <VertexRef> { 6 5 3 <Ref> { pir_m_gam_can_cannonOverlay_flag.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_storage_palette_3cmla_1 }
+      <VertexRef> { 7 2 8 <Ref> { pir_m_gam_can_cannonOverlay_flag.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_storage_palette_3cmla_1 }
+      <VertexRef> { 8 2 3 <Ref> { pir_m_gam_can_cannonOverlay_flag.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_storage_palette_3cmla_1 }
+      <VertexRef> { 7 8 5 <Ref> { pir_m_gam_can_cannonOverlay_flag.egg } }
+    }
+    <Polygon> {
+      <TRef> { props_storage_palette_3cmla_1 }
+      <VertexRef> { 5 8 3 <Ref> { pir_m_gam_can_cannonOverlay_flag.egg } }
+    }
+  }
+}

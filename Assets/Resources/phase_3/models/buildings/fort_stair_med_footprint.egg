@@ -1,0 +1,72 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_3\models\buildings\fort_stair_med_footprint.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_3\models\buildings\fort_stair_med_footprint.egg'"
+}
+<Texture> footprints_palette_3clla_1 {
+  "phase_3/maps/footprints_palette_3clla_1.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> fort_stair_med_footprint.egg {
+  <Vertex> 0 {
+    -18.1970996856689 -1.79683005809784 0
+    <UV> { 0.34375 0.96875 }
+    <Normal> { -5.35263999790203e-10 2.75530986915129e-10 1 }
+    <RGBA> { 0.674509823322296 0.643137276172638 0.592156887054443 1 }
+  }
+  <Vertex> 1 {
+    18.1970996856689 -1.9675600528717 5.88809001556001e-10
+    <UV> { 0.59375 0.96875 }
+    <Normal> { -5.35263999790203e-10 2.75530986915129e-10 1 }
+    <RGBA> { 0.674509823322296 0.643137276172638 0.592156887054443 1 }
+  }
+  <Vertex> 2 {
+    -18.1970996856689 83.8072967529297 -1.09674402892779e-09
+    <UV> { 0.34375 0.71875 }
+    <Normal> { -5.35263999790203e-10 2.75530986915129e-10 1 }
+    <RGBA> { 0.882353007793427 0.847058892250061 0.772549092769623 1 }
+  }
+  <Vertex> 3 {
+    18.1970996856689 83.8072967529297 -3.37738115252506e-10
+    <UV> { 0.59375 0.71875 }
+    <Normal> { -5.35263999790203e-10 2.75530986915129e-10 1 }
+    <RGBA> { 0.882353007793427 0.847058892250061 0.772549092769623 1 }
+  }
+}
+<Group> {
+  <Group> footprint {
+    <Model> { 1 }
+    <Tag> Footprint {
+      Wall
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 0 1 2 <Ref> { fort_stair_med_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 2 1 3 <Ref> { fort_stair_med_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 0 1 2 <Ref> { fort_stair_med_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 2 1 3 <Ref> { fort_stair_med_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 0 1 2 <Ref> { fort_stair_med_footprint.egg } }
+    }
+    <Polygon> {
+      <TRef> { footprints_palette_3clla_1 }
+      <VertexRef> { 2 1 3 <Ref> { fort_stair_med_footprint.egg } }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\gui\pir_m_gui_frm_catalog_bg.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\gui\pir_m_gui_frm_catalog_bg.egg'"
+}
+<Texture> pir_t_gui_frm_catalogBg {
+  "phase_2/maps/pir_t_gui_frm_catalogBg.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { clamp }
+  <Scalar> wrapv { clamp }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_gui_frm_catalog_bg.egg {
+  <Vertex> 0 {
+    -4.22731018066406 -0.0222948007285595 -3.48699998855591
+    <UV> { 0 0 }
+    <Normal> { 0 -1 -4.18078627273388e-10 }
+    <RGBA> { 3.6533203125 3.6533203125 3.6533203125 4 }
+  }
+  <Vertex> 1 {
+    4.22731018066406 -0.0222948007285595 -3.48699998855591
+    <UV> { 1 0 }
+    <Normal> { 0 -1 -4.18078627273388e-10 }
+    <RGBA> { 3.6533203125 3.6533203125 3.6533203125 4 }
+  }
+  <Vertex> 2 {
+    -4.22731018066406 -0.0222950000315905 7.63216018676758
+    <UV> { 0 1 }
+    <Normal> { 0 -1 -4.18078627273388e-10 }
+    <RGBA> { 3.6533203125 3.6533203125 3.6533203125 4 }
+  }
+  <Vertex> 3 {
+    4.22731018066406 -0.0222950000315905 7.63216018676758
+    <UV> { 1 1 }
+    <Normal> { 0 -1 -4.18078627273388e-10 }
+    <RGBA> { 3.6533203125 3.6533203125 3.6533203125 4 }
+  }
+}
+<Group> {
+  <Group> color {
+    <Scalar> alpha { blend }
+    <Polygon> {
+      <TRef> { pir_t_gui_frm_catalogBg }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_gui_frm_catalog_bg.egg } }
+    }
+    <Polygon> {
+      <TRef> { pir_t_gui_frm_catalogBg }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_gui_frm_catalog_bg.egg } }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\sea\pir_m_are_wld_seaPatch_low.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\sea\pir_m_are_wld_seaPatch_low.egg'"
+}
+<Texture> oceanWater2 {
+  "phase_2/maps/oceanWater2.jpg"
+  <Scalar> format { rgb }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> pir_m_are_wld_seaPatch_low.egg {
+  <Vertex> 0 {
+    -2283.7900390625 768.008972167969 -1.26856081195115e-10
+    <UV> { 0.44200599193573 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    2283.7900390625 768.008972167969 -1.26856081195115e-10
+    <UV> { 0.587464988231659 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -16163.2998046875 12159.7001953125 1.9649290528001e-10
+    <UV> { 1.5920428309002e-09 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    15237.900390625 12159.7001953125 1.9649290528001e-10
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    987.976989746094 952.828979492188 0.00193936005234718
+    <UV> { 0.999993979930878 0.71061098575592 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.0130227999761701 1343.67004394531 0.00193936005234718
+    <UV> { 0.499989002943039 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    8.21314394272576e-09 -5.21648979187012 0.00193936005234718
+    <UV> { 0.499994993209839 0.00124901998788118 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    -987.963989257813 952.840026855469 0.00193936005234718
+    <UV> { 4.59026550103658e-09 0.71061897277832 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> flatsea {
+    <Model> { 1 }
+    <Transform> {
+      <Translate> { 0 -7.22842979431152 0 }
+    }
+    <Polygon> {
+      <TRef> { oceanWater2 }
+      <VertexRef> { 0 1 2 <Ref> { pir_m_are_wld_seaPatch_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { oceanWater2 }
+      <VertexRef> { 2 1 3 <Ref> { pir_m_are_wld_seaPatch_low.egg } }
+    }
+  }
+  <Group> patchgeometry {
+    <Polygon> {
+      <TRef> { oceanWater2 }
+      <VertexRef> { 4 5 6 <Ref> { pir_m_are_wld_seaPatch_low.egg } }
+    }
+    <Polygon> {
+      <TRef> { oceanWater2 }
+      <VertexRef> { 6 5 7 <Ref> { pir_m_are_wld_seaPatch_low.egg } }
+    }
+  }
+  <Group> water_floor {
+    <Collide> { Polyset descend level }
+    <Scalar> collide-mask { 0x00000002 }
+    <VertexPool> vpool-collision {
+      <Vertex> 0 {
+        500 500 -100
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 1 {
+        -500 500 -100
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 2 {
+        -500 -500 -100
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 3 {
+        500 -500 -100
+        <Normal> { 0 0 1 }
+      }
+    }
+    <Polygon> {
+      <VertexRef> { 0 1 2 3 <Ref> { vpool-collision } }
+    }
+  }
+}

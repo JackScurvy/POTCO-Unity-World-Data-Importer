@@ -1,0 +1,122 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\effects\particleSpark_tflip.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\effects\particleSpark_tflip.egg'"
+}
+<Texture> effects_palette_2tmla_1 {
+  "phase_3/maps/effects_palette_2tmla_1.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effects_palette_2tmla_1_a.rgb" }
+  <Scalar> format { luminance_alpha }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> particleSpark_tflip.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0.507812976837158 0.984375 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0.507812976837158 0.515625 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 0.742187976837158 0.984375 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 0.742187976837158 0.515625 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.5 0 0.5
+    <UV> { 0.757812976837158 0.984375 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.5 0 -0.5
+    <UV> { 0.757812976837158 0.515625 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.5 0 0.5
+    <UV> { 0.992187976837158 0.984375 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.5 0 -0.5
+    <UV> { 0.992187976837158 0.515625 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -0.5 0 0.5
+    <UV> { 0.507812976837158 0.484375 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    -0.5 0 -0.5
+    <UV> { 0.507812976837158 0.015625 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    0.5 0 0.5
+    <UV> { 0.742187976837158 0.484375 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    0.5 0 -0.5
+    <UV> { 0.742187976837158 0.015625 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 15 }
+    <Group> {
+      <Group> pir_t_efx_msc_particleSpark_01 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { effects_palette_2tmla_1 }
+          <VertexRef> { 0 1 2 <Ref> { particleSpark_tflip.egg } }
+        }
+        <Polygon> {
+          <TRef> { effects_palette_2tmla_1 }
+          <VertexRef> { 2 1 3 <Ref> { particleSpark_tflip.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_efx_msc_particleSpark_02 {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { effects_palette_2tmla_1 }
+          <VertexRef> { 4 5 6 <Ref> { particleSpark_tflip.egg } }
+        }
+        <Polygon> {
+          <TRef> { effects_palette_2tmla_1 }
+          <VertexRef> { 6 5 7 <Ref> { particleSpark_tflip.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> pir_t_efx_msc_particleSpark_03 {
+        <Scalar> alpha { blend }
+        <Polygon> {
+          <TRef> { effects_palette_2tmla_1 }
+          <VertexRef> { 8 9 10 <Ref> { particleSpark_tflip.egg } }
+        }
+        <Polygon> {
+          <TRef> { effects_palette_2tmla_1 }
+          <VertexRef> { 10 9 11 <Ref> { particleSpark_tflip.egg } }
+        }
+      }
+    }
+  }
+}

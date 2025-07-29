@@ -1,0 +1,75 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_4\models\props\repair_spot_hole.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_4\models\props\repair_spot_hole.egg'"
+}
+<Texture> effectHoleF {
+  "phase_3/maps/effectHoleF.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effectHoleF_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Texture> effectHoleD {
+  "phase_3/maps/effectHoleD.jpg"
+  <Scalar> alpha-file { "phase_3/maps/effectHoleD_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> repair_spot_hole.egg {
+  <Vertex> 0 {
+    -3.75 -3.75 -1.22309148919975e-10
+    <UV> { 7.96022858740031e-10 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    3.75 -3.75 -1.22309148919975e-10
+    <UV> { 0 7.96022858740031e-10 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    -3.75 3.75 1.22309148919975e-10
+    <UV> { 1 1 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    3.75 3.75 1.22309148919975e-10
+    <UV> { 1 0 }
+    <Normal> { 0 0 1 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> floor_hole {
+    <Scalar> alpha { binary }
+    <Polygon> {
+      <TRef> { effectHoleD }
+      <VertexRef> { 0 1 2 <Ref> { repair_spot_hole.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectHoleD }
+      <VertexRef> { 2 1 3 <Ref> { repair_spot_hole.egg } }
+    }
+  }
+  <Group> floor_hole_fixed {
+    <Scalar> alpha { binary }
+    <Polygon> {
+      <TRef> { effectHoleF }
+      <VertexRef> { 0 1 2 <Ref> { repair_spot_hole.egg } }
+    }
+    <Polygon> {
+      <TRef> { effectHoleF }
+      <VertexRef> { 2 1 3 <Ref> { repair_spot_hole.egg } }
+    }
+  }
+}

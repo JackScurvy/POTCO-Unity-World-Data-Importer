@@ -1,0 +1,155 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "bam2egg 'C:\Users\Krent\Desktop\Panda3D\Resources-master\phase_2\models\textureCards\nameTumbler.bam' 'C:\Users\Krent\Desktop\Panda3D\eggs-with_lods\phase_2\models\textureCards\nameTumbler.egg'"
+}
+<Texture> gui_palette_4alla_1 {
+  "phase_2/maps/gui_palette_4alla_1.jpg"
+  <Scalar> alpha-file { "phase_2/maps/gui_palette_4alla_1_a.rgb" }
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<VertexPool> nameTumbler.egg {
+  <Vertex> 0 {
+    -0.5 0 0.5
+    <UV> { 0.741210997104645 0.749023914337158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 1 {
+    -0.5 0 -0.5
+    <UV> { 0.741210997104645 0.735351979732513 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 2 {
+    0.5 0 0.5
+    <UV> { 0.754882872104645 0.749023914337158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 3 {
+    0.5 0 -0.5
+    <UV> { 0.754882872104645 0.735351979732513 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 4 {
+    -0.5 0 0.5
+    <UV> { 0.756835997104645 0.749023914337158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 5 {
+    -0.5 0 -0.5
+    <UV> { 0.756835997104645 0.735351979732513 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 6 {
+    0.5 0 0.5
+    <UV> { 0.770507872104645 0.749023914337158 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 7 {
+    0.5 0 -0.5
+    <UV> { 0.770507872104645 0.735351979732513 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 8 {
+    -0.5 0 0.5
+    <UV> { 0.803710997104645 0.749023497104645 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 9 {
+    -0.5 0 -0.5
+    <UV> { 0.803710997104645 0.741210997104645 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 10 {
+    0.5 0 0.5
+    <UV> { 0.833007872104645 0.749023497104645 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 11 {
+    0.5 0 -0.5
+    <UV> { 0.833007872104645 0.741210997104645 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 12 {
+    -0.5 0 0.5
+    <UV> { 0.772460997104645 0.749023497104645 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 13 {
+    -0.5 0 -0.5
+    <UV> { 0.772460997104645 0.741210997104645 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 14 {
+    0.5 0 0.5
+    <UV> { 0.801757872104645 0.749023497104645 }
+    <RGBA> { 1 1 1 1 }
+  }
+  <Vertex> 15 {
+    0.5 0 -0.5
+    <UV> { 0.801757872104645 0.741210997104645 }
+    <RGBA> { 1 1 1 1 }
+  }
+}
+<Group> {
+  <Group> {
+    <Switch> { 1 }
+    <Scalar> fps { 2 }
+    <Group> {
+      <Group> NameTumbler {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 0 1 2 <Ref> { nameTumbler.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 2 1 3 <Ref> { nameTumbler.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> NameTumblerCheck {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 4 5 6 <Ref> { nameTumbler.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 6 5 7 <Ref> { nameTumbler.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> NameTumblerUpArrow {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 8 9 10 <Ref> { nameTumbler.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 10 9 11 <Ref> { nameTumbler.egg } }
+        }
+      }
+    }
+    <Group> {
+      <Group> NameTumblerDownArrow {
+        <Scalar> alpha { binary }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 12 13 14 <Ref> { nameTumbler.egg } }
+        }
+        <Polygon> {
+          <TRef> { gui_palette_4alla_1 }
+          <VertexRef> { 14 13 15 <Ref> { nameTumbler.egg } }
+        }
+      }
+    }
+  }
+}
