@@ -7,12 +7,14 @@
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Mac%20%7C%20Linux-lightgrey)
 
 ---
-## ⚠️ Unity processing all of the .egg's on the first time import may take up to an hour as it has to cache all the model data, please keep this in mind! ⚠️
+## ⚠️ Unity may take up to an hour to process all .egg files during the initial import, as it needs to cache all model data. Your patience is appreciated! ⚠️
 ---
 
 ## ✨ What is this?
 
 This toolkit brings **Pirates of the Caribbean Online** into Unity, allowing you to import game worlds, export custom content, and build new experiences using authentic POTCO assets. This was created using the help of AI to expedite the process. So please excuse if the code is 🔥🗑️ but it works! 😎
+
+The whole point of this is to bring out the creativity within our community, creating custom worlds and being able to share them or even potentially create little mini games using the POTCO assets within Unity. One thing that our community lacks from our sister community Toontown is the amount of user generated content. We need more of that!
 
 ## 🚀 Features
 
@@ -106,12 +108,14 @@ Objects in your scene can be automatically detected and classified:
 The system automatically assigns the correct object type, generates unique IDs, and prepares objects for export.
 
 ---
----
 
 ## 🖼️ Screenshots
 
 ### Cave Generation in Action
 https://github.com/user-attachments/assets/b4187ae0-391a-410d-99f8-5706204fa792
+
+### Custom Scenes
+<img width="1607" height="1091" alt="image" src="https://github.com/user-attachments/assets/6a8616a4-4b24-401c-964a-fefe9b388d31" />
 
 
 ### POTCO Tortuga Tavern
