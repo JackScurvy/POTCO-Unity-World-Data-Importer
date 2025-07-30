@@ -22,14 +22,14 @@ namespace POTCO.Editor
             set => EditorPrefs.SetBool(DEBUG_WORLD_IMPORTER_KEY, value);
         }
 
-        public static bool debugAutoPOTCODetection
+        public static bool debugAutoObjectListDetection
         {
             get => EditorPrefs.GetBool(DEBUG_AUTO_POTCO_KEY, false);
             set 
             { 
                 EditorPrefs.SetBool(DEBUG_AUTO_POTCO_KEY, value);
-                // Apply immediately to AutoPOTCODetection
-                AutoPOTCODetection.SetDebugLogging(value);
+                // Apply immediately to AutoObjectListDetection
+                AutoObjectListDetection.SetDebugLogging(value);
             }
         }
 
@@ -57,7 +57,7 @@ namespace POTCO.Editor
         public static void EnableAllDebug()
         {
             debugWorldSceneImporter = true;
-            debugAutoPOTCODetection = true;
+            debugAutoObjectListDetection = true;
             debugEggImporter = true;
             debugWorldDataExporter = true;
             debugProceduralGeneration = true;
@@ -71,7 +71,7 @@ namespace POTCO.Editor
         public static void DisableAllDebug()
         {
             debugWorldSceneImporter = false;
-            debugAutoPOTCODetection = false;
+            debugAutoObjectListDetection = false;
             debugEggImporter = false;
             debugWorldDataExporter = false;
             debugProceduralGeneration = false;
@@ -90,8 +90,8 @@ namespace POTCO.Editor
             EditorPrefs.DeleteKey(DEBUG_WORLD_EXPORTER_KEY);
             EditorPrefs.DeleteKey(DEBUG_PROCEDURAL_GEN_KEY);
             
-            // Apply AutoPOTCODetection change
-            AutoPOTCODetection.SetDebugLogging(false);
+            // Apply AutoObjectListDetection change
+            AutoObjectListDetection.SetDebugLogging(false);
             
             DebugLogger.LogAlways("🔄 POTCO debug settings reset to defaults");
         }

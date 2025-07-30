@@ -627,8 +627,8 @@ public class ProceduralCaveGenerator : EditorWindow
         wrapper.transform.position = position;
         wrapper.transform.rotation = rotation;
         
-        // Add POTCOTypeInfo component for export compatibility
-        var potcoInfo = wrapper.AddComponent<POTCO.POTCOTypeInfo>();
+        // Add ObjectListInfo component for export compatibility
+        var potcoInfo = wrapper.AddComponent<POTCO.ObjectListInfo>();
         
         var instance = InstantiateCavePiece(prefab, wrapper.transform);
         
@@ -814,8 +814,8 @@ public class ProceduralCaveGenerator : EditorWindow
         var wrapper = new GameObject($"{prefab.name}");
         wrapper.transform.SetParent(root.transform);
         
-        // Add POTCOTypeInfo component for export compatibility
-        var potcoInfo = wrapper.AddComponent<POTCO.POTCOTypeInfo>();
+        // Add ObjectListInfo component for export compatibility
+        var potcoInfo = wrapper.AddComponent<POTCO.ObjectListInfo>();
         
         // Move the temp instance to the wrapper
         tempInstance.transform.SetParent(wrapper.transform);

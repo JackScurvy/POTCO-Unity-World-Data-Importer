@@ -5,12 +5,12 @@ using System.Linq;
 namespace POTCO
 {
     /// <summary>
-    /// Enhanced component that stores POTCO object type information with auto-detection
+    /// Enhanced component that stores ObjectList object type information with auto-detection
     /// </summary>
-    public class POTCOTypeInfo : MonoBehaviour
+    public class ObjectListInfo : MonoBehaviour
     {
-        [Header("POTCO Object Information")]
-        [Tooltip("Select from available POTCO object types")]
+        [Header("ObjectList Object Information")]
+        [Tooltip("Select from available ObjectList object types")]
         public string objectType = "MISC_OBJ";
         
         [Tooltip("Auto-generated unique ID (generated on export)")]
@@ -39,7 +39,7 @@ namespace POTCO
         /// <summary>
         /// Runtime-safe debug logging that only works in editor
         /// </summary>
-        private static void LogAutoPOTCO(string message)
+        private static void LogAutoObjectList(string message)
         {
 #if UNITY_EDITOR
             // Try to access DebugLogger through reflection to avoid compile-time dependency
@@ -63,7 +63,7 @@ namespace POTCO
         /// <summary>
         /// Runtime-safe debug warning logging that only works in editor
         /// </summary>
-        private static void LogWarningAutoPOTCO(string message)
+        private static void LogWarningAutoObjectList(string message)
         {
 #if UNITY_EDITOR
             // Try to access DebugLogger through reflection to avoid compile-time dependency
@@ -111,7 +111,7 @@ namespace POTCO
         }
         
         /// <summary>
-        /// Auto-detect POTCO properties from the GameObject
+        /// Auto-detect ObjectList properties from the GameObject
         /// </summary>
         public void AutoDetectProperties()
         {
@@ -152,12 +152,12 @@ namespace POTCO
         {
             if (string.IsNullOrEmpty(objectId)) return;
             
-            // Find all POTCOTypeInfo components in the scene
-            POTCOTypeInfo[] allPOTCOComponents = FindObjectsByType<POTCOTypeInfo>(FindObjectsSortMode.None);
+            // Find all ObjectListInfo components in the scene
+            ObjectListInfo[] allObjectListComponents = FindObjectsByType<ObjectListInfo>(FindObjectsSortMode.None);
             
             // Count how many objects have the same ID (excluding this one)
             int duplicateCount = 0;
-            foreach (POTCOTypeInfo other in allPOTCOComponents)
+            foreach (ObjectListInfo other in allObjectListComponents)
             {
                 if (other != this && other.objectId == this.objectId)
                 {
@@ -170,7 +170,7 @@ namespace POTCO
             {
                 string oldId = objectId;
                 GenerateObjectId();
-                LogAutoPOTCO($"🔄 Fixed duplicate object ID on '{gameObject.name}': '{oldId}' -> '{objectId}' ({duplicateCount} duplicates found)");
+                LogAutoObjectList($"🔄 Fixed duplicate object ID on '{gameObject.name}': '{oldId}' -> '{objectId}' ({duplicateCount} duplicates found)");
             }
         }
         
@@ -206,14 +206,14 @@ namespace POTCO
             string foundPath = SearchForModelInResources(modelName);
             if (!string.IsNullOrEmpty(foundPath))
             {
-                LogAutoPOTCO($"📁 Found model in Resources: '{foundPath}'");
+                LogAutoObjectList($"📁 Found model in Resources: '{foundPath}'");
                 return foundPath;
             }
             
             // Fallback to pattern-based detection if not found in Resources
             string category = DetectModelCategory(modelName);
             string fallbackPath = $"models/{category}/{modelName}";
-            LogAutoPOTCO($"📁 Model not found in Resources, using fallback: '{fallbackPath}'");
+            LogAutoObjectList($"📁 Model not found in Resources, using fallback: '{fallbackPath}'");
             return fallbackPath;
         }
         
@@ -245,7 +245,7 @@ namespace POTCO
                     // Check if we're taking too long (timeout after 100ms)
                     if ((System.DateTime.Now - startTime).TotalMilliseconds > 100)
                     {
-                    LogAutoPOTCO($"⏱️ Model search timeout for '{modelName}', using fallback");
+                    LogAutoObjectList($"⏱️ Model search timeout for '{modelName}', using fallback");
                         break;
                     }
                     
@@ -291,13 +291,13 @@ namespace POTCO
                     }
                     catch (System.Exception ex)
                     {
-                        LogWarningAutoPOTCO($"Error searching {modelsPath}: {ex.Message}");
+                        LogWarningAutoObjectList($"Error searching {modelsPath}: {ex.Message}");
                     }
                 }
             }
             catch (System.Exception ex)
             {
-                LogWarningAutoPOTCO($"Error in model search: {ex.Message}");
+                LogWarningAutoObjectList($"Error in model search: {ex.Message}");
             }
             
             return "";
@@ -413,7 +413,7 @@ namespace POTCO
             if (string.IsNullOrEmpty(modelPath)) return "MISC_OBJ";
             
             string modelName = System.IO.Path.GetFileNameWithoutExtension(modelPath);
-            LogAutoPOTCO($"🔍 Attempting to detect object type for model: '{modelName}' from path: '{modelPath}'");
+            LogAutoObjectList($"🔍 Attempting to detect object type for model: '{modelName}' from path: '{modelPath}'");
             
             // Try to use ObjectListParser first (editor only)
             try
@@ -428,30 +428,30 @@ namespace POTCO
                         string result = (string)method.Invoke(null, new object[] { modelName });
                         if (!string.IsNullOrEmpty(result) && result != "Unknown")
                         {
-                    LogAutoPOTCO($"✅ ObjectList found: '{modelName}' -> '{result}'");
+                    LogAutoObjectList($"✅ ObjectList found: '{modelName}' -> '{result}'");
                             return result;
                         }
                         else
                         {
-                            LogAutoPOTCO($"❌ ObjectList lookup failed for '{modelName}' - not found in database");
+                            LogAutoObjectList($"❌ ObjectList lookup failed for '{modelName}' - not found in database");
                         }
                     }
                 }
             }
             catch (System.Exception ex)
             {
-                LogWarningAutoPOTCO($"⚠️ Could not access ObjectListParser: {ex.Message}");
+                LogWarningAutoObjectList($"⚠️ Could not access ObjectListParser: {ex.Message}");
             }
             
             // Special case fallback: Cave pieces should be Cave_Pieces type (MODULAR_OBJ mapping)
             if (modelName.ToLower().Contains("cav") || modelPath.ToLower().Contains("caves"))
             {
-                LogAutoPOTCO($"🏔️ Cave piece detected (fallback): '{modelName}' -> 'Cave_Pieces'");
+                LogAutoObjectList($"🏔️ Cave piece detected (fallback): '{modelName}' -> 'Cave_Pieces'");
                 return "Cave_Pieces";
             }
             
             // Fallback: return MISC_OBJ if ObjectList lookup fails
-            LogAutoPOTCO($"🔄 Defaulting to 'MISC_OBJ' for '{modelName}'");
+            LogAutoObjectList($"🔄 Defaulting to 'MISC_OBJ' for '{modelName}'");
             return "MISC_OBJ";
         }
         
@@ -475,29 +475,29 @@ namespace POTCO
         [ContextMenu("Auto-Detect Properties")]
         public void ManualAutoDetect()
         {
-            // Use the proper POTCOObjectListIntegration for detection
+            // Use the proper ObjectListIntegration for detection
             try
             {
-                var integrationType = System.Type.GetType("POTCO.Editor.POTCOObjectListIntegration, Assembly-CSharp-Editor");
+                var integrationType = System.Type.GetType("POTCO.Editor.ObjectListIntegration, Assembly-CSharp-Editor");
                 if (integrationType != null)
                 {
                     var method = integrationType.GetMethod("AutoDetectAllProperties", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
                     if (method != null)
                     {
                         method.Invoke(null, new object[] { this });
-                LogAutoPOTCO($"✅ Used POTCOObjectListIntegration for auto-detection on '{gameObject.name}'");
+                LogAutoObjectList($"✅ Used ObjectListIntegration for auto-detection on '{gameObject.name}'");
                         return;
                     }
                 }
             }
             catch (System.Exception ex)
             {
-                LogWarningAutoPOTCO($"⚠️ Could not use POTCOObjectListIntegration: {ex.Message}");
+                LogWarningAutoObjectList($"⚠️ Could not use ObjectListIntegration: {ex.Message}");
             }
             
             // Fallback to old method
             AutoDetectProperties();
-            LogAutoPOTCO($"Auto-detected properties for '{gameObject.name}': Type='{objectType}', Model='{modelPath}', ID='{objectId}'");
+            LogAutoObjectList($"Auto-detected properties for '{gameObject.name}': Type='{objectType}', Model='{modelPath}', ID='{objectId}'");
         }
         
         /// <summary>
@@ -507,7 +507,7 @@ namespace POTCO
         public void ManualGenerateId()
         {
             GenerateObjectId();
-            LogAutoPOTCO($"Generated new object ID for '{gameObject.name}': {objectId}");
+            LogAutoObjectList($"Generated new object ID for '{gameObject.name}': {objectId}");
         }
         
         /// <summary>
@@ -517,7 +517,7 @@ namespace POTCO
         public void ManualCheckDuplicates()
         {
             CheckAndFixDuplicateObjectId();
-            LogAutoPOTCO($"Checked for duplicate IDs on '{gameObject.name}' - Current ID: {objectId}");
+            LogAutoObjectList($"Checked for duplicate IDs on '{gameObject.name}' - Current ID: {objectId}");
         }
     }
 }

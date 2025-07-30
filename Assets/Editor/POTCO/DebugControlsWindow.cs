@@ -3,21 +3,21 @@ using UnityEngine;
 
 namespace POTCO.Editor
 {
-    public class LogsDebuggingWindow : EditorWindow
+    public class DebugControlsWindow : EditorWindow
     {
         private Vector2 scrollPosition;
 
-        [MenuItem("Logs Debugging/Debug Controls")]
+        [MenuItem("POTCO/Debug Controls")]
         public static void ShowWindow()
         {
-            GetWindow<LogsDebuggingWindow>("Debug Controls");
+            GetWindow<DebugControlsWindow>("POTCO Debug Controls");
         }
 
         void OnGUI()
         {
             scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
             
-            GUILayout.Label("🐛 POTCO Toolkit Debug Controls", EditorStyles.boldLabel);
+            GUILayout.Label("🐛 POTCO Debug Controls", EditorStyles.boldLabel);
             GUILayout.Space(10);
             
             EditorGUILayout.LabelField("Control debug logging for all POTCO tools from this central location.", EditorStyles.wordWrappedLabel);
@@ -46,12 +46,12 @@ namespace POTCO.Editor
             
             GUILayout.Space(3);
             
-            // Auto POTCO Detection
+            // Auto ObjectList Detection
             EditorGUILayout.BeginHorizontal();
-            DebugSettings.debugAutoPOTCODetection = EditorGUILayout.Toggle("Auto POTCO Detection", DebugSettings.debugAutoPOTCODetection);
-            if (DebugSettings.debugAutoPOTCODetection) EditorGUILayout.LabelField("🔍", GUILayout.Width(20));
+            DebugSettings.debugAutoObjectListDetection = EditorGUILayout.Toggle("Auto ObjectList Detection", DebugSettings.debugAutoObjectListDetection);
+            if (DebugSettings.debugAutoObjectListDetection) EditorGUILayout.LabelField("🔍", GUILayout.Width(20));
             EditorGUILayout.EndHorizontal();
-            EditorGUILayout.LabelField("   Logs automatic POTCOTypeInfo component assignment", EditorStyles.miniLabel);
+            EditorGUILayout.LabelField("   Logs automatic ObjectListInfo component assignment", EditorStyles.miniLabel);
             
             GUILayout.Space(3);
             
@@ -119,7 +119,7 @@ namespace POTCO.Editor
             EditorGUILayout.LabelField("• World imports with hundreds of objects", EditorStyles.miniLabel);
             EditorGUILayout.LabelField("• Large .egg file processing", EditorStyles.miniLabel);
             EditorGUILayout.LabelField("• Procedural cave generation", EditorStyles.miniLabel);
-            EditorGUILayout.LabelField("• Bulk POTCOTypeInfo detection", EditorStyles.miniLabel);
+            EditorGUILayout.LabelField("• Bulk ObjectListInfo detection", EditorStyles.miniLabel);
             EditorGUILayout.LabelField("Disable debug logging for maximum performance.", EditorStyles.miniLabel);
             EditorGUILayout.EndVertical();
             

@@ -7,8 +7,8 @@ using WorldDataExporter.Utilities;
 
 namespace POTCO.Editor
 {
-    [CustomEditor(typeof(POTCOTypeInfo))]
-    public class POTCOTypeInfoEditor : UnityEditor.Editor
+    [CustomEditor(typeof(ObjectListInfo))]
+    public class ObjectListInfoEditor : UnityEditor.Editor
     {
         private SerializedProperty objectTypeProp;
         private SerializedProperty objectIdProp;
@@ -69,32 +69,32 @@ namespace POTCO.Editor
                 
                 // Find current selection index
                 string currentType = objectTypeProp.stringValue;
-                DebugLogger.LogAutoPOTCO($"🔍 Looking for current type '{currentType}' in dropdown with {availableObjectTypes.Count} options");
+                DebugLogger.LogAutoObjectList($"🔍 Looking for current type '{currentType}' in dropdown with {availableObjectTypes.Count} options");
                 selectedTypeIndex = availableObjectTypes.IndexOf(currentType);
                 
                 // If not found, try to find MISC_OBJ as a fallback
                 if (selectedTypeIndex < 0)
                 {
-                    DebugLogger.LogAutoPOTCO($"⚠️ Current type '{currentType}' not found in dropdown, trying MISC_OBJ as fallback");
+                    DebugLogger.LogAutoObjectList($"⚠️ Current type '{currentType}' not found in dropdown, trying MISC_OBJ as fallback");
                     selectedTypeIndex = availableObjectTypes.IndexOf("MISC_OBJ");
                     if (selectedTypeIndex < 0) 
                     {
-                        DebugLogger.LogAutoPOTCO($"⚠️ MISC_OBJ not found either, defaulting to index 0");
+                        DebugLogger.LogAutoObjectList($"⚠️ MISC_OBJ not found either, defaulting to index 0");
                         selectedTypeIndex = 0;
                     }
                     else
                     {
-                        DebugLogger.LogAutoPOTCO($"✅ Found MISC_OBJ at index {selectedTypeIndex}");
+                        DebugLogger.LogAutoObjectList($"✅ Found MISC_OBJ at index {selectedTypeIndex}");
                     }
                 }
                 else
                 {
-                    DebugLogger.LogAutoPOTCO($"✅ Found current type '{currentType}' at index {selectedTypeIndex}");
+                    DebugLogger.LogAutoObjectList($"✅ Found current type '{currentType}' at index {selectedTypeIndex}");
                 }
             }
             catch (System.Exception ex)
             {
-                DebugLogger.LogWarningAutoPOTCO($"Could not load object types from ObjectListParser: {ex.Message}");
+                DebugLogger.LogWarningAutoObjectList($"Could not load object types from ObjectListParser: {ex.Message}");
                 // Fall back to basic types from the runtime detector
                 availableObjectTypes = POTCOObjectTypeDetector.GetBasicObjectTypes();
                 availableObjectTypes.Sort();
@@ -109,9 +109,9 @@ namespace POTCO.Editor
         {
             serializedObject.Update();
             
-            POTCOTypeInfo potcoInfo = (POTCOTypeInfo)target;
+            ObjectListInfo objectListInfo = (ObjectListInfo)target;
             
-            EditorGUILayout.LabelField("POTCO Type Info", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("ObjectList Info", EditorStyles.boldLabel);
             EditorGUILayout.Space();
             
             // Auto-Detection Settings
@@ -123,15 +123,15 @@ namespace POTCO.Editor
             EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button("🔍 Auto-Detect All Properties", GUILayout.Height(25)))
             {
-                POTCOObjectListIntegration.AutoDetectAllProperties(potcoInfo);
-                EditorUtility.SetDirty(potcoInfo);
+                ObjectListIntegration.AutoDetectAllProperties(objectListInfo);
+                EditorUtility.SetDirty(objectListInfo);
                 serializedObject.Update();
                 LoadAvailableObjectTypes(); // Refresh the dropdown
             }
             if (GUILayout.Button("🆔 Generate New ID", GUILayout.Height(25)))
             {
-                potcoInfo.GenerateObjectId();
-                EditorUtility.SetDirty(potcoInfo);
+                objectListInfo.GenerateObjectId();
+                EditorUtility.SetDirty(objectListInfo);
                 serializedObject.Update();
             }
             EditorGUILayout.EndHorizontal();
@@ -190,30 +190,30 @@ namespace POTCO.Editor
             
             // Handle nullable Color manually
             EditorGUILayout.BeginHorizontal();
-            bool hasColor = potcoInfo.visualColor.HasValue;
+            bool hasColor = objectListInfo.visualColor.HasValue;
             bool newHasColor = EditorGUILayout.Toggle("Use Visual Color", hasColor);
             
             if (newHasColor != hasColor)
             {
                 if (newHasColor)
                 {
-                    potcoInfo.visualColor = Color.white;
+                    objectListInfo.visualColor = Color.white;
                 }
                 else
                 {
-                    potcoInfo.visualColor = null;
+                    objectListInfo.visualColor = null;
                 }
-                EditorUtility.SetDirty(potcoInfo);
+                EditorUtility.SetDirty(objectListInfo);
             }
             
             if (newHasColor)
             {
-                Color currentColor = potcoInfo.visualColor ?? Color.white;
+                Color currentColor = objectListInfo.visualColor ?? Color.white;
                 Color newColor = EditorGUILayout.ColorField(currentColor);
                 if (newColor != currentColor)
                 {
-                    potcoInfo.visualColor = newColor;
-                    EditorUtility.SetDirty(potcoInfo);
+                    objectListInfo.visualColor = newColor;
+                    EditorUtility.SetDirty(objectListInfo);
                 }
             }
             EditorGUILayout.EndHorizontal();

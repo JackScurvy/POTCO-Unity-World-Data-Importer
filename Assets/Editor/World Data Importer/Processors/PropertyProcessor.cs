@@ -41,10 +41,10 @@ namespace WorldDataImporter.Processors
                         if (objectData != null) 
                         {
                             objectData.objectType = objectType;
-                            // Update the existing POTCOTypeInfo component only if ImportObjectListData is enabled
+                            // Update the existing ObjectListInfo component only if ImportObjectListData is enabled
                             if (settings != null && settings.importObjectListData)
                             {
-                                var typeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                                var typeInfo = currentGO.GetComponent<ObjectListInfo>();
                                 if (typeInfo != null)
                                 {
                                     typeInfo.objectType = objectType;
@@ -52,7 +52,7 @@ namespace WorldDataImporter.Processors
                                 else
                                 {
                                     // Fallback: create component if somehow missing
-                                    typeInfo = currentGO.AddComponent<POTCOTypeInfo>();
+                                    typeInfo = currentGO.AddComponent<ObjectListInfo>();
                                     typeInfo.objectType = objectType;
                                 }
                             }
@@ -86,10 +86,10 @@ namespace WorldDataImporter.Processors
                         
                         var instance = AssetUtilities.InstantiatePrefab(modelPath, currentGO, useEgg, stats);
                         
-                        // Update the POTCOTypeInfo with model path only if ImportObjectListData is enabled
+                        // Update the ObjectListInfo with model path only if ImportObjectListData is enabled
                         if (settings != null && settings.importObjectListData)
                         {
-                            var typeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                            var typeInfo = currentGO.GetComponent<ObjectListInfo>();
                             if (typeInfo != null)
                             {
                                 typeInfo.modelPath = modelPath;
@@ -106,7 +106,7 @@ namespace WorldDataImporter.Processors
                             // Also update parent object name to be more descriptive (only if ImportObjectListData is enabled)
                             if (!string.IsNullOrEmpty(modelName) && settings != null && settings.importObjectListData)
                             {
-                                var typeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                                var typeInfo = currentGO.GetComponent<ObjectListInfo>();
                                 if (typeInfo != null)
                                 {
                                     currentGO.name = typeInfo.GetDisplayName();
@@ -148,10 +148,10 @@ namespace WorldDataImporter.Processors
                         // Always store the collision setting, but only apply it if processing is enabled
                         objectData.disableCollision = disableCollision;
                         
-                        // Store in POTCOTypeInfo only if ImportObjectListData is enabled
+                        // Store in ObjectListInfo only if ImportObjectListData is enabled
                         if (settings != null && settings.importObjectListData)
                         {
-                            var typeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                            var typeInfo = currentGO.GetComponent<ObjectListInfo>();
                             if (typeInfo != null)
                             {
                                 typeInfo.disableCollision = disableCollision;
@@ -163,10 +163,10 @@ namespace WorldDataImporter.Processors
                     string holiday = ParsingUtilities.ExtractStringValue(val);
                     if (objectData != null) objectData.holiday = holiday;
                     
-                    // Store in POTCOTypeInfo only if ImportObjectListData is enabled
+                    // Store in ObjectListInfo only if ImportObjectListData is enabled
                     if (settings != null && settings.importObjectListData)
                     {
-                        var holidayTypeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                        var holidayTypeInfo = currentGO.GetComponent<ObjectListInfo>();
                         if (holidayTypeInfo != null)
                         {
                             holidayTypeInfo.holiday = holiday;
@@ -178,10 +178,10 @@ namespace WorldDataImporter.Processors
                     {
                         objectData.isInstanced = instanced;
                         
-                        // Store in POTCOTypeInfo only if ImportObjectListData is enabled
+                        // Store in ObjectListInfo only if ImportObjectListData is enabled
                         if (settings != null && settings.importObjectListData)
                         {
-                            var instancedTypeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                            var instancedTypeInfo = currentGO.GetComponent<ObjectListInfo>();
                             if (instancedTypeInfo != null)
                             {
                                 instancedTypeInfo.instanced = instanced;
@@ -193,10 +193,10 @@ namespace WorldDataImporter.Processors
                     string visSize = ParsingUtilities.ExtractStringValue(val);
                     if (objectData != null) objectData.visSize = visSize;
                     
-                    // Store in POTCOTypeInfo only if ImportObjectListData is enabled
+                    // Store in ObjectListInfo only if ImportObjectListData is enabled
                     if (settings != null && settings.importObjectListData)
                     {
-                        var visSizeTypeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                        var visSizeTypeInfo = currentGO.GetComponent<ObjectListInfo>();
                         if (visSizeTypeInfo != null)
                         {
                             visSizeTypeInfo.visSize = visSize;
@@ -212,10 +212,10 @@ namespace WorldDataImporter.Processors
                     {
                         objectData.visualColor = color;
                         
-                        // Store color in POTCOTypeInfo for export only if ImportObjectListData is enabled
+                        // Store color in ObjectListInfo for export only if ImportObjectListData is enabled
                         if (settings != null && settings.importObjectListData)
                         {
-                            var typeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                            var typeInfo = currentGO.GetComponent<ObjectListInfo>();
                             if (typeInfo != null)
                             {
                                 typeInfo.visualColor = color;

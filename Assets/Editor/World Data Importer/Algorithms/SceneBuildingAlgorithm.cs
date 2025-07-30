@@ -57,10 +57,10 @@ namespace WorldDataImporter.Algorithms
                         indent = indent 
                     };
                     
-                    // Add POTCOTypeInfo component to store metadata only if ImportObjectListData is enabled
+                    // Add ObjectListInfo component to store metadata only if ImportObjectListData is enabled
                     if (settings != null && settings.importObjectListData)
                     {
-                        var typeInfo = Undo.AddComponent<POTCOTypeInfo>(newGO);
+                        var typeInfo = Undo.AddComponent<ObjectListInfo>(newGO);
                         typeInfo.objectId = currentId;
                     }
                     
@@ -231,10 +231,10 @@ namespace WorldDataImporter.Algorithms
                         indent = indent 
                     };
                     
-                    // Add POTCOTypeInfo component to store metadata only if ImportObjectListData is enabled
+                    // Add ObjectListInfo component to store metadata only if ImportObjectListData is enabled
                     if (settings != null && settings.importObjectListData)
                     {
-                        var typeInfo = Undo.AddComponent<POTCOTypeInfo>(newGO);
+                        var typeInfo = Undo.AddComponent<ObjectListInfo>(newGO);
                         typeInfo.objectId = currentId;
                     }
                     

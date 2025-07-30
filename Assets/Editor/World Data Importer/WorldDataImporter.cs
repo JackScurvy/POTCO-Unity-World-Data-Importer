@@ -50,7 +50,7 @@ public class WorldSceneBuilderEditor : EditorWindow
         settings.importObjectListData = EditorGUILayout.Toggle("Import ObjectList Data", settings.importObjectListData);
         if (settings.importObjectListData) EditorGUILayout.LabelField("✅", GUILayout.Width(20));
         EditorGUILayout.EndHorizontal();
-        EditorGUILayout.LabelField("   Adds POTCOTypeInfo components for World Data Exporter compatibility (2x slower import)", EditorStyles.miniLabel);
+        EditorGUILayout.LabelField("   Adds ObjectListInfo components for World Data Exporter compatibility (2x slower import)", EditorStyles.miniLabel);
         
         GUILayout.Space(5);
         
@@ -164,15 +164,15 @@ public class WorldSceneBuilderEditor : EditorWindow
         {
             DebugLogger.LogWorldImporter($"🚧 Starting enhanced world build... (Using {(settings.useEggFiles ? ".egg files" : ".prefab files")})");
             
-            // Only disable AutoPOTCODetection if user wants ObjectList data
+            // Only disable AutoObjectListDetection if user wants ObjectList data
             if (settings.importObjectListData)
             {
-                DebugLogger.LogWorldImporter("📋 ObjectList data import enabled - disabling AutoPOTCODetection during import for speed");
-                AutoPOTCODetection.SetEnabled(false);
+                DebugLogger.LogWorldImporter("📋 ObjectList data import enabled - disabling AutoObjectListDetection during import for speed");
+                AutoObjectListDetection.SetEnabled(false);
             }
             else
             {
-                DebugLogger.LogWorldImporter("⚡ ObjectList data import disabled - maximum speed import (no POTCOTypeInfo components)");
+                DebugLogger.LogWorldImporter("⚡ ObjectList data import disabled - maximum speed import (no ObjectListInfo components)");
             }
             
             if (settings.useGenerationDelay)
@@ -185,8 +185,8 @@ public class WorldSceneBuilderEditor : EditorWindow
                     // Only process ObjectList data if enabled
                     if (settings.importObjectListData)
                     {
-                        AutoPOTCODetection.SetEnabled(true);
-                        AutoPOTCODetection.ProcessAllObjectsInScene();
+                        AutoObjectListDetection.SetEnabled(true);
+                        AutoObjectListDetection.ProcessAllObjectsInScene();
                     }
                     
                     Repaint(); // Refresh the UI when done
@@ -200,8 +200,8 @@ public class WorldSceneBuilderEditor : EditorWindow
                 // Only process ObjectList data if enabled
                 if (settings.importObjectListData)
                 {
-                    AutoPOTCODetection.SetEnabled(true);
-                    AutoPOTCODetection.ProcessAllObjectsInScene();
+                    AutoObjectListDetection.SetEnabled(true);
+                    AutoObjectListDetection.ProcessAllObjectsInScene();
                 }
             }
         }

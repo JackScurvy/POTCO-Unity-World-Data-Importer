@@ -126,8 +126,8 @@ namespace WorldDataExporter.Utilities
         
         private static void CollectChildObjects(GameObject parent, List<GameObject> collection)
         {
-            // SIMPLE RULE: Only collect objects with POTCOTypeInfo that have original IDs
-            var potcoInfo = parent.GetComponent<POTCOTypeInfo>();
+            // SIMPLE RULE: Only collect objects with ObjectListInfo that have original IDs
+            var potcoInfo = parent.GetComponent<ObjectListInfo>();
             if (potcoInfo != null && !string.IsNullOrEmpty(potcoInfo.objectId))
             {
                 // Only collect if ID doesn't contain "export" (generated IDs)
@@ -275,18 +275,18 @@ namespace WorldDataExporter.Utilities
         
         private static ExportedObject ConvertUnityObject(GameObject unityObj, ExportSettings settings, ExportStatistics stats)
         {
-            // Simple check: Only convert objects with POTCOTypeInfo
-            var potcoInfo = unityObj.GetComponent<POTCOTypeInfo>();
-            DebugLogger.LogWorldExporter($"🔍 Checking '{unityObj.name}': POTCOTypeInfo component = {(potcoInfo != null ? "FOUND" : "NOT FOUND")}");
+            // Simple check: Only convert objects with ObjectListInfo
+            var potcoInfo = unityObj.GetComponent<ObjectListInfo>();
+            DebugLogger.LogWorldExporter($"🔍 Checking '{unityObj.name}': ObjectListInfo component = {(potcoInfo != null ? "FOUND" : "NOT FOUND")}");
             
             if (potcoInfo != null)
             {
-                DebugLogger.LogWorldExporter($"🔍 POTCOTypeInfo details: objectId='{potcoInfo.objectId}', objectType='{potcoInfo.objectType}', modelPath='{potcoInfo.modelPath}'");
+                DebugLogger.LogWorldExporter($"🔍 ObjectListInfo details: objectId='{potcoInfo.objectId}', objectType='{potcoInfo.objectType}', modelPath='{potcoInfo.modelPath}'");
             }
             
             if (potcoInfo == null || string.IsNullOrEmpty(potcoInfo.objectId))
             {
-                DebugLogger.LogWorldExporter($"⏭️ Skipping '{unityObj.name}' - {(potcoInfo == null ? "no POTCOTypeInfo component" : "empty objectId")}");
+                DebugLogger.LogWorldExporter($"⏭️ Skipping '{unityObj.name}' - {(potcoInfo == null ? "no ObjectListInfo component" : "empty objectId")}");
                 return null;
             }
             
@@ -312,7 +312,7 @@ namespace WorldDataExporter.Utilities
             exportedObj.rotation = CoordinateConverter.UnityToPanda3DHPR(transform.localEulerAngles);
             exportedObj.scale = CoordinateConverter.UnityToPanda3DScale(transform.localScale);
             
-            // Use data from POTCOTypeInfo (we already verified it exists)
+            // Use data from ObjectListInfo (we already verified it exists)
             exportedObj.objectType = potcoInfo.objectType;
             exportedObj.modelPath = potcoInfo.modelPath;
             exportedObj.visualColor = potcoInfo.visualColor;
@@ -321,15 +321,15 @@ namespace WorldDataExporter.Utilities
             exportedObj.holiday = potcoInfo.holiday;
             exportedObj.visSize = potcoInfo.visSize;
             
-            DebugLogger.LogWorldExporter($"📋 Using POTCOTypeInfo data: Type='{potcoInfo.objectType}', Model='{potcoInfo.modelPath}'");
+            DebugLogger.LogWorldExporter($"📋 Using ObjectListInfo data: Type='{potcoInfo.objectType}', Model='{potcoInfo.modelPath}'");
             
-            // Model path should already be set from POTCOTypeInfo
+            // Model path should already be set from ObjectListInfo
             if (string.IsNullOrEmpty(exportedObj.modelPath))
             {
-                DebugLogger.LogWarningWorldExporter($"⚠️ No model path in POTCOTypeInfo for '{unityObj.name}' - this may cause export issues");
+                DebugLogger.LogWarningWorldExporter($"⚠️ No model path in ObjectListInfo for '{unityObj.name}' - this may cause export issues");
             }
             
-            // Visual color should already be set from POTCOTypeInfo (if needed)
+            // Visual color should already be set from ObjectListInfo (if needed)
             
             // Extract lighting properties if this is a light object
             if (exportedObj.IsLightObject())
@@ -337,7 +337,7 @@ namespace WorldDataExporter.Utilities
                 ExtractLightingProperties(unityObj, exportedObj);
             }
             
-            // All POTCO properties already extracted from POTCOTypeInfo
+            // All POTCO properties already extracted from ObjectListInfo
             
             return exportedObj;
         }

@@ -134,14 +134,14 @@ namespace WorldDataExporter
             EditorGUILayout.BeginVertical("box");
             GUILayout.Label("Debugging Tools", EditorStyles.boldLabel);
             
-            if (GUILayout.Button("➕ Add POTCOTypeInfo to Selected Objects"))
+            if (GUILayout.Button("➕ Add ObjectListInfo to Selected Objects"))
             {
-                POTCO.Editor.AutoPOTCODetection.AddPOTCOTypeInfoToSelected();
+                POTCO.Editor.AutoObjectListDetection.AddObjectListInfoToSelected();
             }
             
-            if (GUILayout.Button("🔄 Refresh All POTCOTypeInfo in Scene"))
+            if (GUILayout.Button("🔄 Refresh All ObjectListInfo in Scene"))
             {
-                POTCO.Editor.AutoPOTCODetection.RefreshAllPOTCOTypeInfo();
+                POTCO.Editor.AutoObjectListDetection.RefreshAllObjectListInfo();
             }
             
             if (GUILayout.Button("🔍 Check for Duplicate Object IDs"))
@@ -153,14 +153,14 @@ namespace WorldDataExporter
             
             // Auto-detection toggle
             EditorGUI.BeginChangeCheck();
-            bool autoDetectionEnabled = POTCO.Editor.AutoPOTCODetection.IsAutoDetectionEnabled();
-            autoDetectionEnabled = EditorGUILayout.Toggle("🔄 Auto-Add POTCOTypeInfo to New Objects", autoDetectionEnabled);
+            bool autoDetectionEnabled = POTCO.Editor.AutoObjectListDetection.IsAutoDetectionEnabled();
+            autoDetectionEnabled = EditorGUILayout.Toggle("🔄 Auto-Add ObjectListInfo to New Objects", autoDetectionEnabled);
             if (EditorGUI.EndChangeCheck())
             {
-                POTCO.Editor.AutoPOTCODetection.SetAutoDetectionEnabled(autoDetectionEnabled);
+                POTCO.Editor.AutoObjectListDetection.SetAutoDetectionEnabled(autoDetectionEnabled);
             }
             
-            EditorGUILayout.HelpBox("When enabled, POTCOTypeInfo components will be automatically added to objects dragged into the scene. Disable this to prevent background processing.", MessageType.Info);
+            EditorGUILayout.HelpBox("When enabled, ObjectListInfo components will be automatically added to objects dragged into the scene. Disable this to prevent background processing.", MessageType.Info);
             
             EditorGUILayout.Space(5);
             
@@ -172,7 +172,7 @@ namespace WorldDataExporter
                 SetMeshObjectsVisibility(!hideMeshObjects);
             }
             
-            EditorGUILayout.HelpBox("Hides all child objects and non-POTCO objects, showing only root GameObjects with POTCOTypeInfo and important Unity objects (Camera, Lights, etc.)", MessageType.Info);
+            EditorGUILayout.HelpBox("Hides all child objects and non-ObjectList objects, showing only root GameObjects with ObjectListInfo and important Unity objects (Camera, Lights, etc.)", MessageType.Info);
             
             // Manual hide/show buttons
             EditorGUILayout.BeginHorizontal();
@@ -192,19 +192,19 @@ namespace WorldDataExporter
         }
 
         /// <summary>
-        /// Check for duplicate object IDs across all POTCOTypeInfo components
+        /// Check for duplicate object IDs across all ObjectListInfo components
         /// </summary>
         public static void CheckForDuplicateObjectIds()
         {
-            var allPOTCOComponents = GameObject.FindObjectsByType<POTCO.POTCOTypeInfo>(FindObjectsSortMode.None);
+            var allObjectListComponents = GameObject.FindObjectsByType<POTCO.ObjectListInfo>(FindObjectsSortMode.None);
             
-            if (allPOTCOComponents.Length == 0)
+            if (allObjectListComponents.Length == 0)
             {
-                DebugLogger.LogWorldExporter("🔍 No POTCOTypeInfo components found in scene");
+                DebugLogger.LogWorldExporter("🔍 No ObjectListInfo components found in scene");
                 return;
             }
             
-            var idGroups = allPOTCOComponents
+            var idGroups = allObjectListComponents
                 .Where(p => !string.IsNullOrEmpty(p.objectId))
                 .GroupBy(p => p.objectId)
                 .Where(g => g.Count() > 1)
@@ -212,7 +212,7 @@ namespace WorldDataExporter
             
             if (idGroups.Count == 0)
             {
-                DebugLogger.LogWorldExporter($"✅ No duplicate object IDs found ({allPOTCOComponents.Length} objects checked)");
+                DebugLogger.LogWorldExporter($"✅ No duplicate object IDs found ({allObjectListComponents.Length} objects checked)");
                 return;
             }
             
@@ -249,58 +249,58 @@ namespace WorldDataExporter
         }
 
         /// <summary>
-        /// Clean up POTCOTypeInfo components that were incorrectly added to mesh parts
+        /// Clean up ObjectListInfo components that were incorrectly added to mesh parts
         /// </summary>
         public static void CleanUpMeshPartComponents()
         {
-            var allPOTCOComponents = GameObject.FindObjectsByType<POTCO.POTCOTypeInfo>(FindObjectsSortMode.None);
+            var allObjectListComponents = GameObject.FindObjectsByType<POTCO.ObjectListInfo>(FindObjectsSortMode.None);
             
-            if (allPOTCOComponents.Length == 0)
+            if (allObjectListComponents.Length == 0)
             {
-                DebugLogger.LogWorldExporter("🧹 No POTCOTypeInfo components found in scene");
+                DebugLogger.LogWorldExporter("🧹 No ObjectListInfo components found in scene");
                 return;
             }
             
-            DebugLogger.LogWorldExporter($"🧹 Checking {allPOTCOComponents.Length} POTCOTypeInfo components for incorrect placement...");
+            DebugLogger.LogWorldExporter($"🧹 Checking {allObjectListComponents.Length} ObjectListInfo components for incorrect placement...");
             
             int removedCount = 0;
             int movedCount = 0;
             
-            foreach (var potcoInfo in allPOTCOComponents)
+            foreach (var objectListInfo in allObjectListComponents)
             {
-                GameObject obj = potcoInfo.gameObject;
+                GameObject obj = objectListInfo.gameObject;
                 
                 // Check if this should be a child mesh object using the same logic as auto-detection
-                if (POTCO.Editor.AutoPOTCODetection.IsChildMeshObjectPublic(obj))
+                if (POTCO.Editor.AutoObjectListDetection.IsChildMeshObjectPublic(obj))
                 {
                     GameObject parent = obj.transform.parent?.gameObject;
                     
-                    // If parent exists and doesn't have POTCOTypeInfo, move it there
-                    if (parent != null && parent.GetComponent<POTCO.POTCOTypeInfo>() == null)
+                    // If parent exists and doesn't have ObjectListInfo, move it there
+                    if (parent != null && parent.GetComponent<POTCO.ObjectListInfo>() == null)
                     {
-                        DebugLogger.LogWorldExporter($"🔄 Moving POTCOTypeInfo from mesh part '{obj.name}' to parent '{parent.name}'");
+                        DebugLogger.LogWorldExporter($"🔄 Moving ObjectListInfo from mesh part '{obj.name}' to parent '{parent.name}'");
                         
                         // Copy the component data to parent
-                        var newComponent = parent.AddComponent<POTCO.POTCOTypeInfo>();
-                        newComponent.objectType = potcoInfo.objectType;
-                        newComponent.objectId = potcoInfo.objectId;
-                        newComponent.modelPath = potcoInfo.modelPath;
-                        newComponent.hasVisualBlock = potcoInfo.hasVisualBlock;
-                        newComponent.visualColor = potcoInfo.visualColor;
-                        newComponent.disableCollision = potcoInfo.disableCollision;
-                        newComponent.instanced = potcoInfo.instanced;
-                        newComponent.holiday = potcoInfo.holiday;
-                        newComponent.visSize = potcoInfo.visSize;
-                        newComponent.autoDetectOnStart = potcoInfo.autoDetectOnStart;
-                        newComponent.autoGenerateId = potcoInfo.autoGenerateId;
+                        var newComponent = parent.AddComponent<POTCO.ObjectListInfo>();
+                        newComponent.objectType = objectListInfo.objectType;
+                        newComponent.objectId = objectListInfo.objectId;
+                        newComponent.modelPath = objectListInfo.modelPath;
+                        newComponent.hasVisualBlock = objectListInfo.hasVisualBlock;
+                        newComponent.visualColor = objectListInfo.visualColor;
+                        newComponent.disableCollision = objectListInfo.disableCollision;
+                        newComponent.instanced = objectListInfo.instanced;
+                        newComponent.holiday = objectListInfo.holiday;
+                        newComponent.visSize = objectListInfo.visSize;
+                        newComponent.autoDetectOnStart = objectListInfo.autoDetectOnStart;
+                        newComponent.autoGenerateId = objectListInfo.autoGenerateId;
                         
                         EditorUtility.SetDirty(parent);
                         movedCount++;
                     }
                     
                     // Remove from the mesh part
-                    DebugLogger.LogWorldExporter($"🗑️ Removing POTCOTypeInfo from mesh part '{obj.name}'");
-                    UnityEngine.Object.DestroyImmediate(potcoInfo);
+                    DebugLogger.LogWorldExporter($"🗑️ Removing ObjectListInfo from mesh part '{obj.name}'");
+                    UnityEngine.Object.DestroyImmediate(objectListInfo);
                     EditorUtility.SetDirty(obj);
                     removedCount++;
                 }
@@ -337,12 +337,12 @@ namespace WorldDataExporter
                 DebugLogger.LogWorldExporter($"   🔹 Parent: {(obj.transform.parent ? obj.transform.parent.name : "None")}");
                 DebugLogger.LogWorldExporter($"   🔹 Children: {obj.transform.childCount}");
                 
-                // Check if it has POTCOTypeInfo
-                var potcoInfo = obj.GetComponent<POTCO.POTCOTypeInfo>();
-                DebugLogger.LogWorldExporter($"   🔹 Has POTCOTypeInfo: {potcoInfo != null}");
+                // Check if it has ObjectListInfo
+                var objectListInfo = obj.GetComponent<POTCO.ObjectListInfo>();
+                DebugLogger.LogWorldExporter($"   🔹 Has ObjectListInfo: {objectListInfo != null}");
                 
                 // Check if it would be skipped by the rules
-                bool wouldBeSkipped = POTCO.Editor.AutoPOTCODetection.IsChildMeshObjectPublic(obj);
+                bool wouldBeSkipped = POTCO.Editor.AutoObjectListDetection.IsChildMeshObjectPublic(obj);
                 DebugLogger.LogWorldExporter($"   🔹 Would be skipped by rules: {wouldBeSkipped}");
                 
                 // Check if it looks like a POTCO model
@@ -362,13 +362,13 @@ namespace WorldDataExporter
                     for (int i = 0; i < obj.transform.childCount; i++)
                     {
                         var child = obj.transform.GetChild(i);
-                        var childPOTCO = child.GetComponent<POTCO.POTCOTypeInfo>();
-                        DebugLogger.LogWorldExporter($"      - '{child.name}' (POTCOTypeInfo: {childPOTCO != null})");
+                        var childObjectList = child.GetComponent<POTCO.ObjectListInfo>();
+                        DebugLogger.LogWorldExporter($"      - '{child.name}' (ObjectListInfo: {childObjectList != null})");
                     }
                 }
             }
             
-            DebugLogger.LogWorldExporter("\n🔧 Use this information to understand why POTCOTypeInfo is being added incorrectly");
+            DebugLogger.LogWorldExporter("\n🔧 Use this information to understand why ObjectListInfo is being added incorrectly");
         }
         
         /// <summary>
@@ -418,8 +418,8 @@ namespace WorldDataExporter
         /// </summary>
         private static bool IsMeshObject(GameObject obj)
         {
-            // NEVER hide objects with POTCOTypeInfo (these are primary objects)
-            if (obj.GetComponent<POTCOTypeInfo>() != null) return false;
+            // NEVER hide objects with ObjectListInfo (these are primary objects)
+            if (obj.GetComponent<ObjectListInfo>() != null) return false;
             
             // NEVER hide important Unity objects
             if (IsImportantUnityObject(obj)) return false;
@@ -430,14 +430,14 @@ namespace WorldDataExporter
                 return true;
             }
             
-            // HIDE: Objects that look like imported model containers without POTCOTypeInfo
+            // HIDE: Objects that look like imported model containers without ObjectListInfo
             string name = obj.name.ToLower();
             if (name.Contains("interior_") || name.Contains("exterior_") || 
                 name.StartsWith("pir_") || name.Contains("_m_") ||
                 name.Contains("building") || name.Contains("prop"))
             {
-                // Only show if it has POTCOTypeInfo, otherwise hide
-                return obj.GetComponent<POTCOTypeInfo>() == null;
+                // Only show if it has ObjectListInfo, otherwise hide
+                return obj.GetComponent<ObjectListInfo>() == null;
             }
             
             return false;
@@ -517,7 +517,7 @@ namespace WorldDataExporter
             output.AppendLine($"Scene: {sceneName}");
             output.AppendLine($"Generated: {System.DateTime.Now:yyyy-MM-dd HH:mm:ss}");
             output.AppendLine();
-            output.AppendLine("This debug analyzes why POTCOTypeInfo components are being applied to certain objects.");
+            output.AppendLine("This debug analyzes why ObjectListInfo components are being applied to certain objects.");
             output.AppendLine("Focus: Understanding parent-child relationships and auto-detection logic.");
             output.AppendLine();
             
@@ -533,7 +533,7 @@ namespace WorldDataExporter
             foreach (var obj in allObjects)
             {
                 totalObjects++;
-                bool hasPOTCOInfo = obj.GetComponent<POTCOTypeInfo>() != null;
+                bool hasPOTCOInfo = obj.GetComponent<ObjectListInfo>() != null;
                 if (hasPOTCOInfo) objectsWithPOTCOInfo++;
                 
                 // Analyze this object using the same logic as auto-detection
@@ -549,7 +549,7 @@ namespace WorldDataExporter
                 {
                     incorrectPlacements++;
                     output.AppendLine($"❌ INCORRECT PLACEMENT: '{GetObjectPath(obj)}'");
-                    output.AppendLine($"   └─ Has POTCOTypeInfo but is identified as child mesh object");
+                    output.AppendLine($"   └─ Has ObjectListInfo but is identified as child mesh object");
                 }
                 
                 // Log detailed analysis for objects that have POTCOInfo or would get it
@@ -569,7 +569,7 @@ namespace WorldDataExporter
                     
                     if (hasPOTCOInfo)
                     {
-                        var potcoInfo = obj.GetComponent<POTCOTypeInfo>();
+                        var potcoInfo = obj.GetComponent<ObjectListInfo>();
                         output.AppendLine($"   ├─ ObjectType: '{potcoInfo.objectType}'");
                         output.AppendLine($"   ├─ ObjectId: '{potcoInfo.objectId}'");
                         output.AppendLine($"   └─ ModelPath: '{potcoInfo.modelPath}'");
@@ -593,15 +593,15 @@ namespace WorldDataExporter
             output.AppendLine();
             output.AppendLine("=== 📊 SUMMARY ===");
             output.AppendLine($"Total Objects: {totalObjects}");
-            output.AppendLine($"Objects with POTCOTypeInfo: {objectsWithPOTCOInfo}");
-            output.AppendLine($"Objects that would get POTCOTypeInfo: {potentialTargets}");
-            output.AppendLine($"Incorrectly placed POTCOTypeInfo: {incorrectPlacements}");
+            output.AppendLine($"Objects with ObjectListInfo: {objectsWithPOTCOInfo}");
+            output.AppendLine($"Objects that would get ObjectListInfo: {potentialTargets}");
+            output.AppendLine($"Incorrectly placed ObjectListInfo: {incorrectPlacements}");
             
             if (incorrectPlacements > 0)
             {
                 output.AppendLine();
                 output.AppendLine("🛠️ RECOMMENDATIONS:");
-                output.AppendLine("- Run 'POTCO > Clean Up Incorrectly Placed POTCOTypeInfo' to fix issues");
+                output.AppendLine("- Run 'POTCO > Clean Up Incorrectly Placed ObjectListInfo' to fix issues");
                 output.AppendLine("- Check parent-child relationships for objects with meshes");
             }
             
@@ -615,7 +615,7 @@ namespace WorldDataExporter
                 DebugLogger.LogWorldExporter($"✅ POTCO Auto-Detection debug exported to: {filePath}");
                 
                 // Also log key findings to console
-                DebugLogger.LogWorldExporter($"📊 POTCO Debug Summary: {objectsWithPOTCOInfo} objects have POTCOTypeInfo, {incorrectPlacements} incorrectly placed");
+                DebugLogger.LogWorldExporter($"📊 POTCO Debug Summary: {objectsWithPOTCOInfo} objects have ObjectListInfo, {incorrectPlacements} incorrectly placed");
                 
                 // Refresh the asset database so the file appears in Unity
                 AssetDatabase.Refresh();
@@ -672,8 +672,8 @@ namespace WorldDataExporter
                 {
                     GameObject parent = obj.transform.parent.gameObject;
                     
-                    // If parent has a POTCO-like name or already has POTCOTypeInfo
-                    if (LooksLikePOTCOModelDebug(parent, output) || parent.GetComponent<POTCOTypeInfo>() != null)
+                    // If parent has a POTCO-like name or already has ObjectListInfo
+                    if (LooksLikePOTCOModelDebug(parent, output) || parent.GetComponent<ObjectListInfo>() != null)
                     {
                         return true;
                     }
@@ -772,8 +772,8 @@ namespace WorldDataExporter
         {
             string indent = new string(' ', depth * 2);
             
-            // Get POTCOTypeInfo status
-            bool hasPOTCO = obj.GetComponent<POTCOTypeInfo>() != null;
+            // Get ObjectListInfo status
+            bool hasPOTCO = obj.GetComponent<ObjectListInfo>() != null;
             bool shouldSkip = ShouldSkipObjectDebug(obj, output);
             bool isChildMesh = IsChildMeshObjectDebug(obj, output);
             bool looksLikePOTCO = LooksLikePOTCOModelDebug(obj, output);

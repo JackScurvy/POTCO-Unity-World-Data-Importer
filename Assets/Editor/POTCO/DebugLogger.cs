@@ -41,33 +41,66 @@ namespace POTCO.Editor
         }
 
         /// <summary>
-        /// Log message for Auto POTCO Detection
+        /// Log message for Auto POTCO Detection (legacy support)
         /// </summary>
         public static void LogAutoPOTCO(string message)
         {
-            if (DebugSettings.debugAutoPOTCODetection)
+            if (DebugSettings.debugAutoObjectListDetection)
             {
                 Debug.Log(message);
             }
         }
         
         /// <summary>
-        /// Log warning for Auto POTCO Detection
+        /// Log warning for Auto POTCO Detection (legacy support)
         /// </summary>
         public static void LogWarningAutoPOTCO(string message)
         {
-            if (DebugSettings.debugAutoPOTCODetection)
+            if (DebugSettings.debugAutoObjectListDetection)
             {
                 Debug.LogWarning(message);
             }
         }
         
         /// <summary>
-        /// Log error for Auto POTCO Detection
+        /// Log error for Auto POTCO Detection (legacy support)
         /// </summary>
         public static void LogErrorAutoPOTCO(string message)
         {
-            if (DebugSettings.debugAutoPOTCODetection)
+            if (DebugSettings.debugAutoObjectListDetection)
+            {
+                Debug.LogError(message);
+            }
+        }
+
+        /// <summary>
+        /// Log message for Auto ObjectList Detection
+        /// </summary>
+        public static void LogAutoObjectList(string message)
+        {
+            if (DebugSettings.debugAutoObjectListDetection)
+            {
+                Debug.Log(message);
+            }
+        }
+        
+        /// <summary>
+        /// Log warning for Auto ObjectList Detection
+        /// </summary>
+        public static void LogWarningAutoObjectList(string message)
+        {
+            if (DebugSettings.debugAutoObjectListDetection)
+            {
+                Debug.LogWarning(message);
+            }
+        }
+        
+        /// <summary>
+        /// Log error for Auto ObjectList Detection
+        /// </summary>
+        public static void LogErrorAutoObjectList(string message)
+        {
+            if (DebugSettings.debugAutoObjectListDetection)
             {
                 Debug.LogError(message);
             }

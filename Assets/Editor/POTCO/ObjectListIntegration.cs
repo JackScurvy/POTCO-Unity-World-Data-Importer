@@ -6,9 +6,9 @@ using WorldDataExporter.Utilities;
 namespace POTCO.Editor
 {
     /// <summary>
-    /// Editor-only integration with ObjectListParser for POTCOTypeInfo
+    /// Editor-only integration with ObjectListParser for ObjectListInfo
     /// </summary>
-    public static class POTCOObjectListIntegration
+    public static class ObjectListIntegration
     {
         /// <summary>
         /// Detect object type using ObjectListParser
@@ -17,20 +17,20 @@ namespace POTCO.Editor
         {
             if (string.IsNullOrEmpty(modelName))
             {
-                DebugLogger.LogAutoPOTCO("❌ Model name is empty");
+                DebugLogger.LogAutoObjectList("❌ Model name is empty");
                 return "MISC_OBJ";
             }
             
-            DebugLogger.LogAutoPOTCO($"🔍 Looking up model '{modelName}' in ObjectList.py");
+            DebugLogger.LogAutoObjectList($"🔍 Looking up model '{modelName}' in ObjectList.py");
             
             try
             {
                 // Try exact match first
                 string result = ObjectListParser.GetObjectTypeByModelName(modelName);
-                DebugLogger.LogAutoPOTCO($"🔍 ObjectListParser.GetObjectTypeByModelName('{modelName}') returned: '{result}'");
+                DebugLogger.LogAutoObjectList($"🔍 ObjectListParser.GetObjectTypeByModelName('{modelName}') returned: '{result}'");
                 if (!string.IsNullOrEmpty(result) && result != "MISC_OBJ")
                 {
-                    DebugLogger.LogAutoPOTCO($"✅ Exact match found: '{modelName}' -> '{result}'");
+                    DebugLogger.LogAutoObjectList($"✅ Exact match found: '{modelName}' -> '{result}'");
                     return result;
                 }
                 
@@ -38,20 +38,20 @@ namespace POTCO.Editor
                 string cleanName = CleanModelName(modelName);
                 if (cleanName != modelName)
                 {
-                    DebugLogger.LogAutoPOTCO($"🧹 Trying cleaned name: '{cleanName}'");
+                    DebugLogger.LogAutoObjectList($"🧹 Trying cleaned name: '{cleanName}'");
                     result = ObjectListParser.GetObjectTypeByModelName(cleanName);
-                    DebugLogger.LogAutoPOTCO($"🔍 ObjectListParser.GetObjectTypeByModelName('{cleanName}') returned: '{result}'");
+                    DebugLogger.LogAutoObjectList($"🔍 ObjectListParser.GetObjectTypeByModelName('{cleanName}') returned: '{result}'");
                     if (!string.IsNullOrEmpty(result) && result != "MISC_OBJ")
                     {
-                        DebugLogger.LogAutoPOTCO($"✅ Cleaned match found: '{cleanName}' -> '{result}'");
+                        DebugLogger.LogAutoObjectList($"✅ Cleaned match found: '{cleanName}' -> '{result}'");
                         return result;
                     }
                 }
                 
                 // Try searching through all definitions manually
-                DebugLogger.LogAutoPOTCO($"🔍 Trying manual search through all object definitions...");
+                DebugLogger.LogAutoObjectList($"🔍 Trying manual search through all object definitions...");
                 var definitions = ObjectListParser.GetObjectDefinitions();
-                DebugLogger.LogAutoPOTCO($"📊 Searching through {definitions.Count} object type definitions");
+                DebugLogger.LogAutoObjectList($"📊 Searching through {definitions.Count} object type definitions");
                 
                 foreach (var kvp in definitions)
                 {
@@ -61,18 +61,18 @@ namespace POTCO.Editor
                         if (modelFileName.Equals(modelName, System.StringComparison.OrdinalIgnoreCase) ||
                             modelFileName.Equals(cleanName, System.StringComparison.OrdinalIgnoreCase))
                         {
-                            DebugLogger.LogAutoPOTCO($"✅ Manual search found: '{modelFileName}' in '{kvp.Key}' models list");
+                            DebugLogger.LogAutoObjectList($"✅ Manual search found: '{modelFileName}' in '{kvp.Key}' models list");
                             return kvp.Key;
                         }
                     }
                 }
                 
-                DebugLogger.LogAutoPOTCO($"❌ No match found for '{modelName}' in ObjectList.py");
+                DebugLogger.LogAutoObjectList($"❌ No match found for '{modelName}' in ObjectList.py");
                 return "MISC_OBJ";
             }
             catch (System.Exception ex)
             {
-                DebugLogger.LogErrorAutoPOTCO($"❌ Error accessing ObjectList: {ex.Message}");
+                DebugLogger.LogErrorAutoObjectList($"❌ Error accessing ObjectList: {ex.Message}");
                 return "MISC_OBJ";
             }
         }
@@ -98,54 +98,54 @@ namespace POTCO.Editor
         }
         
         /// <summary>
-        /// Auto-detect all properties for a POTCOTypeInfo component
+        /// Auto-detect all properties for a ObjectListInfo component
         /// </summary>
-        public static void AutoDetectAllProperties(POTCOTypeInfo potcoInfo)
+        public static void AutoDetectAllProperties(ObjectListInfo objectListInfo)
         {
-            if (potcoInfo == null) 
+            if (objectListInfo == null) 
             {
-                DebugLogger.LogErrorAutoPOTCO("❌ POTCOTypeInfo is null in AutoDetectAllProperties");
+                DebugLogger.LogErrorAutoObjectList("❌ ObjectListInfo is null in AutoDetectAllProperties");
                 return;
             }
             
-            DebugLogger.LogAutoPOTCO($"🎯 Auto-detecting properties for '{potcoInfo.gameObject.name}'");
+            DebugLogger.LogAutoObjectList($"🎯 Auto-detecting properties for '{objectListInfo.gameObject.name}'");
             
             // Generate object ID if missing
-            if (potcoInfo.autoGenerateId && string.IsNullOrEmpty(potcoInfo.objectId))
+            if (objectListInfo.autoGenerateId && string.IsNullOrEmpty(objectListInfo.objectId))
             {
-                potcoInfo.GenerateObjectId();
-                DebugLogger.LogAutoPOTCO($"🆔 Generated Object ID: {potcoInfo.objectId}");
+                objectListInfo.GenerateObjectId();
+                DebugLogger.LogAutoObjectList($"🆔 Generated Object ID: {objectListInfo.objectId}");
             }
             
             // Auto-detect model path if missing or always refresh it
-            string detectedPath = DetectModelPath(potcoInfo.gameObject);
+            string detectedPath = DetectModelPath(objectListInfo.gameObject);
             if (!string.IsNullOrEmpty(detectedPath))
             {
-                potcoInfo.modelPath = detectedPath;
-                DebugLogger.LogAutoPOTCO($"📁 Detected model path: {detectedPath}");
+                objectListInfo.modelPath = detectedPath;
+                DebugLogger.LogAutoObjectList($"📁 Detected model path: {detectedPath}");
             }
             else
             {
-                DebugLogger.LogWarningAutoPOTCO($"⚠️ Could not detect model path for '{potcoInfo.gameObject.name}'");
+                DebugLogger.LogWarningAutoObjectList($"⚠️ Could not detect model path for '{objectListInfo.gameObject.name}'");
             }
             
             // Auto-detect object type from model path
-            if (!string.IsNullOrEmpty(potcoInfo.modelPath))
+            if (!string.IsNullOrEmpty(objectListInfo.modelPath))
             {
-                string modelName = System.IO.Path.GetFileNameWithoutExtension(potcoInfo.modelPath);
-                DebugLogger.LogAutoPOTCO($"🔍 Extracted model name '{modelName}' from path '{potcoInfo.modelPath}'");
+                string modelName = System.IO.Path.GetFileNameWithoutExtension(objectListInfo.modelPath);
+                DebugLogger.LogAutoObjectList($"🔍 Extracted model name '{modelName}' from path '{objectListInfo.modelPath}'");
                 
                 string detectedType = DetectObjectTypeFromObjectList(modelName);
-                potcoInfo.objectType = detectedType;
-                DebugLogger.LogAutoPOTCO($"🏷️ Detected object type: {detectedType}");
+                objectListInfo.objectType = detectedType;
+                DebugLogger.LogAutoObjectList($"🏷️ Detected object type: {detectedType}");
             }
             else
             {
-                DebugLogger.LogWarningAutoPOTCO($"⚠️ No model path available for object type detection on '{potcoInfo.gameObject.name}'");
-                potcoInfo.objectType = "MISC_OBJ"; // fallback
+                DebugLogger.LogWarningAutoObjectList($"⚠️ No model path available for object type detection on '{objectListInfo.gameObject.name}'");
+                objectListInfo.objectType = "MISC_OBJ"; // fallback
             }
             
-            DebugLogger.LogAutoPOTCO($"✅ Auto-detection complete for '{potcoInfo.gameObject.name}' - Type: '{potcoInfo.objectType}', Path: '{potcoInfo.modelPath}'");
+            DebugLogger.LogAutoObjectList($"✅ Auto-detection complete for '{objectListInfo.gameObject.name}' - Type: '{objectListInfo.objectType}', Path: '{objectListInfo.modelPath}'");
         }
         
         /// <summary>
@@ -163,14 +163,14 @@ namespace POTCO.Editor
             string foundPath = SearchForModelInResources(modelName);
             if (!string.IsNullOrEmpty(foundPath))
             {
-                DebugLogger.LogAutoPOTCO($"📁 Found model in Resources: '{foundPath}'");
+                DebugLogger.LogAutoObjectList($"📁 Found model in Resources: '{foundPath}'");
                 return foundPath;
             }
             
             // Fallback to pattern-based detection if not found in Resources
             string category = DetectModelCategory(modelName);
             string fallbackPath = $"models/{category}/{modelName}";
-            DebugLogger.LogAutoPOTCO($"📁 Model not found in Resources, using fallback: '{fallbackPath}'");
+            DebugLogger.LogAutoObjectList($"📁 Model not found in Resources, using fallback: '{fallbackPath}'");
             return fallbackPath;
         }
         
@@ -202,7 +202,7 @@ namespace POTCO.Editor
                     // Check if we're taking too long (timeout after 100ms)
                     if ((System.DateTime.Now - startTime).TotalMilliseconds > 100)
                     {
-                        DebugLogger.LogAutoPOTCO($"⏱️ Model search timeout for '{modelName}', using fallback");
+                        DebugLogger.LogAutoObjectList($"⏱️ Model search timeout for '{modelName}', using fallback");
                         break;
                     }
                     
@@ -248,13 +248,13 @@ namespace POTCO.Editor
                     }
                     catch (System.Exception ex)
                     {
-                        DebugLogger.LogWarningAutoPOTCO($"Error searching {modelsPath}: {ex.Message}");
+                        DebugLogger.LogWarningAutoObjectList($"Error searching {modelsPath}: {ex.Message}");
                     }
                 }
             }
             catch (System.Exception ex)
             {
-                DebugLogger.LogWarningAutoPOTCO($"Error in model search: {ex.Message}");
+                DebugLogger.LogWarningAutoObjectList($"Error in model search: {ex.Message}");
             }
             
             return "";
@@ -300,7 +300,7 @@ namespace POTCO.Editor
             name = name.Replace("(Clone)", "").Replace(" (Clone)", "");
             name = name.Replace("Instance", "").Replace(" Instance", "");
             
-            // Remove POTCOTypeInfo display names like "barrel_grey (Barrel)" -> "barrel_grey"
+            // Remove ObjectListInfo display names like "barrel_grey (Barrel)" -> "barrel_grey"
             if (name.Contains(" (") && name.EndsWith(")"))
             {
                 int parenIndex = name.LastIndexOf(" (");
