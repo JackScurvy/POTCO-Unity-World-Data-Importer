@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using System.IO;
+using POTCO.Editor;
 using System.Linq;
 
 public class MaterialHandler
@@ -20,7 +21,7 @@ public class MaterialHandler
     private static readonly Dictionary<string, Color> DefaultColorCache = new Dictionary<string, Color>();
     public List<Material> CreateMaterials(Dictionary<string, string> texturePaths, GameObject rootGO)
     {
-        Debug.Log($"Creating materials from {texturePaths.Count} texture paths");
+        DebugLogger.LogEggImporter($"Creating materials from {texturePaths.Count} texture paths");
         // Pre-size the list to avoid resizing during population
         var materials = new List<Material>(texturePaths.Count + 1);
         
@@ -29,7 +30,7 @@ public class MaterialHandler
             string materialName = kvp.Key;
             string texturePath = kvp.Value;
             
-            Debug.Log($"Creating material: {materialName} with texture: {texturePath}");
+            DebugLogger.LogEggImporter($"Creating material: {materialName} with texture: {texturePath}");
             
             Material mat = CreateVertexColorMaterial(materialName);
             
@@ -39,11 +40,11 @@ public class MaterialHandler
             if (texture != null)
             {
                 mat.mainTexture = texture;
-                Debug.Log($"Assigned texture {textureFileName} to material {materialName}");
+                DebugLogger.LogEggImporter($"Assigned texture {textureFileName} to material {materialName}");
             }
             else
             {
-                Debug.LogWarning($"Could not find texture: {textureFileName}");
+                DebugLogger.LogWarningEggImporter($"Could not find texture: {textureFileName}");
                 mat.color = GetDefaultColorForMaterial(materialName);
             }
             
@@ -62,7 +63,7 @@ public class MaterialHandler
         
         if (materials.Count == 1) // Only default material was added
         {
-            Debug.Log("No textures found, using default material only");
+            DebugLogger.LogEggImporter("No textures found, using default material only");
         }
         
         return materials;
@@ -82,13 +83,13 @@ public class MaterialHandler
                 Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
                 if (texture != null)
                 {
-                    Debug.Log($"Found texture at: {path}");
+                    DebugLogger.LogEggImporter($"Found texture at: {path}");
                     return texture;
                 }
             }
         }
         
-        Debug.LogWarning($"Texture not found in project: {textureFileName}");
+        DebugLogger.LogWarningEggImporter($"Texture not found in project: {textureFileName}");
         return null;
     }
     
@@ -160,7 +161,7 @@ public class MaterialHandler
         if (mat.HasProperty(GlossinessPropertyId))
             mat.SetFloat(GlossinessPropertyId, 0.1f);
             
-        Debug.Log($"Created vertex color material '{materialName}' using shader: {shader.name}");
+        DebugLogger.LogEggImporter($"Created vertex color material '{materialName}' using shader: {shader.name}");
         
         return mat;
     }
@@ -181,7 +182,7 @@ public class MaterialHandler
             _legacyDiffuseShader = Shader.Find("Legacy Shaders/Diffuse");
             if (_legacyDiffuseShader != null)
             {
-                Debug.LogWarning("Custom EggImporter/VertexColorTexture shader not found, falling back to Legacy Shaders/Diffuse");
+                DebugLogger.LogWarningEggImporter("Custom EggImporter/VertexColorTexture shader not found, falling back to Legacy Shaders/Diffuse");
                 return _legacyDiffuseShader;
             }
         }
@@ -196,7 +197,7 @@ public class MaterialHandler
             _standardShader = Shader.Find("Standard");
             if (_standardShader != null)
             {
-                Debug.LogWarning("Legacy Shaders/Diffuse not found, using Standard shader (vertex colors may not display)");
+                DebugLogger.LogWarningEggImporter("Legacy Shaders/Diffuse not found, using Standard shader (vertex colors may not display)");
             }
         }
         

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
+using POTCO.Editor;
 
 public class EggPrefabCreator : EditorWindow
 {
@@ -44,7 +45,7 @@ public class EggPrefabCreator : EditorWindow
 
     private static void CreatePrefabsFromEggFiles(bool forceRecreate)
     {
-        Debug.Log($"🥚 Starting batch prefab creation from .egg files... (Force recreate: {forceRecreate})");
+        DebugLogger.LogEggImporter($"🥚 Starting batch prefab creation from .egg files... (Force recreate: {forceRecreate})");
         
         // Find all .egg files in Resources folder
         string resourcesPath = "Assets/Resources";
@@ -71,7 +72,7 @@ public class EggPrefabCreator : EditorWindow
                 // Skip if prefab exists and not forcing recreate
                 if (!forceRecreate && System.IO.File.Exists(prefabPath))
                 {
-                    Debug.Log($"⏭️ Skipping {Path.GetFileName(eggPath)} - prefab already exists");
+                    DebugLogger.LogEggImporter($"⏭️ Skipping {Path.GetFileName(eggPath)} - prefab already exists");
                     skippedCount++;
                     continue;
                 }
@@ -89,24 +90,24 @@ public class EggPrefabCreator : EditorWindow
                     
                     if (prefab != null)
                     {
-                        Debug.Log($"✅ Created prefab: {Path.GetFileName(prefabPath)}");
+                        DebugLogger.LogEggImporter($"✅ Created prefab: {Path.GetFileName(prefabPath)}");
                         successCount++;
                     }
                     else
                     {
-                        Debug.LogError($"❌ Failed to save prefab: {prefabPath}");
+                        DebugLogger.LogErrorEggImporter($"❌ Failed to save prefab: {prefabPath}");
                         failCount++;
                     }
                 }
                 else
                 {
-                    Debug.LogWarning($"⚠️ Could not load egg asset: {assetPath}");
+                    DebugLogger.LogWarningEggImporter($"⚠️ Could not load egg asset: {assetPath}");
                     failCount++;
                 }
             }
             catch (System.Exception e)
             {
-                Debug.LogError($"❌ Error processing {eggPath}: {e.Message}");
+                DebugLogger.LogErrorEggImporter($"❌ Error processing {eggPath}: {e.Message}");
                 failCount++;
             }
         }
@@ -114,7 +115,7 @@ public class EggPrefabCreator : EditorWindow
         EditorUtility.ClearProgressBar();
         AssetDatabase.Refresh();
         
-        Debug.Log($"🏁 Prefab creation complete! Success: {successCount}, Failed: {failCount}, Skipped: {skippedCount}, Total: {eggFiles.Length}");
+        DebugLogger.LogEggImporter($"🏁 Prefab creation complete! Success: {successCount}, Failed: {failCount}, Skipped: {skippedCount}, Total: {eggFiles.Length}");
         
         EditorUtility.DisplayDialog("Prefab Creation Complete", 
             $"Successfully created: {successCount} prefabs\nFailed: {failCount}\nSkipped: {skippedCount}\nTotal .egg files: {eggFiles.Length}", 

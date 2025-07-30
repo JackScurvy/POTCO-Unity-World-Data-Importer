@@ -8,6 +8,7 @@ using WorldDataImporter.Utilities;
 using WorldDataImporter.Processors;
 using WorldDataImporter.Data;
 using POTCO;
+using POTCO.Editor;
 
 namespace WorldDataImporter.Algorithms
 {
@@ -18,7 +19,7 @@ namespace WorldDataImporter.Algorithms
             var startTime = System.DateTime.Now;
             var stats = new ImportStatistics();
             
-            Debug.Log($"📥 Reading file: {path}");
+            DebugLogger.LogWorldImporter($"📥 Reading file: {path}");
             string[] lines = File.ReadAllLines(path);
 
             Dictionary<string, GameObject> createdObjects = new();
@@ -56,9 +57,12 @@ namespace WorldDataImporter.Algorithms
                         indent = indent 
                     };
                     
-                    // Add POTCOTypeInfo component to store metadata (using Undo for editor compatibility)
-                    var typeInfo = Undo.AddComponent<POTCOTypeInfo>(newGO);
-                    typeInfo.objectId = currentId;
+                    // Add POTCOTypeInfo component to store metadata only if ImportObjectListData is enabled
+                    if (settings != null && settings.importObjectListData)
+                    {
+                        var typeInfo = Undo.AddComponent<POTCOTypeInfo>(newGO);
+                        typeInfo.objectId = currentId;
+                    }
                     
                     createdObjects[currentId] = newGO;
                     objectDataMap[currentId] = newData;
@@ -90,7 +94,7 @@ namespace WorldDataImporter.Algorithms
                             // Mark this object for deletion after parsing is complete
                             if (currentGO != root)
                             {
-                                Debug.Log($"🎄 Marking holiday object for deletion: {currentGO.name} (Holiday: {holiday})");
+                                DebugLogger.LogWorldImporter($"🎄 Marking holiday object for deletion: {currentGO.name} (Holiday: {holiday})");
                                 holidayObjectsToDelete.Add(currentGO);
                             }
                         }
@@ -106,7 +110,7 @@ namespace WorldDataImporter.Algorithms
                             // Mark this node object for deletion after parsing is complete
                             if (currentGO != root)
                             {
-                                Debug.Log($"🎯 Marking node object for deletion: {currentGO.name} (Type: {objectType})");
+                                DebugLogger.LogWorldImporter($"🎯 Marking node object for deletion: {currentGO.name} (Type: {objectType})");
                                 nodeObjectsToDelete.Add(currentGO);
                             }
                         }
@@ -122,7 +126,7 @@ namespace WorldDataImporter.Algorithms
                             // Mark this collision object for deletion after parsing is complete
                             if (currentGO != root)
                             {
-                                Debug.Log($"🚧 Marking collision object for deletion: {currentGO.name} (Type: {objectType})");
+                                DebugLogger.LogWorldImporter($"🚧 Marking collision object for deletion: {currentGO.name} (Type: {objectType})");
                                 collisionObjectsToDelete.Add(currentGO);
                             }
                         }
@@ -136,7 +140,7 @@ namespace WorldDataImporter.Algorithms
             // Clean up holiday objects after parsing is complete
             if (holidayObjectsToDelete.Count > 0)
             {
-                Debug.Log($"🎄 Cleaning up {holidayObjectsToDelete.Count} holiday objects...");
+                DebugLogger.LogWorldImporter($"🎄 Cleaning up {holidayObjectsToDelete.Count} holiday objects...");
                 foreach (var holidayObj in holidayObjectsToDelete)
                 {
                     if (holidayObj != null)
@@ -149,7 +153,7 @@ namespace WorldDataImporter.Algorithms
             // Clean up node objects after parsing is complete
             if (nodeObjectsToDelete.Count > 0)
             {
-                Debug.Log($"🎯 Cleaning up {nodeObjectsToDelete.Count} node objects...");
+                DebugLogger.LogWorldImporter($"🎯 Cleaning up {nodeObjectsToDelete.Count} node objects...");
                 foreach (var nodeObj in nodeObjectsToDelete)
                 {
                     if (nodeObj != null)
@@ -162,7 +166,7 @@ namespace WorldDataImporter.Algorithms
             // Clean up collision objects after parsing is complete
             if (collisionObjectsToDelete.Count > 0)
             {
-                Debug.Log($"🚧 Cleaning up {collisionObjectsToDelete.Count} collision objects...");
+                DebugLogger.LogWorldImporter($"🚧 Cleaning up {collisionObjectsToDelete.Count} collision objects...");
                 foreach (var collisionObj in collisionObjectsToDelete)
                 {
                     if (collisionObj != null)
@@ -174,7 +178,7 @@ namespace WorldDataImporter.Algorithms
 
             stats.importTime = (float)(System.DateTime.Now - startTime).TotalSeconds;
             LogImportStatistics(stats, path);
-            Debug.Log($"✅ Scene built successfully in {stats.importTime:F2} seconds.");
+            DebugLogger.LogWorldImporter($"✅ Scene built successfully in {stats.importTime:F2} seconds.");
             
             return stats;
         }
@@ -187,7 +191,7 @@ namespace WorldDataImporter.Algorithms
             var startTime = System.DateTime.Now;
             var stats = new ImportStatistics();
             
-            Debug.Log($"📥 Reading file: {path}");
+            DebugLogger.LogWorldImporter($"📥 Reading file: {path}");
             string[] lines = File.ReadAllLines(path);
 
             Dictionary<string, GameObject> createdObjects = new();
@@ -227,9 +231,12 @@ namespace WorldDataImporter.Algorithms
                         indent = indent 
                     };
                     
-                    // Add POTCOTypeInfo component to store metadata (using Undo for editor compatibility)
-                    var typeInfo = Undo.AddComponent<POTCOTypeInfo>(newGO);
-                    typeInfo.objectId = currentId;
+                    // Add POTCOTypeInfo component to store metadata only if ImportObjectListData is enabled
+                    if (settings != null && settings.importObjectListData)
+                    {
+                        var typeInfo = Undo.AddComponent<POTCOTypeInfo>(newGO);
+                        typeInfo.objectId = currentId;
+                    }
                     
                     createdObjects[currentId] = newGO;
                     objectDataMap[currentId] = newData;
@@ -269,7 +276,7 @@ namespace WorldDataImporter.Algorithms
                             // Mark this object for deletion after parsing is complete
                             if (currentGO != root)
                             {
-                                Debug.Log($"🎄 Marking holiday object for deletion: {currentGO.name} (Holiday: {holiday})");
+                                DebugLogger.LogWorldImporter($"🎄 Marking holiday object for deletion: {currentGO.name} (Holiday: {holiday})");
                                 holidayObjectsToDelete.Add(currentGO);
                             }
                         }
@@ -285,7 +292,7 @@ namespace WorldDataImporter.Algorithms
                             // Mark this node object for deletion after parsing is complete
                             if (currentGO != root)
                             {
-                                Debug.Log($"🎯 Marking node object for deletion: {currentGO.name} (Type: {objectType})");
+                                DebugLogger.LogWorldImporter($"🎯 Marking node object for deletion: {currentGO.name} (Type: {objectType})");
                                 nodeObjectsToDelete.Add(currentGO);
                             }
                         }
@@ -300,7 +307,7 @@ namespace WorldDataImporter.Algorithms
                         {
                             if (currentGO != root)
                             {
-                                Debug.Log($"🚧 Marking collision object for deletion: {currentGO.name}");
+                                DebugLogger.LogWorldImporter($"🚧 Marking collision object for deletion: {currentGO.name}");
                                 collisionObjectsToDelete.Add(currentGO);
                             }
                         }
@@ -316,7 +323,7 @@ namespace WorldDataImporter.Algorithms
             // Clean up holiday objects after parsing is complete
             if (holidayObjectsToDelete.Count > 0)
             {
-                Debug.Log($"🎄 Cleaning up {holidayObjectsToDelete.Count} holiday objects...");
+                DebugLogger.LogWorldImporter($"🎄 Cleaning up {holidayObjectsToDelete.Count} holiday objects...");
                 foreach (var holidayObj in holidayObjectsToDelete)
                 {
                     if (holidayObj != null)
@@ -329,7 +336,7 @@ namespace WorldDataImporter.Algorithms
             // Clean up node objects after parsing is complete
             if (nodeObjectsToDelete.Count > 0)
             {
-                Debug.Log($"🎯 Cleaning up {nodeObjectsToDelete.Count} node objects...");
+                DebugLogger.LogWorldImporter($"🎯 Cleaning up {nodeObjectsToDelete.Count} node objects...");
                 foreach (var nodeObj in nodeObjectsToDelete)
                 {
                     if (nodeObj != null)
@@ -342,7 +349,7 @@ namespace WorldDataImporter.Algorithms
             // Clean up collision objects after parsing is complete
             if (collisionObjectsToDelete.Count > 0)
             {
-                Debug.Log($"🚧 Cleaning up {collisionObjectsToDelete.Count} collision objects...");
+                DebugLogger.LogWorldImporter($"🚧 Cleaning up {collisionObjectsToDelete.Count} collision objects...");
                 foreach (var collisionObj in collisionObjectsToDelete)
                 {
                     if (collisionObj != null)
@@ -354,27 +361,27 @@ namespace WorldDataImporter.Algorithms
             
             stats.importTime = (float)(System.DateTime.Now - startTime).TotalSeconds;
             LogImportStatistics(stats, path);
-            Debug.Log($"✅ Scene built successfully in {stats.importTime:F2} seconds with delays.");
+            DebugLogger.LogWorldImporter($"✅ Scene built successfully in {stats.importTime:F2} seconds with delays.");
             
             onComplete?.Invoke(stats);
         }
 
         private static void LogImportStatistics(ImportStatistics stats, string filePath)
         {
-            Debug.Log($"📊 Import Statistics for {System.IO.Path.GetFileName(filePath)}:");
-            Debug.Log($"   • Total Objects: {stats.totalObjects}");
-            Debug.Log($"   • Successful Imports: {stats.successfulImports}");
-            Debug.Log($"   • Missing Models: {stats.missingModels}");
-            Debug.Log($"   • Color Overrides Applied: {stats.colorOverrides}");
-            Debug.Log($"   • Collision Disabled: {stats.collisionDisabled}");
-            Debug.Log($"   • Import Time: {stats.importTime:F2}s");
+            DebugLogger.LogWorldImporter($"📊 Import Statistics for {System.IO.Path.GetFileName(filePath)}:");
+            DebugLogger.LogWorldImporter($"   • Total Objects: {stats.totalObjects}");
+            DebugLogger.LogWorldImporter($"   • Successful Imports: {stats.successfulImports}");
+            DebugLogger.LogWorldImporter($"   • Missing Models: {stats.missingModels}");
+            DebugLogger.LogWorldImporter($"   • Color Overrides Applied: {stats.colorOverrides}");
+            DebugLogger.LogWorldImporter($"   • Collision Disabled: {stats.collisionDisabled}");
+            DebugLogger.LogWorldImporter($"   • Import Time: {stats.importTime:F2}s");
             
             if (stats.objectTypeCount.Count > 0)
             {
-                Debug.Log("   📋 Object Types:");
+                DebugLogger.LogWorldImporter("   📋 Object Types:");
                 foreach (var kvp in stats.objectTypeCount)
                 {
-                    Debug.Log($"      - {kvp.Key}: {kvp.Value}");
+                    DebugLogger.LogWorldImporter($"      - {kvp.Key}: {kvp.Value}");
                 }
             }
         }

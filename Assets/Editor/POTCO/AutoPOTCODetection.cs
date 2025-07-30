@@ -12,6 +12,10 @@ namespace POTCO.Editor
     public class AutoPOTCODetection
     {
         private static double lastAutoDetectionTime = 0;
+        private static bool isDisabled = false;
+        
+        // EditorPrefs key for controlling AutoPOTCODetection
+        private const string AUTO_DETECTION_ENABLED_KEY = "POTCO.AutoDetectionEnabled";
         
         static AutoPOTCODetection()
         {
@@ -22,20 +26,84 @@ namespace POTCO.Editor
             EditorSceneManager.sceneSaved += OnSceneSaved;
         }
         
+        
+        /// <summary>
+        /// Temporarily disable auto-detection during bulk operations like world imports
+        /// </summary>
+        public static void SetEnabled(bool enabled)
+        {
+            isDisabled = !enabled;
+            if (enabled)
+            {
+                DebugLogger.LogAutoPOTCO("🔄 AutoPOTCODetection re-enabled");
+            }
+            else
+            {
+                DebugLogger.LogAutoPOTCO("⏸️ AutoPOTCODetection disabled during bulk operation");
+            }
+        }
+        
+        /// <summary>
+        /// Enable/disable debug logging for AutoPOTCODetection (disabled by default for performance)
+        /// </summary>
+        public static void SetDebugLogging(bool enabled)
+        {
+            DebugLogger.LogAlways($"AutoPOTCODetection debug logging: {(enabled ? "ENABLED" : "DISABLED")}");
+        }
+        
+        /// <summary>
+        /// Enable or disable automatic POTCOTypeInfo detection (persisted in EditorPrefs)
+        /// </summary>
+        public static void SetAutoDetectionEnabled(bool enabled)
+        {
+            EditorPrefs.SetBool(AUTO_DETECTION_ENABLED_KEY, enabled);
+            DebugLogger.LogAlways($"🔄 AutoPOTCODetection {(enabled ? "ENABLED" : "DISABLED")} - will {(enabled ? "automatically add" : "not add")} POTCOTypeInfo to new objects");
+        }
+        
+        /// <summary>
+        /// Check if automatic POTCOTypeInfo detection is enabled (defaults to false)
+        /// </summary>
+        public static bool IsAutoDetectionEnabled()
+        {
+            return EditorPrefs.GetBool(AUTO_DETECTION_ENABLED_KEY, false);
+        }
+        
+        /// <summary>
+        /// Manually run detection on all objects in scene (use after bulk imports)
+        /// </summary>
+        public static void ProcessAllObjectsInScene()
+        {
+            if (isDisabled)
+            {
+                DebugLogger.LogAutoPOTCO("⚠️ AutoPOTCODetection is disabled - enabling temporarily for manual processing");
+                isDisabled = false;
+            }
+            
+            DebugLogger.LogAutoPOTCO("🔄 Manually processing all objects in scene for POTCOTypeInfo...");
+            OnHierarchyChanged(); // Trigger the existing processing logic
+            DebugLogger.LogAutoPOTCO("✅ Manual processing complete");
+        }
+        
         private static void OnHierarchyChanged()
         {
+            // Skip if disabled during bulk operations
+            if (isDisabled) return;
+            
+            // Skip if user has disabled auto-detection entirely
+            if (!IsAutoDetectionEnabled()) return;
+            
             // Only run in play mode or when not playing
             if (Application.isPlaying) return;
             
             // Moderate throttling to prevent freezing but allow responsive detection - 0.5 second cooldown
             if (EditorApplication.timeSinceStartup - lastAutoDetectionTime < 0.5f) 
             {
-                Debug.Log($"⏱️ AutoPOTCODetection throttled - last run {EditorApplication.timeSinceStartup - lastAutoDetectionTime:F2}s ago");
+                DebugLogger.LogAutoPOTCO($"⏱️ AutoPOTCODetection throttled - last run {EditorApplication.timeSinceStartup - lastAutoDetectionTime:F2}s ago");
                 return;
             }
             lastAutoDetectionTime = EditorApplication.timeSinceStartup;
             
-            Debug.Log($"🔄 AutoPOTCODetection running...");
+            DebugLogger.LogAutoPOTCO($"🔄 AutoPOTCODetection running...");
             
             // Use a timeout to prevent long operations
             var startTime = System.DateTime.Now;
@@ -51,7 +119,7 @@ namespace POTCO.Editor
                 // Timeout check - don't freeze Unity
                 if ((System.DateTime.Now - startTime).TotalMilliseconds > maxProcessingTimeMs)
                 {
-                    Debug.Log($"⏰ Auto-detection timeout after processing {processedCount} objects");
+                    DebugLogger.LogAutoPOTCO($"⏰ Auto-detection timeout after processing {processedCount} objects");
                     break;
                 }
                 
@@ -68,30 +136,30 @@ namespace POTCO.Editor
                     GameObject parent = obj.transform.parent?.gameObject;
                     if (parent != null)
                     {
-                        Debug.Log($"🔍 Child '{obj.name}' skipped, checking parent '{parent.name}'");
+                        DebugLogger.LogAutoPOTCO($"🔍 Child '{obj.name}' skipped, checking parent '{parent.name}'");
                         
                         bool hasComponent = parent.GetComponent<POTCOTypeInfo>() != null;
                         bool looksLikePOTCO = QuickLooksLikePOTCOModel(parent);
                         
-                        Debug.Log($"  📋 Parent '{parent.name}' - HasComponent: {hasComponent}, LooksLikePOTCO: {looksLikePOTCO}");
+                        DebugLogger.LogAutoPOTCO($"  📋 Parent '{parent.name}' - HasComponent: {hasComponent}, LooksLikePOTCO: {looksLikePOTCO}");
                         
                         if (!hasComponent && looksLikePOTCO)
                         {
-                            Debug.Log($"🔄 Adding POTCOTypeInfo to parent '{parent.name}'");
+                            DebugLogger.LogAutoPOTCO($"🔄 Adding POTCOTypeInfo to parent '{parent.name}'");
                             AddPOTCOTypeInfoToObject(parent);
                         }
                         else if (hasComponent)
                         {
-                            Debug.Log($"⏭️ Parent '{parent.name}' already has POTCOTypeInfo");
+                            DebugLogger.LogAutoPOTCO($"⏭️ Parent '{parent.name}' already has POTCOTypeInfo");
                         }
                         else if (!looksLikePOTCO)
                         {
-                            Debug.Log($"⏭️ Parent '{parent.name}' doesn't look like POTCO model");
+                            DebugLogger.LogAutoPOTCO($"⏭️ Parent '{parent.name}' doesn't look like POTCO model");
                         }
                     }
                     else
                     {
-                        Debug.Log($"⚠️ Child '{obj.name}' has no parent - this shouldn't happen");
+                        DebugLogger.LogAutoPOTCO($"⚠️ Child '{obj.name}' has no parent - this shouldn't happen");
                     }
                     continue;
                 }
@@ -190,7 +258,7 @@ namespace POTCO.Editor
             }
             catch (System.Exception ex)
             {
-                Debug.LogWarning($"Error checking model existence: {ex.Message}");
+                DebugLogger.LogWarningAutoPOTCO($"Error checking model existence: {ex.Message}");
             }
             
             return false;
@@ -248,7 +316,7 @@ namespace POTCO.Editor
             // This prevents nested POTCOTypeInfo components
             if (parent.GetComponent<POTCOTypeInfo>() != null)
             {
-                Debug.Log($"⏭️ Skipping '{obj.name}' - parent '{parent.name}' already has POTCOTypeInfo (hierarchy rule)");
+                DebugLogger.LogAutoPOTCO($"⏭️ Skipping '{obj.name}' - parent '{parent.name}' already has POTCOTypeInfo (hierarchy rule)");
                 return true;
             }
             
@@ -258,7 +326,7 @@ namespace POTCO.Editor
             {
                 if (ancestor.GetComponent<POTCOTypeInfo>() != null)
                 {
-                    Debug.Log($"⏭️ Skipping '{obj.name}' - ancestor '{ancestor.name}' has POTCOTypeInfo (nested hierarchy rule)");
+                    DebugLogger.LogAutoPOTCO($"⏭️ Skipping '{obj.name}' - ancestor '{ancestor.name}' has POTCOTypeInfo (nested hierarchy rule)");
                     return true;
                 }
                 ancestor = ancestor.parent;
@@ -270,7 +338,7 @@ namespace POTCO.Editor
                 name.Contains("_geo") || name.Contains("_mesh") || name.Contains("lod") ||
                 name.Equals("unnamed") || name.StartsWith("polysurface"))
             {
-                Debug.Log($"⏭️ Skipping child mesh object '{obj.name}' - appears to be geometry");
+                DebugLogger.LogAutoPOTCO($"⏭️ Skipping child mesh object '{obj.name}' - appears to be geometry");
                 return true;
             }
             
@@ -279,7 +347,7 @@ namespace POTCO.Editor
             if (parentName.Contains("interior_") || parentName.StartsWith("pir_m_bld_int_") || 
                 parentName.Contains("_interior") || parentName.Contains("building_interior"))
             {
-                Debug.Log($"⏭️ Skipping '{obj.name}' - parent '{parent.name}' is an interior model, children are mesh parts");
+                DebugLogger.LogAutoPOTCO($"⏭️ Skipping '{obj.name}' - parent '{parent.name}' is an interior model, children are mesh parts");
                 return true;
             }
             
@@ -289,7 +357,7 @@ namespace POTCO.Editor
             {
                 if (LooksLikePOTCOModel(parent))
                 {
-                    Debug.Log($"⏭️ Skipping child mesh object '{obj.name}' - parent '{parent.name}' should have POTCOTypeInfo");
+                    DebugLogger.LogAutoPOTCO($"⏭️ Skipping child mesh object '{obj.name}' - parent '{parent.name}' should have POTCOTypeInfo");
                     return true;
                 }
             }
@@ -301,7 +369,7 @@ namespace POTCO.Editor
                 MeshRenderer[] siblingMeshes = parent.GetComponentsInChildren<MeshRenderer>();
                 if (siblingMeshes.Length > 1)
                 {
-                    Debug.Log($"⏭️ Skipping '{obj.name}' - one of {siblingMeshes.Length} mesh parts in '{parent.name}'");
+                    DebugLogger.LogAutoPOTCO($"⏭️ Skipping '{obj.name}' - one of {siblingMeshes.Length} mesh parts in '{parent.name}'");
                     return true;
                 }
             }
@@ -317,7 +385,7 @@ namespace POTCO.Editor
                 Vector3.Distance(transform.localEulerAngles, defaultRot) < 0.001f &&
                 Vector3.Distance(transform.localScale, defaultScale) < 0.001f)
             {
-                Debug.Log($"⏭️ Skipping '{obj.name}' - has default transform (0,0,0 pos/rot, 1,1,1 scale), likely mesh part");
+                DebugLogger.LogAutoPOTCO($"⏭️ Skipping '{obj.name}' - has default transform (0,0,0 pos/rot, 1,1,1 scale), likely mesh part");
                 return true;
             }
             
@@ -428,7 +496,7 @@ namespace POTCO.Editor
             }
             catch (System.Exception ex)
             {
-                Debug.LogWarning($"Failed to check ObjectList for '{obj.name}': {ex.Message}");
+                DebugLogger.LogWarningAutoPOTCO($"Failed to check ObjectList for '{obj.name}': {ex.Message}");
             }
             
             // Check if it has mesh components (visual objects)
@@ -497,7 +565,7 @@ namespace POTCO.Editor
             // Mark the object as dirty so changes are saved
             EditorUtility.SetDirty(obj);
             
-            Debug.Log($"✅ Auto-added POTCOTypeInfo to '{obj.name}' - Type: '{potcoInfo.objectType}', Model: '{potcoInfo.modelPath}'");
+            DebugLogger.LogAutoPOTCO($"✅ Auto-added POTCOTypeInfo to '{obj.name}' - Type: '{potcoInfo.objectType}', Model: '{potcoInfo.modelPath}'");
         }
         
         /// <summary>
@@ -509,7 +577,7 @@ namespace POTCO.Editor
             
             if (selectedObjects.Length == 0)
             {
-                Debug.LogWarning("No objects selected. Please select one or more GameObjects in the scene.");
+                DebugLogger.LogWarningAlways("No objects selected. Please select one or more GameObjects in the scene.");
                 return;
             }
             
@@ -520,7 +588,7 @@ namespace POTCO.Editor
             {
                 if (obj.GetComponent<POTCOTypeInfo>() != null)
                 {
-                    Debug.Log($"⏭️ Skipped '{obj.name}' - already has POTCOTypeInfo");
+                    DebugLogger.LogAutoPOTCO($"⏭️ Skipped '{obj.name}' - already has POTCOTypeInfo");
                     skippedCount++;
                     continue;
                 }
@@ -529,7 +597,7 @@ namespace POTCO.Editor
                 addedCount++;
             }
             
-            Debug.Log($"✅ Added POTCOTypeInfo to {addedCount} objects, skipped {skippedCount} objects");
+            DebugLogger.LogAutoPOTCO($"✅ Added POTCOTypeInfo to {addedCount} objects, skipped {skippedCount} objects");
         }
         
         /// <summary>
@@ -539,7 +607,7 @@ namespace POTCO.Editor
         {
             POTCOTypeInfo[] allPOTCOComponents = GameObject.FindObjectsByType<POTCOTypeInfo>(FindObjectsSortMode.None);
             
-            Debug.Log($"🔄 Refreshing {allPOTCOComponents.Length} POTCOTypeInfo components...");
+            DebugLogger.LogAutoPOTCO($"🔄 Refreshing {allPOTCOComponents.Length} POTCOTypeInfo components...");
             
             foreach (POTCOTypeInfo potcoInfo in allPOTCOComponents)
             {
@@ -547,7 +615,7 @@ namespace POTCO.Editor
                 EditorUtility.SetDirty(potcoInfo.gameObject);
             }
             
-            Debug.Log($"✅ Refreshed all POTCOTypeInfo components in scene");
+            DebugLogger.LogAutoPOTCO($"✅ Refreshed all POTCOTypeInfo components in scene");
         }
         
     }

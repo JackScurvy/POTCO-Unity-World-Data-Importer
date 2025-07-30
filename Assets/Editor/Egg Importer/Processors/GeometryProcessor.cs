@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using POTCO.Editor;
 
 public class GeometryProcessor
 {
@@ -29,7 +30,7 @@ public class GeometryProcessor
         Vector3[] masterVertices, Vector3[] masterNormals, Vector2[] masterUVs, Color[] masterColors, 
         Dictionary<string, Material> materialDict, bool hasSkeletalData, EggJoint rootJoint, GameObject rootBoneObject, Dictionary<string, EggJoint> joints)
     {
-        Debug.Log($"Creating mesh for GameObject: {go.name}");
+        DebugLogger.LogEggImporter($"Creating mesh for GameObject: {go.name}");
 
         // Check if we have any triangles
         int totalTriangles = 0;
@@ -40,11 +41,11 @@ public class GeometryProcessor
 
         if (totalTriangles == 0)
         {
-            Debug.LogWarning($"No triangles found for GameObject {go.name}");
+            DebugLogger.LogWarningEggImporter($"No triangles found for GameObject {go.name}");
             return;
         }
 
-        Debug.Log($"Total triangles: {totalTriangles}");
+        DebugLogger.LogEggImporter($"Total triangles: {totalTriangles}");
 
         // Use different approaches for skinned vs static meshes
         Vector3[] meshVertices;
@@ -56,7 +57,7 @@ public class GeometryProcessor
 
         if (hasSkeletalData && rootJoint != null && rootBoneObject != null)
         {
-            Debug.Log($"Using all {masterVertices.Length} master vertices for SKINNED mesh (matching working version approach)");
+            DebugLogger.LogEggImporter($"Using all {masterVertices.Length} master vertices for SKINNED mesh (matching working version approach)");
             meshVertices = masterVertices;
             meshNormals = masterNormals;
             meshUVs = masterUVs;
@@ -64,7 +65,7 @@ public class GeometryProcessor
         }
         else
         {
-            Debug.Log($"Using optimized local vertices for STATIC mesh");
+            DebugLogger.LogEggImporter($"Using optimized local vertices for STATIC mesh");
             // Collect all unique vertex indices used by this mesh
             var usedVertexIndices = new HashSet<int>();
             foreach (var submesh in subMeshes.Values)
@@ -101,7 +102,7 @@ public class GeometryProcessor
             meshNormals = localNormals;
             meshUVs = localUVs;
             meshColors = localColors;
-            Debug.Log($"Static mesh uses {meshVertices.Length} vertices out of {masterVertices.Length} total vertices");
+            DebugLogger.LogEggImporter($"Static mesh uses {meshVertices.Length} vertices out of {masterVertices.Length} total vertices");
         }
 
         // Calculate bounds to fix pivot point based on settings
@@ -149,7 +150,7 @@ public class GeometryProcessor
             // Adjust the GameObject position to compensate
             go.transform.localPosition += pivotOffset;
             
-            Debug.Log($"Pivot adjustment ({settings.pivotMode}): {pivotOffset}, Bounds: min={min}, max={max}");
+            DebugLogger.LogEggImporter($"Pivot adjustment ({settings.pivotMode}): {pivotOffset}, Bounds: min={min}, max={max}");
         }
 
         var mesh = new Mesh { name = go.name + "_mesh_" + System.Guid.NewGuid().ToString("N")[..8] };
@@ -172,7 +173,7 @@ public class GeometryProcessor
                 if (hasSkeletalData && rootJoint != null && rootBoneObject != null)
                 {
                     // Skinned mesh: use global indices directly
-                    Debug.Log($"Setting triangles for SKINNED submesh {j} ({matName}): {globalTriangles.Count} triangles (global indices)");
+                    DebugLogger.LogEggImporter($"Setting triangles for SKINNED submesh {j} ({matName}): {globalTriangles.Count} triangles (global indices)");
                     mesh.SetTriangles(globalTriangles, j, false);
                 }
                 else
@@ -187,21 +188,21 @@ public class GeometryProcessor
                         }
                         else
                         {
-                            Debug.LogError($"Failed to remap global vertex index {globalIndex} to local index");
+                            DebugLogger.LogErrorEggImporter($"Failed to remap global vertex index {globalIndex} to local index");
                         }
                     }
-                    Debug.Log($"Setting triangles for STATIC submesh {j} ({matName}): {localTriangles.Count} triangles (remapped from global indices)");
+                    DebugLogger.LogEggImporter($"Setting triangles for STATIC submesh {j} ({matName}): {localTriangles.Count} triangles (remapped from global indices)");
                     mesh.SetTriangles(localTriangles, j, false);
                 }
             }
             if (materialDict.TryGetValue(matName, out Material mat))
             {
                 rendererMaterials.Add(mat);
-                Debug.Log($"Added material: {matName}");
+                DebugLogger.LogEggImporter($"Added material: {matName}");
             }
             else
             {
-                Debug.LogWarning($"Material not found: {matName}");
+                DebugLogger.LogWarningEggImporter($"Material not found: {matName}");
                 // Create a default material using cached shader
                 var defaultMat = GetCachedDefaultMaterial(matName + "_default");
                 rendererMaterials.Add(defaultMat);
@@ -209,7 +210,7 @@ public class GeometryProcessor
         }
 
         mesh.RecalculateBounds();
-        Debug.Log($"Mesh bounds: {mesh.bounds}");
+        DebugLogger.LogEggImporter($"Mesh bounds: {mesh.bounds}");
 
         // Only recalculate normals if we don't have them
         if (masterNormals == null || masterNormals.Length == 0)
@@ -220,17 +221,17 @@ public class GeometryProcessor
         // Force the mesh to be visible by ensuring bounds are reasonable
         if (mesh.bounds.size.magnitude < 0.001f)
         {
-            Debug.LogWarning("Mesh bounds are very small, this might cause rendering issues");
+            DebugLogger.LogWarningEggImporter("Mesh bounds are very small, this might cause rendering issues");
         }
 
         if (hasSkeletalData && rootJoint != null && rootBoneObject != null)
         {
-            Debug.Log("Setting up skinned mesh renderer");
+            DebugLogger.LogEggImporter("Setting up skinned mesh renderer");
             SetupSkinnedMeshRenderer(go, mesh, rendererMaterials.ToArray(), ctx, meshVertices, rootJoint, rootBoneObject, joints);
         }
         else
         {
-            Debug.Log("Setting up static mesh renderer");
+            DebugLogger.LogEggImporter("Setting up static mesh renderer");
             go.AddComponent<MeshFilter>().sharedMesh = mesh;
             go.AddComponent<MeshRenderer>().sharedMaterials = rendererMaterials.ToArray();
         }
@@ -247,11 +248,11 @@ public class GeometryProcessor
 
         CollectBonesAndBindPoses(rootJoint, bones, bindPoses, rootBoneObject.transform);
 
-        Debug.Log($"Collected {bones.Count} bones for skinned mesh");
+        DebugLogger.LogEggImporter($"Collected {bones.Count} bones for skinned mesh");
 
         if (bones.Count == 0)
         {
-            Debug.LogWarning("No bones found, falling back to static mesh");
+            DebugLogger.LogWarningEggImporter("No bones found, falling back to static mesh");
             go.AddComponent<MeshFilter>().sharedMesh = mesh;
             go.AddComponent<MeshRenderer>().sharedMaterials = materials;
             return;
@@ -296,7 +297,7 @@ public class GeometryProcessor
             if (weights.Count > 3) { boneWeights[i].boneIndex3 = weights[3].Key; boneWeights[i].weight3 = weights[3].Value; }
         }
 
-        Debug.Log($"Vertices with bone weights: {verticesWithWeights}/{masterVertices.Length}");
+        DebugLogger.LogEggImporter($"Vertices with bone weights: {verticesWithWeights}/{masterVertices.Length}");
 
         mesh.boneWeights = boneWeights;
         mesh.bindposes = bindPoses.ToArray();
@@ -504,7 +505,7 @@ public class GeometryProcessor
                 // Skip collision groups based on settings
                 if (groupName.ToLower().Contains("collision") && !EggImporterSettings.Instance.importCollisions)
                 {
-                    Debug.Log($"🚫 Skipping collision group: '{groupName}' (Import Collisions disabled)");
+                    DebugLogger.LogEggImporter($"🚫 Skipping collision group: '{groupName}' (Import Collisions disabled)");
                     int collisionGroupEnd = _parserUtils.FindMatchingBrace(lines, i);
                     i = collisionGroupEnd + 1;
                     continue;
@@ -514,7 +515,7 @@ public class GeometryProcessor
                 int groupEnd = _parserUtils.FindMatchingBrace(lines, i);
                 if (IsLODGroup(lines, i, groupEnd) && !ShouldImportLOD(lines, i, groupEnd, groupName))
                 {
-                    Debug.Log($"🚫 Skipping LOD group: '{groupName}' based on import settings");
+                    DebugLogger.LogEggImporter($"🚫 Skipping LOD group: '{groupName}' based on import settings");
                     i = groupEnd + 1;
                     continue;
                 }
@@ -535,18 +536,18 @@ public class GeometryProcessor
                 
                 if (containsGeometry)
                 {
-                    Debug.Log($"🚫 Skipping transform for geometry group: '{currentPath}' (vertices already in world space)");
+                    DebugLogger.LogEggImporter($"🚫 Skipping transform for geometry group: '{currentPath}' (vertices already in world space)");
                     int transformEnd = _parserUtils.FindMatchingBrace(lines, i);
                     i = transformEnd;
                 }
                 else if (hierarchyMap.TryGetValue(currentPath, out Transform transform))
                 {
-                    Debug.Log($"🔄 Applying transform to GameObject: '{transform.name}' at path: '{currentPath}'");
+                    DebugLogger.LogEggImporter($"🔄 Applying transform to GameObject: '{transform.name}' at path: '{currentPath}'");
                     ParseTransform(lines, ref i, transform.gameObject);
                 }
                 else
                 {
-                    Debug.LogWarning($"⚠️ Transform found but no GameObject at path: '{currentPath}'");
+                    DebugLogger.LogWarningEggImporter($"⚠️ Transform found but no GameObject at path: '{currentPath}'");
                     int transformEnd = _parserUtils.FindMatchingBrace(lines, i);
                     i = transformEnd;
                 }
@@ -584,7 +585,7 @@ public class GeometryProcessor
         Quaternion unityRotation = new Quaternion(rotation.x, rotation.z, rotation.y, -rotation.w);
         Vector3 unityScale = new Vector3(scale.x, scale.z, scale.y);
         
-        Debug.Log($"📍 Setting transform for '{go.name}': pos={unityPosition}, rot={unityRotation.eulerAngles}, scale={unityScale}");
+        DebugLogger.LogEggImporter($"📍 Setting transform for '{go.name}': pos={unityPosition}, rot={unityRotation.eulerAngles}, scale={unityScale}");
         
         go.transform.localPosition = unityPosition;
         go.transform.localRotation = unityRotation;
@@ -759,13 +760,13 @@ public class GeometryProcessor
         switch (settings.lodImportMode)
         {
             case EggImporterSettings.LODImportMode.AllLODs:
-                Debug.Log($"📊 Importing LOD: '{groupName}' (All LODs mode)");
+                DebugLogger.LogEggImporter($"📊 Importing LOD: '{groupName}' (All LODs mode)");
                 return true;
                 
             case EggImporterSettings.LODImportMode.HighestOnly:
                 bool isHighestLOD = IsHighestQualityLOD(lines, groupStart, groupEnd);
                 if (isHighestLOD)
-                    Debug.Log($"✨ Importing highest quality LOD: '{groupName}'");
+                    DebugLogger.LogEggImporter($"✨ Importing highest quality LOD: '{groupName}'");
                 return isHighestLOD;
                 
             case EggImporterSettings.LODImportMode.Custom:
@@ -796,7 +797,7 @@ public class GeometryProcessor
                     if (parts.Length >= 2 && float.TryParse(parts[1], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out float minDistance))
                     {
                         bool isHighest = minDistance == 0.0f;
-                        Debug.Log($"🔍 LOD Distance check - Min distance: {minDistance}, Is highest: {isHighest}");
+                        DebugLogger.LogEggImporter($"🔍 LOD Distance check - Min distance: {minDistance}, Is highest: {isHighest}");
                         return isHighest;
                     }
                 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using POTCO.Editor;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,7 +26,7 @@ namespace CaveGenerator.Algorithms
                     
                 if (Vector3.Distance(pos, position) < radius)
                 {
-                    Debug.Log($"Overlap detected: New position {position} is {Vector3.Distance(pos, position):F2}m from existing position {pos} (threshold: {radius}m)");
+                    DebugLogger.LogProceduralGeneration($"Overlap detected: New position {position} is {Vector3.Distance(pos, position):F2}m from existing position {pos} (threshold: {radius}m)");
                     return true;
                 }
             }
@@ -53,15 +54,15 @@ namespace CaveGenerator.Algorithms
             float connectionDistance = Vector3.Distance(fromConnector.position, toConnector.position);
             float connectionAngle = Vector3.Angle(fromConnector.forward, -toConnector.forward);
             
-            Debug.Log($"🔍 Connection Quality Check: Distance={connectionDistance:F3}m, Angle={connectionAngle:F1}°");
-            Debug.Log($"   From connector: {fromConnector.name} at {fromConnector.position}, Dir: {fromConnector.forward}");
-            Debug.Log($"   To connector: {toConnector.name} at {toConnector.position}, Dir: {toConnector.forward}");
+            DebugLogger.LogProceduralGeneration($"🔍 Connection Quality Check: Distance={connectionDistance:F3}m, Angle={connectionAngle:F1}°");
+            DebugLogger.LogProceduralGeneration($"   From connector: {fromConnector.name} at {fromConnector.position}, Dir: {fromConnector.forward}");
+            DebugLogger.LogProceduralGeneration($"   To connector: {toConnector.name} at {toConnector.position}, Dir: {toConnector.forward}");
             
             // Reject connections that are too far off
             if (connectionDistance > maxDistance || connectionAngle > maxAngle)
             {
-                Debug.LogWarning($"❌ Rejected poor connection: Distance={connectionDistance:F3}m, Angle={connectionAngle:F1}° between {fromConnector.name} and {toConnector.name}");
-                Debug.LogWarning($"   Thresholds: Distance must be ≤{maxDistance}m, Angle must be ≤{maxAngle}°");
+                DebugLogger.LogWarningProceduralGeneration($"❌ Rejected poor connection: Distance={connectionDistance:F3}m, Angle={connectionAngle:F1}° between {fromConnector.name} and {toConnector.name}");
+                DebugLogger.LogWarningProceduralGeneration($"   Thresholds: Distance must be ≤{maxDistance}m, Angle must be ≤{maxAngle}°");
                 return false;
             }
             

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using WorldDataExporter.Data;
 using POTCO;
+using POTCO.Editor;
 
 namespace WorldDataExporter.Utilities
 {
@@ -15,11 +16,11 @@ namespace WorldDataExporter.Utilities
             var startTime = System.DateTime.Now;
             var stats = new ExportStatistics();
             
-            Debug.Log($"🚀 Starting world data export to: {settings.outputPath}");
+            DebugLogger.LogWorldExporter($"🚀 Starting world data export to: {settings.outputPath}");
             
             // Collect objects to export based on settings
             List<GameObject> objectsToExport = CollectObjectsToExport(settings);
-            Debug.Log($"📊 Found {objectsToExport.Count} objects to export");
+            DebugLogger.LogWorldExporter($"📊 Found {objectsToExport.Count} objects to export");
             
             // Convert Unity objects to export data structure
             List<ExportedObject> exportedObjects = ConvertUnityObjectsToExportData(objectsToExport, settings, stats);
@@ -42,12 +43,12 @@ namespace WorldDataExporter.Utilities
                     stats.fileSizeKB = fileInfo.Length / 1024f;
                 }
                 
-                Debug.Log($"✅ Export completed successfully in {stats.exportTime:F2} seconds");
-                Debug.Log($"📄 Exported {stats.totalObjectsExported} objects to {System.IO.Path.GetFileName(settings.outputPath)}");
+                DebugLogger.LogWorldExporter($"✅ Export completed successfully in {stats.exportTime:F2} seconds");
+                DebugLogger.LogWorldExporter($"📄 Exported {stats.totalObjectsExported} objects to {System.IO.Path.GetFileName(settings.outputPath)}");
             }
             else
             {
-                Debug.LogError("❌ Export failed!");
+                DebugLogger.LogErrorWorldExporter("❌ Export failed!");
                 stats.AddWarning("Export failed - check console for details");
             }
             
@@ -60,7 +61,7 @@ namespace WorldDataExporter.Utilities
             {
                 if (obj != null && (obj.hideFlags & HideFlags.DontSave) == HideFlags.DontSave)
                 {
-                    Debug.Log($"🧹 Cleaning up temporary object: '{obj.name}'");
+                    DebugLogger.LogWorldExporter($"🧹 Cleaning up temporary object: '{obj.name}'");
                     UnityEngine.Object.DestroyImmediate(obj);
                 }
             }
@@ -90,12 +91,12 @@ namespace WorldDataExporter.Utilities
                     {
                         // Selected GameObjects from scene - export all selected
                         objects.AddRange(selectedGameObjects);
-                        Debug.Log($"📌 Exporting {selectedGameObjects.Length} GameObjects from scene");
+                        DebugLogger.LogWorldExporter($"📌 Exporting {selectedGameObjects.Length} GameObjects from scene");
                     }
                     else if (selectedAssets.Length > 0)
                     {
                         // Selected assets from Project window - create temporary GameObjects for all
-                        Debug.Log($"📦 Processing {selectedAssets.Length} selected assets");
+                        DebugLogger.LogWorldExporter($"📦 Processing {selectedAssets.Length} selected assets");
                         
                         foreach (var asset in selectedAssets)
                         {
@@ -103,11 +104,11 @@ namespace WorldDataExporter.Utilities
                             if (tempObj != null)
                             {
                                 objects.Add(tempObj);
-                                Debug.Log($"✅ Created temporary GameObject from asset: '{asset.name}'");
+                                DebugLogger.LogWorldExporter($"✅ Created temporary GameObject from asset: '{asset.name}'");
                             }
                             else
                             {
-                                Debug.LogError($"❌ Could not create GameObject from asset: '{asset.name}'");
+                                DebugLogger.LogErrorWorldExporter($"❌ Could not create GameObject from asset: '{asset.name}'");
                             }
                         }
                     }
@@ -133,11 +134,11 @@ namespace WorldDataExporter.Utilities
                 if (!potcoInfo.objectId.Contains("export"))
                 {
                     collection.Add(parent);
-                    Debug.Log($"📊 Collected POTCO object: '{parent.name}' (ID: {potcoInfo.objectId})");
+                    DebugLogger.LogWorldExporter($"📊 Collected POTCO object: '{parent.name}' (ID: {potcoInfo.objectId})");
                 }
                 else
                 {
-                    Debug.Log($"📊 Skipped generated ID: '{parent.name}' (ID: {potcoInfo.objectId})");
+                    DebugLogger.LogWorldExporter($"📊 Skipped generated ID: '{parent.name}' (ID: {potcoInfo.objectId})");
                 }
             }
             
@@ -155,7 +156,7 @@ namespace WorldDataExporter.Utilities
                 // Check if it's a prefab
                 if (asset is GameObject prefab)
                 {
-                    Debug.Log($"🎯 Creating temporary GameObject from prefab: '{asset.name}'");
+                    DebugLogger.LogWorldExporter($"🎯 Creating temporary GameObject from prefab: '{asset.name}'");
                     
                     // Create a temporary instance (don't add to scene)
                     GameObject tempObj = UnityEngine.Object.Instantiate(prefab);
@@ -170,7 +171,7 @@ namespace WorldDataExporter.Utilities
                 // Check if it's a mesh asset that we can turn into a GameObject
                 if (asset is Mesh mesh)
                 {
-                    Debug.Log($"🎯 Creating temporary GameObject from mesh: '{asset.name}'");
+                    DebugLogger.LogWorldExporter($"🎯 Creating temporary GameObject from mesh: '{asset.name}'");
                     
                     GameObject tempObj = new GameObject(asset.name);
                     tempObj.hideFlags = HideFlags.DontSave;
@@ -190,7 +191,7 @@ namespace WorldDataExporter.Utilities
                     if (material != null)
                     {
                         meshRenderer.sharedMaterial = material;
-                        Debug.Log($"📦 Found and assigned material: '{materialPath}'");
+                        DebugLogger.LogWorldExporter($"📦 Found and assigned material: '{materialPath}'");
                     }
                     else
                     {
@@ -201,12 +202,12 @@ namespace WorldDataExporter.Utilities
                     return tempObj;
                 }
                 
-                Debug.LogWarning($"⚠️ Unsupported asset type for '{asset.name}': {asset.GetType()}");
+                DebugLogger.LogWarningWorldExporter($"⚠️ Unsupported asset type for '{asset.name}': {asset.GetType()}");
                 return null;
             }
             catch (System.Exception ex)
             {
-                Debug.LogError($"❌ Error creating GameObject from asset '{asset.name}': {ex.Message}");
+                DebugLogger.LogErrorWorldExporter($"❌ Error creating GameObject from asset '{asset.name}': {ex.Message}");
                 return null;
             }
         }
@@ -219,12 +220,12 @@ namespace WorldDataExporter.Utilities
             // First pass: Create ExportedObject for each Unity GameObject
             foreach (var unityObj in unityObjects)
             {
-                Debug.Log($"🔄 Processing Unity object: '{unityObj.name}'");
+                DebugLogger.LogWorldExporter($"🔄 Processing Unity object: '{unityObj.name}'");
                 
                 var exportedObj = ConvertUnityObject(unityObj, settings, stats);
                 if (exportedObj != null)
                 {
-                    Debug.Log($"✅ Created ExportedObject for: '{unityObj.name}' (type: {exportedObj.objectType})");
+                    DebugLogger.LogWorldExporter($"✅ Created ExportedObject for: '{unityObj.name}' (type: {exportedObj.objectType})");
                     
                     if (ShouldExportObject(exportedObj, settings))
                     {
@@ -239,16 +240,16 @@ namespace WorldDataExporter.Utilities
                         if (exportedObj.IsCollisionObject()) stats.collisionObjectsExported++;
                         if (exportedObj.IsNodeObject()) stats.nodeObjectsExported++;
                         
-                        Debug.Log($"🎯 Final export: '{unityObj.name}' -> '{exportedObj.objectType}'");
+                        DebugLogger.LogWorldExporter($"🎯 Final export: '{unityObj.name}' -> '{exportedObj.objectType}'");
                     }
                     else
                     {
-                        Debug.LogWarning($"❌ Object '{unityObj.name}' created but filtered out by ShouldExportObject");
+                        DebugLogger.LogWarningWorldExporter($"❌ Object '{unityObj.name}' created but filtered out by ShouldExportObject");
                     }
                 }
                 else
                 {
-                    Debug.LogWarning($"❌ Failed to create ExportedObject for: '{unityObj.name}'");
+                    DebugLogger.LogWarningWorldExporter($"❌ Failed to create ExportedObject for: '{unityObj.name}'");
                 }
             }
             
@@ -276,22 +277,22 @@ namespace WorldDataExporter.Utilities
         {
             // Simple check: Only convert objects with POTCOTypeInfo
             var potcoInfo = unityObj.GetComponent<POTCOTypeInfo>();
-            Debug.Log($"🔍 Checking '{unityObj.name}': POTCOTypeInfo component = {(potcoInfo != null ? "FOUND" : "NOT FOUND")}");
+            DebugLogger.LogWorldExporter($"🔍 Checking '{unityObj.name}': POTCOTypeInfo component = {(potcoInfo != null ? "FOUND" : "NOT FOUND")}");
             
             if (potcoInfo != null)
             {
-                Debug.Log($"🔍 POTCOTypeInfo details: objectId='{potcoInfo.objectId}', objectType='{potcoInfo.objectType}', modelPath='{potcoInfo.modelPath}'");
+                DebugLogger.LogWorldExporter($"🔍 POTCOTypeInfo details: objectId='{potcoInfo.objectId}', objectType='{potcoInfo.objectType}', modelPath='{potcoInfo.modelPath}'");
             }
             
             if (potcoInfo == null || string.IsNullOrEmpty(potcoInfo.objectId))
             {
-                Debug.Log($"⏭️ Skipping '{unityObj.name}' - {(potcoInfo == null ? "no POTCOTypeInfo component" : "empty objectId")}");
+                DebugLogger.LogWorldExporter($"⏭️ Skipping '{unityObj.name}' - {(potcoInfo == null ? "no POTCOTypeInfo component" : "empty objectId")}");
                 return null;
             }
             
             // Use existing POTCO ID (we already verified it exists)
             string objectId = potcoInfo.objectId;
-            Debug.Log($"📋 Using POTCO ID: {objectId}");
+            DebugLogger.LogWorldExporter($"📋 Using POTCO ID: {objectId}");
                 
             var exportedObj = new ExportedObject(objectId);
             
@@ -320,12 +321,12 @@ namespace WorldDataExporter.Utilities
             exportedObj.holiday = potcoInfo.holiday;
             exportedObj.visSize = potcoInfo.visSize;
             
-            Debug.Log($"📋 Using POTCOTypeInfo data: Type='{potcoInfo.objectType}', Model='{potcoInfo.modelPath}'");
+            DebugLogger.LogWorldExporter($"📋 Using POTCOTypeInfo data: Type='{potcoInfo.objectType}', Model='{potcoInfo.modelPath}'");
             
             // Model path should already be set from POTCOTypeInfo
             if (string.IsNullOrEmpty(exportedObj.modelPath))
             {
-                Debug.LogWarning($"⚠️ No model path in POTCOTypeInfo for '{unityObj.name}' - this may cause export issues");
+                DebugLogger.LogWarningWorldExporter($"⚠️ No model path in POTCOTypeInfo for '{unityObj.name}' - this may cause export issues");
             }
             
             // Visual color should already be set from POTCOTypeInfo (if needed)
@@ -360,7 +361,7 @@ namespace WorldDataExporter.Utilities
             {
                 if (objectType.Equals(containerType, StringComparison.OrdinalIgnoreCase))
                 {
-                    Debug.Log($"📦 Container object '{objectType}' - no model needed");
+                    DebugLogger.LogWorldExporter($"📦 Container object '{objectType}' - no model needed");
                     return false;
                 }
             }
@@ -368,7 +369,7 @@ namespace WorldDataExporter.Utilities
             // Node objects typically don't have visual models (they use editor representations)
             if (objectType.Contains("Node"))
             {
-                Debug.Log($"📍 Node object '{objectType}' - no model needed");
+                DebugLogger.LogWorldExporter($"📍 Node object '{objectType}' - no model needed");
                 return false;
             }
             
@@ -378,7 +379,7 @@ namespace WorldDataExporter.Utilities
                 unityObj.GetComponent<MeshFilter>() == null &&
                 unityObj.transform.childCount == 0)
             {
-                Debug.Log($"🚫 No mesh components and no children on '{objectType}' - no model needed");
+                DebugLogger.LogWorldExporter($"🚫 No mesh components and no children on '{objectType}' - no model needed");
                 return false;
             }
             
@@ -387,37 +388,37 @@ namespace WorldDataExporter.Utilities
         
         private static string DetermineObjectType(GameObject unityObj)
         {
-            Debug.Log($"🎯 Determining object type for: '{unityObj.name}'");
+            DebugLogger.LogWorldExporter($"🎯 Determining object type for: '{unityObj.name}'");
             
             // Get the model name from the GameObject or its children
             string modelName = FindModelNameFromGameObject(unityObj);
-            Debug.Log($"🔍 Extracted model name: '{modelName}' from GameObject: '{unityObj.name}'");
+            DebugLogger.LogWorldExporter($"🔍 Extracted model name: '{modelName}' from GameObject: '{unityObj.name}'");
             
             if (!string.IsNullOrEmpty(modelName))
             {
-                Debug.Log($"🔍 Looking up type for model: '{modelName}'");
+                DebugLogger.LogWorldExporter($"🔍 Looking up type for model: '{modelName}'");
                 
                 // Look up the model in ObjectList.py
                 string objectType = FindObjectTypeByExactModelName(modelName);
                 if (!string.IsNullOrEmpty(objectType))
                 {
-                    Debug.Log($"✅ Found exact type: '{modelName}' -> '{objectType}'");
+                    DebugLogger.LogWorldExporter($"✅ Found exact type: '{modelName}' -> '{objectType}'");
                     return objectType;
                 }
                 else
                 {
-                    Debug.LogWarning($"⚠️ No ObjectList.py match found for model: '{modelName}'");
+                    DebugLogger.LogWarningWorldExporter($"⚠️ No ObjectList.py match found for model: '{modelName}'");
                 }
             }
             else
             {
-                Debug.LogWarning($"⚠️ Could not extract model name from GameObject: '{unityObj.name}'");
+                DebugLogger.LogWarningWorldExporter($"⚠️ Could not extract model name from GameObject: '{unityObj.name}'");
             }
             
             // Check for Light component
             if (unityObj.GetComponent<Light>() != null)
             {
-                Debug.Log($"💡 '{unityObj.name}' identified as Light by component");
+                DebugLogger.LogWorldExporter($"💡 '{unityObj.name}' identified as Light by component");
                 return "Light - Dynamic";
             }
             
@@ -426,47 +427,47 @@ namespace WorldDataExporter.Utilities
             
             if (name.Contains("collision") && name.Contains("barrier"))
             {
-                Debug.Log($"🚧 '{unityObj.name}' identified as Collision Barrier by name pattern");
+                DebugLogger.LogWorldExporter($"🚧 '{unityObj.name}' identified as Collision Barrier by name pattern");
                 return "Collision Barrier";
             }
             
             if (name.Contains("spawn") && name.Contains("node"))
             {
-                Debug.Log($"📍 '{unityObj.name}' identified as Spawn Node by name pattern");
+                DebugLogger.LogWorldExporter($"📍 '{unityObj.name}' identified as Spawn Node by name pattern");
                 return "Spawn Node";
             }
             
             if (name.Contains("node"))
             {
-                Debug.Log($"📍 '{unityObj.name}' identified as Locator Node by name pattern");
+                DebugLogger.LogWorldExporter($"📍 '{unityObj.name}' identified as Locator Node by name pattern");
                 return "Locator Node";
             }
                 
             if (name.Contains("townsperson"))
             {
-                Debug.Log($"👤 '{unityObj.name}' identified as Townsperson by name pattern");
+                DebugLogger.LogWorldExporter($"👤 '{unityObj.name}' identified as Townsperson by name pattern");
                 return "Townsperson";
             }
             
             // Default fallback
-            Debug.LogWarning($"⚠️ No POTCO definition found for '{unityObj.name}', defaulting to Prop");
+            DebugLogger.LogWarningWorldExporter($"⚠️ No POTCO definition found for '{unityObj.name}', defaulting to Prop");
             return "Prop";
         }
         
         private static string FindObjectTypeByExactModelName(string modelName)
         {
-            Debug.Log($"🔍 FindObjectTypeByExactModelName called with: '{modelName}'");
+            DebugLogger.LogWorldExporter($"🔍 FindObjectTypeByExactModelName called with: '{modelName}'");
             
             // Simple lookup using the model-to-type map
             string objectType = ObjectListParser.GetObjectTypeByModelName(modelName);
             
             if (!string.IsNullOrEmpty(objectType))
             {
-                Debug.Log($"✅ Found exact match: '{modelName}' -> '{objectType}'");
+                DebugLogger.LogWorldExporter($"✅ Found exact match: '{modelName}' -> '{objectType}'");
                 return objectType;
             }
             
-            Debug.Log($"❌ No match found for model: '{modelName}'");
+            DebugLogger.LogWorldExporter($"❌ No match found for model: '{modelName}'");
             return null;
         }
         
@@ -476,7 +477,7 @@ namespace WorldDataExporter.Utilities
             
             // First, clean the model name - extract just the base name
             string cleanModelName = ExtractBaseModelName(modelName);
-            Debug.Log($"🧹 Searching for object type with cleaned model name: '{cleanModelName}' (original: '{modelName}')");
+            DebugLogger.LogWorldExporter($"🧹 Searching for object type with cleaned model name: '{cleanModelName}' (original: '{modelName}')");
             
             // Search through all object definitions for this model name
             foreach (var kvp in objectDefinitions)
@@ -493,7 +494,7 @@ namespace WorldDataExporter.Utilities
                     // Check for exact match with cleaned name
                     if (cleanModelName.Equals(fileName, StringComparison.OrdinalIgnoreCase))
                     {
-                        Debug.Log($"🔍 Exact model match: '{cleanModelName}' found in '{objectType}' models list");
+                        DebugLogger.LogWorldExporter($"🔍 Exact model match: '{cleanModelName}' found in '{objectType}' models list");
                         return objectType;
                     }
                     
@@ -501,7 +502,7 @@ namespace WorldDataExporter.Utilities
                     if (cleanModelName.ToLower().Contains(fileName.ToLower()) || 
                         fileName.ToLower().Contains(cleanModelName.ToLower()))
                     {
-                        Debug.Log($"🔍 Partial model match: '{cleanModelName}' ~= '{fileName}' in '{objectType}' models list");
+                        DebugLogger.LogWorldExporter($"🔍 Partial model match: '{cleanModelName}' ~= '{fileName}' in '{objectType}' models list");
                         return objectType;
                     }
                 }
@@ -525,7 +526,7 @@ namespace WorldDataExporter.Utilities
                     {
                         // It's an object ID suffix, remove it
                         string baseName = string.Join("_", parts.Take(parts.Length - 1));
-                        Debug.Log($"🔍 Extracted base model name: '{baseName}' from '{fullName}' (removed object ID suffix)");
+                        DebugLogger.LogWorldExporter($"🔍 Extracted base model name: '{baseName}' from '{fullName}' (removed object ID suffix)");
                         return baseName;
                     }
                 }
@@ -535,7 +536,7 @@ namespace WorldDataExporter.Utilities
             if (fullName.Contains(".") && !IsObjectId(fullName))
             {
                 string baseName = fullName.Split('.')[0];
-                Debug.Log($"🔍 Extracted base model name: '{baseName}' from '{fullName}' (removed extension)");
+                DebugLogger.LogWorldExporter($"🔍 Extracted base model name: '{baseName}' from '{fullName}' (removed extension)");
                 return baseName;
             }
             
@@ -545,7 +546,7 @@ namespace WorldDataExporter.Utilities
         
         private static string ExtractModelPath(GameObject unityObj)
         {
-            Debug.Log($"🔍 Extracting model for '{unityObj.name}'");
+            DebugLogger.LogWorldExporter($"🔍 Extracting model for '{unityObj.name}'");
             
             // For temporary assets from Project window, prioritize object name-based paths
             bool isTemporaryAsset = (unityObj.hideFlags & HideFlags.DontSave) == HideFlags.DontSave;
@@ -554,7 +555,7 @@ namespace WorldDataExporter.Utilities
             string modelName = FindModelNameFromGameObject(unityObj);
             if (!string.IsNullOrEmpty(modelName))
             {
-                Debug.Log($"🎯 Found model name from GameObject: '{modelName}'");
+                DebugLogger.LogWorldExporter($"🎯 Found model name from GameObject: '{modelName}'");
                 
                 // Try to find the exact model path that matches the model name
                 var potcoDefinition = ObjectListParser.FindBestMatchingType(modelName, unityObj);
@@ -567,7 +568,7 @@ namespace WorldDataExporter.Utilities
                         string modelFileName = System.IO.Path.GetFileNameWithoutExtension(model);
                         if (modelFileName.Equals(modelName, StringComparison.OrdinalIgnoreCase))
                         {
-                            Debug.Log($"📦 Found exact model match: {model}");
+                            DebugLogger.LogWorldExporter($"📦 Found exact model match: {model}");
                             return model;
                         }
                     }
@@ -576,7 +577,7 @@ namespace WorldDataExporter.Utilities
                     string defaultModel = potcoDefinition.GetDefaultModel();
                     if (!string.IsNullOrEmpty(defaultModel))
                     {
-                        Debug.Log($"📦 Using POTCO default model as fallback: {defaultModel}");
+                        DebugLogger.LogWorldExporter($"📦 Using POTCO default model as fallback: {defaultModel}");
                         return defaultModel;
                     }
                 }
@@ -587,14 +588,14 @@ namespace WorldDataExporter.Utilities
             
             // Fallback: try to get the POTCO definition using GameObject name
             var potcoDefFallback = ObjectListParser.FindBestMatchingType(unityObj.name, unityObj);
-            Debug.Log($"🔍 POTCO definition found: {potcoDefFallback?.objectType ?? "null"}");
+            DebugLogger.LogWorldExporter($"🔍 POTCO definition found: {potcoDefFallback?.objectType ?? "null"}");
             
             if (potcoDefFallback != null)
             {
                 string defaultModel = potcoDefFallback.GetDefaultModel();
                 if (!string.IsNullOrEmpty(defaultModel))
                 {
-                    Debug.Log($"📦 Using POTCO default model for '{unityObj.name}': {defaultModel}");
+                    DebugLogger.LogWorldExporter($"📦 Using POTCO default model for '{unityObj.name}': {defaultModel}");
                     return defaultModel;
                 }
             }
@@ -605,7 +606,7 @@ namespace WorldDataExporter.Utilities
                 // Extract the base model name (e.g., "Crate" from "Crate_1165269209.69kmuller")
                 string baseModelName = ExtractBaseModelName(unityObj.name);
                 string modelPath = $"models/props/{baseModelName}";
-                Debug.Log($"🎯 Created model path for temporary asset: {modelPath} (from '{unityObj.name}')");
+                DebugLogger.LogWorldExporter($"🎯 Created model path for temporary asset: {modelPath} (from '{unityObj.name}')");
                 return modelPath;
             }
             
@@ -627,7 +628,7 @@ namespace WorldDataExporter.Utilities
                     string fileName = System.IO.Path.GetFileName(assetPath);
                     if (IsObjectId(fileName))
                     {
-                        Debug.LogWarning($"⚠️ Skipping object ID as model path: {fileName}");
+                        DebugLogger.LogWarningWorldExporter($"⚠️ Skipping object ID as model path: {fileName}");
                     }
                     else
                     {
@@ -670,20 +671,20 @@ namespace WorldDataExporter.Utilities
                     
                     if (hasVisualComponents)
                     {
-                        Debug.Log($"🎯 Creating fallback model path for '{objName}' -> models/props/{baseModelName}");
+                        DebugLogger.LogWorldExporter($"🎯 Creating fallback model path for '{objName}' -> models/props/{baseModelName}");
                         return $"models/props/{baseModelName}";
                     }
                 }
                 else
                 {
                     // For non-Prop objects, still try to create model paths
-                    Debug.Log($"🎯 Creating fallback model path for non-Prop '{objName}' -> models/props/{baseModelName}");
+                    DebugLogger.LogWorldExporter($"🎯 Creating fallback model path for non-Prop '{objName}' -> models/props/{baseModelName}");
                     return $"models/props/{baseModelName}";
                 }
             }
             
             // If we can't determine a proper model path, return null to avoid fake paths
-            Debug.LogWarning($"⚠️ Cannot determine model path for '{unityObj.name}' - no model will be exported");
+            DebugLogger.LogWarningWorldExporter($"⚠️ Cannot determine model path for '{unityObj.name}' - no model will be exported");
             return null;
         }
         
@@ -696,7 +697,7 @@ namespace WorldDataExporter.Utilities
         
         private static bool IsValidModelName(string name)
         {
-            Debug.Log($"🔍 Validating model name: '{name}'");
+            DebugLogger.LogWorldExporter($"🔍 Validating model name: '{name}'");
             
             // Filter out generic or system names that aren't actual POTCO models
             string[] invalidNames = {
@@ -712,7 +713,7 @@ namespace WorldDataExporter.Utilities
             {
                 if (name.Equals(invalid, StringComparison.OrdinalIgnoreCase))
                 {
-                    Debug.Log($"❌ Rejecting invalid model name: '{name}'");
+                    DebugLogger.LogWorldExporter($"❌ Rejecting invalid model name: '{name}'");
                     return false;
                 }
             }
@@ -723,11 +724,11 @@ namespace WorldDataExporter.Utilities
             
             if (isValid)
             {
-                Debug.Log($"✅ Valid POTCO model name: '{name}' -> '{objectType}'");
+                DebugLogger.LogWorldExporter($"✅ Valid POTCO model name: '{name}' -> '{objectType}'");
             }
             else
             {
-                Debug.Log($"❌ Model name '{name}' not found in ObjectList.py - rejecting");
+                DebugLogger.LogWorldExporter($"❌ Model name '{name}' not found in ObjectList.py - rejecting");
             }
             
             return isValid;
@@ -735,14 +736,14 @@ namespace WorldDataExporter.Utilities
         
         private static string FindModelNameFromGameObject(GameObject obj)
         {
-            Debug.Log($"🔍 FindModelNameFromGameObject called for: '{obj.name}'");
+            DebugLogger.LogWorldExporter($"🔍 FindModelNameFromGameObject called for: '{obj.name}'");
             
             // First, check the GameObject's own name
             string cleanName = ExtractBaseModelName(obj.name);
-            Debug.Log($"🔍 Extracted clean name: '{cleanName}' from '{obj.name}'");
+            DebugLogger.LogWorldExporter($"🔍 Extracted clean name: '{cleanName}' from '{obj.name}'");
             if (!IsObjectId(cleanName) && !string.IsNullOrEmpty(cleanName) && cleanName != "GameObject" && IsValidModelName(cleanName))
             {
-                Debug.Log($"📍 Using GameObject's own name: '{cleanName}'");
+                DebugLogger.LogWorldExporter($"📍 Using GameObject's own name: '{cleanName}'");
                 return cleanName;
             }
             
@@ -753,7 +754,7 @@ namespace WorldDataExporter.Utilities
                 string prefabName = ExtractBaseModelName(prefabAsset.name);
                 if (IsValidModelName(prefabName))
                 {
-                    Debug.Log($"🎯 Found prefab source name: '{prefabName}'");
+                    DebugLogger.LogWorldExporter($"🎯 Found prefab source name: '{prefabName}'");
                     return prefabName;
                 }
             }
@@ -768,7 +769,7 @@ namespace WorldDataExporter.Utilities
                     string meshName = ExtractBaseModelName(meshFilter.sharedMesh.name);
                     if (!IsObjectId(meshName) && !string.IsNullOrEmpty(meshName) && IsValidModelName(meshName))
                     {
-                        Debug.Log($"🎯 Found mesh name in child: '{meshName}'");
+                        DebugLogger.LogWorldExporter($"🎯 Found mesh name in child: '{meshName}'");
                         return meshName;
                     }
                     
@@ -776,7 +777,7 @@ namespace WorldDataExporter.Utilities
                     string childName = ExtractBaseModelName(meshFilter.gameObject.name);
                     if (!IsObjectId(childName) && !string.IsNullOrEmpty(childName) && childName != "GameObject" && IsValidModelName(childName))
                     {
-                        Debug.Log($"🎯 Found child GameObject with mesh: '{childName}'");
+                        DebugLogger.LogWorldExporter($"🎯 Found child GameObject with mesh: '{childName}'");
                         return childName;
                     }
                 }
@@ -792,12 +793,12 @@ namespace WorldDataExporter.Utilities
                 if (!IsObjectId(childName) && !string.IsNullOrEmpty(childName) && 
                     childName != "GameObject" && !childName.StartsWith("unity") && IsValidModelName(childName))
                 {
-                    Debug.Log($"🎯 Found recognizable child name: '{childName}'");
+                    DebugLogger.LogWorldExporter($"🎯 Found recognizable child name: '{childName}'");
                     return childName;
                 }
             }
             
-            Debug.LogWarning($"⚠️ Could not find model name for GameObject '{obj.name}'");
+            DebugLogger.LogWarningWorldExporter($"⚠️ Could not find model name for GameObject '{obj.name}'");
             return null;
         }
         
@@ -818,7 +819,7 @@ namespace WorldDataExporter.Utilities
             var potcoDefinition = ObjectListParser.FindBestMatchingType(unityObj.name, unityObj);
             if (potcoDefinition != null && potcoDefinition.visual.color.HasValue)
             {
-                Debug.Log($"🎨 Using POTCO default color for '{unityObj.name}': {potcoDefinition.visual.color.Value}");
+                DebugLogger.LogWorldExporter($"🎨 Using POTCO default color for '{unityObj.name}': {potcoDefinition.visual.color.Value}");
                 return potcoDefinition.visual.color.Value;
             }
             
@@ -874,7 +875,7 @@ namespace WorldDataExporter.Utilities
                     exportedObj.flickering = flickeringDefault is bool b ? b : false;
                     exportedObj.flickRate = flickRateDefault is float f ? f : 0.5f;
                     
-                    Debug.Log($"💡 Applied POTCO lighting defaults to '{unityObj.name}': Flickering={exportedObj.flickering}, FlickRate={exportedObj.flickRate}");
+                    DebugLogger.LogWorldExporter($"💡 Applied POTCO lighting defaults to '{unityObj.name}': Flickering={exportedObj.flickering}, FlickRate={exportedObj.flickRate}");
                 }
                 else
                 {
@@ -975,7 +976,7 @@ namespace WorldDataExporter.Utilities
                 !settings.includeObjectTypes.Contains(obj.objectType))
                 return false;
             
-            Debug.Log($"✅ Exporting object: '{obj.objectType}' - '{obj.name}'");
+            DebugLogger.LogWorldExporter($"✅ Exporting object: '{obj.objectType}' - '{obj.name}'");
             return true;
         }
     }

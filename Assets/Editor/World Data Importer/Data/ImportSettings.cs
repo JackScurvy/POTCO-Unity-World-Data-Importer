@@ -10,6 +10,7 @@ namespace WorldDataImporter.Data
         [Header("Basic Settings")]
         public string filePath = "";
         public bool useEggFiles = true;
+        public bool importObjectListData = true;
         
         [Header("Advanced Import Options")]
         public bool applyColorOverrides = true;

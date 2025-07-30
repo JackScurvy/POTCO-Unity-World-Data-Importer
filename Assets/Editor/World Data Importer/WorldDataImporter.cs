@@ -3,6 +3,7 @@ using UnityEngine;
 using WorldDataImporter.Data;
 using WorldDataImporter.Algorithms;
 using Unity.EditorCoroutines.Editor;
+using POTCO.Editor;
 
 public class WorldSceneBuilderEditor : EditorWindow
 {
@@ -44,6 +45,15 @@ public class WorldSceneBuilderEditor : EditorWindow
         EditorGUILayout.BeginVertical("box");
         GUILayout.Label("Basic Import Settings", EditorStyles.boldLabel);
         
+        // ObjectList data toggle - at the very top
+        EditorGUILayout.BeginHorizontal();
+        settings.importObjectListData = EditorGUILayout.Toggle("Import ObjectList Data", settings.importObjectListData);
+        if (settings.importObjectListData) EditorGUILayout.LabelField("✅", GUILayout.Width(20));
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.LabelField("   Adds POTCOTypeInfo components for World Data Exporter compatibility (2x slower import)", EditorStyles.miniLabel);
+        
+        GUILayout.Space(5);
+        
         // Model source toggle
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Model Source:", GUILayout.Width(100));
@@ -60,7 +70,7 @@ public class WorldSceneBuilderEditor : EditorWindow
             if (!string.IsNullOrEmpty(selected))
             {
                 settings.filePath = selected;
-                Debug.Log($"📄 Selected file: {settings.filePath}");
+                DebugLogger.LogWorldImporter($"📄 Selected file: {settings.filePath}");
             }
         }
 
@@ -152,14 +162,33 @@ public class WorldSceneBuilderEditor : EditorWindow
         
         if (GUILayout.Button("🚧 Build Scene", GUILayout.Height(30)))
         {
-            Debug.Log($"🚧 Starting enhanced world build... (Using {(settings.useEggFiles ? ".egg files" : ".prefab files")})");
+            DebugLogger.LogWorldImporter($"🚧 Starting enhanced world build... (Using {(settings.useEggFiles ? ".egg files" : ".prefab files")})");
+            
+            // Only disable AutoPOTCODetection if user wants ObjectList data
+            if (settings.importObjectListData)
+            {
+                DebugLogger.LogWorldImporter("📋 ObjectList data import enabled - disabling AutoPOTCODetection during import for speed");
+                AutoPOTCODetection.SetEnabled(false);
+            }
+            else
+            {
+                DebugLogger.LogWorldImporter("⚡ ObjectList data import disabled - maximum speed import (no POTCOTypeInfo components)");
+            }
             
             if (settings.useGenerationDelay)
             {
-                Debug.Log($"⏱️ Using generation delay: {settings.delayBetweenObjects:F3} seconds between objects");
+                DebugLogger.LogWorldImporter($"⏱️ Using generation delay: {settings.delayBetweenObjects:F3} seconds between objects");
                 EditorCoroutineUtility.StartCoroutine(SceneBuildingAlgorithm.BuildSceneFromPythonCoroutine(settings.filePath, settings.useEggFiles, settings, (stats) => {
                     lastImportStats = stats;
                     showStatistics = true;
+                    
+                    // Only process ObjectList data if enabled
+                    if (settings.importObjectListData)
+                    {
+                        AutoPOTCODetection.SetEnabled(true);
+                        AutoPOTCODetection.ProcessAllObjectsInScene();
+                    }
+                    
                     Repaint(); // Refresh the UI when done
                 }), this);
             }
@@ -167,6 +196,13 @@ public class WorldSceneBuilderEditor : EditorWindow
             {
                 lastImportStats = SceneBuildingAlgorithm.BuildSceneFromPython(settings.filePath, settings.useEggFiles, settings);
                 showStatistics = true;
+                
+                // Only process ObjectList data if enabled
+                if (settings.importObjectListData)
+                {
+                    AutoPOTCODetection.SetEnabled(true);
+                    AutoPOTCODetection.ProcessAllObjectsInScene();
+                }
             }
         }
         

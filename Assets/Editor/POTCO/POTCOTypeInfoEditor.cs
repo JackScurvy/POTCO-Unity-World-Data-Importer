@@ -69,32 +69,32 @@ namespace POTCO.Editor
                 
                 // Find current selection index
                 string currentType = objectTypeProp.stringValue;
-                Debug.Log($"🔍 Looking for current type '{currentType}' in dropdown with {availableObjectTypes.Count} options");
+                DebugLogger.LogAutoPOTCO($"🔍 Looking for current type '{currentType}' in dropdown with {availableObjectTypes.Count} options");
                 selectedTypeIndex = availableObjectTypes.IndexOf(currentType);
                 
                 // If not found, try to find MISC_OBJ as a fallback
                 if (selectedTypeIndex < 0)
                 {
-                    Debug.Log($"⚠️ Current type '{currentType}' not found in dropdown, trying MISC_OBJ as fallback");
+                    DebugLogger.LogAutoPOTCO($"⚠️ Current type '{currentType}' not found in dropdown, trying MISC_OBJ as fallback");
                     selectedTypeIndex = availableObjectTypes.IndexOf("MISC_OBJ");
                     if (selectedTypeIndex < 0) 
                     {
-                        Debug.Log($"⚠️ MISC_OBJ not found either, defaulting to index 0");
+                        DebugLogger.LogAutoPOTCO($"⚠️ MISC_OBJ not found either, defaulting to index 0");
                         selectedTypeIndex = 0;
                     }
                     else
                     {
-                        Debug.Log($"✅ Found MISC_OBJ at index {selectedTypeIndex}");
+                        DebugLogger.LogAutoPOTCO($"✅ Found MISC_OBJ at index {selectedTypeIndex}");
                     }
                 }
                 else
                 {
-                    Debug.Log($"✅ Found current type '{currentType}' at index {selectedTypeIndex}");
+                    DebugLogger.LogAutoPOTCO($"✅ Found current type '{currentType}' at index {selectedTypeIndex}");
                 }
             }
             catch (System.Exception ex)
             {
-                Debug.LogWarning($"Could not load object types from ObjectListParser: {ex.Message}");
+                DebugLogger.LogWarningAutoPOTCO($"Could not load object types from ObjectListParser: {ex.Message}");
                 // Fall back to basic types from the runtime detector
                 availableObjectTypes = POTCOObjectTypeDetector.GetBasicObjectTypes();
                 availableObjectTypes.Sort();

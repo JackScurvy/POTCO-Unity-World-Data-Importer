@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using WorldDataExporter.Data;
+using POTCO.Editor;
 
 namespace WorldDataExporter.Utilities
 {
@@ -25,12 +26,12 @@ namespace WorldDataExporter.Utilities
                 // Write to file
                 File.WriteAllText(settings.outputPath, content.ToString());
                 
-                Debug.Log($"📄 Generated Python file: {settings.outputPath}");
+                DebugLogger.LogWorldExporter($"📄 Generated Python file: {settings.outputPath}");
                 return true;
             }
             catch (System.Exception ex)
             {
-                Debug.LogError($"❌ Failed to generate Python file: {ex.Message}");
+                DebugLogger.LogErrorWorldExporter($"❌ Failed to generate Python file: {ex.Message}");
                 stats.AddWarning($"File generation failed: {ex.Message}");
                 return false;
             }
@@ -221,28 +222,28 @@ namespace WorldDataExporter.Utilities
             var visualContent = new StringBuilder();
             var visualItems = new List<string>();
             
-            Debug.Log($"🎨 Generating Visual properties for '{obj.name}' - Color: {(obj.visualColor.HasValue ? "Yes" : "No")}, Model: '{obj.modelPath ?? "null"}'");
+            DebugLogger.LogWorldExporter($"🎨 Generating Visual properties for '{obj.name}' - Color: {(obj.visualColor.HasValue ? "Yes" : "No")}, Model: '{obj.modelPath ?? "null"}'");
             
             // Visual color (if present, comes first in POTCO format)
             if (obj.visualColor.HasValue)
             {
                 string colorTuple = CoordinateConverter.UnityToPanda3DColor(obj.visualColor.Value);
                 visualItems.Add($"'Color': {colorTuple}");
-                Debug.Log($"🎨 Added Color to Visual block: {colorTuple}");
+                DebugLogger.LogWorldExporter($"🎨 Added Color to Visual block: {colorTuple}");
             }
             
             // Model path (only if present and not null)
             if (!string.IsNullOrEmpty(obj.modelPath))
             {
                 visualItems.Add($"'Model': {CoordinateConverter.StringToPython(obj.modelPath)}");
-                Debug.Log($"📦 Added Model to Visual block: {obj.modelPath}");
+                DebugLogger.LogWorldExporter($"📦 Added Model to Visual block: {obj.modelPath}");
             }
             else
             {
-                Debug.LogWarning($"⚠️ Object '{obj.name}' has no model path - Visual block will be missing Model!");
+                DebugLogger.LogWarningWorldExporter($"⚠️ Object '{obj.name}' has no model path - Visual block will be missing Model!");
             }
             
-            Debug.Log($"🔍 Visual items count: {visualItems.Count}");
+            DebugLogger.LogWorldExporter($"🔍 Visual items count: {visualItems.Count}");
             
             // Create Visual block if we have visual properties OR if this should be a visual object
             bool shouldHaveVisual = visualItems.Count > 0 || (!string.IsNullOrEmpty(obj.modelPath) && obj.objectType != "Collision Barrier" && obj.objectType != "Locator Node");

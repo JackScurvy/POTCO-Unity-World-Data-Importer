@@ -1,4 +1,5 @@
 using UnityEngine;
+using POTCO.Editor;
 
 namespace CaveGenerator.Algorithms
 {
@@ -6,13 +7,13 @@ namespace CaveGenerator.Algorithms
     {
         public static void AlignCavePieces(GameObject wrapper, Transform fromConnector, Transform toConnector)
         {
-            Debug.Log($"🔧 ALIGNING: {wrapper.name} to connect {fromConnector.name}[{fromConnector.position}] ↔ {toConnector.name}[{toConnector.position}]");
+            DebugLogger.LogProceduralGeneration($"🔧 ALIGNING: {wrapper.name} to connect {fromConnector.name}[{fromConnector.position}] ↔ {toConnector.name}[{toConnector.position}]");
             
             // Step 1: Detection - Convert connector directions to cardinal labels
             string fromDirection = GetCardinalDirection(fromConnector.forward);
             string toDirection = GetCardinalDirection(toConnector.forward);
             
-            Debug.Log($"   From connector facing: {fromDirection}, To connector facing: {toDirection}");
+            DebugLogger.LogProceduralGeneration($"   From connector facing: {fromDirection}, To connector facing: {toDirection}");
             
             // Step 2: Calculate required rotation using cardinal directions
             float fromAngle = GetAngleFromCardinal(fromDirection);
@@ -24,8 +25,8 @@ namespace CaveGenerator.Algorithms
             if (requiredRotation > 180f)
                 requiredRotation -= 360f;
                 
-            Debug.Log($"   From angle: {fromAngle}°, Goal angle: {goalAngle}°, Start angle: {startAngle}°");
-            Debug.Log($"   Required Y rotation: {requiredRotation}°");
+            DebugLogger.LogProceduralGeneration($"   From angle: {fromAngle}°, Goal angle: {goalAngle}°, Start angle: {startAngle}°");
+            DebugLogger.LogProceduralGeneration($"   Required Y rotation: {requiredRotation}°");
             
             // Step 3: Apply rotation to wrapper
             wrapper.transform.Rotate(0, requiredRotation, 0, Space.World);
@@ -41,7 +42,7 @@ namespace CaveGenerator.Algorithms
             string qualityMsg = finalDistance < 0.1f && finalAngle < 5f ? "✅ PERFECT" : 
                                finalDistance < 1f && finalAngle < 30f ? "✅ GOOD" : "❌ POOR";
             
-            Debug.Log($"   {qualityMsg} Final Distance: {finalDistance:F3}m, Angle: {finalAngle:F1}°");
+            DebugLogger.LogProceduralGeneration($"   {qualityMsg} Final Distance: {finalDistance:F3}m, Angle: {finalAngle:F1}°");
         }
         
         public static string GetCardinalDirection(Vector3 direction)

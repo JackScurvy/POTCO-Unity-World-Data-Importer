@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Globalization;
 using System.Text;
+using POTCO.Editor;
 
 public class ParserUtilities
 {
@@ -101,7 +102,7 @@ public class ParserUtilities
     {
         if (!IsValidMatrix(matrix))
         {
-            Debug.LogWarning($"Invalid matrix for transform {transform.name}, using identity");
+            DebugLogger.LogWarningEggImporter($"Invalid matrix for transform {transform.name}, using identity");
             matrix = Matrix4x4.identity;
         }
 
@@ -236,7 +237,7 @@ public class ParserUtilities
         }
         catch (System.Exception e)
         {
-            Debug.LogError("Failed to parse Vector3 from line: " + line + "\n" + e);
+            DebugLogger.LogErrorEggImporter("Failed to parse Vector3 from line: " + line + "\n" + e);
         }
         return Vector3.zero;
     }
@@ -264,7 +265,7 @@ public class ParserUtilities
         }
         catch (System.Exception e)
         {
-            Debug.LogError("Failed to parse AngleAxis from line: " + line + "\n" + e);
+            DebugLogger.LogErrorEggImporter("Failed to parse AngleAxis from line: " + line + "\n" + e);
         }
         return Quaternion.identity;
     }

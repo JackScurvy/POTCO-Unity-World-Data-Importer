@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using POTCO.Editor;
 
 public class ProceduralCaveGenerator : EditorWindow
 {
@@ -583,7 +584,7 @@ public class ProceduralCaveGenerator : EditorWindow
         
         if (validPrefabs.Count == 0)
         {
-            Debug.LogError("No valid prefabs selected!");
+            DebugLogger.LogErrorProceduralGeneration("No valid prefabs selected!");
             return;
         }
         
@@ -591,7 +592,7 @@ public class ProceduralCaveGenerator : EditorWindow
         var startPrefabs = validPrefabs.Where(p => !deadEnds.Contains(p)).ToList();
         if (startPrefabs.Count == 0)
         {
-            Debug.LogError("No non-dead-end prefabs selected!");
+            DebugLogger.LogErrorProceduralGeneration("No non-dead-end prefabs selected!");
             return;
         }
         
@@ -605,8 +606,8 @@ public class ProceduralCaveGenerator : EditorWindow
         var firstNode = PlaceCavePiece(firstPrefab, Vector3.zero, Quaternion.identity, 0);
         if (firstNode != null)
         {
-            Debug.Log($"🔄 Loop Prevention: {(settings.allowLoops ? "DISABLED (loops allowed)" : "ENABLED (loops prevented)")}");
-            Debug.Log($"📏 Force Cave Length: {(settings.forceCaveLength ? "ENABLED (will relax validation to reach target length)" : "DISABLED (may end early)")}");
+            DebugLogger.LogProceduralGeneration($"🔄 Loop Prevention: {(settings.allowLoops ? "DISABLED (loops allowed)" : "ENABLED (loops prevented)")}");
+            DebugLogger.LogProceduralGeneration($"📏 Force Cave Length: {(settings.forceCaveLength ? "ENABLED (will relax validation to reach target length)" : "DISABLED (may end early)")}");
             EditorCoroutineUtility.StartCoroutineOwnerless(GenerateCaveCoroutine());
         }
     }
@@ -616,7 +617,7 @@ public class ProceduralCaveGenerator : EditorWindow
         // Check for overlaps if enabled
         if (settings.preventOverlaps && CheckForOverlap(position, settings.overlapCheckRadius))
         {
-            Debug.Log($"Prevented overlap at {position}");
+            DebugLogger.LogProceduralGeneration($"Prevented overlap at {position}");
             return null;
         }
         
@@ -688,7 +689,7 @@ public class ProceduralCaveGenerator : EditorWindow
                 
             if (Vector3.Distance(pos, position) < radius)
             {
-                Debug.Log($"Overlap detected: New position {position} is {Vector3.Distance(pos, position):F2}m from existing position {pos} (threshold: {radius}m)");
+                DebugLogger.LogProceduralGeneration($"Overlap detected: New position {position} is {Vector3.Distance(pos, position):F2}m from existing position {pos} (threshold: {radius}m)");
                 return true;
             }
         }
@@ -735,7 +736,7 @@ public class ProceduralCaveGenerator : EditorWindow
                 // Check if the existing piece has any path back to the fromPiece
                 if (HasPathBetweenPieces(fromPiece, existingNode.piece.transform))
                 {
-                    Debug.Log($"🔄 Loop detected: New piece at {newPiecePosition} would be {distance:F2}m from {existingNode.piece.name}, which has path back to {fromPiece.name}");
+                    DebugLogger.LogProceduralGeneration($"🔄 Loop detected: New piece at {newPiecePosition} would be {distance:F2}m from {existingNode.piece.name}, which has path back to {fromPiece.name}");
                     return true;
                 }
             }
@@ -786,23 +787,23 @@ public class ProceduralCaveGenerator : EditorWindow
     
     CavePieceNode ConnectCavePiece(GameObject prefab, Transform fromConnector, int depth, int remainingPieces = 0)
     {
-        Debug.Log($"🔗 ATTEMPTING CONNECTION: Prefab={prefab.name}, FromConnector={fromConnector.name}, Depth={depth}");
-        Debug.Log($"   FromConnector position: {fromConnector.position}, direction: {fromConnector.forward}");
+        DebugLogger.LogProceduralGeneration($"🔗 ATTEMPTING CONNECTION: Prefab={prefab.name}, FromConnector={fromConnector.name}, Depth={depth}");
+        DebugLogger.LogProceduralGeneration($"   FromConnector position: {fromConnector.position}, direction: {fromConnector.forward}");
         
         // Create temporary instance to get a connector from the new piece
         var tempInstance = InstantiateCavePiece(prefab, null);
-        Debug.Log($"   Created temp instance: {tempInstance.name}");
+        DebugLogger.LogProceduralGeneration($"   Created temp instance: {tempInstance.name}");
         
         var availableConnectors = tempInstance.GetComponentsInChildren<Transform>()
             .Where(t => t.name.StartsWith("cave_connector_"))
             .ToList();
             
-        Debug.Log($"   Found {availableConnectors.Count} connectors on temp instance");
+        DebugLogger.LogProceduralGeneration($"   Found {availableConnectors.Count} connectors on temp instance");
         
         if (availableConnectors.Count == 0)
         {
             DestroyImmediate(tempInstance);
-            Debug.LogWarning($"❌ Prefab {prefab.name} has no connectors!");
+            DebugLogger.LogWarningProceduralGeneration($"❌ Prefab {prefab.name} has no connectors!");
             return null;
         }
         
@@ -826,9 +827,9 @@ public class ProceduralCaveGenerator : EditorWindow
         float connectionDistance = Vector3.Distance(fromConnector.position, toConnector.position);
         float connectionAngle = Vector3.Angle(fromConnector.forward, -toConnector.forward);
         
-        Debug.Log($"🔍 Connection Quality Check: Distance={connectionDistance:F3}m, Angle={connectionAngle:F1}°");
-        Debug.Log($"   From connector: {fromConnector.name} at {fromConnector.position}, Dir: {fromConnector.forward}");
-        Debug.Log($"   To connector: {toConnector.name} at {toConnector.position}, Dir: {toConnector.forward}");
+        DebugLogger.LogProceduralGeneration($"🔍 Connection Quality Check: Distance={connectionDistance:F3}m, Angle={connectionAngle:F1}°");
+        DebugLogger.LogProceduralGeneration($"   From connector: {fromConnector.name} at {fromConnector.position}, Dir: {fromConnector.forward}");
+        DebugLogger.LogProceduralGeneration($"   To connector: {toConnector.name} at {toConnector.position}, Dir: {toConnector.forward}");
         
         // Determine if we should use strict validation or be more lenient
         bool needToForceConnection = settings.forceCaveLength && remainingPieces > 0;
@@ -842,12 +843,12 @@ public class ProceduralCaveGenerator : EditorWindow
         {
             if (needToForceConnection)
             {
-                Debug.LogWarning($"⚠️ Poor connection accepted to force cave length: Distance={connectionDistance:F3}m, Angle={connectionAngle:F1}° (Remaining: {remainingPieces})");
+                DebugLogger.LogWarningProceduralGeneration($"⚠️ Poor connection accepted to force cave length: Distance={connectionDistance:F3}m, Angle={connectionAngle:F1}° (Remaining: {remainingPieces})");
             }
             else
             {
-                Debug.LogWarning($"❌ Rejected poor connection: Distance={connectionDistance:F3}m, Angle={connectionAngle:F1}° between {fromConnector.name} and {toConnector.name}");
-                Debug.LogWarning($"   Thresholds: Distance must be ≤{maxDistance}m, Angle must be ≤{maxAngle}°");
+                DebugLogger.LogWarningProceduralGeneration($"❌ Rejected poor connection: Distance={connectionDistance:F3}m, Angle={connectionAngle:F1}° between {fromConnector.name} and {toConnector.name}");
+                DebugLogger.LogWarningProceduralGeneration($"   Thresholds: Distance must be ≤{maxDistance}m, Angle must be ≤{maxAngle}°");
                 DestroyImmediate(wrapper);
                 return null;
             }
@@ -856,25 +857,25 @@ public class ProceduralCaveGenerator : EditorWindow
         // Check for loops if loop prevention is enabled (but skip if forcing cave length)
         if (!settings.allowLoops && !needToForceConnection && WouldCreateLoop(fromConnector, wrapper.transform.position))
         {
-            Debug.Log($"🔄 Loop prevention: Rejected connection from {fromConnector.name} to prevent cave loop");
+            DebugLogger.LogProceduralGeneration($"🔄 Loop prevention: Rejected connection from {fromConnector.name} to prevent cave loop");
             DestroyImmediate(wrapper);
             return null;
         }
         else if (!settings.allowLoops && needToForceConnection && WouldCreateLoop(fromConnector, wrapper.transform.position))
         {
-            Debug.LogWarning($"🔄 Loop allowed to force cave length (Remaining: {remainingPieces})");
+            DebugLogger.LogWarningProceduralGeneration($"🔄 Loop allowed to force cave length (Remaining: {remainingPieces})");
         }
         
         // Check for overlaps after alignment (but be more lenient when forcing cave length)
         if (settings.preventOverlaps && !needToForceConnection && CheckForOverlapExcluding(wrapper.transform.position, settings.overlapCheckRadius, fromConnector))
         {
-            Debug.Log($"Prevented overlap after alignment at {wrapper.transform.position}");
+            DebugLogger.LogProceduralGeneration($"Prevented overlap after alignment at {wrapper.transform.position}");
             DestroyImmediate(wrapper);
             return null;
         }
         else if (settings.preventOverlaps && needToForceConnection && CheckForOverlapExcluding(wrapper.transform.position, settings.overlapCheckRadius, fromConnector))
         {
-            Debug.LogWarning($"⚠️ Overlap allowed to force cave length (Remaining: {remainingPieces})");
+            DebugLogger.LogWarningProceduralGeneration($"⚠️ Overlap allowed to force cave length (Remaining: {remainingPieces})");
         }
         
         // Create the node
@@ -928,20 +929,20 @@ public class ProceduralCaveGenerator : EditorWindow
         }
         
         currentIndex++;
-        Debug.Log($"🔗 CONNECTED: {prefab.name} via {fromConnector.name}[{GetCavePieceFromConnector(fromConnector)?.name}] ↔ {toConnector.name}[{wrapper.name}]");
+        DebugLogger.LogProceduralGeneration($"🔗 CONNECTED: {prefab.name} via {fromConnector.name}[{GetCavePieceFromConnector(fromConnector)?.name}] ↔ {toConnector.name}[{wrapper.name}]");
         
         return node;
     }
     
     void AlignCavePieces(GameObject wrapper, Transform fromConnector, Transform toConnector)
     {
-        Debug.Log($"🔧 ALIGNING: {wrapper.name} to connect {fromConnector.name}[{fromConnector.position}] ↔ {toConnector.name}[{toConnector.position}]");
+        DebugLogger.LogProceduralGeneration($"🔧 ALIGNING: {wrapper.name} to connect {fromConnector.name}[{fromConnector.position}] ↔ {toConnector.name}[{toConnector.position}]");
         
         // Step 1: Detection - Convert connector directions to cardinal labels
         string fromDirection = GetCardinalDirection(fromConnector.forward);
         string toDirection = GetCardinalDirection(toConnector.forward);
         
-        Debug.Log($"   From connector facing: {fromDirection}, To connector facing: {toDirection}");
+        DebugLogger.LogProceduralGeneration($"   From connector facing: {fromDirection}, To connector facing: {toDirection}");
         
         // Step 2: Calculate required rotation using cardinal directions
         float fromAngle = GetAngleFromCardinal(fromDirection);
@@ -953,8 +954,8 @@ public class ProceduralCaveGenerator : EditorWindow
         if (requiredRotation > 180f)
             requiredRotation -= 360f;
             
-        Debug.Log($"   From angle: {fromAngle}°, Goal angle: {goalAngle}°, Start angle: {startAngle}°");
-        Debug.Log($"   Required Y rotation: {requiredRotation}°");
+        DebugLogger.LogProceduralGeneration($"   From angle: {fromAngle}°, Goal angle: {goalAngle}°, Start angle: {startAngle}°");
+        DebugLogger.LogProceduralGeneration($"   Required Y rotation: {requiredRotation}°");
         
         // Step 3: Apply rotation to wrapper
         wrapper.transform.Rotate(0, requiredRotation, 0, Space.World);
@@ -970,7 +971,7 @@ public class ProceduralCaveGenerator : EditorWindow
         string qualityMsg = finalDistance < 0.1f && finalAngle < 5f ? "✅ PERFECT" : 
                            finalDistance < 1f && finalAngle < 30f ? "✅ GOOD" : "❌ POOR";
         
-        Debug.Log($"   {qualityMsg} Final Distance: {finalDistance:F3}m, Angle: {finalAngle:F1}°");
+        DebugLogger.LogProceduralGeneration($"   {qualityMsg} Final Distance: {finalDistance:F3}m, Angle: {finalAngle:F1}°");
     }
     
     string GetCardinalDirection(Vector3 direction)
@@ -1035,20 +1036,20 @@ public class ProceduralCaveGenerator : EditorWindow
             // Skip if this connector is already used or depth is too high
             if (connectorData.ContainsKey(fromConnector) && connectorData[fromConnector].isUsed)
             {
-                Debug.Log($"⏭️ Skipping connector {fromConnector.name} - already used");
+                DebugLogger.LogProceduralGeneration($"⏭️ Skipping connector {fromConnector.name} - already used");
                 continue;
             }
             if (depth > settings.maxDepth && !settings.forceCaveLength)
             {
-                Debug.Log($"⏭️ Skipping connector {fromConnector.name} - depth {depth} exceeds max {settings.maxDepth}");
+                DebugLogger.LogProceduralGeneration($"⏭️ Skipping connector {fromConnector.name} - depth {depth} exceeds max {settings.maxDepth}");
                 continue;
             }
             else if (depth > settings.maxDepth && settings.forceCaveLength)
             {
-                Debug.Log($"📏 Continuing despite depth {depth} > {settings.maxDepth} (forcing cave length)");
+                DebugLogger.LogProceduralGeneration($"📏 Continuing despite depth {depth} > {settings.maxDepth} (forcing cave length)");
             }
             
-            Debug.Log($"🔗 Attempting to connect piece {piecesGenerated + 1} to connector {fromConnector.name} at depth {depth}");
+            DebugLogger.LogProceduralGeneration($"🔗 Attempting to connect piece {piecesGenerated + 1} to connector {fromConnector.name} at depth {depth}");
             
             // Choose piece type based on depth and branching settings
             var prefabsToChooseFrom = new List<GameObject>();
@@ -1057,7 +1058,7 @@ public class ProceduralCaveGenerator : EditorWindow
             {
                 // Use tunnel pieces for branching (ignore depth limit if forcing cave length)
                 prefabsToChooseFrom = validPrefabs.Where(p => !deadEnds.Contains(p)).ToList();
-                Debug.Log(settings.forceCaveLength && depth >= settings.maxDepth ? 
+                DebugLogger.LogProceduralGeneration(settings.forceCaveLength && depth >= settings.maxDepth ? 
                     "🌿 Attempting to create branch (ignoring depth limit)" : 
                     "🌿 Attempting to create branch");
             }
@@ -1069,11 +1070,11 @@ public class ProceduralCaveGenerator : EditorWindow
                 prefabsToChooseFrom = deadEnds;
                 if (settings.forceCaveLength && piecesGenerated >= settings.caveLength - 1)
                 {
-                    Debug.Log("🏁 Using end cap pieces (target length nearly reached)");
+                    DebugLogger.LogProceduralGeneration("🏁 Using end cap pieces (target length nearly reached)");
                 }
                 else
                 {
-                    Debug.Log("🏁 Using end cap pieces");
+                    DebugLogger.LogProceduralGeneration("🏁 Using end cap pieces");
                 }
             }
             else
@@ -1086,7 +1087,7 @@ public class ProceduralCaveGenerator : EditorWindow
                     {
                         prefabsToChooseFrom = validPrefabs; // Fallback to any piece
                     }
-                    Debug.Log($"🎯 Preferring non-end caps to reach target length (Remaining: {settings.caveLength - piecesGenerated})");
+                    DebugLogger.LogProceduralGeneration($"🎯 Preferring non-end caps to reach target length (Remaining: {settings.caveLength - piecesGenerated})");
                 }
                 else
                 {
@@ -1096,18 +1097,18 @@ public class ProceduralCaveGenerator : EditorWindow
             
             if (prefabsToChooseFrom.Count == 0) 
             {
-                Debug.LogWarning("❌ No valid prefabs available!");
+                DebugLogger.LogWarningProceduralGeneration("❌ No valid prefabs available!");
                 continue;
             }
             
             var chosenPrefab = GetWeightedRandomPrefab(prefabsToChooseFrom);
             if (chosenPrefab == null) 
             {
-                Debug.LogWarning("❌ GetWeightedRandomPrefab returned null!");
+                DebugLogger.LogWarningProceduralGeneration("❌ GetWeightedRandomPrefab returned null!");
                 continue;
             }
             
-            Debug.Log($"🎲 Chosen prefab: {chosenPrefab.name}");
+            DebugLogger.LogProceduralGeneration($"🎲 Chosen prefab: {chosenPrefab.name}");
             
             // Mark this connector as used BEFORE attempting connection
             if (connectorData.ContainsKey(fromConnector))
@@ -1122,7 +1123,7 @@ public class ProceduralCaveGenerator : EditorWindow
             if (newNode != null)
             {
                 piecesGenerated++;
-                Debug.Log($"✅ Successfully connected piece {piecesGenerated} at depth {depth}");
+                DebugLogger.LogProceduralGeneration($"✅ Successfully connected piece {piecesGenerated} at depth {depth}");
                 
                 // Add new connectors to queue (except the one we just used)
                 foreach (var connector in newNode.connectors)
@@ -1140,10 +1141,10 @@ public class ProceduralCaveGenerator : EditorWindow
             }
             else
             {
-                Debug.LogError($"❌ DETAILED FAILURE: ConnectCavePiece returned null for prefab {chosenPrefab.name} at connector {fromConnector.name} (depth {depth})");
-                Debug.LogError($"   - Connector position: {fromConnector.position}");
-                Debug.LogError($"   - Connector direction: {fromConnector.forward}");
-                Debug.LogError($"   - Check previous logs for specific failure reason (validation, overlap, etc.)");
+                DebugLogger.LogErrorProceduralGeneration($"❌ DETAILED FAILURE: ConnectCavePiece returned null for prefab {chosenPrefab.name} at connector {fromConnector.name} (depth {depth})");
+                DebugLogger.LogErrorProceduralGeneration($"   - Connector position: {fromConnector.position}");
+                DebugLogger.LogErrorProceduralGeneration($"   - Connector direction: {fromConnector.forward}");
+                DebugLogger.LogErrorProceduralGeneration($"   - Check previous logs for specific failure reason (validation, overlap, etc.)");
                 
                 // If connection failed, mark connector as unused again
                 if (connectorData.ContainsKey(fromConnector))
@@ -1158,7 +1159,7 @@ public class ProceduralCaveGenerator : EditorWindow
     
     IEnumerator GenerateLinearCave()
     {
-        Debug.Log("🚶 Generating LINEAR cave (no branching)");
+        DebugLogger.LogProceduralGeneration("🚶 Generating LINEAR cave (no branching)");
         
         int piecesGenerated = 1; // First piece already placed
         Transform currentConnector = null;
@@ -1174,7 +1175,7 @@ public class ProceduralCaveGenerator : EditorWindow
         
         while (piecesGenerated < settings.caveLength && currentConnector != null)
         {
-            Debug.Log($"🔗 Linear connection {piecesGenerated + 1} from connector {currentConnector.name}");
+            DebugLogger.LogProceduralGeneration($"🔗 Linear connection {piecesGenerated + 1} from connector {currentConnector.name}");
             
             // Choose piece type - prefer tunnel pieces for continuation
             var prefabsToChooseFrom = new List<GameObject>();
@@ -1183,13 +1184,13 @@ public class ProceduralCaveGenerator : EditorWindow
             {
                 // Force end cap if we've reached or exceeded the exact target length
                 prefabsToChooseFrom = deadEnds;
-                Debug.Log("🏁 Using end cap - target length reached");
+                DebugLogger.LogProceduralGeneration("🏁 Using end cap - target length reached");
             }
             else if (piecesGenerated >= settings.caveLength - 1 && !settings.forceCaveLength)
             {
                 // Use end caps for the final piece (unless forcing cave length)
                 prefabsToChooseFrom = deadEnds;
-                Debug.Log("🏁 Using end cap for final piece");
+                DebugLogger.LogProceduralGeneration("🏁 Using end cap for final piece");
             }
             else
             {
@@ -1201,18 +1202,18 @@ public class ProceduralCaveGenerator : EditorWindow
             
             if (prefabsToChooseFrom.Count == 0) 
             {
-                Debug.LogWarning("❌ No valid prefabs available for linear generation!");
+                DebugLogger.LogWarningProceduralGeneration("❌ No valid prefabs available for linear generation!");
                 break;
             }
             
             var chosenPrefab = GetWeightedRandomPrefab(prefabsToChooseFrom);
             if (chosenPrefab == null) 
             {
-                Debug.LogWarning("❌ GetWeightedRandomPrefab returned null!");
+                DebugLogger.LogWarningProceduralGeneration("❌ GetWeightedRandomPrefab returned null!");
                 break;
             }
             
-            Debug.Log($"🎲 Linear chosen prefab: {chosenPrefab.name}");
+            DebugLogger.LogProceduralGeneration($"🎲 Linear chosen prefab: {chosenPrefab.name}");
             
             // Mark current connector as used
             if (connectorData.ContainsKey(currentConnector))
@@ -1227,7 +1228,7 @@ public class ProceduralCaveGenerator : EditorWindow
             if (newNode != null)
             {
                 piecesGenerated++;
-                Debug.Log($"✅ Linear piece {piecesGenerated} connected successfully");
+                DebugLogger.LogProceduralGeneration($"✅ Linear piece {piecesGenerated} connected successfully");
                 
                 // For linear caves, pick ONE random unused connector from the new piece
                 var newConnectors = newNode.connectors.Where(c => 
@@ -1236,12 +1237,12 @@ public class ProceduralCaveGenerator : EditorWindow
                 if (newConnectors.Count > 0)
                 {
                     currentConnector = newConnectors[Random.Range(0, newConnectors.Count)];
-                    Debug.Log($"🎯 Next linear connector: {currentConnector.name}");
+                    DebugLogger.LogProceduralGeneration($"🎯 Next linear connector: {currentConnector.name}");
                 }
                 else
                 {
                     currentConnector = null; // No more connectors, end generation
-                    Debug.Log("🛑 No more available connectors, ending linear generation");
+                    DebugLogger.LogProceduralGeneration("🛑 No more available connectors, ending linear generation");
                 }
                 
                 if (settings.realtimePreview && settings.generationDelay > 0)
@@ -1251,7 +1252,7 @@ public class ProceduralCaveGenerator : EditorWindow
             }
             else
             {
-                Debug.LogError($"❌ Linear connection failed for {chosenPrefab.name}");
+                DebugLogger.LogErrorProceduralGeneration($"❌ Linear connection failed for {chosenPrefab.name}");
                 // If connection failed, mark connector as unused again
                 if (connectorData.ContainsKey(currentConnector))
                 {
@@ -1279,7 +1280,7 @@ public class ProceduralCaveGenerator : EditorWindow
                 }
             }
             
-            Debug.Log($"🧢 Capping {connectorsToCap.Count} unused connectors");
+            DebugLogger.LogProceduralGeneration($"🧢 Capping {connectorsToCap.Count} unused connectors");
             
             foreach (var connector in connectorsToCap)
             {
@@ -1288,7 +1289,7 @@ public class ProceduralCaveGenerator : EditorWindow
                     var deadEndPrefab = GetWeightedRandomPrefab(deadEnds);
                     if (deadEndPrefab != null)
                     {
-                        Debug.Log($"🧢 Adding end cap to unused connector {connector.name} at {connector.position}");
+                        DebugLogger.LogProceduralGeneration($"🧢 Adding end cap to unused connector {connector.name} at {connector.position}");
                         var newNode = ConnectCavePiece(deadEndPrefab, connector, 0, 0);
                         if (newNode != null)
                         {
@@ -1299,7 +1300,7 @@ public class ProceduralCaveGenerator : EditorWindow
             }
         }
         
-        Debug.Log($"✅ Cave generation complete! Generated {piecesGenerated} pieces with seed: {lastGenerationSeed}");
+        DebugLogger.LogProceduralGeneration($"✅ Cave generation complete! Generated {piecesGenerated} pieces with seed: {lastGenerationSeed}");
         
         // Auto-record debug snapshot if enabled
         if (autoRecordOnGeneration)
@@ -1307,7 +1308,7 @@ public class ProceduralCaveGenerator : EditorWindow
             RecordDebugSnapshot($"Auto-recorded after generation (Seed: {lastGenerationSeed})");
             // Save this as the original generation for later comparison
             originalGenerationSnapshot = currentSnapshot;
-            Debug.Log("💾 Saved original generation snapshot for debugging comparisons");
+            DebugLogger.LogProceduralGeneration("💾 Saved original generation snapshot for debugging comparisons");
         }
     }
     
@@ -1387,7 +1388,7 @@ public class ProceduralCaveGenerator : EditorWindow
     {
         if (root == null)
         {
-            Debug.LogError("No cave to export!");
+            DebugLogger.LogErrorProceduralGeneration("No cave to export!");
             return;
         }
         
@@ -1397,7 +1398,7 @@ public class ProceduralCaveGenerator : EditorWindow
             var prefab = PrefabUtility.SaveAsPrefabAsset(root, path);
             if (prefab != null)
             {
-                Debug.Log($"Cave exported as prefab: {path}");
+                DebugLogger.LogProceduralGeneration($"Cave exported as prefab: {path}");
                 EditorGUIUtility.PingObject(prefab);
             }
         }
@@ -1456,7 +1457,7 @@ public class ProceduralCaveGenerator : EditorWindow
             if (!prefabTags.ContainsKey(prefab)) prefabTags[prefab] = "";
         }
         
-        Debug.Log($"Loaded {allFoundPrefabs.Count} {(settings.useEggFiles ? ".egg files" : "prefabs")} for cave generation");
+        DebugLogger.LogProceduralGeneration($"Loaded {allFoundPrefabs.Count} {(settings.useEggFiles ? ".egg files" : "prefabs")} for cave generation");
     }
     
     // Preset save/load (simplified from original)
@@ -1519,7 +1520,7 @@ public class ProceduralCaveGenerator : EditorWindow
                     }
                 }
                 
-                Debug.Log($"Loaded preset with settings: {Path.GetFileNameWithoutExtension(path)}");
+                DebugLogger.LogProceduralGeneration($"Loaded preset with settings: {Path.GetFileNameWithoutExtension(path)}");
                 return;
             }
         }
@@ -1544,11 +1545,11 @@ public class ProceduralCaveGenerator : EditorWindow
                 }
             }
             
-            Debug.Log($"Loaded legacy preset (selections only): {Path.GetFileNameWithoutExtension(path)}");
+            DebugLogger.LogProceduralGeneration($"Loaded legacy preset (selections only): {Path.GetFileNameWithoutExtension(path)}");
         }
         catch
         {
-            Debug.LogError($"Failed to load preset: {path}");
+            DebugLogger.LogErrorProceduralGeneration($"Failed to load preset: {path}");
         }
     }
     
@@ -1620,7 +1621,7 @@ public class ProceduralCaveGenerator : EditorWindow
         previousSnapshot = currentSnapshot;
         currentSnapshot = snapshot;
         
-        Debug.Log($"🔍 Debug snapshot recorded at {snapshot.timestamp}");
+        DebugLogger.LogProceduralGeneration($"🔍 Debug snapshot recorded at {snapshot.timestamp}");
     }
     
     void AnalyzeExistingCave()
@@ -1632,17 +1633,17 @@ public class ProceduralCaveGenerator : EditorWindow
             
         if (caveRoots.Length == 0)
         {
-            Debug.LogWarning("No cave system found in scene! Make sure your cave root object has 'Cave' in its name.");
+            DebugLogger.LogWarningProceduralGeneration("No cave system found in scene! Make sure your cave root object has 'Cave' in its name.");
             return;
         }
         
         if (caveRoots.Length > 1)
         {
-            Debug.LogWarning($"Multiple cave systems found. Analyzing: {caveRoots[0].name}");
+            DebugLogger.LogWarningProceduralGeneration($"Multiple cave systems found. Analyzing: {caveRoots[0].name}");
         }
         
         GameObject caveRoot = caveRoots[0];
-        Debug.Log($"🔍 Analyzing existing cave system: {caveRoot.name}");
+        DebugLogger.LogProceduralGeneration($"🔍 Analyzing existing cave system: {caveRoot.name}");
         
         // Clear and rebuild data structures
         generatedPieces.Clear();
@@ -1661,7 +1662,7 @@ public class ProceduralCaveGenerator : EditorWindow
             }
         }
         
-        Debug.Log($"🔍 Found {cavePieceWrappers.Count} CavePiece wrappers");
+        DebugLogger.LogProceduralGeneration($"🔍 Found {cavePieceWrappers.Count} CavePiece wrappers");
         
         foreach (var pieceTransform in cavePieceWrappers)
         {
@@ -1669,7 +1670,7 @@ public class ProceduralCaveGenerator : EditorWindow
                 .Where(t => t.name.StartsWith("cave_connector_"))
                 .ToList();
                 
-            Debug.Log($"   Piece {pieceTransform.name}: {connectors.Count} connectors");
+            DebugLogger.LogProceduralGeneration($"   Piece {pieceTransform.name}: {connectors.Count} connectors");
                 
             if (connectors.Count > 0)
             {
@@ -1705,7 +1706,7 @@ public class ProceduralCaveGenerator : EditorWindow
         // Record snapshot
         RecordDebugSnapshot($"Scene analysis of {caveRoot.name}");
         
-        Debug.Log($"✅ Analysis complete! Found {generatedPieces.Count} cave pieces with {connectorData.Count} connectors");
+        DebugLogger.LogProceduralGeneration($"✅ Analysis complete! Found {generatedPieces.Count} cave pieces with {connectorData.Count} connectors");
     }
     
     void GetAllChildren(Transform parent, List<Transform> children)
@@ -1761,11 +1762,11 @@ public class ProceduralCaveGenerator : EditorWindow
                         connectorData[connector2].isUsed = true;
                         connectorData[connector2].connectedTo = connector1;
                         
-                        Debug.Log($"✅ REAL CONNECTION: {piece1?.name}[{connector1.name}] ↔ {piece2?.name}[{connector2.name}] (Distance: {distance:F3}m, Angle: {angleDiff:F1}°)");
+                        DebugLogger.LogProceduralGeneration($"✅ REAL CONNECTION: {piece1?.name}[{connector1.name}] ↔ {piece2?.name}[{connector2.name}] (Distance: {distance:F3}m, Angle: {angleDiff:F1}°)");
                     }
                     else
                     {
-                        Debug.Log($"❌ Poor alignment: {piece1?.name}[{connector1.name}] ↔ {piece2?.name}[{connector2.name}] (Distance: {distance:F3}m, Angle: {angleDiff:F1}°)");
+                        DebugLogger.LogProceduralGeneration($"❌ Poor alignment: {piece1?.name}[{connector1.name}] ↔ {piece2?.name}[{connector2.name}] (Distance: {distance:F3}m, Angle: {angleDiff:F1}°)");
                     }
                 }
             }
@@ -1923,7 +1924,7 @@ public class ProceduralCaveGenerator : EditorWindow
     {
         if (currentSnapshot == null)
         {
-            Debug.LogWarning("No debug data to export!");
+            DebugLogger.LogWarningProceduralGeneration("No debug data to export!");
             return;
         }
         
@@ -1933,7 +1934,7 @@ public class ProceduralCaveGenerator : EditorWindow
         if (!string.IsNullOrEmpty(path))
         {
             File.WriteAllText(path, json);
-            Debug.Log($"Debug data exported to: {path}");
+            DebugLogger.LogProceduralGeneration($"Debug data exported to: {path}");
         }
     }
     
@@ -1941,27 +1942,27 @@ public class ProceduralCaveGenerator : EditorWindow
     {
         if (originalGenerationSnapshot == null)
         {
-            Debug.LogWarning("⚠️ No original generation data found! Generate a cave first, then fix it manually before using this feature.");
+            DebugLogger.LogWarningProceduralGeneration("⚠️ No original generation data found! Generate a cave first, then fix it manually before using this feature.");
             return;
         }
         
-        Debug.Log("🔧 ANALYZING FIXED CAVES...");
-        Debug.Log("🔍 Comparing current cave state against original generation");
+        DebugLogger.LogProceduralGeneration("🔧 ANALYZING FIXED CAVES...");
+        DebugLogger.LogProceduralGeneration("🔍 Comparing current cave state against original generation");
         
         // Capture current state of the scene
         AnalyzeExistingCave();
         
         if (currentSnapshot == null)
         {
-            Debug.LogWarning("❌ Could not analyze current cave state!");
+            DebugLogger.LogWarningProceduralGeneration("❌ Could not analyze current cave state!");
             return;
         }
         
         // Compare with original generation
-        Debug.Log($"📊 CAVE FIX ANALYSIS RESULTS:");
-        Debug.Log($"Original Generation: {originalGenerationSnapshot.timestamp}");
-        Debug.Log($"Current Fixed State: {currentSnapshot.timestamp}");
-        Debug.Log($"");
+        DebugLogger.LogProceduralGeneration($"📊 CAVE FIX ANALYSIS RESULTS:");
+        DebugLogger.LogProceduralGeneration($"Original Generation: {originalGenerationSnapshot.timestamp}");
+        DebugLogger.LogProceduralGeneration($"Current Fixed State: {currentSnapshot.timestamp}");
+        DebugLogger.LogProceduralGeneration($"");
         
         // Analyze pieces that were moved or rotated
         var movedPieces = new List<string>();
@@ -1996,22 +1997,22 @@ public class ProceduralCaveGenerator : EditorWindow
         // Report findings
         if (movedPieces.Count > 0)
         {
-            Debug.Log("📍 PIECES THAT WERE MOVED:");
+            DebugLogger.LogProceduralGeneration("📍 PIECES THAT WERE MOVED:");
             foreach (var piece in movedPieces)
             {
-                Debug.Log(piece);
+                DebugLogger.LogProceduralGeneration(piece);
             }
-            Debug.Log("");
+            DebugLogger.LogProceduralGeneration("");
         }
         
         if (rotatedPieces.Count > 0)
         {
-            Debug.Log("🔄 PIECES THAT WERE ROTATED:");
+            DebugLogger.LogProceduralGeneration("🔄 PIECES THAT WERE ROTATED:");
             foreach (var piece in rotatedPieces)
             {
-                Debug.Log(piece);
+                DebugLogger.LogProceduralGeneration(piece);
             }
-            Debug.Log("");
+            DebugLogger.LogProceduralGeneration("");
         }
         
         // Analyze connection improvements (filter out duplicate/self connections)
@@ -2024,33 +2025,33 @@ public class ProceduralCaveGenerator : EditorWindow
         int currentCorrect = currentReal.Count(c => c.isCorrectlyAligned);
         int improvement = currentCorrect - originalCorrect;
         
-        Debug.Log($"🔗 CONNECTION ANALYSIS:");
-        Debug.Log($"  Original Real Connections: {originalReal.Count} (excluding duplicates/self-connections)");
-        Debug.Log($"  Current Real Connections: {currentReal.Count} (excluding duplicates/self-connections)");
-        Debug.Log($"  Original: {originalCorrect}/{originalReal.Count} correctly aligned ({(originalReal.Count > 0 ? originalCorrect * 100f / originalReal.Count : 0):F1}%)");
-        Debug.Log($"  Fixed: {currentCorrect}/{currentReal.Count} correctly aligned ({(currentReal.Count > 0 ? currentCorrect * 100f / currentReal.Count : 0):F1}%)");
+        DebugLogger.LogProceduralGeneration($"🔗 CONNECTION ANALYSIS:");
+        DebugLogger.LogProceduralGeneration($"  Original Real Connections: {originalReal.Count} (excluding duplicates/self-connections)");
+        DebugLogger.LogProceduralGeneration($"  Current Real Connections: {currentReal.Count} (excluding duplicates/self-connections)");
+        DebugLogger.LogProceduralGeneration($"  Original: {originalCorrect}/{originalReal.Count} correctly aligned ({(originalReal.Count > 0 ? originalCorrect * 100f / originalReal.Count : 0):F1}%)");
+        DebugLogger.LogProceduralGeneration($"  Fixed: {currentCorrect}/{currentReal.Count} correctly aligned ({(currentReal.Count > 0 ? currentCorrect * 100f / currentReal.Count : 0):F1}%)");
         
         if (improvement > 0)
         {
-            Debug.Log($"  ✅ IMPROVEMENT: +{improvement} better connections!");
+            DebugLogger.LogProceduralGeneration($"  ✅ IMPROVEMENT: +{improvement} better connections!");
         }
         else if (improvement < 0)
         {
-            Debug.Log($"  ❌ REGRESSION: {improvement} worse connections");
+            DebugLogger.LogProceduralGeneration($"  ❌ REGRESSION: {improvement} worse connections");
         }
         else
         {
-            Debug.Log($"  ➡️ No change in connection quality");
+            DebugLogger.LogProceduralGeneration($"  ➡️ No change in connection quality");
         }
         
         // Show some problematic connections for context
         var badConnections = currentSnapshot.connections.Where(c => !c.isCorrectlyAligned).Take(3).ToList();
         if (badConnections.Count > 0)
         {
-            Debug.Log($"  📋 Sample problematic connections:");
+            DebugLogger.LogProceduralGeneration($"  📋 Sample problematic connections:");
             foreach (var conn in badConnections)
             {
-                Debug.Log($"    • {conn.fromPiece} ↔ {conn.toPiece}: {conn.connectionDistance:F2}m apart, {conn.angleDifference:F1}° angle diff");
+                DebugLogger.LogProceduralGeneration($"    • {conn.fromPiece} ↔ {conn.toPiece}: {conn.connectionDistance:F2}m apart, {conn.angleDifference:F1}° angle diff");
             }
         }
         
@@ -2069,21 +2070,21 @@ public class ProceduralCaveGenerator : EditorWindow
         
         if (fixedConnections.Count > 0)
         {
-            Debug.Log($"");
-            Debug.Log($"🔧 CONNECTIONS THAT WERE FIXED:");
+            DebugLogger.LogProceduralGeneration($"");
+            DebugLogger.LogProceduralGeneration($"🔧 CONNECTIONS THAT WERE FIXED:");
             foreach (var conn in fixedConnections)
             {
-                Debug.Log(conn);
+                DebugLogger.LogProceduralGeneration(conn);
             }
         }
         
         if (movedPieces.Count == 0 && rotatedPieces.Count == 0)
         {
-            Debug.Log("✨ No pieces were moved or rotated - cave is identical to generation!");
+            DebugLogger.LogProceduralGeneration("✨ No pieces were moved or rotated - cave is identical to generation!");
         }
         
-        Debug.Log($"");
-        Debug.Log($"📋 SUMMARY: Made {significantChanges} manual adjustments ({movedPieces.Count} moved, {rotatedPieces.Count} rotated) to fix {fixedConnections.Count} connections");
+        DebugLogger.LogProceduralGeneration($"");
+        DebugLogger.LogProceduralGeneration($"📋 SUMMARY: Made {significantChanges} manual adjustments ({movedPieces.Count} moved, {rotatedPieces.Count} rotated) to fix {fixedConnections.Count} connections");
     }
     
     string Vector3ToString(Vector3 v)
@@ -2095,7 +2096,7 @@ public class ProceduralCaveGenerator : EditorWindow
     {
         if (currentSnapshot == null)
         {
-            Debug.LogWarning("No current snapshot available. Analyze a cave first!");
+            DebugLogger.LogWarningProceduralGeneration("No current snapshot available. Analyze a cave first!");
             return;
         }
         
@@ -2167,15 +2168,15 @@ public class ProceduralCaveGenerator : EditorWindow
         
         string finalOutput = output.ToString();
         EditorGUIUtility.systemCopyBuffer = finalOutput;
-        Debug.Log("📋 Connection data copied to clipboard! Paste it in your message.");
-        Debug.Log($"Data size: {finalOutput.Length} characters");
+        DebugLogger.LogProceduralGeneration("📋 Connection data copied to clipboard! Paste it in your message.");
+        DebugLogger.LogProceduralGeneration($"Data size: {finalOutput.Length} characters");
     }
     
     void CopyFixSummaryToClipboard()
     {
         if (originalGenerationSnapshot == null || currentSnapshot == null)
         {
-            Debug.LogWarning("Need both original and current snapshots. Generate a cave, fix it, then analyze first!");
+            DebugLogger.LogWarningProceduralGeneration("Need both original and current snapshots. Generate a cave, fix it, then analyze first!");
             return;
         }
         
@@ -2248,38 +2249,38 @@ public class ProceduralCaveGenerator : EditorWindow
         
         string finalOutput = output.ToString();
         EditorGUIUtility.systemCopyBuffer = finalOutput;
-        Debug.Log("📝 Fix summary copied to clipboard! Paste it in your message.");
-        Debug.Log($"Summary size: {finalOutput.Length} characters");
+        DebugLogger.LogProceduralGeneration("📝 Fix summary copied to clipboard! Paste it in your message.");
+        DebugLogger.LogProceduralGeneration($"Summary size: {finalOutput.Length} characters");
     }
     
     void CompareSnapshots()
     {
         if (currentSnapshot == null || previousSnapshot == null)
         {
-            Debug.LogWarning("Need both current and previous snapshots to compare!");
+            DebugLogger.LogWarningProceduralGeneration("Need both current and previous snapshots to compare!");
             return;
         }
         
-        Debug.Log("🔍 SNAPSHOT COMPARISON:");
-        Debug.Log($"Previous: {previousSnapshot.timestamp} | Current: {currentSnapshot.timestamp}");
+        DebugLogger.LogProceduralGeneration("🔍 SNAPSHOT COMPARISON:");
+        DebugLogger.LogProceduralGeneration($"Previous: {previousSnapshot.timestamp} | Current: {currentSnapshot.timestamp}");
         
         // Compare piece counts
-        Debug.Log($"Pieces - Previous: {previousSnapshot.pieces.Count} | Current: {currentSnapshot.pieces.Count}");
+        DebugLogger.LogProceduralGeneration($"Pieces - Previous: {previousSnapshot.pieces.Count} | Current: {currentSnapshot.pieces.Count}");
         
         // Compare connection quality
         int prevCorrect = previousSnapshot.connections.Count(c => c.isCorrectlyAligned);
         int currCorrect = currentSnapshot.connections.Count(c => c.isCorrectlyAligned);
         
-        Debug.Log($"Correct Connections - Previous: {prevCorrect}/{previousSnapshot.connections.Count} | Current: {currCorrect}/{currentSnapshot.connections.Count}");
+        DebugLogger.LogProceduralGeneration($"Correct Connections - Previous: {prevCorrect}/{previousSnapshot.connections.Count} | Current: {currCorrect}/{currentSnapshot.connections.Count}");
         
         // Identify problematic connections
         var problemConnections = currentSnapshot.connections.Where(c => !c.isCorrectlyAligned).ToList();
         if (problemConnections.Count > 0)
         {
-            Debug.Log("❌ PROBLEMATIC CONNECTIONS:");
+            DebugLogger.LogProceduralGeneration("❌ PROBLEMATIC CONNECTIONS:");
             foreach (var conn in problemConnections)
             {
-                Debug.Log($"  • {conn.fromPiece} → {conn.toPiece}: Distance={conn.connectionDistance:F3}, Angle={conn.angleDifference:F1}°");
+                DebugLogger.LogProceduralGeneration($"  • {conn.fromPiece} → {conn.toPiece}: Distance={conn.connectionDistance:F3}, Angle={conn.angleDifference:F1}°");
             }
         }
     }

@@ -6,6 +6,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using POTCO.Editor;
 
 [ScriptedImporter(1, "egg")]
 public class EggImporter : ScriptedImporter
@@ -31,7 +32,7 @@ public class EggImporter : ScriptedImporter
 
     public override void OnImportAsset(AssetImportContext ctx)
     {
-        Debug.Log("--- EGG IMPORTER: START ---");
+        DebugLogger.LogEggImporter("--- EGG IMPORTER: START ---");
 
         // Initialize processors
         _animationProcessor = new AnimationProcessor();
@@ -43,7 +44,7 @@ public class EggImporter : ScriptedImporter
         var lines = File.ReadAllLines(ctx.assetPath);
 
         bool isAnimationOnly = IsAnimationOnlyFile(lines);
-        Debug.Log($"Animation-only file: {isAnimationOnly}");
+        DebugLogger.LogEggImporter($"Animation-only file: {isAnimationOnly}");
 
         if (isAnimationOnly)
         {
@@ -66,7 +67,7 @@ public class EggImporter : ScriptedImporter
             }
         }
 
-        Debug.Log("--- EGG IMPORTER: COMPLETE ---");
+        DebugLogger.LogEggImporter("--- EGG IMPORTER: COMPLETE ---");
     }
 
     private bool IsAnimationOnlyFile(string[] lines)
@@ -86,18 +87,18 @@ public class EggImporter : ScriptedImporter
             // Early exit if we already know it's not animation-only
             if (hasVertices || hasPolygons)
             {
-                Debug.Log($"File analysis - Bundle: {hasBundle}, Vertices: {hasVertices}, Polygons: {hasPolygons} (early exit)");
+                DebugLogger.LogEggImporter($"File analysis - Bundle: {hasBundle}, Vertices: {hasVertices}, Polygons: {hasPolygons} (early exit)");
                 return false;
             }
         }
 
-        Debug.Log($"File analysis - Bundle: {hasBundle}, Vertices: {hasVertices}, Polygons: {hasPolygons}");
+        DebugLogger.LogEggImporter($"File analysis - Bundle: {hasBundle}, Vertices: {hasVertices}, Polygons: {hasPolygons}");
         return hasBundle && !hasVertices && !hasPolygons;
     }
 
     private void HandleAnimationOnlyFile(string[] lines, GameObject rootGO, AssetImportContext ctx)
     {
-        Debug.Log("🎯 COMBINED: Processing animation-only file");
+        DebugLogger.LogEggImporter("🎯 COMBINED: Processing animation-only file");
 
         // Pre-size joints dictionary based on typical animation file sizes
         _joints = new Dictionary<string, EggJoint>(32);
@@ -109,21 +110,21 @@ public class EggImporter : ScriptedImporter
 
         if (_rootJoint != null)
         {
-            Debug.Log("🎯 COMBINED: Creating bone hierarchy from parsed data");
+            DebugLogger.LogEggImporter("🎯 COMBINED: Creating bone hierarchy from parsed data");
             _geometryProcessor.CreateBoneHierarchy(armature.transform, _rootJoint);
         }
         else if (_joints.Count > 0)
         {
-            Debug.Log("🎯 COMBINED: Creating bone hierarchy from joint dictionary");
+            DebugLogger.LogEggImporter("🎯 COMBINED: Creating bone hierarchy from joint dictionary");
             _geometryProcessor.CreateBoneHierarchyFromTables(armature.transform, _joints);
         }
 
-        Debug.Log("🎯 COMBINED: Animation-only processing complete");
+        DebugLogger.LogEggImporter("🎯 COMBINED: Animation-only processing complete");
     }
 
     private void ParseBoneHierarchyAndAnimations(string[] lines, GameObject rootGO, AssetImportContext ctx)
     {
-        Debug.Log("🎯 COMBINED: Parsing bone hierarchy AND animations in single pass");
+        DebugLogger.LogEggImporter("🎯 COMBINED: Parsing bone hierarchy AND animations in single pass");
 
         for (int i = 0; i < lines.Length; i++)
         {
@@ -135,7 +136,7 @@ public class EggImporter : ScriptedImporter
                 if (parts.Length > 1)
                 {
                     string bundleName = parts[1];
-                    Debug.Log($"🎯 COMBINED: Found bundle '{bundleName}'");
+                    DebugLogger.LogEggImporter($"🎯 COMBINED: Found bundle '{bundleName}'");
 
                     var clip = new AnimationClip { name = bundleName + "_anim" };
                     clip.legacy = true;
@@ -158,7 +159,7 @@ public class EggImporter : ScriptedImporter
                         var curveBindings = AnimationUtility.GetCurveBindings(clip);
                         if (curveBindings.Length > 0)
                         {
-                            Debug.Log($"🎯 COMBINED: Animation clip has {curveBindings.Length} curves");
+                            DebugLogger.LogEggImporter($"🎯 COMBINED: Animation clip has {curveBindings.Length} curves");
                             ctx.AddObjectToAsset(clip.name, clip);
 
                             var animComponent = rootGO.GetComponent<Animation>();
@@ -177,21 +178,21 @@ public class EggImporter : ScriptedImporter
             }
         }
 
-        Debug.Log($"🎯 COMBINED: Parsing complete. Found {_joints.Count} joints");
+        DebugLogger.LogEggImporter($"🎯 COMBINED: Parsing complete. Found {_joints.Count} joints");
     }
 
     private void HandleGeometryFile(string[] lines, GameObject rootGO, AssetImportContext ctx)
     {
-        Debug.Log("Processing geometry EGG file");
+        DebugLogger.LogEggImporter("Processing geometry EGG file");
         // --- Pass 1: Parse all raw data into memory ---
         // Pre-size collections based on typical EGG file contents
         var vertexPool = new List<EggVertex>(1024); // Typical vertex count estimate
         var texturePaths = new Dictionary<string, string>(16); // Typical texture count
         _joints = new Dictionary<string, EggJoint>(32); // Typical joint count
         ParseAllTexturesAndVertices(lines, vertexPool, texturePaths);
-        Debug.Log($"Parsed {vertexPool.Count} vertices and {texturePaths.Count} textures");
+        DebugLogger.LogEggImporter($"Parsed {vertexPool.Count} vertices and {texturePaths.Count} textures");
         ParseAllJoints(lines);
-        Debug.Log($"Parsed {_joints.Count} joints, hasSkeletalData: {_hasSkeletalData}");
+        DebugLogger.LogEggImporter($"Parsed {_joints.Count} joints, hasSkeletalData: {_hasSkeletalData}");
         PopulateJointWeightsFromVertices(vertexPool);
         _materials = CreateMaterials(texturePaths, rootGO);
         // Use optimized material dictionary creation from MaterialHandler
@@ -208,7 +209,7 @@ public class EggImporter : ScriptedImporter
             }
             catch (System.Exception e)
             {
-                Debug.LogWarning($"Failed to create bone hierarchy: {e.Message}. Falling back to static mesh.");
+                DebugLogger.LogWarningEggImporter($"Failed to create bone hierarchy: {e.Message}. Falling back to static mesh.");
                 _hasSkeletalData = false;
                 if (_rootBoneObject != null)
                 {
@@ -223,10 +224,10 @@ public class EggImporter : ScriptedImporter
         var hierarchyMap = new Dictionary<string, Transform>(64);
         hierarchyMap[""] = rootGO.transform; // Root path
         BuildHierarchyAndMapGeometry(lines, 0, lines.Length, "", hierarchyMap, geometryMap);
-        Debug.Log($"Built hierarchy with {hierarchyMap.Count} objects and {geometryMap.Count} geometry groups");
+        DebugLogger.LogEggImporter($"Built hierarchy with {hierarchyMap.Count} objects and {geometryMap.Count} geometry groups");
         foreach (var kvp in geometryMap)
         {
-            Debug.Log($"Geometry group '{kvp.Key}' has {kvp.Value.subMeshes.Count} submeshes");
+            DebugLogger.LogEggImporter($"Geometry group '{kvp.Key}' has {kvp.Value.subMeshes.Count} submeshes");
         }
         // --- Pass 3: Create Meshes from Mapped Geometry ---
         foreach (var kvp in geometryMap)
@@ -282,7 +283,7 @@ public class EggImporter : ScriptedImporter
 
     private void DebugBoneHierarchy(Transform bone, string indent = "")
     {
-        Debug.Log($"{indent}Bone: {bone.name} - Pos: {bone.localPosition}, Rot: {bone.localRotation.eulerAngles}, Scale: {bone.localScale}");
+        DebugLogger.LogEggImporter($"{indent}Bone: {bone.name} - Pos: {bone.localPosition}, Rot: {bone.localRotation.eulerAngles}, Scale: {bone.localScale}");
         for (int i = 0; i < bone.childCount; i++)
         {
             DebugBoneHierarchy(bone.GetChild(i), indent + "  ");

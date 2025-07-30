@@ -2,6 +2,7 @@ using UnityEngine;
 using WorldDataImporter.Utilities;
 using WorldDataImporter.Data;
 using POTCO;
+using POTCO.Editor;
 
 namespace WorldDataImporter.Processors
 {
@@ -40,17 +41,20 @@ namespace WorldDataImporter.Processors
                         if (objectData != null) 
                         {
                             objectData.objectType = objectType;
-                            // Update the existing POTCOTypeInfo component (created during object creation)
-                            var typeInfo = currentGO.GetComponent<POTCOTypeInfo>();
-                            if (typeInfo != null)
+                            // Update the existing POTCOTypeInfo component only if ImportObjectListData is enabled
+                            if (settings != null && settings.importObjectListData)
                             {
-                                typeInfo.objectType = objectType;
-                            }
-                            else
-                            {
-                                // Fallback: create component if somehow missing
-                                typeInfo = currentGO.AddComponent<POTCOTypeInfo>();
-                                typeInfo.objectType = objectType;
+                                var typeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                                if (typeInfo != null)
+                                {
+                                    typeInfo.objectType = objectType;
+                                }
+                                else
+                                {
+                                    // Fallback: create component if somehow missing
+                                    typeInfo = currentGO.AddComponent<POTCOTypeInfo>();
+                                    typeInfo.objectType = objectType;
+                                }
                             }
                         }
                         
@@ -76,18 +80,21 @@ namespace WorldDataImporter.Processors
                         // Skip holiday models if holiday import is disabled
                         if (settings != null && !settings.importHolidayObjects && modelPath.Contains("_hol_"))
                         {
-                            Debug.Log($"🎄 Skipped holiday model: {modelPath}");
+                            DebugLogger.LogWorldImporter($"🎄 Skipped holiday model: {modelPath}");
                             break;
                         }
                         
                         var instance = AssetUtilities.InstantiatePrefab(modelPath, currentGO, useEgg, stats);
                         
-                        // Update the POTCOTypeInfo with model path
-                        var typeInfo = currentGO.GetComponent<POTCOTypeInfo>();
-                        if (typeInfo != null)
+                        // Update the POTCOTypeInfo with model path only if ImportObjectListData is enabled
+                        if (settings != null && settings.importObjectListData)
                         {
-                            typeInfo.modelPath = modelPath;
-                            typeInfo.hasVisualBlock = true;
+                            var typeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                            if (typeInfo != null)
+                            {
+                                typeInfo.modelPath = modelPath;
+                                typeInfo.hasVisualBlock = true;
+                            }
                         }
                         
                         // Rename the instance to the model name for better hierarchy
@@ -96,10 +103,14 @@ namespace WorldDataImporter.Processors
                             string modelName = System.IO.Path.GetFileNameWithoutExtension(modelPath);
                             instance.name = modelName;
                             
-                            // Also update parent object name to be more descriptive
-                            if (!string.IsNullOrEmpty(modelName) && typeInfo != null)
+                            // Also update parent object name to be more descriptive (only if ImportObjectListData is enabled)
+                            if (!string.IsNullOrEmpty(modelName) && settings != null && settings.importObjectListData)
                             {
-                                currentGO.name = typeInfo.GetDisplayName();
+                                var typeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                                if (typeInfo != null)
+                                {
+                                    currentGO.name = typeInfo.GetDisplayName();
+                                }
                             }
                         }
                         
@@ -137,11 +148,14 @@ namespace WorldDataImporter.Processors
                         // Always store the collision setting, but only apply it if processing is enabled
                         objectData.disableCollision = disableCollision;
                         
-                        // Store in POTCOTypeInfo
-                        var typeInfo = currentGO.GetComponent<POTCOTypeInfo>();
-                        if (typeInfo != null)
+                        // Store in POTCOTypeInfo only if ImportObjectListData is enabled
+                        if (settings != null && settings.importObjectListData)
                         {
-                            typeInfo.disableCollision = disableCollision;
+                            var typeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                            if (typeInfo != null)
+                            {
+                                typeInfo.disableCollision = disableCollision;
+                            }
                         }
                     }
                     break;
@@ -149,11 +163,14 @@ namespace WorldDataImporter.Processors
                     string holiday = ParsingUtilities.ExtractStringValue(val);
                     if (objectData != null) objectData.holiday = holiday;
                     
-                    // Store in POTCOTypeInfo
-                    var holidayTypeInfo = currentGO.GetComponent<POTCOTypeInfo>();
-                    if (holidayTypeInfo != null)
+                    // Store in POTCOTypeInfo only if ImportObjectListData is enabled
+                    if (settings != null && settings.importObjectListData)
                     {
-                        holidayTypeInfo.holiday = holiday;
+                        var holidayTypeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                        if (holidayTypeInfo != null)
+                        {
+                            holidayTypeInfo.holiday = holiday;
+                        }
                     }
                     break;
                 case "Instanced":
@@ -161,11 +178,14 @@ namespace WorldDataImporter.Processors
                     {
                         objectData.isInstanced = instanced;
                         
-                        // Store in POTCOTypeInfo
-                        var instancedTypeInfo = currentGO.GetComponent<POTCOTypeInfo>();
-                        if (instancedTypeInfo != null)
+                        // Store in POTCOTypeInfo only if ImportObjectListData is enabled
+                        if (settings != null && settings.importObjectListData)
                         {
-                            instancedTypeInfo.instanced = instanced;
+                            var instancedTypeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                            if (instancedTypeInfo != null)
+                            {
+                                instancedTypeInfo.instanced = instanced;
+                            }
                         }
                     }
                     break;
@@ -173,11 +193,14 @@ namespace WorldDataImporter.Processors
                     string visSize = ParsingUtilities.ExtractStringValue(val);
                     if (objectData != null) objectData.visSize = visSize;
                     
-                    // Store in POTCOTypeInfo
-                    var visSizeTypeInfo = currentGO.GetComponent<POTCOTypeInfo>();
-                    if (visSizeTypeInfo != null)
+                    // Store in POTCOTypeInfo only if ImportObjectListData is enabled
+                    if (settings != null && settings.importObjectListData)
                     {
-                        visSizeTypeInfo.visSize = visSize;
+                        var visSizeTypeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                        if (visSizeTypeInfo != null)
+                        {
+                            visSizeTypeInfo.visSize = visSize;
+                        }
                     }
                     break;
                 case "Visual":
@@ -189,17 +212,20 @@ namespace WorldDataImporter.Processors
                     {
                         objectData.visualColor = color;
                         
-                        // Always store color in POTCOTypeInfo for export
-                        var typeInfo = currentGO.GetComponent<POTCOTypeInfo>();
-                        if (typeInfo != null)
+                        // Store color in POTCOTypeInfo for export only if ImportObjectListData is enabled
+                        if (settings != null && settings.importObjectListData)
                         {
-                            typeInfo.visualColor = color;
+                            var typeInfo = currentGO.GetComponent<POTCOTypeInfo>();
+                            if (typeInfo != null)
+                            {
+                                typeInfo.visualColor = color;
+                            }
                         }
                         
                         // Only apply color overrides if setting is enabled
                         if (settings?.applyColorOverrides != true)
                         {
-                            Debug.Log($"📝 Stored color for export but not applying override: {color}");
+                            DebugLogger.LogWorldImporter($"📝 Stored color for export but not applying override: {color}");
                         }
                     }
                     break;

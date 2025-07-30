@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using POTCO.Editor;
 
 public class AnimationProcessor
 {
@@ -26,7 +27,7 @@ public class AnimationProcessor
 
     public void ParseAnimations(string[] lines, GameObject rootGO, AssetImportContext ctx, GameObject rootBoneObject)
     {
-        Debug.Log("🎬 ANIMATION: Starting animation parsing");
+        DebugLogger.LogEggImporter("🎬 ANIMATION: Starting animation parsing");
 
         int bundleCount = 0;
         for (int i = 0; i < lines.Length; i++)
@@ -39,58 +40,58 @@ public class AnimationProcessor
                 if (parts.Length > 1)
                 {
                     string bundleName = parts[1];
-                    Debug.Log($"🎬 ANIMATION: Found animation bundle #{bundleCount}: '{bundleName}'");
+                    DebugLogger.LogEggImporter($"🎬 ANIMATION: Found animation bundle #{bundleCount}: '{bundleName}'");
 
                     var clip = new AnimationClip { name = bundleName + "_anim" };
-                    Debug.Log($"🎬 ANIMATION: Created clip: '{clip.name}'");
+                    DebugLogger.LogEggImporter($"🎬 ANIMATION: Created clip: '{clip.name}'");
 
                     string armaturePath = rootBoneObject != null ? rootBoneObject.name : "";
-                    Debug.Log($"🎬 ANIMATION: Armature path: '{armaturePath}'");
+                    DebugLogger.LogEggImporter($"🎬 ANIMATION: Armature path: '{armaturePath}'");
 
                     int bundleEnd = _parserUtils.FindMatchingBrace(lines, i);
                     if (bundleEnd != -1)
                     {
-                        Debug.Log($"🎬 ANIMATION: Bundle spans lines {i} to {bundleEnd}");
+                        DebugLogger.LogEggImporter($"🎬 ANIMATION: Bundle spans lines {i} to {bundleEnd}");
 
                         ParseAnimationBundle(lines, i + 1, bundleEnd, clip, armaturePath);
 
                         clip.wrapMode = WrapMode.Loop;
                         clip.legacy = false;
 
-                        Debug.Log($"🎬 ANIMATION: Configured clip - WrapMode: {clip.wrapMode}, Legacy: {clip.legacy}");
+                        DebugLogger.LogEggImporter($"🎬 ANIMATION: Configured clip - WrapMode: {clip.wrapMode}, Legacy: {clip.legacy}");
 
                         var curveBindings = AnimationUtility.GetCurveBindings(clip);
-                        Debug.Log($"🎬 ANIMATION: Clip has {curveBindings.Length} curve bindings");
+                        DebugLogger.LogEggImporter($"🎬 ANIMATION: Clip has {curveBindings.Length} curve bindings");
 
                         if (curveBindings.Length > 0)
                         {
                             foreach (var binding in curveBindings)
                             {
-                                Debug.Log($"🎬 ANIMATION: Curve - Path: '{binding.path}', Property: '{binding.propertyName}', Type: {binding.type}");
+                                DebugLogger.LogEggImporter($"🎬 ANIMATION: Curve - Path: '{binding.path}', Property: '{binding.propertyName}', Type: {binding.type}");
                             }
 
-                            Debug.Log($"🎬 ANIMATION: Adding clip '{clip.name}' to asset context");
+                            DebugLogger.LogEggImporter($"🎬 ANIMATION: Adding clip '{clip.name}' to asset context");
                             ctx.AddObjectToAsset(clip.name, clip);
 
-                            Debug.Log($"🎬 ANIMATION: Starting controller creation...");
+                            DebugLogger.LogEggImporter($"🎬 ANIMATION: Starting controller creation...");
                             CreateAnimatorControllerForClip(clip, rootGO, ctx);
 
-                            Debug.Log($"🎮 ANIMATION: SUCCESS! Animation '{clip.name}' is ready to use!");
+                            DebugLogger.LogEggImporter($"🎮 ANIMATION: SUCCESS! Animation '{clip.name}' is ready to use!");
                         }
                         else
                         {
-                            Debug.LogWarning($"❌ ANIMATION: Animation clip '{clip.name}' has no curves - skipping");
+                            DebugLogger.LogWarningEggImporter($"❌ ANIMATION: Animation clip '{clip.name}' has no curves - skipping");
 
-                            Debug.Log("🔍 ANIMATION: Debugging clip creation...");
+                            DebugLogger.LogEggImporter("🔍 ANIMATION: Debugging clip creation...");
                             if (clip == null)
                             {
-                                Debug.LogError("🔍 ANIMATION: Clip is null!");
+                                DebugLogger.LogErrorEggImporter("🔍 ANIMATION: Clip is null!");
                             }
                             else
                             {
-                                Debug.Log($"🔍 ANIMATION: Clip exists: {clip.name}");
-                                Debug.Log($"🔍 ANIMATION: Clip length: {clip.length}");
-                                Debug.Log($"🔍 ANIMATION: Clip frameRate: {clip.frameRate}");
+                                DebugLogger.LogEggImporter($"🔍 ANIMATION: Clip exists: {clip.name}");
+                                DebugLogger.LogEggImporter($"🔍 ANIMATION: Clip length: {clip.length}");
+                                DebugLogger.LogEggImporter($"🔍 ANIMATION: Clip frameRate: {clip.frameRate}");
                             }
                         }
 
@@ -98,13 +99,13 @@ public class AnimationProcessor
                     }
                     else
                     {
-                        Debug.LogError($"❌ ANIMATION: Could not find matching brace for bundle at line {i}");
+                        DebugLogger.LogErrorEggImporter($"❌ ANIMATION: Could not find matching brace for bundle at line {i}");
                         i++;
                     }
                 }
                 else
                 {
-                    Debug.LogWarning($"⚠️ ANIMATION: Bundle line malformed: '{line}'");
+                    DebugLogger.LogWarningEggImporter($"⚠️ ANIMATION: Bundle line malformed: '{line}'");
                     i++;
                 }
             }
@@ -114,12 +115,12 @@ public class AnimationProcessor
             }
         }
 
-        Debug.Log($"🎬 ANIMATION: Completed. Found {bundleCount} bundles total");
+        DebugLogger.LogEggImporter($"🎬 ANIMATION: Completed. Found {bundleCount} bundles total");
         }
 
     public void ParseBundleBonesAndAnimations(string[] lines, int start, int end, EggJoint parentJoint, string currentPath, AnimationClip clip, Dictionary<string, EggJoint> joints)
     {
-        Debug.Log($"🔍 BUNDLE BONES: Parsing from line {start} to {end}, path: '{currentPath}'");
+        DebugLogger.LogEggImporter($"🔍 BUNDLE BONES: Parsing from line {start} to {end}, path: '{currentPath}'");
 
         int i = start;
         while (i < end)
@@ -134,7 +135,7 @@ public class AnimationProcessor
                     string jointName = parts[1];
                     string jointPath = string.IsNullOrEmpty(currentPath) ? jointName : currentPath + "/" + jointName;
                     
-                    Debug.Log($"🦴 BUNDLE: Found joint '{jointName}' at path '{jointPath}'");
+                    DebugLogger.LogEggImporter($"🦴 BUNDLE: Found joint '{jointName}' at path '{jointPath}'");
 
                     EggJoint joint = new EggJoint
                     {
@@ -160,7 +161,7 @@ public class AnimationProcessor
                     }
                     else
                     {
-                        Debug.LogError($"❌ BUNDLE: Could not find matching brace for joint at line {i}");
+                        DebugLogger.LogErrorEggImporter($"❌ BUNDLE: Could not find matching brace for joint at line {i}");
                         i++;
                     }
                 }
@@ -179,7 +180,7 @@ public class AnimationProcessor
                 }
                 else
                 {
-                    Debug.LogError($"❌ BUNDLE: Could not find matching brace for Xfm$Anim_S$ at line {i}");
+                    DebugLogger.LogErrorEggImporter($"❌ BUNDLE: Could not find matching brace for Xfm$Anim_S$ at line {i}");
                     i++;
                 }
             }
@@ -192,7 +193,7 @@ public class AnimationProcessor
 
     private void ParseAnimationBundle(string[] lines, int start, int end, AnimationClip clip, string currentPath)
     {
-        Debug.Log($"📦 BUNDLE: Parsing bundle from line {start} to {end}, currentPath: '{currentPath}'");
+        DebugLogger.LogEggImporter($"📦 BUNDLE: Parsing bundle from line {start} to {end}, currentPath: '{currentPath}'");
 
         int i = start;
         int tableCount = 0;
@@ -213,11 +214,11 @@ public class AnimationProcessor
                 if (parts.Length > 1)
                 {
                     string tableName = parts[1].Trim('"');
-                    Debug.Log($"📦 BUNDLE: Found table #{tableCount}: '{tableName}'");
+                    DebugLogger.LogEggImporter($"📦 BUNDLE: Found table #{tableCount}: '{tableName}'");
 
                     if (tableName == "<skeleton>")
                     {
-                        Debug.Log($"📦 BUNDLE: Entering skeleton table");
+                        DebugLogger.LogEggImporter($"📦 BUNDLE: Entering skeleton table");
                         int tableEnd = _parserUtils.FindMatchingBrace(lines, i);
                         if (tableEnd != -1)
                         {
@@ -226,14 +227,14 @@ public class AnimationProcessor
                         }
                         else
                         {
-                            Debug.LogError($"❌ BUNDLE: Could not find matching brace for skeleton table at line {i}");
+                            DebugLogger.LogErrorEggImporter($"❌ BUNDLE: Could not find matching brace for skeleton table at line {i}");
                             i++;
                         }
                     }
                     else
                     {
                         string bonePath = string.IsNullOrEmpty(currentPath) ? tableName : currentPath + "/" + tableName;
-                        Debug.Log($"📦 BUNDLE: Processing bone table '{tableName}' with path '{bonePath}'");
+                        DebugLogger.LogEggImporter($"📦 BUNDLE: Processing bone table '{tableName}' with path '{bonePath}'");
 
                         int tableEnd = _parserUtils.FindMatchingBrace(lines, i);
                         if (tableEnd != -1)
@@ -243,14 +244,14 @@ public class AnimationProcessor
                         }
                         else
                         {
-                            Debug.LogError($"❌ BUNDLE: Could not find matching brace for bone table '{tableName}' at line {i}");
+                            DebugLogger.LogErrorEggImporter($"❌ BUNDLE: Could not find matching brace for bone table '{tableName}' at line {i}");
                             i++;
                         }
                     }
                 }
                 else
                 {
-                    Debug.LogWarning($"⚠️ BUNDLE: Table line malformed: '{line}'");
+                    DebugLogger.LogWarningEggImporter($"⚠️ BUNDLE: Table line malformed: '{line}'");
                     i++;
                 }
             }
@@ -260,12 +261,12 @@ public class AnimationProcessor
             }
         }
 
-        Debug.Log($"📦 BUNDLE: Completed. Processed {tableCount} tables");
+        DebugLogger.LogEggImporter($"📦 BUNDLE: Completed. Processed {tableCount} tables");
         }
 
     private void ParseBoneAnimationTable(string[] lines, int start, int end, AnimationClip clip, string bonePath)
     {
-        Debug.Log($"🦴 BONE: Parsing bone '{bonePath}' from line {start} to {end}");
+        DebugLogger.LogEggImporter($"🦴 BONE: Parsing bone '{bonePath}' from line {start} to {end}");
 
         int i = start;
         int xfmCount = 0;
@@ -288,7 +289,7 @@ public class AnimationProcessor
                 {
                     string tableName = parts[1].Trim('"');
                     string childPath = bonePath + "/" + tableName;
-                    Debug.Log($"🦴 BONE: Found child table #{childTableCount}: '{tableName}' -> '{childPath}'");
+                    DebugLogger.LogEggImporter($"🦴 BONE: Found child table #{childTableCount}: '{tableName}' -> '{childPath}'");
 
                     int tableEnd = _parserUtils.FindMatchingBrace(lines, i);
                     if (tableEnd != -1)
@@ -298,20 +299,20 @@ public class AnimationProcessor
                     }
                     else
                     {
-                        Debug.LogError($"❌ BONE: Could not find matching brace for child table '{tableName}' at line {i}");
+                        DebugLogger.LogErrorEggImporter($"❌ BONE: Could not find matching brace for child table '{tableName}' at line {i}");
                         i++;
                     }
                 }
                 else
                 {
-                    Debug.LogWarning($"⚠️ BONE: Child table line malformed: '{line}'");
+                    DebugLogger.LogWarningEggImporter($"⚠️ BONE: Child table line malformed: '{line}'");
                     i++;
                 }
             }
             else if (line.StartsWith("<Xfm$Anim_S$>"))
             {
                 xfmCount++;
-                Debug.Log($"🦴 BONE: Found transform animation #{xfmCount} for bone: {bonePath}");
+                DebugLogger.LogEggImporter($"🦴 BONE: Found transform animation #{xfmCount} for bone: {bonePath}");
                 int xfmEnd = _parserUtils.FindMatchingBrace(lines, i);
                 if (xfmEnd != -1)
                 {
@@ -320,7 +321,7 @@ public class AnimationProcessor
                 }
                 else
                 {
-                    Debug.LogError($"❌ BONE: Could not find matching brace for Xfm$Anim_S$ at line {i}");
+                    DebugLogger.LogErrorEggImporter($"❌ BONE: Could not find matching brace for Xfm$Anim_S$ at line {i}");
                     i++;
                 }
             }
@@ -330,12 +331,12 @@ public class AnimationProcessor
             }
         }
 
-        Debug.Log($"🦴 BONE: Completed '{bonePath}'. Found {xfmCount} transforms, {childTableCount} child tables");
+        DebugLogger.LogEggImporter($"🦴 BONE: Completed '{bonePath}'. Found {xfmCount} transforms, {childTableCount} child tables");
         }
 
     private void ParseBoneContentAndAnimation(string[] lines, int start, int end, EggJoint joint, string bonePath, AnimationClip clip)
     {
-        Debug.Log($"🔍 BONE CONTENT: Parsing bone '{joint.name}' from line {start} to {end}");
+        DebugLogger.LogEggImporter($"🔍 BONE CONTENT: Parsing bone '{joint.name}' from line {start} to {end}");
 
         for (int i = start; i < end; i++)
         {
@@ -343,18 +344,18 @@ public class AnimationProcessor
 
             if (line.StartsWith("<Transform>"))
             {
-                Debug.Log($"🔍 BONE CONTENT: Found transform for joint '{joint.name}'");
+                DebugLogger.LogEggImporter($"🔍 BONE CONTENT: Found transform for joint '{joint.name}'");
                 int transEnd = _parserUtils.FindMatchingBrace(lines, i);
                 if (transEnd != -1)
                 {
                     _parserUtils.ParseTransformMatrix(lines, i + 1, transEnd, ref joint.transform);
                     joint.defaultPose = joint.transform;
-                    Debug.Log($"🔍 BONE CONTENT: Set transform for joint '{joint.name}'");
+                    DebugLogger.LogEggImporter($"🔍 BONE CONTENT: Set transform for joint '{joint.name}'");
                 }
             }
             else if (line.StartsWith("<Xfm$Anim_S$>"))
             {
-                Debug.Log($"🔍 BONE CONTENT: Found animation data for joint '{joint.name}'");
+                DebugLogger.LogEggImporter($"🔍 BONE CONTENT: Found animation data for joint '{joint.name}'");
                 int xfmEnd = _parserUtils.FindMatchingBrace(lines, i);
                 if (xfmEnd != -1)
                 {
@@ -367,7 +368,7 @@ public class AnimationProcessor
 
     private void ParseXfmAnim(string[] lines, int start, int end, AnimationClip clip, string bonePath)
     {
-        Debug.Log($"🔄 TRANSFORM: Parsing transform animation for '{bonePath}' from line {start} to {end}");
+        DebugLogger.LogEggImporter($"🔄 TRANSFORM: Parsing transform animation for '{bonePath}' from line {start} to {end}");
 
         float fps = 24f;
         // Pre-size channels dictionary based on typical animation channels (x,y,z,h,p,r,i,j,k)
@@ -394,7 +395,7 @@ public class AnimationProcessor
                     if (float.TryParse(val, NumberStyles.Float, CultureInfo.InvariantCulture, out float parsedFps))
                     {
                         fps = parsedFps;
-                        Debug.Log($"🔄 TRANSFORM: Set FPS to {fps}");
+                        DebugLogger.LogEggImporter($"🔄 TRANSFORM: Set FPS to {fps}");
                     }
                 }
                 i++;
@@ -403,11 +404,11 @@ public class AnimationProcessor
             {
                 var headerParts = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                 string channelName = headerParts.Length > 1 ? headerParts[1] : "UNKNOWN";
-                Debug.Log($"🔄 TRANSFORM: Processing channel '{channelName}'");
+                DebugLogger.LogEggImporter($"🔄 TRANSFORM: Processing channel '{channelName}'");
 
                 if (line.Contains("<V>") && line.Contains("}"))
                 {
-                    Debug.Log($"🔄 TRANSFORM: Single-line format detected for channel '{channelName}'");
+                    DebugLogger.LogEggImporter($"🔄 TRANSFORM: Single-line format detected for channel '{channelName}'");
 
                     int vStart = line.IndexOf("<V>");
                     if (vStart != -1)
@@ -419,7 +420,7 @@ public class AnimationProcessor
                         if (firstBrace != -1 && lastBrace != -1 && lastBrace > firstBrace)
                         {
                             string valuesString = vPart.Substring(firstBrace + 1, lastBrace - firstBrace - 1).Trim();
-                            Debug.Log($"🔄 TRANSFORM: Extracted single-line values: '{valuesString}'");
+                            DebugLogger.LogEggImporter($"🔄 TRANSFORM: Extracted single-line values: '{valuesString}'");
 
                             if (!string.IsNullOrWhiteSpace(valuesString))
                             {
@@ -440,7 +441,7 @@ public class AnimationProcessor
                                     channels[channelName] = values;
                                     if (values.Count > numKeyframes)
                                         numKeyframes = values.Count;
-                                    Debug.Log($"✅ TRANSFORM: Parsed {values.Count} keyframes for single-line channel '{channelName}'");
+                                    DebugLogger.LogEggImporter($"✅ TRANSFORM: Parsed {values.Count} keyframes for single-line channel '{channelName}'");
                                 }
                             }
                         }
@@ -449,12 +450,12 @@ public class AnimationProcessor
                 }
                 else
                 {
-                    Debug.Log($"🔄 TRANSFORM: Multi-line format for channel '{channelName}'");
+                    DebugLogger.LogEggImporter($"🔄 TRANSFORM: Multi-line format for channel '{channelName}'");
 
                     int sAnimEnd = _parserUtils.FindMatchingBrace(lines, i);
                     if (sAnimEnd == -1)
                     {
-                        Debug.LogError($"❌ TRANSFORM: Could not find matching brace for S$Anim at line {i}");
+                        DebugLogger.LogErrorEggImporter($"❌ TRANSFORM: Could not find matching brace for S$Anim at line {i}");
                         i++;
                         continue;
                     }
@@ -466,12 +467,12 @@ public class AnimationProcessor
                         if (vLine.StartsWith("<V>"))
                         {
                             foundVBlock = true;
-                            Debug.Log($"🔄 TRANSFORM: Found <V> block at line {j}");
+                            DebugLogger.LogEggImporter($"🔄 TRANSFORM: Found <V> block at line {j}");
 
                             int vEnd = _parserUtils.FindMatchingBrace(lines, j);
                             if (vEnd != -1)
                             {
-                                Debug.Log($"🔄 TRANSFORM: <V> block spans lines {j} to {vEnd}");
+                                DebugLogger.LogEggImporter($"🔄 TRANSFORM: <V> block spans lines {j} to {vEnd}");
 
                                 // Use StringBuilder for efficient string concatenation
                                 StringBuilderCache.Clear();
@@ -487,7 +488,7 @@ public class AnimationProcessor
                                 if (lastOpenBrace != -1 && firstCloseBraceAfter != -1)
                                 {
                                     string valuesString = fullVBlock.Substring(lastOpenBrace + 1, firstCloseBraceAfter - lastOpenBrace - 1).Trim();
-                                    Debug.Log($"🔄 TRANSFORM: Extracted multi-line values (length {valuesString.Length})");
+                                    DebugLogger.LogEggImporter($"🔄 TRANSFORM: Extracted multi-line values (length {valuesString.Length})");
 
                                     if (!string.IsNullOrWhiteSpace(valuesString))
                                     {
@@ -495,7 +496,7 @@ public class AnimationProcessor
                                         // Pre-size values list based on parsed string count
                                         var values = new List<float>(stringValues.Length);
 
-                                        Debug.Log($"🔄 TRANSFORM: Found {stringValues.Length} string values to parse");
+                                        DebugLogger.LogEggImporter($"🔄 TRANSFORM: Found {stringValues.Length} string values to parse");
 
                                         foreach (string sv in stringValues)
                                         {
@@ -510,7 +511,7 @@ public class AnimationProcessor
                                             channels[channelName] = values;
                                             if (values.Count > numKeyframes)
                                                 numKeyframes = values.Count;
-                                            Debug.Log($"✅ TRANSFORM: Parsed {values.Count} keyframes for multi-line channel '{channelName}'");
+                                            DebugLogger.LogEggImporter($"✅ TRANSFORM: Parsed {values.Count} keyframes for multi-line channel '{channelName}'");
                                         }
                                     }
                                 }
@@ -521,7 +522,7 @@ public class AnimationProcessor
 
                     if (!foundVBlock)
                     {
-                        Debug.LogWarning($"⚠️ TRANSFORM: No <V> block found for channel '{channelName}'");
+                        DebugLogger.LogWarningEggImporter($"⚠️ TRANSFORM: No <V> block found for channel '{channelName}'");
                     }
 
                     i = sAnimEnd + 1;
@@ -533,64 +534,64 @@ public class AnimationProcessor
             }
         }
 
-        Debug.Log($"🔄 TRANSFORM: Finished parsing. Found {channels.Count} channels, {numKeyframes} max keyframes");
+        DebugLogger.LogEggImporter($"🔄 TRANSFORM: Finished parsing. Found {channels.Count} channels, {numKeyframes} max keyframes");
         foreach (var channel in channels)
         {
-            Debug.Log($"🔄 TRANSFORM: Channel '{channel.Key}' has {channel.Value.Count} values");
+            DebugLogger.LogEggImporter($"🔄 TRANSFORM: Channel '{channel.Key}' has {channel.Value.Count} values");
         }
 
         if (channels.Count > 0 && numKeyframes > 0)
         {
-            Debug.Log($"🔄 TRANSFORM: Creating animation curves for bone '{bonePath}'");
+            DebugLogger.LogEggImporter($"🔄 TRANSFORM: Creating animation curves for bone '{bonePath}'");
             CreateAnimationCurvesForBone(clip, bonePath, channels, numKeyframes, fps);
         }
         else
         {
-            Debug.LogWarning($"⚠️ TRANSFORM: No valid animation data found for bone '{bonePath}'");
+            DebugLogger.LogWarningEggImporter($"⚠️ TRANSFORM: No valid animation data found for bone '{bonePath}'");
         }
         }
 
     private void CreateAnimatorControllerForClip(AnimationClip clip, GameObject rootGO, AssetImportContext ctx)
     {
-        Debug.Log($"🎯 LEGACY: Setting up legacy animation for clip '{clip.name}'");
+        DebugLogger.LogEggImporter($"🎯 LEGACY: Setting up legacy animation for clip '{clip.name}'");
 
         try
         {
             clip.legacy = true;
             clip.wrapMode = WrapMode.Loop;
 
-            Debug.Log($"🎯 LEGACY: Configured clip as legacy with loop wrap mode");
+            DebugLogger.LogEggImporter($"🎯 LEGACY: Configured clip as legacy with loop wrap mode");
 
             var animator = rootGO.GetComponent<Animator>();
             if (animator != null)
             {
                 UnityEngine.Object.DestroyImmediate(animator);
-                Debug.Log($"🎯 LEGACY: Removed Animator component");
+                DebugLogger.LogEggImporter($"🎯 LEGACY: Removed Animator component");
             }
 
             var animationComponent = rootGO.GetComponent<Animation>();
             if (animationComponent == null)
             {
                 animationComponent = rootGO.AddComponent<Animation>();
-                Debug.Log($"🎯 LEGACY: Added Animation component");
+                DebugLogger.LogEggImporter($"🎯 LEGACY: Added Animation component");
             }
 
             animationComponent.AddClip(clip, clip.name);
             animationComponent.clip = clip;
             animationComponent.playAutomatically = true;
 
-            Debug.Log($"✅ LEGACY: Complete! Legacy animation '{clip.name}' ready to play automatically");
-            Debug.Log($"🎮 READY: Just drag '{rootGO.name}' into your scene and it will animate immediately!");
+            DebugLogger.LogEggImporter($"✅ LEGACY: Complete! Legacy animation '{clip.name}' ready to play automatically");
+            DebugLogger.LogEggImporter($"🎮 READY: Just drag '{rootGO.name}' into your scene and it will animate immediately!");
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"❌ LEGACY: Exception during setup: {e.Message}\nStack: {e.StackTrace}");
+            DebugLogger.LogErrorEggImporter($"❌ LEGACY: Exception during setup: {e.Message}\nStack: {e.StackTrace}");
         }
         }
 
     private void CreateAnimationCurvesForBone(AnimationClip clip, string bonePath, Dictionary<string, List<float>> channels, int numKeyframes, float fps)
     {
-        Debug.Log($"📈 CURVES: Creating curves for bone '{bonePath}' with {numKeyframes} keyframes at {fps} fps");
+        DebugLogger.LogEggImporter($"📈 CURVES: Creating curves for bone '{bonePath}' with {numKeyframes} keyframes at {fps} fps");
 
         // Pre-size keyframe lists to avoid resizing during population
         var posXKeys = new List<Keyframe>(numKeyframes);
@@ -657,7 +658,7 @@ public class AnimationProcessor
             clip.SetCurve(bonePath, typeof(Transform), "m_LocalPosition.y", new AnimationCurve(posYKeys.ToArray()));
             clip.SetCurve(bonePath, typeof(Transform), "m_LocalPosition.z", new AnimationCurve(posZKeys.ToArray()));
             curvesAdded += 3;
-            Debug.Log($"📈 CURVES: Set position curves for {bonePath}");
+            DebugLogger.LogEggImporter($"📈 CURVES: Set position curves for {bonePath}");
         }
 
         if (hChannel != null || pChannel != null || rChannel != null)
@@ -667,7 +668,7 @@ public class AnimationProcessor
             clip.SetCurve(bonePath, typeof(Transform), "m_LocalRotation.z", new AnimationCurve(rotZKeys.ToArray()));
             clip.SetCurve(bonePath, typeof(Transform), "m_LocalRotation.w", new AnimationCurve(rotWKeys.ToArray()));
             curvesAdded += 4;
-            Debug.Log($"📈 CURVES: Set rotation curves for {bonePath}");
+            DebugLogger.LogEggImporter($"📈 CURVES: Set rotation curves for {bonePath}");
         }
 
         if (iChannel != null || jChannel != null || kChannel != null)
@@ -676,10 +677,10 @@ public class AnimationProcessor
             clip.SetCurve(bonePath, typeof(Transform), "m_LocalScale.y", new AnimationCurve(scaleYKeys.ToArray()));
             clip.SetCurve(bonePath, typeof(Transform), "m_LocalScale.z", new AnimationCurve(scaleZKeys.ToArray()));
             curvesAdded += 3;
-            Debug.Log($"📈 CURVES: Set scale curves for {bonePath}");
+            DebugLogger.LogEggImporter($"📈 CURVES: Set scale curves for {bonePath}");
         }
 
-        Debug.Log($"📈 CURVES: Added {curvesAdded} curves for '{bonePath}' with orientation fix");
+        DebugLogger.LogEggImporter($"📈 CURVES: Added {curvesAdded} curves for '{bonePath}' with orientation fix");
         }
 
     private float GetChannelValue(Dictionary<string, List<float>> channels, string channelName, int keyframeIndex, float defaultValue = 0f)

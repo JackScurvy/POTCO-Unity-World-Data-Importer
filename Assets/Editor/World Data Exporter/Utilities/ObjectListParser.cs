@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using WorldDataExporter.Data;
+using POTCO.Editor;
 
 namespace WorldDataExporter.Utilities
 {
@@ -73,31 +74,31 @@ namespace WorldDataExporter.Utilities
             
             if (string.IsNullOrEmpty(modelName)) return "MISC_OBJ";
             
-            Debug.Log($"🔍 GetObjectTypeByModelName called with: '{modelName}'");
+            DebugLogger.LogWorldExporter($"🔍 GetObjectTypeByModelName called with: '{modelName}'");
             
             // Special debugging for interior_tavern
             bool isInteriorTavern = modelName.ToLower().Contains("interior_tavern");
             if (isInteriorTavern)
             {
-                Debug.Log($"🏰 DEBUGGING interior_tavern lookup...");
-                Debug.Log($"📊 Total entries in _modelToTypeMap: {_modelToTypeMap?.Count ?? 0}");
+                DebugLogger.LogWorldExporter($"🏰 DEBUGGING interior_tavern lookup...");
+                DebugLogger.LogWorldExporter($"📊 Total entries in _modelToTypeMap: {_modelToTypeMap?.Count ?? 0}");
                 
                 // Log all keys that contain "tavern" or "interior"
                 if (_modelToTypeMap != null)
                 {
                     var tavernKeys = _modelToTypeMap.Keys.Where(k => k.Contains("tavern") || k.Contains("interior")).ToList();
-                    Debug.Log($"🔍 Found {tavernKeys.Count} keys containing 'tavern' or 'interior':");
+                    DebugLogger.LogWorldExporter($"🔍 Found {tavernKeys.Count} keys containing 'tavern' or 'interior':");
                     foreach (var key in tavernKeys)
                     {
-                        Debug.Log($"  📝 '{key}' -> '{_modelToTypeMap[key]}'");
+                        DebugLogger.LogWorldExporter($"  📝 '{key}' -> '{_modelToTypeMap[key]}'");
                     }
                     
                     // Log first 10 keys to see the pattern
                     var firstKeys = _modelToTypeMap.Keys.Take(10).ToList();
-                    Debug.Log($"🔍 First 10 keys in lookup table:");
+                    DebugLogger.LogWorldExporter($"🔍 First 10 keys in lookup table:");
                     foreach (var key in firstKeys)
                     {
-                        Debug.Log($"  📝 '{key}' -> '{_modelToTypeMap[key]}'");
+                        DebugLogger.LogWorldExporter($"  📝 '{key}' -> '{_modelToTypeMap[key]}'");
                     }
                 }
             }
@@ -113,10 +114,10 @@ namespace WorldDataExporter.Utilities
             
             if (isInteriorTavern)
             {
-                Debug.Log($"🔍 Trying {variations.Length} variations for interior_tavern:");
+                DebugLogger.LogWorldExporter($"🔍 Trying {variations.Length} variations for interior_tavern:");
                 for (int i = 0; i < variations.Length; i++)
                 {
-                    Debug.Log($"  {i + 1}. '{variations[i]}'");
+                    DebugLogger.LogWorldExporter($"  {i + 1}. '{variations[i]}'");
                 }
             }
             
@@ -129,20 +130,20 @@ namespace WorldDataExporter.Utilities
                     // Apply MODULAR_OBJ -> Cave_Pieces mapping for user-friendly display
                     if (objectType == "MODULAR_OBJ")
                     {
-                        Debug.Log($"✅ Found match: '{modelName}' -> 'MODULAR_OBJ' -> 'Cave_Pieces' (matched as '{variation}')");
+                        DebugLogger.LogWorldExporter($"✅ Found match: '{modelName}' -> 'MODULAR_OBJ' -> 'Cave_Pieces' (matched as '{variation}')");
                         return "Cave_Pieces";
                     }
                     
-                    Debug.Log($"✅ Found match: '{modelName}' -> '{objectType}' (matched as '{variation}')");
+                    DebugLogger.LogWorldExporter($"✅ Found match: '{modelName}' -> '{objectType}' (matched as '{variation}')");
                     return objectType;
                 }
                 else if (isInteriorTavern)
                 {
-                    Debug.Log($"❌ No match for variation: '{variation}'");
+                    DebugLogger.LogWorldExporter($"❌ No match for variation: '{variation}'");
                 }
             }
             
-            Debug.Log($"⚠️ No match found for '{modelName}' - returning 'MISC_OBJ'");
+            DebugLogger.LogWorldExporter($"⚠️ No match found for '{modelName}' - returning 'MISC_OBJ'");
             return "MISC_OBJ";
         }
         
@@ -173,13 +174,13 @@ namespace WorldDataExporter.Utilities
                 
                 if (!File.Exists(objectListPath))
                 {
-                    Debug.LogError($"❌ ObjectList.py not found at: {objectListPath}");
+                    DebugLogger.LogErrorWorldExporter($"❌ ObjectList.py not found at: {objectListPath}");
                     _objectDefinitions = new Dictionary<string, POTCOObjectDefinition>();
                     _initialized = true;
                     return;
                 }
                 
-                Debug.Log($"📖 Loading POTCO object definitions from: {objectListPath}");
+                DebugLogger.LogWorldExporter($"📖 Loading POTCO object definitions from: {objectListPath}");
                 
                 string content = File.ReadAllText(objectListPath);
                 _objectDefinitions = ParseObjectDefinitionsSimple(content);
@@ -187,15 +188,15 @@ namespace WorldDataExporter.Utilities
                 _objectTypesWithNames = ParseObjectTypesWithNames(content);
                 _objectTypesWithInstanced = ParseObjectTypesWithInstanced(content);
                 
-                Debug.Log($"✅ Loaded {_objectDefinitions.Count} object types with Visual blocks");
-                Debug.Log($"✅ Built lookup table with {_modelToTypeMap.Count} model mappings");
-                Debug.Log($"✅ Found {_objectTypesWithNames.Count} object types with Name property");
-                Debug.Log($"✅ Found {_objectTypesWithInstanced.Count} object types with Instanced property");
+                DebugLogger.LogWorldExporter($"✅ Loaded {_objectDefinitions.Count} object types with Visual blocks");
+                DebugLogger.LogWorldExporter($"✅ Built lookup table with {_modelToTypeMap.Count} model mappings");
+                DebugLogger.LogWorldExporter($"✅ Found {_objectTypesWithNames.Count} object types with Name property");
+                DebugLogger.LogWorldExporter($"✅ Found {_objectTypesWithInstanced.Count} object types with Instanced property");
                 _initialized = true;
             }
             catch (Exception ex)
             {
-                Debug.LogError($"❌ Failed to load ObjectList.py: {ex.Message}");
+                DebugLogger.LogErrorWorldExporter($"❌ Failed to load ObjectList.py: {ex.Message}");
                 _objectDefinitions = new Dictionary<string, POTCOObjectDefinition>();
                 _modelToTypeMap = new Dictionary<string, string>();
                 _objectTypesWithNames = new HashSet<string>();
@@ -233,8 +234,8 @@ namespace WorldDataExporter.Utilities
                     
                     if (isTavernOrInterior)
                     {
-                        Debug.Log($"🏰 Adding tavern/interior model to lookup: '{normalizedPath}' -> '{objectType}'");
-                        Debug.Log($"🏰 Also adding filename: '{normalizedName}' -> '{objectType}'");
+                        DebugLogger.LogWorldExporter($"🏰 Adding tavern/interior model to lookup: '{normalizedPath}' -> '{objectType}'");
+                        DebugLogger.LogWorldExporter($"🏰 Also adding filename: '{normalizedName}' -> '{objectType}'");
                         tavernModelsAdded++;
                     }
                     
@@ -252,8 +253,8 @@ namespace WorldDataExporter.Utilities
                 }
             }
             
-            Debug.Log($"📊 Built lookup table with {modelToTypeMap.Count} model mappings");
-            Debug.Log($"🏰 Added {tavernModelsAdded} tavern/interior models to lookup table");
+            DebugLogger.LogWorldExporter($"📊 Built lookup table with {modelToTypeMap.Count} model mappings");
+            DebugLogger.LogWorldExporter($"🏰 Added {tavernModelsAdded} tavern/interior models to lookup table");
             return modelToTypeMap;
         }
         
@@ -264,23 +265,23 @@ namespace WorldDataExporter.Utilities
             
             try
             {
-                Debug.Log("🔍 Starting simple Visual-based parsing with regex approach...");
-                Debug.Log($"📄 Processing {content.Length} characters of ObjectList.py content");
+                DebugLogger.LogWorldExporter("🔍 Starting simple Visual-based parsing with regex approach...");
+                DebugLogger.LogWorldExporter($"📄 Processing {content.Length} characters of ObjectList.py content");
                 
                 // First, parse all constants for replacement
                 var constants = ParseConstants(content);
-                Debug.Log($"📋 Found {constants.Count} constants for replacement");
+                DebugLogger.LogWorldExporter($"📋 Found {constants.Count} constants for replacement");
                 
                 // First, let's find the AVAIL_OBJ_LIST section - it goes to the end of the file
                 var availObjMatch = Regex.Match(content, @"AVAIL_OBJ_LIST\s*=\s*\{(.*)", RegexOptions.Singleline);
                 if (!availObjMatch.Success)
                 {
-                    Debug.LogError("❌ Could not find AVAIL_OBJ_LIST section");
+                    DebugLogger.LogErrorWorldExporter("❌ Could not find AVAIL_OBJ_LIST section");
                     return definitions;
                 }
                 
                 string objListContent = availObjMatch.Groups[1].Value;
-                Debug.Log($"📦 Found AVAIL_OBJ_LIST with {objListContent.Length} characters");
+                DebugLogger.LogWorldExporter($"📦 Found AVAIL_OBJ_LIST with {objListContent.Length} characters");
                 
                 // Look for object definitions that contain Visual blocks
                 // Pattern: 'ObjectType': { ... } OR CONSTANT: { ... }
@@ -288,7 +289,7 @@ namespace WorldDataExporter.Utilities
                 var objectPattern = @"(?:'([^']+)'|([A-Z_][A-Z0-9_]{1,})):?\s*\{([^{}]*(?:\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}[^{}]*)*)\}";
                 var objectMatches = Regex.Matches(objListContent, objectPattern, RegexOptions.Singleline | RegexOptions.IgnoreCase);
                 
-                Debug.Log($"🎯 Found {objectMatches.Count} potential object definitions");
+                DebugLogger.LogWorldExporter($"🎯 Found {objectMatches.Count} potential object definitions");
                 
                 foreach (Match match in objectMatches)
                 {
@@ -306,11 +307,11 @@ namespace WorldDataExporter.Utilities
                         if (constants.ContainsKey(constantName))
                         {
                             objectType = constants[constantName];
-                            Debug.Log($"🔄 Resolved constant '{constantName}' -> '{objectType}'");
+                            DebugLogger.LogWorldExporter($"🔄 Resolved constant '{constantName}' -> '{objectType}'");
                         }
                         else
                         {
-                            Debug.LogWarning($"⚠️ Unknown constant '{constantName}', using as-is");
+                            DebugLogger.LogWarningWorldExporter($"⚠️ Unknown constant '{constantName}', using as-is");
                             objectType = constantName;
                         }
                     }
@@ -319,27 +320,27 @@ namespace WorldDataExporter.Utilities
                     
                     if (!string.IsNullOrEmpty(objectType))
                     {
-                        Debug.Log($"🔍 Processing potential object: '{objectType}'");
+                        DebugLogger.LogWorldExporter($"🔍 Processing potential object: '{objectType}'");
                         
                         // Check if this object has a Visual block
                         if (objectContent.Contains("'Visual':"))
                         {
-                            Debug.Log($"📸 '{objectType}' has Visual block, parsing...");
+                            DebugLogger.LogWorldExporter($"📸 '{objectType}' has Visual block, parsing...");
                             ProcessObjectContentRegex(objectType, objectContent, definitions, content);
                         }
                         else
                         {
-                            Debug.Log($"⏭️ Skipping '{objectType}' - no Visual block");
+                            DebugLogger.LogWorldExporter($"⏭️ Skipping '{objectType}' - no Visual block");
                         }
                     }
                 }
                 
-                Debug.Log($"✅ Regex parsing completed. Found {definitions.Count} valid object types with Visual blocks.");
+                DebugLogger.LogWorldExporter($"✅ Regex parsing completed. Found {definitions.Count} valid object types with Visual blocks.");
             }
             catch (Exception ex)
             {
-                Debug.LogError($"❌ Error in simple parsing: {ex.Message}");
-                Debug.LogError($"Stack trace: {ex.StackTrace}");
+                DebugLogger.LogErrorWorldExporter($"❌ Error in simple parsing: {ex.Message}");
+                DebugLogger.LogErrorWorldExporter($"Stack trace: {ex.StackTrace}");
             }
             
             return definitions;
@@ -347,16 +348,16 @@ namespace WorldDataExporter.Utilities
         
         private static void ProcessObjectContent(string objectType, string content, Dictionary<string, POTCOObjectDefinition> definitions)
         {
-            Debug.Log($"🔍 Processing object '{objectType}' with {content.Length} characters of content");
+            DebugLogger.LogWorldExporter($"🔍 Processing object '{objectType}' with {content.Length} characters of content");
             
             // Only process if it has a Visual block
             if (!content.Contains("'Visual':"))
             {
-                Debug.Log($"⏭️ Skipping '{objectType}' - no Visual block found");
+                DebugLogger.LogWorldExporter($"⏭️ Skipping '{objectType}' - no Visual block found");
                 return;
             }
             
-            Debug.Log($"📸 '{objectType}' has Visual block, processing...");
+            DebugLogger.LogWorldExporter($"📸 '{objectType}' has Visual block, processing...");
             
             // Extract Visual block content
             var visualMatch = Regex.Match(content, @"'Visual'\s*:\s*\{([^{}]+(?:\{[^{}]+\}[^{}]+)*)\}", RegexOptions.Singleline);
@@ -402,19 +403,19 @@ namespace WorldDataExporter.Utilities
             if (foundModels)
             {
                 definitions[objectType] = definition;
-                Debug.Log($"📋 Added '{objectType}' with {definition.visual.models.Count} models");
+                DebugLogger.LogWorldExporter($"📋 Added '{objectType}' with {definition.visual.models.Count} models");
             }
         }
         
         private static void ProcessObjectContentRegex(string objectType, string content, Dictionary<string, POTCOObjectDefinition> definitions, string fullContent)
         {
-            Debug.Log($"🔍 Processing object '{objectType}' with regex approach");
+            DebugLogger.LogWorldExporter($"🔍 Processing object '{objectType}' with regex approach");
             
             // Extract Visual block content using regex
             var visualMatch = Regex.Match(content, @"'Visual'\s*:\s*\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}", RegexOptions.Singleline);
             if (!visualMatch.Success)
             {
-                Debug.Log($"⏭️ No Visual block found in '{objectType}'");
+                DebugLogger.LogWorldExporter($"⏭️ No Visual block found in '{objectType}'");
                 return;
             }
             
@@ -422,7 +423,7 @@ namespace WorldDataExporter.Utilities
             var definition = new POTCOObjectDefinition(objectType);
             bool foundModels = false;
             
-            Debug.Log($"📸 Found Visual block in '{objectType}': {visualContent.Substring(0, Math.Min(100, visualContent.Length))}...");
+            DebugLogger.LogWorldExporter($"📸 Found Visual block in '{objectType}': {visualContent.Substring(0, Math.Min(100, visualContent.Length))}...");
             
             // Extract Model (single)
             var modelMatch = Regex.Match(visualContent, @"'Model'\s*:\s*'([^']+)'");
@@ -433,7 +434,7 @@ namespace WorldDataExporter.Utilities
                 {
                     definition.visual.models.Add(modelPath);
                     foundModels = true;
-                    Debug.Log($"✅ Found single Model in '{objectType}': {modelPath}");
+                    DebugLogger.LogWorldExporter($"✅ Found single Model in '{objectType}': {modelPath}");
                 }
             }
             
@@ -456,19 +457,19 @@ namespace WorldDataExporter.Utilities
                             string modelPath = pathMatch.Groups[1].Value.Trim();
                             definition.visual.models.Add(modelPath);
                             foundModels = true;
-                            Debug.Log($"✅ Found Model in '{objectType}' Models array: {modelPath}");
+                            DebugLogger.LogWorldExporter($"✅ Found Model in '{objectType}' Models array: {modelPath}");
                         }
                     }
                     else
                     {
-                        Debug.Log($"⏭️ Skipping Models array in '{objectType}' - contains UI elements or nested structures");
+                        DebugLogger.LogWorldExporter($"⏭️ Skipping Models array in '{objectType}' - contains UI elements or nested structures");
                     }
                 }
                 else if (!string.IsNullOrEmpty(modelsMatch.Groups[4].Value))
                 {
                     // Variable reference: BUILDING_INTERIOR_LIST
                     string variableName = modelsMatch.Groups[4].Value;
-                    Debug.Log($"🔗 Found Models variable reference in '{objectType}': {variableName}");
+                    DebugLogger.LogWorldExporter($"🔗 Found Models variable reference in '{objectType}': {variableName}");
                     
                     // Resolve variable to model list
                     var resolvedModels = ResolveVariableToModelList(variableName, fullContent);
@@ -476,7 +477,7 @@ namespace WorldDataExporter.Utilities
                     {
                         definition.visual.models.Add(modelPath);
                         foundModels = true;
-                        Debug.Log($"✅ Resolved Model from {variableName} in '{objectType}': {modelPath}");
+                        DebugLogger.LogWorldExporter($"✅ Resolved Model from {variableName} in '{objectType}': {modelPath}");
                     }
                 }
                 else if (!string.IsNullOrEmpty(modelsMatch.Groups[5].Value))
@@ -487,7 +488,7 @@ namespace WorldDataExporter.Utilities
                     {
                         definition.visual.models.Add(modelPath);
                         foundModels = true;
-                        Debug.Log($"✅ Found single Model string in '{objectType}': {modelPath}");
+                        DebugLogger.LogWorldExporter($"✅ Found single Model string in '{objectType}': {modelPath}");
                     }
                 }
             }
@@ -496,11 +497,11 @@ namespace WorldDataExporter.Utilities
             if (foundModels)
             {
                 definitions[objectType] = definition;
-                Debug.Log($"📋 Added '{objectType}' with {definition.visual.models.Count} models");
+                DebugLogger.LogWorldExporter($"📋 Added '{objectType}' with {definition.visual.models.Count} models");
             }
             else
             {
-                Debug.Log($"⏭️ No valid models found in '{objectType}'");
+                DebugLogger.LogWorldExporter($"⏭️ No valid models found in '{objectType}'");
             }
         }
         
@@ -517,7 +518,7 @@ namespace WorldDataExporter.Utilities
                 {
                     string buildingInteriorType = buildingInteriorConstant.Groups[1].Value;
                     typesWithNames.Add(buildingInteriorType);
-                    Debug.Log($"📋 Found building interior type with Name: {buildingInteriorType}");
+                    DebugLogger.LogWorldExporter($"📋 Found building interior type with Name: {buildingInteriorType}");
                 }
                 
                 
@@ -527,7 +528,7 @@ namespace WorldDataExporter.Utilities
                 {
                     string islandType = islandConstant.Groups[1].Value;
                     typesWithNames.Add(islandType);
-                    Debug.Log($"📋 Found island type with Name: {islandType}");
+                    DebugLogger.LogWorldExporter($"📋 Found island type with Name: {islandType}");
                 }
                 
                 // AREA_TYPE_ISLAND_REGION = 'Island Game Area'
@@ -536,7 +537,7 @@ namespace WorldDataExporter.Utilities
                 {
                     string islandRegionType = islandRegionConstant.Groups[1].Value;
                     typesWithNames.Add(islandRegionType);
-                    Debug.Log($"📋 Found island region type with Name: {islandRegionType}");
+                    DebugLogger.LogWorldExporter($"📋 Found island region type with Name: {islandRegionType}");
                 }
                 
                 // AREA_TYPE_WORLD_REGION = 'Region'
@@ -545,12 +546,12 @@ namespace WorldDataExporter.Utilities
                 {
                     string worldRegionType = worldRegionConstant.Groups[1].Value;
                     typesWithNames.Add(worldRegionType);
-                    Debug.Log($"📋 Found world region type with Name: {worldRegionType}");
+                    DebugLogger.LogWorldExporter($"📋 Found world region type with Name: {worldRegionType}");
                 }
             }
             catch (Exception ex)
             {
-                Debug.LogError($"❌ Error parsing object types with names: {ex.Message}");
+                DebugLogger.LogErrorWorldExporter($"❌ Error parsing object types with names: {ex.Message}");
             }
             
             return typesWithNames;
@@ -569,12 +570,12 @@ namespace WorldDataExporter.Utilities
                 {
                     string buildingInteriorType = buildingInteriorConstant.Groups[1].Value;
                     typesWithInstanced.Add(buildingInteriorType);
-                    Debug.Log($"📋 Found building interior type with Instanced: {buildingInteriorType}");
+                    DebugLogger.LogWorldExporter($"📋 Found building interior type with Instanced: {buildingInteriorType}");
                 }
             }
             catch (Exception ex)
             {
-                Debug.LogError($"❌ Error parsing object types with instanced: {ex.Message}");
+                DebugLogger.LogErrorWorldExporter($"❌ Error parsing object types with instanced: {ex.Message}");
             }
             
             return typesWithInstanced;
@@ -596,7 +597,7 @@ namespace WorldDataExporter.Utilities
                     return models;
                 }
                 
-                Debug.Log($"🔍 Resolving variable '{variableName}' to model list...");
+                DebugLogger.LogWorldExporter($"🔍 Resolving variable '{variableName}' to model list...");
                 
                 // Look for variable definition: VARIABLE_NAME = [...]
                 var pattern = $@"{Regex.Escape(variableName)}\s*=\s*\[\s*((?:'[^']*'\s*,?\s*)*)\s*\]";
@@ -605,7 +606,7 @@ namespace WorldDataExporter.Utilities
                 if (match.Success)
                 {
                     string listContent = match.Groups[1].Value;
-                    Debug.Log($"🔍 Found {variableName} definition with content: {listContent.Substring(0, Math.Min(200, listContent.Length))}...");
+                    DebugLogger.LogWorldExporter($"🔍 Found {variableName} definition with content: {listContent.Substring(0, Math.Min(200, listContent.Length))}...");
                     
                     // Extract all model paths from the list
                     var modelMatches = Regex.Matches(listContent, @"'(models/[^']+)'");
@@ -613,19 +614,19 @@ namespace WorldDataExporter.Utilities
                     {
                         string modelPath = modelMatch.Groups[1].Value.Trim();
                         models.Add(modelPath);
-                        Debug.Log($"✅ Resolved model from {variableName}: {modelPath}");
+                        DebugLogger.LogWorldExporter($"✅ Resolved model from {variableName}: {modelPath}");
                     }
                     
-                    Debug.Log($"✅ Resolved {models.Count} models from variable '{variableName}'");
+                    DebugLogger.LogWorldExporter($"✅ Resolved {models.Count} models from variable '{variableName}'");
                 }
                 else
                 {
-                    Debug.LogWarning($"⚠️ Could not find definition for variable '{variableName}'");
+                    DebugLogger.LogWarningWorldExporter($"⚠️ Could not find definition for variable '{variableName}'");
                 }
             }
             catch (Exception ex)
             {
-                Debug.LogError($"❌ Error resolving variable '{variableName}': {ex.Message}");
+                DebugLogger.LogErrorWorldExporter($"❌ Error resolving variable '{variableName}': {ex.Message}");
             }
             
             return models;
@@ -649,12 +650,12 @@ namespace WorldDataExporter.Utilities
                     string constantName = match.Groups[1].Value;
                     string constantValue = match.Groups[2].Value;
                     constants[constantName] = constantValue;
-                    Debug.Log($"📝 Found constant: {constantName} = '{constantValue}'");
+                    DebugLogger.LogWorldExporter($"📝 Found constant: {constantName} = '{constantValue}'");
                 }
             }
             catch (Exception ex)
             {
-                Debug.LogError($"❌ Error parsing constants: {ex.Message}");
+                DebugLogger.LogErrorWorldExporter($"❌ Error parsing constants: {ex.Message}");
             }
             
             return constants;

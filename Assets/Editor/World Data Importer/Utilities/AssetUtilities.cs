@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 using WorldDataImporter.Data;
+using POTCO.Editor;
 
 namespace WorldDataImporter.Utilities
 {
@@ -39,7 +40,7 @@ namespace WorldDataImporter.Utilities
                 }
             }
             
-            Debug.LogWarning($"❌ {(useEgg ? "EGG" : "Prefab")} not found for model: '{modelPath}'.");
+            DebugLogger.LogWarningWorldImporter($"❌ {(useEgg ? "EGG" : "Prefab")} not found for model: '{modelPath}'.");
             if (stats != null)
             {
                 stats.missingModels++;
@@ -171,18 +172,18 @@ namespace WorldDataImporter.Utilities
                     {
                         flickerComponent.flickRate = lightData.flickRate.Value;
                         flickerComponent.originalIntensity = unityLight.intensity;
-                        Debug.Log($"💡 Added flickering to light: {obj.name} (Rate: {lightData.flickRate.Value})");
+                        DebugLogger.LogWorldImporter($"💡 Added flickering to light: {obj.name} (Rate: {lightData.flickRate.Value})");
                     }
                 }
                 catch (System.Exception ex)
                 {
-                    Debug.LogWarning($"⚠️ Could not add LightFlicker component to {obj.name}: {ex.Message}");
+                    DebugLogger.LogWarningWorldImporter($"⚠️ Could not add LightFlicker component to {obj.name}: {ex.Message}");
                 }
             }
 
             if (stats != null) stats.lightsCreated++;
             
-            Debug.Log($"💡 Created {lightData.lightType} light: {obj.name} (Intensity: {unityLight.intensity}, Range: {unityLight.range})");
+            DebugLogger.LogWorldImporter($"💡 Created {lightData.lightType} light: {obj.name} (Intensity: {unityLight.intensity}, Range: {unityLight.range})");
         }
     }
 }

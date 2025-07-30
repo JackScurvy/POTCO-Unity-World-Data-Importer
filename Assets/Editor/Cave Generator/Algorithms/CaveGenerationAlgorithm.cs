@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using CaveGenerator.Data;
+using POTCO.Editor;
 
 namespace CaveGenerator.Algorithms
 {
@@ -54,16 +55,16 @@ namespace CaveGenerator.Algorithms
                 // Skip if this connector is already used or depth is too high
                 if (connectorData.ContainsKey(fromConnector) && connectorData[fromConnector].isUsed)
                 {
-                    Debug.Log($"⏭️ Skipping connector {fromConnector.name} - already used");
+                    DebugLogger.LogProceduralGeneration($"⏭️ Skipping connector {fromConnector.name} - already used");
                     continue;
                 }
                 if (depth > settings.maxDepth)
                 {
-                    Debug.Log($"⏭️ Skipping connector {fromConnector.name} - depth {depth} exceeds max {settings.maxDepth}");
+                    DebugLogger.LogProceduralGeneration($"⏭️ Skipping connector {fromConnector.name} - depth {depth} exceeds max {settings.maxDepth}");
                     continue;
                 }
                 
-                Debug.Log($"🔗 Attempting to connect piece {piecesGenerated + 1} to connector {fromConnector.name} at depth {depth}");
+                DebugLogger.LogProceduralGeneration($"🔗 Attempting to connect piece {piecesGenerated + 1} to connector {fromConnector.name} at depth {depth}");
                 
                 // Choose piece type based on depth and branching settings
                 var prefabsToChooseFrom = new List<GameObject>();
@@ -72,13 +73,13 @@ namespace CaveGenerator.Algorithms
                 {
                     // Use tunnel pieces for branching
                     prefabsToChooseFrom = validPrefabs.Where(p => !deadEnds.Contains(p)).ToList();
-                    Debug.Log("🌿 Attempting to create branch");
+                    DebugLogger.LogProceduralGeneration("🌿 Attempting to create branch");
                 }
                 else if (piecesGenerated >= settings.caveLength - 2 || depth >= settings.maxDepth)
                 {
                     // Use end caps for finishing
                     prefabsToChooseFrom = deadEnds;
-                    Debug.Log("🏁 Using end cap pieces");
+                    DebugLogger.LogProceduralGeneration("🏁 Using end cap pieces");
                 }
                 else
                 {
@@ -88,18 +89,18 @@ namespace CaveGenerator.Algorithms
                 
                 if (prefabsToChooseFrom.Count == 0) 
                 {
-                    Debug.LogWarning("❌ No valid prefabs available!");
+                    DebugLogger.LogWarningProceduralGeneration("❌ No valid prefabs available!");
                     continue;
                 }
                 
                 var chosenPrefab = GetWeightedRandomPrefab(prefabsToChooseFrom);
                 if (chosenPrefab == null) 
                 {
-                    Debug.LogWarning("❌ GetWeightedRandomPrefab returned null!");
+                    DebugLogger.LogWarningProceduralGeneration("❌ GetWeightedRandomPrefab returned null!");
                     continue;
                 }
                 
-                Debug.Log($"🎲 Chosen prefab: {chosenPrefab.name}");
+                DebugLogger.LogProceduralGeneration($"🎲 Chosen prefab: {chosenPrefab.name}");
                 
                 // Mark this connector as used BEFORE attempting connection
                 if (connectorData.ContainsKey(fromConnector))
@@ -113,7 +114,7 @@ namespace CaveGenerator.Algorithms
                 if (newNode != null)
                 {
                     piecesGenerated++;
-                    Debug.Log($"✅ Successfully connected piece {piecesGenerated} at depth {depth}");
+                    DebugLogger.LogProceduralGeneration($"✅ Successfully connected piece {piecesGenerated} at depth {depth}");
                     
                     // Add new connectors to queue (except the one we just used)
                     foreach (var connector in newNode.connectors)
@@ -131,10 +132,10 @@ namespace CaveGenerator.Algorithms
                 }
                 else
                 {
-                    Debug.LogError($"❌ DETAILED FAILURE: ConnectCavePiece returned null for prefab {chosenPrefab.name} at connector {fromConnector.name} (depth {depth})");
-                    Debug.LogError($"   - Connector position: {fromConnector.position}");
-                    Debug.LogError($"   - Connector direction: {fromConnector.forward}");
-                    Debug.LogError($"   - Check previous logs for specific failure reason (validation, overlap, etc.)");
+                    DebugLogger.LogErrorProceduralGeneration($"❌ DETAILED FAILURE: ConnectCavePiece returned null for prefab {chosenPrefab.name} at connector {fromConnector.name} (depth {depth})");
+                    DebugLogger.LogErrorProceduralGeneration($"   - Connector position: {fromConnector.position}");
+                    DebugLogger.LogErrorProceduralGeneration($"   - Connector direction: {fromConnector.forward}");
+                    DebugLogger.LogErrorProceduralGeneration($"   - Check previous logs for specific failure reason (validation, overlap, etc.)");
                     
                     // If connection failed, mark connector as unused again
                     if (connectorData.ContainsKey(fromConnector))
@@ -149,7 +150,7 @@ namespace CaveGenerator.Algorithms
         
         public IEnumerator GenerateLinearCave()
         {
-            Debug.Log("🚶 Generating LINEAR cave (no branching)");
+            DebugLogger.LogProceduralGeneration("🚶 Generating LINEAR cave (no branching)");
             
             int piecesGenerated = 1; // First piece already placed
             Transform currentConnector = null;
@@ -165,7 +166,7 @@ namespace CaveGenerator.Algorithms
             
             while (piecesGenerated < settings.caveLength && currentConnector != null)
             {
-                Debug.Log($"🔗 Linear connection {piecesGenerated + 1} from connector {currentConnector.name}");
+                DebugLogger.LogProceduralGeneration($"🔗 Linear connection {piecesGenerated + 1} from connector {currentConnector.name}");
                 
                 // Choose piece type - prefer tunnel pieces for continuation
                 var prefabsToChooseFrom = new List<GameObject>();
@@ -174,7 +175,7 @@ namespace CaveGenerator.Algorithms
                 {
                     // Use end caps for the final piece
                     prefabsToChooseFrom = deadEnds;
-                    Debug.Log("🏁 Using end cap for final piece");
+                    DebugLogger.LogProceduralGeneration("🏁 Using end cap for final piece");
                 }
                 else
                 {
@@ -186,18 +187,18 @@ namespace CaveGenerator.Algorithms
                 
                 if (prefabsToChooseFrom.Count == 0) 
                 {
-                    Debug.LogWarning("❌ No valid prefabs available for linear generation!");
+                    DebugLogger.LogWarningProceduralGeneration("❌ No valid prefabs available for linear generation!");
                     break;
                 }
                 
                 var chosenPrefab = GetWeightedRandomPrefab(prefabsToChooseFrom);
                 if (chosenPrefab == null) 
                 {
-                    Debug.LogWarning("❌ GetWeightedRandomPrefab returned null!");
+                    DebugLogger.LogWarningProceduralGeneration("❌ GetWeightedRandomPrefab returned null!");
                     break;
                 }
                 
-                Debug.Log($"🎲 Linear chosen prefab: {chosenPrefab.name}");
+                DebugLogger.LogProceduralGeneration($"🎲 Linear chosen prefab: {chosenPrefab.name}");
                 
                 // Mark current connector as used
                 if (connectorData.ContainsKey(currentConnector))
@@ -211,7 +212,7 @@ namespace CaveGenerator.Algorithms
                 if (newNode != null)
                 {
                     piecesGenerated++;
-                    Debug.Log($"✅ Linear piece {piecesGenerated} connected successfully");
+                    DebugLogger.LogProceduralGeneration($"✅ Linear piece {piecesGenerated} connected successfully");
                     
                     // For linear caves, pick ONE random unused connector from the new piece
                     var newConnectors = newNode.connectors.Where(c => 
@@ -220,12 +221,12 @@ namespace CaveGenerator.Algorithms
                     if (newConnectors.Count > 0)
                     {
                         currentConnector = newConnectors[Random.Range(0, newConnectors.Count)];
-                        Debug.Log($"🎯 Next linear connector: {currentConnector.name}");
+                        DebugLogger.LogProceduralGeneration($"🎯 Next linear connector: {currentConnector.name}");
                     }
                     else
                     {
                         currentConnector = null; // No more connectors, end generation
-                        Debug.Log("🛑 No more available connectors, ending linear generation");
+                        DebugLogger.LogProceduralGeneration("🛑 No more available connectors, ending linear generation");
                     }
                     
                     if (settings.realtimePreview && settings.generationDelay > 0)
@@ -235,7 +236,7 @@ namespace CaveGenerator.Algorithms
                 }
                 else
                 {
-                    Debug.LogError($"❌ Linear connection failed for {chosenPrefab.name}");
+                    DebugLogger.LogErrorProceduralGeneration($"❌ Linear connection failed for {chosenPrefab.name}");
                     // If connection failed, mark connector as unused again
                     if (connectorData.ContainsKey(currentConnector))
                     {

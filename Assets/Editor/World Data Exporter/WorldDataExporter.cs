@@ -5,6 +5,7 @@ using System.Linq;
 using WorldDataExporter.Utilities;
 using WorldDataExporter.Data;
 using POTCO;
+using POTCO.Editor;
 
 namespace WorldDataExporter
 {
@@ -77,7 +78,7 @@ namespace WorldDataExporter
                 if (!string.IsNullOrEmpty(path))
                 {
                     settings.outputPath = path;
-                    Debug.Log($"📤 Export path set: {settings.outputPath}");
+                    DebugLogger.LogWorldExporter($"📤 Export path set: {settings.outputPath}");
                 }
             }
             if (!string.IsNullOrEmpty(settings.outputPath))
@@ -118,7 +119,7 @@ namespace WorldDataExporter
 
             if (GUILayout.Button("🚀 Export World Data", GUILayout.Height(30)))
             {
-                Debug.Log($"🚀 Starting world data export...");
+                DebugLogger.LogWorldExporter($"🚀 Starting world data export...");
                 lastExportStats = ExportUtilities.ExportWorldData(settings);
                 showStatistics = true;
             }
@@ -132,114 +133,6 @@ namespace WorldDataExporter
         {
             EditorGUILayout.BeginVertical("box");
             GUILayout.Label("Debugging Tools", EditorStyles.boldLabel);
-
-            if (GUILayout.Button("🧪 Test ObjectList Loading"))
-            {
-                Debug.Log("=== 🧪 COMPREHENSIVE OBJECTLIST LOADING TEST ===");
-                var definitions = ObjectListParser.GetObjectDefinitions();
-                Debug.Log($"📊 SUMMARY: Loaded {definitions.Count} object definitions with Visual blocks");
-                
-                if (definitions.Count == 0)
-                {
-                    Debug.LogError("❌ FAILED: No object definitions found. Check ObjectList.py parsing!");
-                    Debug.Log("=== 🧪 TEST FAILED ===");
-                    return;
-                }
-                
-                // Show all object types found
-                Debug.Log($"📋 ALL OBJECT TYPES FOUND ({definitions.Count} total):");
-                var sortedTypes = definitions.Keys.OrderBy(k => k).ToList();
-                for (int i = 0; i < sortedTypes.Count; i++)
-                {
-                    var objectType = sortedTypes[i];
-                    var modelCount = definitions[objectType].visual.models.Count;
-                    Debug.Log($"   {i+1:D2}. '{objectType}' ({modelCount} models)");
-                }
-                
-                // Show model-to-type lookup statistics
-                Debug.Log($"🔍 MODEL LOOKUP STATISTICS:");
-                var testModels = new string[] {
-                    "pir_m_prp_vol_cactus_g",
-                    "barrel_group_3", 
-                    "interior_tavern",
-                    "chair_bar",
-                    "table_bar_round",
-                    "bush_c",
-                    "torch_wall"
-                };
-                
-                foreach (var model in testModels)
-                {
-                    string result = ObjectListParser.GetObjectTypeByModelName(model);
-                    Debug.Log($"   🔍 '{model}' -> '{result ?? "Unknown"}'");
-                }
-                
-                // Show Name/Instanced property detection
-                Debug.Log($"📋 NAME PROPERTY DETECTION:");
-                var testTypes = new string[] {
-                    "Building Interior", "Island", "Region", "Island Game Area",
-                    "Cacti", "Furniture", "Barrel", "Bush", "Light - Dynamic"
-                };
-                
-                foreach (var objectType in testTypes)
-                {
-                    bool hasName = ObjectListParser.ObjectTypeHasName(objectType);
-                    bool hasInstanced = ObjectListParser.ObjectTypeHasInstanced(objectType);
-                    string flags = "";
-                    if (hasName) flags += " +Name";
-                    if (hasInstanced) flags += " +Instanced";
-                    if (string.IsNullOrEmpty(flags)) flags = " (no special properties)";
-                    
-                    Debug.Log($"   📋 '{objectType}'{flags}");
-                }
-                
-                // Show sample models from top object types
-                Debug.Log($"📦 SAMPLE MODELS FROM TOP OBJECT TYPES:");
-                int sampleCount = 0;
-                foreach (var def in definitions.Take(8))
-                {
-                    if (def.Value.visual.models.Count > 0)
-                    {
-                        Debug.Log($"   🎯 '{def.Key}' models ({def.Value.visual.models.Count} total):");
-                        foreach (var model in def.Value.visual.models.Take(3))
-                        {
-                            Debug.Log($"      - {model}");
-                        }
-                        if (def.Value.visual.models.Count > 3)
-                        {
-                            Debug.Log($"      ... and {def.Value.visual.models.Count - 3} more");
-                        }
-                        sampleCount++;
-                    }
-                }
-                
-                Debug.Log("=== 🧪 TEST COMPLETE ===");
-            }
-            
-            if (GUILayout.Button("🔍 Debug Scene Hierarchy"))
-            {
-                DebugSceneHierarchy();
-            }
-            
-            if (GUILayout.Button("📖 Show Available POTCO Types"))
-            {
-                var objectTypes = ObjectListParser.GetAllObjectTypes();
-                Debug.Log($"📋 Available POTCO Object Types ({objectTypes.Count}): {string.Join(", ", objectTypes)}");
-                
-                // Group by category for better readability
-                var lightTypes = objectTypes.Where(t => t.Contains("Light")).ToList();
-                var nodeTypes = objectTypes.Where(t => t.Contains("Node")).ToList();
-                var otherTypes = objectTypes.Except(lightTypes).Except(nodeTypes).ToList();
-                
-                if (lightTypes.Count > 0)
-                    Debug.Log($"💡 Light Types: {string.Join(", ", lightTypes)}");
-                if (nodeTypes.Count > 0)
-                    Debug.Log($"📍 Node Types: {string.Join(", ", nodeTypes)}");
-                if (otherTypes.Count > 0)
-                    Debug.Log($"🎭 Other Types: {string.Join(", ", otherTypes)}");
-            }
-            
-            EditorGUILayout.Space(10);
             
             if (GUILayout.Button("➕ Add POTCOTypeInfo to Selected Objects"))
             {
@@ -256,15 +149,18 @@ namespace WorldDataExporter
                 CheckForDuplicateObjectIds();
             }
             
-            if (GUILayout.Button("🧹 Clean Up Mesh Part Components"))
+            EditorGUILayout.Space(5);
+            
+            // Auto-detection toggle
+            EditorGUI.BeginChangeCheck();
+            bool autoDetectionEnabled = POTCO.Editor.AutoPOTCODetection.IsAutoDetectionEnabled();
+            autoDetectionEnabled = EditorGUILayout.Toggle("🔄 Auto-Add POTCOTypeInfo to New Objects", autoDetectionEnabled);
+            if (EditorGUI.EndChangeCheck())
             {
-                CleanUpMeshPartComponents();
+                POTCO.Editor.AutoPOTCODetection.SetAutoDetectionEnabled(autoDetectionEnabled);
             }
             
-            if (GUILayout.Button("🔍 Debug Interior Model Detection"))
-            {
-                DebugInteriorModelDetection();
-            }
+            EditorGUILayout.HelpBox("When enabled, POTCOTypeInfo components will be automatically added to objects dragged into the scene. Disable this to prevent background processing.", MessageType.Info);
             
             EditorGUILayout.Space(5);
             
@@ -304,7 +200,7 @@ namespace WorldDataExporter
             
             if (allPOTCOComponents.Length == 0)
             {
-                Debug.Log("🔍 No POTCOTypeInfo components found in scene");
+                DebugLogger.LogWorldExporter("🔍 No POTCOTypeInfo components found in scene");
                 return;
             }
             
@@ -316,11 +212,11 @@ namespace WorldDataExporter
             
             if (idGroups.Count == 0)
             {
-                Debug.Log($"✅ No duplicate object IDs found ({allPOTCOComponents.Length} objects checked)");
+                DebugLogger.LogWorldExporter($"✅ No duplicate object IDs found ({allPOTCOComponents.Length} objects checked)");
                 return;
             }
             
-            Debug.Log($"⚠️ Found {idGroups.Count} duplicate object ID groups:");
+            DebugLogger.LogWorldExporter($"⚠️ Found {idGroups.Count} duplicate object ID groups:");
             
             int totalDuplicates = 0;
             int fixedCount = 0;
@@ -330,26 +226,26 @@ namespace WorldDataExporter
                 var duplicates = group.ToList();
                 totalDuplicates += duplicates.Count;
                 
-                Debug.Log($"🔄 Duplicate ID '{group.Key}' found on {duplicates.Count} objects:");
+                DebugLogger.LogWorldExporter($"🔄 Duplicate ID '{group.Key}' found on {duplicates.Count} objects:");
                 
                 // Keep the first object, fix the rest
                 for (int i = 0; i < duplicates.Count; i++)
                 {
                     var obj = duplicates[i];
-                    Debug.Log($"   {i + 1}. '{obj.gameObject.name}' at {obj.transform.position}");
+                    DebugLogger.LogWorldExporter($"   {i + 1}. '{obj.gameObject.name}' at {obj.transform.position}");
                     
                     if (i > 0) // Fix all except the first one
                     {
                         string oldId = obj.objectId;
                         obj.GenerateObjectId();
                         EditorUtility.SetDirty(obj);
-                        Debug.Log($"   ✅ Fixed: '{oldId}' -> '{obj.objectId}'");
+                        DebugLogger.LogWorldExporter($"   ✅ Fixed: '{oldId}' -> '{obj.objectId}'");
                         fixedCount++;
                     }
                 }
             }
             
-            Debug.Log($"✅ Fixed {fixedCount} duplicate IDs out of {totalDuplicates} total duplicates");
+            DebugLogger.LogWorldExporter($"✅ Fixed {fixedCount} duplicate IDs out of {totalDuplicates} total duplicates");
         }
 
         /// <summary>
@@ -361,11 +257,11 @@ namespace WorldDataExporter
             
             if (allPOTCOComponents.Length == 0)
             {
-                Debug.Log("🧹 No POTCOTypeInfo components found in scene");
+                DebugLogger.LogWorldExporter("🧹 No POTCOTypeInfo components found in scene");
                 return;
             }
             
-            Debug.Log($"🧹 Checking {allPOTCOComponents.Length} POTCOTypeInfo components for incorrect placement...");
+            DebugLogger.LogWorldExporter($"🧹 Checking {allPOTCOComponents.Length} POTCOTypeInfo components for incorrect placement...");
             
             int removedCount = 0;
             int movedCount = 0;
@@ -382,7 +278,7 @@ namespace WorldDataExporter
                     // If parent exists and doesn't have POTCOTypeInfo, move it there
                     if (parent != null && parent.GetComponent<POTCO.POTCOTypeInfo>() == null)
                     {
-                        Debug.Log($"🔄 Moving POTCOTypeInfo from mesh part '{obj.name}' to parent '{parent.name}'");
+                        DebugLogger.LogWorldExporter($"🔄 Moving POTCOTypeInfo from mesh part '{obj.name}' to parent '{parent.name}'");
                         
                         // Copy the component data to parent
                         var newComponent = parent.AddComponent<POTCO.POTCOTypeInfo>();
@@ -403,14 +299,14 @@ namespace WorldDataExporter
                     }
                     
                     // Remove from the mesh part
-                    Debug.Log($"🗑️ Removing POTCOTypeInfo from mesh part '{obj.name}'");
+                    DebugLogger.LogWorldExporter($"🗑️ Removing POTCOTypeInfo from mesh part '{obj.name}'");
                     UnityEngine.Object.DestroyImmediate(potcoInfo);
                     EditorUtility.SetDirty(obj);
                     removedCount++;
                 }
             }
             
-            Debug.Log($"✅ Cleanup complete: Moved {movedCount} components to parents, removed {removedCount} from mesh parts");
+            DebugLogger.LogWorldExporter($"✅ Cleanup complete: Moved {movedCount} components to parents, removed {removedCount} from mesh parts");
         }
 
         /// <summary>
@@ -425,54 +321,54 @@ namespace WorldDataExporter
             
             if (interiorObjects.Count == 0)
             {
-                Debug.Log("🔍 No interior models found in scene");
+                DebugLogger.LogWorldExporter("🔍 No interior models found in scene");
                 return;
             }
             
-            Debug.Log($"🏗️ Found {interiorObjects.Count} interior-related objects:");
+            DebugLogger.LogWorldExporter($"🏗️ Found {interiorObjects.Count} interior-related objects:");
             
             foreach (var obj in interiorObjects)
             {
-                Debug.Log($"\n📋 Analyzing '{obj.name}':");
-                Debug.Log($"   🔹 Position: {obj.transform.position}");
-                Debug.Log($"   🔹 Local Position: {obj.transform.localPosition}");
-                Debug.Log($"   🔹 Local Rotation: {obj.transform.localEulerAngles}");
-                Debug.Log($"   🔹 Local Scale: {obj.transform.localScale}");
-                Debug.Log($"   🔹 Parent: {(obj.transform.parent ? obj.transform.parent.name : "None")}");
-                Debug.Log($"   🔹 Children: {obj.transform.childCount}");
+                DebugLogger.LogWorldExporter($"\n📋 Analyzing '{obj.name}':");
+                DebugLogger.LogWorldExporter($"   🔹 Position: {obj.transform.position}");
+                DebugLogger.LogWorldExporter($"   🔹 Local Position: {obj.transform.localPosition}");
+                DebugLogger.LogWorldExporter($"   🔹 Local Rotation: {obj.transform.localEulerAngles}");
+                DebugLogger.LogWorldExporter($"   🔹 Local Scale: {obj.transform.localScale}");
+                DebugLogger.LogWorldExporter($"   🔹 Parent: {(obj.transform.parent ? obj.transform.parent.name : "None")}");
+                DebugLogger.LogWorldExporter($"   🔹 Children: {obj.transform.childCount}");
                 
                 // Check if it has POTCOTypeInfo
                 var potcoInfo = obj.GetComponent<POTCO.POTCOTypeInfo>();
-                Debug.Log($"   🔹 Has POTCOTypeInfo: {potcoInfo != null}");
+                DebugLogger.LogWorldExporter($"   🔹 Has POTCOTypeInfo: {potcoInfo != null}");
                 
                 // Check if it would be skipped by the rules
                 bool wouldBeSkipped = POTCO.Editor.AutoPOTCODetection.IsChildMeshObjectPublic(obj);
-                Debug.Log($"   🔹 Would be skipped by rules: {wouldBeSkipped}");
+                DebugLogger.LogWorldExporter($"   🔹 Would be skipped by rules: {wouldBeSkipped}");
                 
                 // Check if it looks like a POTCO model
                 bool looksLikePOTCO = obj.name.ToLower().Contains("interior_"); // simplified check
-                Debug.Log($"   🔹 Looks like POTCO model: {looksLikePOTCO}");
+                DebugLogger.LogWorldExporter($"   🔹 Looks like POTCO model: {looksLikePOTCO}");
                 
                 // Check mesh components
                 var meshRenderer = obj.GetComponent<MeshRenderer>();
                 var meshFilter = obj.GetComponent<MeshFilter>();
-                Debug.Log($"   🔹 Has MeshRenderer: {meshRenderer != null}");
-                Debug.Log($"   🔹 Has MeshFilter: {meshFilter != null}");
+                DebugLogger.LogWorldExporter($"   🔹 Has MeshRenderer: {meshRenderer != null}");
+                DebugLogger.LogWorldExporter($"   🔹 Has MeshFilter: {meshFilter != null}");
                 
                 // List children
                 if (obj.transform.childCount > 0)
                 {
-                    Debug.Log($"   🔹 Children:");
+                    DebugLogger.LogWorldExporter($"   🔹 Children:");
                     for (int i = 0; i < obj.transform.childCount; i++)
                     {
                         var child = obj.transform.GetChild(i);
                         var childPOTCO = child.GetComponent<POTCO.POTCOTypeInfo>();
-                        Debug.Log($"      - '{child.name}' (POTCOTypeInfo: {childPOTCO != null})");
+                        DebugLogger.LogWorldExporter($"      - '{child.name}' (POTCOTypeInfo: {childPOTCO != null})");
                     }
                 }
             }
             
-            Debug.Log("\n🔧 Use this information to understand why POTCOTypeInfo is being added incorrectly");
+            DebugLogger.LogWorldExporter("\n🔧 Use this information to understand why POTCOTypeInfo is being added incorrectly");
         }
         
         /// <summary>
@@ -509,11 +405,11 @@ namespace WorldDataExporter
             
             if (visible)
             {
-                Debug.Log($"👁️ Showed {shownCount} child/secondary objects in hierarchy");
+                DebugLogger.LogWorldExporter($"👁️ Showed {shownCount} child/secondary objects in hierarchy");
             }
             else
             {
-                Debug.Log($"🎯 Hidden {hiddenCount} child/secondary objects - showing only primary objects");
+                DebugLogger.LogWorldExporter($"🎯 Hidden {hiddenCount} child/secondary objects - showing only primary objects");
             }
         }
         
@@ -716,10 +612,10 @@ namespace WorldDataExporter
             try
             {
                 System.IO.File.WriteAllText(filePath, output.ToString());
-                Debug.Log($"✅ POTCO Auto-Detection debug exported to: {filePath}");
+                DebugLogger.LogWorldExporter($"✅ POTCO Auto-Detection debug exported to: {filePath}");
                 
                 // Also log key findings to console
-                Debug.Log($"📊 POTCO Debug Summary: {objectsWithPOTCOInfo} objects have POTCOTypeInfo, {incorrectPlacements} incorrectly placed");
+                DebugLogger.LogWorldExporter($"📊 POTCO Debug Summary: {objectsWithPOTCOInfo} objects have POTCOTypeInfo, {incorrectPlacements} incorrectly placed");
                 
                 // Refresh the asset database so the file appears in Unity
                 AssetDatabase.Refresh();
@@ -733,7 +629,7 @@ namespace WorldDataExporter
             }
             catch (System.Exception ex)
             {
-                Debug.LogError($"❌ Failed to export POTCO debug: {ex.Message}");
+                DebugLogger.LogErrorWorldExporter($"❌ Failed to export POTCO debug: {ex.Message}");
             }
         }
         

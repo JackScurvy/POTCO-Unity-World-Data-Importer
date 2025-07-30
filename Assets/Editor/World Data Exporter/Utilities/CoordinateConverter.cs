@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using POTCO.Editor;
 
 namespace WorldDataExporter.Utilities
 {
@@ -22,14 +23,14 @@ namespace WorldDataExporter.Utilities
         /// </summary>
         public static Vector3 UnityToPanda3DHPR(Vector3 unityEuler)
         {
-            UnityEngine.Debug.Log($"🔄 Converting Unity Euler {unityEuler} to Panda3D HPR (YXZ_NNN format)");
+            DebugLogger.LogWorldExporter($"🔄 Converting Unity Euler {unityEuler} to Panda3D HPR (YXZ_NNN format)");
             
             float heading = -unityEuler.y;  // hpr.x (heading) = -Unity.Y
             float pitch = -unityEuler.x;    // hpr.y (pitch) = -Unity.X
             float roll = -unityEuler.z;     // hpr.z (roll) = -Unity.Z
             
             Vector3 result = new Vector3(heading, pitch, roll);
-            UnityEngine.Debug.Log($"🔄 Result: {result} (H:{heading}, P:{pitch}, R:{roll})");
+            DebugLogger.LogWorldExporter($"🔄 Result: {result} (H:{heading}, P:{pitch}, R:{roll})");
             
             return result;
         }
