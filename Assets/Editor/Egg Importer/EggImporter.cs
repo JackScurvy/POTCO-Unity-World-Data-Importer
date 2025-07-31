@@ -32,6 +32,17 @@ public class EggImporter : ScriptedImporter
 
     public override void OnImportAsset(AssetImportContext ctx)
     {
+        // Check if auto-import is disabled
+        if (!ShouldAutoImport())
+        {
+            DebugLogger.LogEggImporter($"Auto-import disabled, skipping: {Path.GetFileName(ctx.assetPath)}");
+            return;
+        }
+        
+        // Track import statistics
+        var startTime = EditorApplication.timeSinceStartup;
+        bool importSuccessful = false;
+        
         DebugLogger.LogEggImporter("--- EGG IMPORTER: START ---");
 
         // Initialize processors
@@ -67,7 +78,42 @@ public class EggImporter : ScriptedImporter
             }
         }
 
+        importSuccessful = true;
+        
+        // Track import statistics
+        var importTime = (float)(EditorApplication.timeSinceStartup - startTime);
+        UpdateImportStatistics(ctx.assetPath, importTime, importSuccessful);
+        
         DebugLogger.LogEggImporter("--- EGG IMPORTER: COMPLETE ---");
+    }
+    
+    private void UpdateImportStatistics(string filePath, float importTime, bool success)
+    {
+        // Update import counts
+        int totalImports = EditorPrefs.GetInt("EggImporter_TotalImports", 0) + 1;
+        EditorPrefs.SetInt("EggImporter_TotalImports", totalImports);
+        
+        // Update total import time
+        float totalTime = EditorPrefs.GetFloat("EggImporter_TotalImportTime", 0f) + importTime;
+        EditorPrefs.SetFloat("EggImporter_TotalImportTime", totalTime);
+        
+        // Update failed imports if unsuccessful
+        if (!success)
+        {
+            int failedImports = EditorPrefs.GetInt("EggImporter_FailedImports", 0) + 1;
+            EditorPrefs.SetInt("EggImporter_FailedImports", failedImports);
+        }
+        
+        // Update last import info
+        EditorPrefs.SetString("EggImporter_LastImportTime", System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+        EditorPrefs.SetString("EggImporter_LastImportFile", System.IO.Path.GetFileName(filePath));
+        
+        // Update material statistics
+        if (_materials != null)
+        {
+            int createdMaterials = EditorPrefs.GetInt("EggImporter_CreatedMaterials", 0) + _materials.Count;
+            EditorPrefs.SetInt("EggImporter_CreatedMaterials", createdMaterials);
+        }
     }
 
     private bool IsAnimationOnlyFile(string[] lines)
@@ -341,5 +387,12 @@ public class EggImporter : ScriptedImporter
                 }
             }
         }
+    }
+    
+    private bool ShouldAutoImport()
+    {
+        // Check for EditorPrefs setting to disable auto-import
+        bool autoImportEnabled = EditorPrefs.GetBool("EggImporter_AutoImportEnabled", false);
+        return autoImportEnabled;
     }
 }
