@@ -305,6 +305,10 @@ public class EggImporter : ScriptedImporter
         {
             DebugLogger.LogEggImporter($"Geometry group '{kvp.Key}' has {kvp.Value.subMeshes.Count} submeshes");
         }
+        
+        // --- Pass 2.5: Consolidate Parent-Child Geometry ---
+        ConsolidateParentChildGeometry(hierarchyMap, geometryMap);
+        
         // --- Pass 3: Create Meshes from Mapped Geometry ---
         foreach (var kvp in geometryMap)
         {
@@ -419,6 +423,64 @@ public class EggImporter : ScriptedImporter
         _geometryProcessor.CreateMeshForGameObject(go, subMeshes, materialNames, ctx, 
             _masterVertices, _masterNormals, _masterUVs, _masterColors, _materialDict,
             _hasSkeletalData, _rootJoint, _rootBoneObject, _joints);
+    }
+
+    private void ConsolidateParentChildGeometry(Dictionary<string, Transform> hierarchyMap, Dictionary<string, GeometryData> geometryMap)
+    {
+        var pathsToProcess = geometryMap.Keys.ToList();
+        
+        foreach (string childPath in pathsToProcess)
+        {
+            if (!geometryMap.ContainsKey(childPath)) continue; // May have been removed already
+            
+            // Check if this is a child path with a parent that also has geometry
+            int lastSlash = childPath.LastIndexOf('/');
+            if (lastSlash > 0)
+            {
+                string parentPath = childPath.Substring(0, lastSlash);
+                
+                // If both parent and child have geometry, consolidate into parent
+                if (geometryMap.ContainsKey(parentPath))
+                {
+                    DebugLogger.LogEggImporter($"🔗 Consolidating child geometry '{childPath}' into parent '{parentPath}'");
+                    
+                    // Merge child geometry into parent
+                    var childGeo = geometryMap[childPath];
+                    var parentGeo = geometryMap[parentPath];
+                    
+                    // Merge submeshes
+                    foreach (var submeshKvp in childGeo.subMeshes)
+                    {
+                        if (parentGeo.subMeshes.ContainsKey(submeshKvp.Key))
+                        {
+                            parentGeo.subMeshes[submeshKvp.Key].AddRange(submeshKvp.Value);
+                        }
+                        else
+                        {
+                            parentGeo.subMeshes[submeshKvp.Key] = submeshKvp.Value;
+                        }
+                    }
+                    
+                    // Merge material names
+                    foreach (string materialName in childGeo.materialNames)
+                    {
+                        if (!parentGeo.materialNames.Contains(materialName))
+                        {
+                            parentGeo.materialNames.Add(materialName);
+                        }
+                    }
+                    
+                    // Remove child geometry and hierarchy entry
+                    geometryMap.Remove(childPath);
+                    if (hierarchyMap.ContainsKey(childPath))
+                    {
+                        if (hierarchyMap[childPath].gameObject != null)
+                            UnityEngine.Object.DestroyImmediate(hierarchyMap[childPath].gameObject);
+                        hierarchyMap.Remove(childPath);
+                    }
+                }
+            }
+        }
     }
 
     private void ParseAnimations(string[] lines, GameObject rootGO, AssetImportContext ctx)
