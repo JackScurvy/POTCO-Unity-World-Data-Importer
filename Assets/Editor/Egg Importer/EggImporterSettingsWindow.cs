@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEditor;
 using System.IO;
+using System.Collections.Generic;
+using System.Linq;
 using POTCO.Editor;
 
 public class EggImporterSettingsWindow : EditorWindow
@@ -9,7 +11,11 @@ public class EggImporterSettingsWindow : EditorWindow
     private SerializedObject serializedSettings;
     private Vector2 scrollPosition;
     private int selectedTab = 0;
-    private readonly string[] tabs = { "⚙️ Settings", "📁 Manual Import", "📊 Statistics", "ℹ️ Info" };
+    private readonly string[] tabs = { "⚙️ Settings", "📁 Folder Filtering", "📁 Manual Import", "📊 Statistics", "ℹ️ Info" };
+    
+    // Folder filtering variables
+    private Dictionary<string, bool> managerFolderFilters;
+    private Vector2 managerFolderScrollPosition;
     
     // UI Styles
     private GUIStyle headerStyle;
@@ -37,6 +43,7 @@ public class EggImporterSettingsWindow : EditorWindow
     {
         settings = EggImporterSettings.Instance;
         serializedSettings = new SerializedObject(settings);
+        InitializeManagerFolderFilters();
     }
     
     private void InitializeStyles()
@@ -114,12 +121,15 @@ public class EggImporterSettingsWindow : EditorWindow
                 DrawSettingsTab();
                 break;
             case 1:
-                DrawManualImportTab();
+                DrawFolderFilteringTab();
                 break;
             case 2:
-                DrawStatisticsTab();
+                DrawManualImportTab();
                 break;
             case 3:
+                DrawStatisticsTab();
+                break;
+            case 4:
                 DrawInfoTab();
                 break;
         }
@@ -218,10 +228,10 @@ public class EggImporterSettingsWindow : EditorWindow
         switch ((EggImporterSettings.LODImportMode)lodModeProperty.enumValueIndex)
         {
             case EggImporterSettings.LODImportMode.HighestOnly:
-                EditorGUILayout.HelpBox("🎯 Only imports the highest quality LOD (Distance ending with 0). Recommended for most use cases.", MessageType.Info);
+                EditorGUILayout.HelpBox("🎯 Only imports the highest quality LOD. Skips _low, _med, _super character variants and lower mp_ numbered models (e.g., keeps mp_2000, skips mp_500). Recommended for most use cases.", MessageType.Info);
                 break;
             case EggImporterSettings.LODImportMode.AllLODs:
-                EditorGUILayout.HelpBox("📈 Imports all LOD levels as separate GameObjects. Useful for analyzing LOD differences.", MessageType.Info);
+                EditorGUILayout.HelpBox("📈 Imports all LOD levels including _hi, _med, _low, _super variants and all mp_ numbered models. Useful for analyzing LOD differences.", MessageType.Info);
                 break;
             case EggImporterSettings.LODImportMode.Custom:
                 EditorGUILayout.HelpBox("🔧 Custom LOD selection (Not yet implemented).", MessageType.Warning);
@@ -229,14 +239,63 @@ public class EggImporterSettingsWindow : EditorWindow
         }
         EditorGUILayout.EndVertical();
         
+        // Footprint Settings
+        EditorGUILayout.BeginVertical(sectionStyle);
+        GUILayout.Label("🏗️ Building Footprint Settings", EditorStyles.boldLabel);
+        GUILayout.Space(5);
+        
+        var footprintProperty = serializedSettings.FindProperty("skipFootprints");
+        EditorGUILayout.PropertyField(footprintProperty, new GUIContent("Skip Building Footprints"));
+        
+        if (footprintProperty.boolValue)
+        {
+            EditorGUILayout.HelpBox("🚫 Building footprints (files ending with '_footprint') will be skipped during import. These are typically map icons and not needed for 3D scenes.", MessageType.Info);
+        }
+        else
+        {
+            EditorGUILayout.HelpBox("📍 Building footprints will be imported. These are usually small map icon representations of buildings.", MessageType.Info);
+        }
+        
+        EditorGUILayout.EndVertical();
+        
+        // Animation Settings
+        EditorGUILayout.BeginVertical(sectionStyle);
+        GUILayout.Label("🎬 Animation Settings", EditorStyles.boldLabel);
+        GUILayout.Space(5);
+        
+        var animationProperty = serializedSettings.FindProperty("skipAnimations");
+        EditorGUILayout.PropertyField(animationProperty, new GUIContent("Skip Animation-Only Files"));
+        
+        var skeletalProperty = serializedSettings.FindProperty("skipSkeletalModels");
+        EditorGUILayout.PropertyField(skeletalProperty, new GUIContent("Skip All Files With Bones"));
+        
+        if (animationProperty.boolValue && skeletalProperty.boolValue)
+        {
+            EditorGUILayout.HelpBox("🚫 Both animation-only files AND any files with skeletal data will be skipped. This will import only static models without bones.", MessageType.Warning);
+        }
+        else if (skeletalProperty.boolValue)
+        {
+            EditorGUILayout.HelpBox("🦴 Any files containing skeletal data (bones, joints, vertex weights) will be skipped. This includes rigged characters and models with bone structures.", MessageType.Info);
+        }
+        else if (animationProperty.boolValue)
+        {
+            EditorGUILayout.HelpBox("🚫 Animation-only EGG files will be skipped during import. These contain skeletal animations but no geometry data.", MessageType.Info);
+        }
+        else
+        {
+            EditorGUILayout.HelpBox("🎭 All animation and skeletal files will be imported. Useful for character animations and rigged models.", MessageType.Info);
+        }
+        
+        EditorGUILayout.EndVertical();
+        
         // Collision Import Settings
         EditorGUILayout.BeginVertical(sectionStyle);
         GUILayout.Label("💥 Collision Settings", EditorStyles.boldLabel);
         GUILayout.Space(5);
         
-        var collisionProperty = serializedSettings.FindProperty("importCollisions");
-        EditorGUILayout.PropertyField(collisionProperty, new GUIContent("Import Collisions"));
-        EditorGUILayout.HelpBox("🔒 Enable to import collision geometry. Disabled by default as collision meshes are usually not needed for visual purposes.", MessageType.Info);
+        var collisionProperty = serializedSettings.FindProperty("skipCollisions");
+        EditorGUILayout.PropertyField(collisionProperty, new GUIContent("Skip Import Collisions"));
+        EditorGUILayout.HelpBox("🚫 Enable to skip collision geometry during import. Enabled by default as collision meshes are usually not needed for visual purposes.", MessageType.Info);
         EditorGUILayout.EndVertical();
         
         // Debug Settings
@@ -253,6 +312,151 @@ public class EggImporterSettingsWindow : EditorWindow
         {
             serializedSettings.ApplyModifiedProperties();
             EditorUtility.SetDirty(settings);
+        }
+    }
+    
+    private void DrawFolderFilteringTab()
+    {
+        EditorGUILayout.BeginVertical(sectionStyle);
+        GUILayout.Label("📁 Folder Filtering", EditorStyles.boldLabel);
+        GUILayout.Space(5);
+        
+        EditorGUILayout.HelpBox("Configure which folders to skip during EGG import. These settings apply globally to all imports.", MessageType.Info);
+        EditorGUILayout.EndVertical();
+        
+        if (managerFolderFilters == null)
+        {
+            EditorGUILayout.BeginVertical(sectionStyle);
+            GUILayout.Label("No EGG files found in project. Folder filtering will be available once EGG files are detected.", EditorStyles.wordWrappedLabel);
+            if (GUILayout.Button("Refresh Folder List"))
+            {
+                InitializeManagerFolderFilters();
+            }
+            EditorGUILayout.EndVertical();
+            return;
+        }
+        
+        // Folder Settings
+        EditorGUILayout.BeginVertical(sectionStyle);
+        GUILayout.Label($"📁 Available Folders ({GetManagerSkippedFolderCount()}/{managerFolderFilters.Count} skipped)", EditorStyles.boldLabel);
+        GUILayout.Space(5);
+        
+        // Quick actions
+        EditorGUILayout.BeginHorizontal();
+        if (GUILayout.Button("Select All", GUILayout.Width(80)))
+        {
+            var keys = managerFolderFilters.Keys.ToList();
+            foreach (string key in keys)
+            {
+                managerFolderFilters[key] = true;
+            }
+        }
+        if (GUILayout.Button("Select None", GUILayout.Width(80)))
+        {
+            var keys = managerFolderFilters.Keys.ToList();
+            foreach (string key in keys)
+            {
+                managerFolderFilters[key] = false;
+            }
+        }
+        if (GUILayout.Button("Reset Defaults", GUILayout.Width(100)))
+        {
+            var defaultSkipFolders = new HashSet<string> { "gui", "effects", "sea", "sky", "texturecards" };
+            var keys = managerFolderFilters.Keys.ToList();
+            foreach (string key in keys)
+            {
+                managerFolderFilters[key] = defaultSkipFolders.Contains(key.ToLower());
+            }
+        }
+        if (GUILayout.Button("Refresh List", GUILayout.Width(80)))
+        {
+            InitializeManagerFolderFilters();
+        }
+        EditorGUILayout.EndHorizontal();
+        GUILayout.Space(10);
+        
+        // Scrollable folder list
+        managerFolderScrollPosition = EditorGUILayout.BeginScrollView(managerFolderScrollPosition, GUILayout.MaxHeight(300));
+        
+        var folderKeys = managerFolderFilters.Keys.OrderBy(k => k).ToList();
+        foreach (string folder in folderKeys)
+        {
+            EditorGUI.BeginChangeCheck();
+            bool wasSkipped = managerFolderFilters[folder];
+            bool shouldSkip = EditorGUILayout.ToggleLeft($"Skip '{folder}' folder", wasSkipped);
+            if (EditorGUI.EndChangeCheck())
+            {
+                managerFolderFilters[folder] = shouldSkip;
+                SaveFolderFiltersToEditorPrefs();
+            }
+        }
+        
+        EditorGUILayout.EndScrollView();
+        EditorGUILayout.EndVertical();
+        
+        // Info section
+        EditorGUILayout.BeginVertical(sectionStyle);
+        GUILayout.Label("ℹ️ How It Works", EditorStyles.boldLabel);
+        GUILayout.Space(5);
+        EditorGUILayout.HelpBox("• Folder filters apply to any EGG file whose path contains the specified folder name\n• For example, skipping 'gui' will exclude files in 'Assets/Models/gui/buttons/button.egg'\n• Changes take effect immediately for new imports\n• Startup prompt will use these settings as defaults", MessageType.None);
+        EditorGUILayout.EndVertical();
+    }
+    
+    private void InitializeManagerFolderFilters()
+    {
+        // Get all unique folder names from EGG files
+        var allFolders = new HashSet<string>();
+        string[] allEggFiles = System.IO.Directory.GetFiles(Application.dataPath, "*.egg", System.IO.SearchOption.AllDirectories);
+        
+        if (allEggFiles.Length == 0)
+        {
+            managerFolderFilters = null;
+            return;
+        }
+        
+        foreach (string fullPath in allEggFiles)
+        {
+            string relativePath = fullPath.Substring(Application.dataPath.Length + 1);
+            string folderPath = System.IO.Path.GetDirectoryName(relativePath);
+            
+            if (!string.IsNullOrEmpty(folderPath))
+            {
+                // Split folder path and add each segment
+                string[] segments = folderPath.Split(System.IO.Path.DirectorySeparatorChar, System.IO.Path.AltDirectorySeparatorChar);
+                foreach (string segment in segments)
+                {
+                    if (!string.IsNullOrEmpty(segment))
+                    {
+                        allFolders.Add(segment.ToLower());
+                    }
+                }
+            }
+        }
+        
+        // Initialize folder filters
+        managerFolderFilters = new Dictionary<string, bool>();
+        
+        // Load from EditorPrefs or use defaults
+        foreach (string folder in allFolders.OrderBy(f => f))
+        {
+            bool defaultSkip = new HashSet<string> { "gui", "effects", "sea", "sky", "texturecards" }.Contains(folder.ToLower());
+            managerFolderFilters[folder] = EditorPrefs.GetBool($"EggImporter_SkipFolder_{folder}", defaultSkip);
+        }
+    }
+    
+    private int GetManagerSkippedFolderCount()
+    {
+        if (managerFolderFilters == null) return 0;
+        return managerFolderFilters.Values.Count(skip => skip);
+    }
+    
+    private void SaveFolderFiltersToEditorPrefs()
+    {
+        if (managerFolderFilters == null) return;
+        
+        foreach (var kvp in managerFolderFilters)
+        {
+            EditorPrefs.SetBool($"EggImporter_SkipFolder_{kvp.Key}", kvp.Value);
         }
     }
     
@@ -612,7 +816,7 @@ public class EggImporterSettingsWindow : EditorWindow
             if (EditorUtility.DisplayDialog("Reset Settings", "Are you sure you want to reset all EGG importer settings to defaults?", "Yes", "Cancel"))
             {
                 settings.lodImportMode = EggImporterSettings.LODImportMode.HighestOnly;
-                settings.importCollisions = false;
+                settings.skipCollisions = true;
                 settings.enableDebugLogging = true;
                 EditorPrefs.SetBool("EggImporter_AutoImportEnabled", false);
                 EditorPrefs.SetBool("EggImporter_SkipStartupPrompt", false); // Enable startup prompt by default

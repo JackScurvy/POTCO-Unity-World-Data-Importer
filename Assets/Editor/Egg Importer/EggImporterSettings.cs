@@ -6,8 +6,15 @@ public class EggImporterSettings : ScriptableObject
     [Header("LOD Import Settings")]
     public LODImportMode lodImportMode = LODImportMode.HighestOnly;
     
+    [Header("Footprint Settings")]
+    public bool skipFootprints = true;
+    
+    [Header("Animation Settings")]
+    public bool skipAnimations = false;
+    public bool skipSkeletalModels = false;
+    
     [Header("Collision Import Settings")]
-    public bool importCollisions = false;
+    public bool skipCollisions = true;
     
     [Header("Debug Settings")]
     public bool enableDebugLogging = true;

@@ -44,8 +44,8 @@ namespace POTCO.Editor
         private int thumbnailSize = 64;
         private bool showFavoritesOnly = false;
         private PropAsset selectedProp;
-        private bool showEggFiles = false; // New: toggle between prefabs and .egg files
-        private bool useObjectListCategories = false; // New: use ObjectList.py for categorization
+        private bool showEggFiles = true; // Default: show .egg files instead of prefabs
+        private bool useObjectListCategories = true; // Default: use ObjectList.py for categorization
         // Category display is now always tabbed
         
         // Performance optimizations
@@ -1056,7 +1056,7 @@ namespace POTCO.Editor
 
             // Fallback to "Unknown" category for ObjectList mode
             prop.category = "Unknown";
-            prop.subcategory = "Uncategorized";
+            prop.subcategory = GetFolderNameFromPath(path);
             prop.objectType = path.EndsWith(".egg", System.StringComparison.OrdinalIgnoreCase) ? "EGG_MODEL" : "MISC_OBJ";
         }
 
@@ -1284,7 +1284,31 @@ namespace POTCO.Editor
             if (name.Contains("stone")) return "Stone";
             if (name.Contains("metal")) return "Metal";
             
-            return "General";
+            // Final fallback: use immediate folder name
+            return GetFolderNameFromPath(path);
+        }
+
+        /// <summary>
+        /// Extract the immediate folder name from a file path for categorization
+        /// </summary>
+        private string GetFolderNameFromPath(string path)
+        {
+            if (string.IsNullOrEmpty(path))
+                return "Uncategorized";
+
+            // Get the directory path and extract the folder name
+            string directoryPath = Path.GetDirectoryName(path);
+            if (string.IsNullOrEmpty(directoryPath))
+                return "Uncategorized";
+
+            // Get the last folder in the path
+            string folderName = Path.GetFileName(directoryPath);
+            if (string.IsNullOrEmpty(folderName))
+                return "Uncategorized";
+
+            // Clean up the folder name for display
+            folderName = folderName.Replace("_", " ").Replace("-", " ");
+            return folderName.ToTitleCase();
         }
 
         private void OrganizePropIntoCategories(PropAsset prop)

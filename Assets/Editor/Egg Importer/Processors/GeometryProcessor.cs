@@ -451,7 +451,7 @@ public class GeometryProcessor
         int blockEnd = _parserUtils.FindMatchingBrace(lines, i);
         
         // Check for collision tags - skip collision polygons based on settings
-        if (!EggImporterSettings.Instance.importCollisions)
+        if (EggImporterSettings.Instance.skipCollisions)
         {
             for (int j = i + 1; j < blockEnd; j++)
             {
@@ -503,9 +503,9 @@ public class GeometryProcessor
                 string groupName = _parserUtils.GetGroupName(line);
                 
                 // Skip collision groups based on settings
-                if (groupName.ToLower().Contains("collision") && !EggImporterSettings.Instance.importCollisions)
+                if (groupName.ToLower().Contains("collision") && EggImporterSettings.Instance.skipCollisions)
                 {
-                    DebugLogger.LogEggImporter($"🚫 Skipping collision group: '{groupName}' (Import Collisions disabled)");
+                    DebugLogger.LogEggImporter($"🚫 Skipping collision group: '{groupName}' (Skip Collisions enabled)");
                     int collisionGroupEnd = _parserUtils.FindMatchingBrace(lines, i);
                     i = collisionGroupEnd + 1;
                     continue;

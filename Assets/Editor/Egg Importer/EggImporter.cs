@@ -39,6 +39,30 @@ public class EggImporter : ScriptedImporter
             return;
         }
         
+        // Check LOD filtering before importing
+        if (!ShouldImportBasedOnLOD(ctx.assetPath))
+        {
+            DebugLogger.LogEggImporter($"LOD filtering: skipping {Path.GetFileName(ctx.assetPath)}");
+            return;
+        }
+        
+        // Check if we should skip animations or skeletal models
+        var lines = File.ReadAllLines(ctx.assetPath);
+        bool isAnimationOnly = IsAnimationOnlyFile(lines);
+        bool hasSkeletalData = HasSkeletalData(lines);
+        
+        if (isAnimationOnly && EggImporterSettings.Instance.skipAnimations)
+        {
+            DebugLogger.LogEggImporter($"Animation filtering: skipping animation-only file {Path.GetFileName(ctx.assetPath)}");
+            return;
+        }
+        
+        if (hasSkeletalData && EggImporterSettings.Instance.skipSkeletalModels)
+        {
+            DebugLogger.LogEggImporter($"Skeletal filtering: skipping file with bones {Path.GetFileName(ctx.assetPath)}");
+            return;
+        }
+        
         // Track import statistics
         var startTime = EditorApplication.timeSinceStartup;
         bool importSuccessful = false;
@@ -52,9 +76,8 @@ public class EggImporter : ScriptedImporter
         _parserUtils = new ParserUtilities();
 
         var rootGO = new GameObject(Path.GetFileNameWithoutExtension(ctx.assetPath));
-        var lines = File.ReadAllLines(ctx.assetPath);
-
-        bool isAnimationOnly = IsAnimationOnlyFile(lines);
+        
+        // lines already read above for animation filtering
         DebugLogger.LogEggImporter($"Animation-only file: {isAnimationOnly}");
 
         if (isAnimationOnly)
@@ -394,5 +417,130 @@ public class EggImporter : ScriptedImporter
         // Check for EditorPrefs setting to disable auto-import
         bool autoImportEnabled = EditorPrefs.GetBool("EggImporter_AutoImportEnabled", false);
         return autoImportEnabled;
+    }
+    
+    private bool ShouldImportBasedOnLOD(string assetPath)
+    {
+        var settings = EggImporterSettings.Instance;
+        string fileName = Path.GetFileNameWithoutExtension(assetPath).ToLower();
+        
+        // Check if we should skip footprints
+        if (settings.skipFootprints && fileName.EndsWith("_footprint"))
+        {
+            DebugLogger.LogEggImporter($"Skipping footprint: {fileName}");
+            return false;
+        }
+        
+        // If set to import all LODs, allow everything
+        if (settings.lodImportMode == EggImporterSettings.LODImportMode.AllLODs)
+        {
+            return true;
+        }
+        
+        // If set to highest only, apply LOD filtering
+        if (settings.lodImportMode == EggImporterSettings.LODImportMode.HighestOnly)
+        {
+            return ShouldImportHighestLODOnly(fileName);
+        }
+        
+        return true; // Default: import everything
+    }
+    
+    private bool ShouldImportHighestLODOnly(string fileName)
+    {
+        // Handle character LODs: _hi, _med, _low, _super (super is lowest quality)
+        if (fileName.EndsWith("_hi"))
+        {
+            return true; // Always import highest quality
+        }
+        else if (fileName.EndsWith("_med") || fileName.EndsWith("_low") || fileName.EndsWith("_super"))
+        {
+            // Check if a higher quality version exists
+            string baseName = fileName;
+            if (fileName.EndsWith("_med")) baseName = fileName.Substring(0, fileName.LastIndexOf("_med"));
+            else if (fileName.EndsWith("_low")) baseName = fileName.Substring(0, fileName.LastIndexOf("_low"));
+            else if (fileName.EndsWith("_super")) baseName = fileName.Substring(0, fileName.LastIndexOf("_super"));
+            
+            // Check if _hi version exists
+            string hiVersion = baseName + "_hi.egg";
+            string[] hiFiles = System.IO.Directory.GetFiles(Application.dataPath, hiVersion, System.IO.SearchOption.AllDirectories);
+            if (hiFiles.Length > 0)
+            {
+                DebugLogger.LogEggImporter($"Skipping {fileName} - higher quality version exists: {baseName}_hi");
+                return false;
+            }
+        }
+        
+        // Handle numeric LODs: mp_500, mp_1000, mp_2000, etc.
+        var match = System.Text.RegularExpressions.Regex.Match(fileName, @"(.+)_mp_(\d+)$");
+        if (match.Success)
+        {
+            string baseName = match.Groups[1].Value;
+            int currentLOD = int.Parse(match.Groups[2].Value);
+            
+            // Find all mp_ variants for this model
+            string searchPattern = baseName + "_mp_*.egg";
+            string assetDirectory = Path.GetDirectoryName(System.IO.Path.Combine(Application.dataPath, "dummy"));
+            string[] allFiles = System.IO.Directory.GetFiles(Application.dataPath, "*.egg", System.IO.SearchOption.AllDirectories);
+            
+            int highestLOD = currentLOD;
+            foreach (string file in allFiles)
+            {
+                string fileNameOnly = Path.GetFileNameWithoutExtension(file).ToLower();
+                var fileMatch = System.Text.RegularExpressions.Regex.Match(fileNameOnly, @"(.+)_mp_(\d+)$");
+                if (fileMatch.Success && fileMatch.Groups[1].Value == baseName)
+                {
+                    int fileLOD = int.Parse(fileMatch.Groups[2].Value);
+                    if (fileLOD > highestLOD)
+                    {
+                        highestLOD = fileLOD;
+                    }
+                }
+            }
+            
+            if (currentLOD < highestLOD)
+            {
+                DebugLogger.LogEggImporter($"Skipping {fileName} - higher LOD exists: {baseName}_mp_{highestLOD}");
+                return false;
+            }
+        }
+        
+        return true; // Import if no higher LOD found
+    }
+    
+    private bool HasSkeletalData(string[] lines)
+    {
+        // Check for joint definitions or joint tables which indicate skeletal data
+        for (int i = 0; i < lines.Length; i++)
+        {
+            string line = lines[i].Trim();
+            
+            // Look for joint definitions
+            if (line.StartsWith("<Joint>"))
+            {
+                DebugLogger.LogEggImporter("Found skeletal data: <Joint> definition");
+                return true;
+            }
+            
+            // Look for joint tables
+            if (line.StartsWith("<Table>") && i + 1 < lines.Length)
+            {
+                string nextLine = lines[i + 1].Trim();
+                if (nextLine.Contains("joint") || nextLine.Contains("Joint"))
+                {
+                    DebugLogger.LogEggImporter("Found skeletal data: Joint table");
+                    return true;
+                }
+            }
+            
+            // Look for vertex weights (indicates rigged mesh)
+            if (line.Contains("<Scalar> membership"))
+            {
+                DebugLogger.LogEggImporter("Found skeletal data: Vertex weights");
+                return true;
+            }
+        }
+        
+        return false;
     }
 }
