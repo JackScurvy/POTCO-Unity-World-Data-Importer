@@ -1,10 +1,17 @@
 # Pirates of the Caribbean Online - Unity Toolkit
 
-> A Unity Editor toolkit for working with Panda3D - POTCO game assets and world data.
+> A Unity Editor toolkit for working with Panda3D - POTCO game assets, world data, and level creation.
+---
+<p align="center">
+Got any questions?
+  </p>
+<p align="center">
+  <a href="https://discord.gg/Dr6YR8HkPJ" target="_blank">
+    <img alt="Join our Discord"
+      src="https://img.shields.io/badge/Join%20our%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
+  </a>
+</p>
 
-![Unity](https://img.shields.io/badge/Unity-6000.1.11f1-black?logo=unity)
-![License](https://img.shields.io/badge/License-Educational-blue)
-![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Mac%20%7C%20Linux-lightgrey)
 
 ---
 ## ⚠️ Unity may take up to an hour to process all .egg files during the initial import, as it needs to cache all model data. Your patience is appreciated! ⚠️
@@ -12,17 +19,23 @@
 
 ## ✨ What is this?
 
-This toolkit brings **Pirates of the Caribbean Online** into Unity, allowing you to import game worlds, export custom content, and build new experiences using authentic POTCO assets. This was created using the help of AI to expedite the process. So please excuse if the code is 🔥🗑️ but it works! 😎
+This toolkit brings **Pirates of the Caribbean Online** into Unity, allowing you to import game worlds, export custom content, build new experiences, and create levels using authentic POTCO assets. This was created using the help of AI to expedite the process. So please excuse if the code is 🔥🗑️ but it works! 😎
 
 The whole point of this is to bring out the creativity within our community, creating custom worlds and being able to share them or even potentially create little mini games using the POTCO assets within Unity. One thing that our community lacks from our sister community Toontown is the amount of user generated content. We need more of that!
 
 ## 🚀 Features
 
-🗺️ **Import POTCO World Data** - Bring World Data files into Unity scenes  
-🏴‍☠️ **Export to POTCO World Data** - Convert Unity scenes back to game-compatible files  
-⛏️ **Generate Cave Systems** - Create interconnected caves                      
-🎨 **Process EGG Files** - Import Panda3D models with materials and animations  
-🎯 **ObjectList Detection** - Automatically classify and organize POTCO objects  
+### Core Tools
+🗺️ **World Data Importer** - Import POTCO World Data files into Unity scenes  
+🏴‍☠️ **World Data Exporter** - Export Unity scenes back to game-compatible files  
+⛏️ **Procedural Cave Generator** - Create interconnected cave systems with presets  
+🎨 **Advanced EGG File Importer** - Import Panda3D models with multi-texture support  
+
+### Level Creation & Management
+🏗️ **Level Editor (Prop Browser)** - Visual asset browser and placement tool  
+🎯 **ObjectList Detection** - Automatic POTCO object classification and organization  
+🖼️ **Custom Thumbnails** - Auto-generated preview images for all assets  
+📂 **Smart Categorization** - Folder-based and ObjectList-based organization  
 
 ---
 
@@ -39,34 +52,44 @@ Open the project in Unity 6000.1.11f1, then access tools via:
 
 ## 🎮 Tools Overview
 
-### EGG File Importer
-Automatically import Panda3D `.egg` files
-- Geometry and animation processing
-- Texture material support
-- Bone hierarchy and skeletal data handling
-- Vertex Colors Support (Really brings out the POTCO Style Graphics with them)
+### 🎨 EGG File Importer Manager
+Advanced Panda3D `.egg` file processing with comprehensive filtering options:
+- **Multi-Texture Support** - Specialized overlay system for tiling ground textures (Very Broken)
+- **Advanced Filtering** - Skip footprints, LOD control, skeletal data filtering
+- **Folder Exclusions** - Default exclusions for gui, effects, sea, sky, textureCards
+- **Manual Import Control** - Disable auto-import to prevent Unity startup delays
+- **Startup Import Prompt** - Modal dialog for selective batch importing
 
-### World Data Importer
-Import a `.py` World Data file from POTCO into Unity scenes
+### 🗺️ World Data Importer
+Import `.py` World Data files from POTCO into Unity scenes:
 - Automatic object placement and hierarchy creation
-- Select if to import Collisions & Holiday Props
-- Choose if you want to apply the prop colors
-- Importing Speed
-- Coordinate system conversion
+- ObjectList data integration for proper object classification
+- Collision and Holiday Props import options
+- Prop color application toggle
+- Coordinate system conversion (Panda3D ↔ Unity)
+- Import speed optimization
 
-### World Data Exporter  
-Export Unity scenes back to POTCO WorlData compatible format
-- Objectlist filtering and type detection
+### 🏴‍☠️ World Data Exporter  
+Export Unity scenes back to POTCO-compatible format:
+- Advanced ObjectList filtering and type detection
 - Coordinate system conversion between Unity and Panda3D formats
-- Debugging tools for scene analysis
 
-### Procedural Cave Generator
-Create interconnected cave systems using cave pieces
-- Connector-based assembly system
+### ⛏️ Procedural Cave Generator
+Create interconnected cave systems using connector-based cave pieces:
+- Connector-based assembly system (`cave_connector_*` transform markers)
 - Weighted randomization for varied layouts
-- Built-in presets and custom configuration saving
+- Built-in theme presets (Padres Del Fuego Theme)
+- Custom configuration saving/loading (JSON format)
 
-
+### 🏗️ Level Editor (Prop Browser)
+Visual asset management and level creation tool:
+- **Thumbnail Grid View** - Visual browsing of all POTCO assets
+- **Smart Categorization** - Multiple organization methods:
+  - Folder-based categorization
+  - ObjectList-based categorization (Buildings, Props, Lighting, etc.)
+  - Uncategorized item handling
+- **Quick Placement** - Drag-and-drop asset placement in scenes
+- **Search and Filtering** - Find assets quickly across categories
 ---
 
 ## 📖 Basic Usage
@@ -77,50 +100,54 @@ Create interconnected cave systems using cave pieces
 3. Choose your world file and click "Import"
 4. Watch as your POTCO world appears in Unity!
 
+### Use the Level Editor
+1. Open `POTCO → Level Editor`
+2. Browse assets using the thumbnail grid
+3. Switch between categorization modes (Folder/ObjectList)
+4. Drag assets directly into your scene
+5. Assets are automatically categorized and ready for export
+6. Select "🎯Surface" for any placed models either from importing or dragging out to contain collisions to be able to easily drag and drop props on top seemlessly will cause the world importer to take longer
+
+
 ### Generate a Cave
 1. Open `POTCO → Procedural Cave Generator`  
 2. Load the "Padres Del Fuego Theme" preset
 3. Set cave length (try 10-15 pieces)
 4. Click "Generate Cave" and watch it build!
 
+### Import EGG Files
+1. Open `POTCO → EGG Importer Manager`
+2. Configure filtering options (skip footprints, LOD settings, etc.)
+3. Choose folders to exclude (gui, effects recommended)
+4. Use "Import All EGG Files" or selective import
+5. View statistics in the Statistics tab
+
 ### Export Your Scene
-1. Add objects to your scene with POTCO components
+1. Add objects to your scene (use Level Editor for easy placement)
 2. Open `POTCO → World Data Exporter`
-3. Configure export settings
+3. Configure export settings and filters
 4. Click "Export World Data" to create a `.py` file
 
-All props must have a parent object to be able to export, either import a pre created scene and then drag and drop props into it after you're done select them all and attach them to the parent GameObject or parent all the props to 1 prop.
-
-Imported WorldData will always spawn in 0 0 0
-
----
-
-## 🎯 POTCO Object System
-
-Objects in your scene can be automatically detected and classified:
-
-- **Buildings** - Taverns, forts, houses
-- **Props** - Barrels, crates, furniture, decorations  
-- **Lighting** - Torches, lanterns, dynamic lights
-- **Environment** - Trees, rocks, water features
-- **Interactive** - Spawn points, connectors, collision zones
-
-The system automatically assigns the correct object type, generates unique IDs, and prepares objects for export.
+**Important Notes:**
+- All props must have a parent object to export properly
+- Imported WorldData always spawns at (0,0,0)
+- Use "Add ObjectListInfo to Selected Objects" for manual object classification
 
 ---
 
 ## 🖼️ Screenshots
 
-### Cave Generation in Action
+### Level Editor in Action
+https://github.com/user-attachments/assets/9ebcb461-3981-4f06-8db6-6236e9a3b744
+
+### World Importer in Action
 https://github.com/user-attachments/assets/b4187ae0-391a-410d-99f8-5706204fa792
 
 ### Custom Scenes
 <img width="1607" height="1091" alt="image" src="https://github.com/user-attachments/assets/6a8616a4-4b24-401c-964a-fefe9b388d31" />
 
-
 ### POTCO Tortuga Tavern
 <img width="3829" height="1890" alt="image" src="https://github.com/user-attachments/assets/e0e57ff1-6b74-4bf9-a862-c4084f12340f" />
-
 
 ### Tools Windows
 <img width="3143" height="1356" alt="Unity_CTd6HhjjwX" src="https://github.com/user-attachments/assets/58e3240e-da14-47e3-8cd0-c2b454ea57b9" />
@@ -129,9 +156,9 @@ https://github.com/user-attachments/assets/b4187ae0-391a-410d-99f8-5706204fa792
 
 ## ⚠️ Known Issues
 
-- Some dragged objects to the scene may not be given the ObjectList script, in the exporter browser you can select all the objects in the scene and then click "Add POTCOTypeInfo to Selected Objects"
-- Alpha transparency RGB's not working
-- Large cave systems may experience occasional piece overlapping
+- Some manually dragged objects may not receive ObjectListInfo components automatically - use "Add ObjectListInfo to Selected Objects" in the exporter
+- Alpha transparency is not working
+- Large cave systems may occasionally experience piece overlapping
 - Complex EGG files with extensive bone data may require additional processing time
 
 ---
@@ -144,21 +171,14 @@ This project is designed for **educational and research purposes**:
 
 ---
 
-## 🤝 Contributing
-
-Interested in improving the toolkit? 
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your improvements
-4. Submit a pull request with a clear description
-
-All contributions should maintain the educational focus and respect the original game's intellectual property.
-
 ---
 
 ## 🏴‍☠️ Set Sail!
 
-Transform Unity into your personal POTCO playground environment and start creating today!
+Transform Unity into your personal POTCO playground and level creation environment. With the new Level Editor, asset browser, and enhanced import systems, creating custom POTCO content has never been easier!
 
-**Happy sailing, matey!** ⚓
+**Create, explore, and share your pirate adventures!** ⚓
+
+---
+
+*Built with passion for the POTCO community. Fair winds and following seas!*
