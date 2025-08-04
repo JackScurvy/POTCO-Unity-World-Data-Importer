@@ -140,6 +140,10 @@ Visual asset management and level creation tool:
 ### Level Editor in Action
 https://github.com/user-attachments/assets/9ebcb461-3981-4f06-8db6-6236e9a3b744
 
+### Cave Generation in Action
+
+https://github.com/user-attachments/assets/39e63113-1cf6-457f-9515-f33dab15f0b0
+
 ### World Importer in Action
 https://github.com/user-attachments/assets/b4187ae0-391a-410d-99f8-5706204fa792
 
@@ -160,6 +164,8 @@ https://github.com/user-attachments/assets/b4187ae0-391a-410d-99f8-5706204fa792
 - Alpha transparency is not working
 - Large cave systems may occasionally experience piece overlapping
 - Complex EGG files with extensive bone data may require additional processing time
+
+
 
 ---
 
