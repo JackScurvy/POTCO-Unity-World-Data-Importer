@@ -15,6 +15,7 @@ public class EggImporterSettings : ScriptableObject
     
     [Header("Collision Import Settings")]
     public bool skipCollisions = true;
+    public bool importCollisions = false; // For compatibility with reference implementation
     
     [Header("Debug Settings")]
     public bool enableDebugLogging = true;

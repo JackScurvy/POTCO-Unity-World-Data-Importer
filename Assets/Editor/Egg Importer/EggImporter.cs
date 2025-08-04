@@ -80,9 +80,16 @@ public class EggImporter : ScriptedImporter
         // lines already read above for animation filtering
         DebugLogger.LogEggImporter($"Animation-only file: {isAnimationOnly}");
 
+        // Check if this requires multi-texture processing
+        bool requiresMultiTexture = MultiTextureEggImporter.RequiresMultiTextureProcessing(ctx.assetPath);
+        
         if (isAnimationOnly)
         {
             HandleAnimationOnlyFile(lines, rootGO, ctx);
+        }
+        else if (requiresMultiTexture)
+        {
+            HandleMultiTextureFile(lines, rootGO, ctx);
         }
         else
         {
@@ -310,6 +317,76 @@ public class EggImporter : ScriptedImporter
         }
         // --- Pass 4: Parse and create animations ---
         ParseAnimations(lines, rootGO, ctx);
+    }
+    
+    private void HandleMultiTextureFile(string[] lines, GameObject rootGO, AssetImportContext ctx)
+    {
+        DebugLogger.LogEggImporter("🔥 Processing multi-texture EGG file with specialized pipeline");
+        
+        try
+        {
+            // Use the specialized multi-texture importer directly on the rootGO
+            var multiTextureImporter = new MultiTextureEggImporter();
+            
+            // Import using multi-texture pipeline directly into rootGO
+            multiTextureImporter.ImportEggFile(lines, rootGO, ctx);
+            
+            // Store materials reference for context addition
+            _materials = multiTextureImporter.GetMaterials();
+            
+            DebugLogger.LogEggImporter("✅ Multi-texture processing completed successfully");
+        }
+        catch (System.Exception e)
+        {
+            DebugLogger.LogErrorEggImporter($"Multi-texture processing failed: {e.Message}");
+            DebugLogger.LogWarningEggImporter("Falling back to standard geometry processing");
+            HandleGeometryFile(lines, rootGO, ctx);
+        }
+    }
+    
+    private void CopyGameObjectHierarchy(GameObject source, GameObject destination)
+    {
+        // Copy all components from source to destination (except Transform)
+        var components = source.GetComponents<Component>();
+        foreach (var component in components)
+        {
+            if (component is Transform) continue; // Skip transform
+            
+            UnityEditorInternal.ComponentUtility.CopyComponent(component);
+            UnityEditorInternal.ComponentUtility.PasteComponentAsNew(destination);
+        }
+        
+        // Copy all children
+        var childCount = source.transform.childCount;
+        for (int i = 0; i < childCount; i++)
+        {
+            var sourceChild = source.transform.GetChild(i);
+            var destinationChild = new GameObject(sourceChild.name);
+            destinationChild.transform.SetParent(destination.transform, false);
+            
+            // Copy transform data
+            destinationChild.transform.localPosition = sourceChild.localPosition;
+            destinationChild.transform.localRotation = sourceChild.localRotation;
+            destinationChild.transform.localScale = sourceChild.localScale;
+            
+            // Recursively copy hierarchy
+            CopyGameObjectHierarchy(sourceChild.gameObject, destinationChild);
+        }
+        
+        // Update materials reference for the main importer
+        var renderers = destination.GetComponentsInChildren<MeshRenderer>();
+        if (renderers.Length > 0)
+        {
+            var materials = new List<Material>();
+            foreach (var renderer in renderers)
+            {
+                if (renderer.sharedMaterial != null && !materials.Contains(renderer.sharedMaterial))
+                {
+                    materials.Add(renderer.sharedMaterial);
+                }
+            }
+            _materials = materials;
+        }
     }
 
     private void ParseAllTexturesAndVertices(string[] lines, List<EggVertex> vertexPool, Dictionary<string, string> texturePaths)
