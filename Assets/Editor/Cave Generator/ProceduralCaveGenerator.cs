@@ -222,9 +222,9 @@ public class ProceduralCaveGenerator : EditorWindow
         // Save all piece selections
         foreach (var kvp in prefabToggles)
         {
-            string guid = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(kvp.Key));
+            string modelName = kvp.Key.name;
             int likelihood = prefabLikelihoods.ContainsKey(kvp.Key) ? prefabLikelihoods[kvp.Key] : 100;
-            presetData.selections.Add(new SelectionEntry { guid = guid, isEnabled = kvp.Value, likelihood = likelihood });
+            presetData.selections.Add(new SelectionEntry { modelName = modelName, isEnabled = kvp.Value, likelihood = likelihood });
         }
         
         string json = JsonUtility.ToJson(presetData, true);
@@ -1468,9 +1468,9 @@ public class ProceduralCaveGenerator : EditorWindow
         
         foreach (var kvp in prefabToggles)
         {
-            string guid = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(kvp.Key));
+            string modelName = kvp.Key.name;
             int likelihood = prefabLikelihoods.ContainsKey(kvp.Key) ? prefabLikelihoods[kvp.Key] : 100;
-            presetData.selections.Add(new SelectionEntry { guid = guid, isEnabled = kvp.Value, likelihood = likelihood });
+            presetData.selections.Add(new SelectionEntry { modelName = modelName, isEnabled = kvp.Value, likelihood = likelihood });
         }
         
         string json = JsonUtility.ToJson(presetData, true);
@@ -1508,12 +1508,12 @@ public class ProceduralCaveGenerator : EditorWindow
                 // Load selections
                 if (allFoundPrefabs == null) LoadAllPrefabs();
                 
-                var guidToDataMap = presetData.selections.ToDictionary(e => e.guid);
+                var modelNameToDataMap = presetData.selections.ToDictionary(e => e.modelName);
                 
                 foreach (var prefab in allFoundPrefabs)
                 {
-                    string guid = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(prefab));
-                    if (guidToDataMap.TryGetValue(guid, out var entry))
+                    string modelName = prefab.name;
+                    if (modelNameToDataMap.TryGetValue(modelName, out var entry))
                     {
                         prefabToggles[prefab] = entry.isEnabled;
                         prefabLikelihoods[prefab] = entry.likelihood;
@@ -1524,30 +1524,7 @@ public class ProceduralCaveGenerator : EditorWindow
                 return;
             }
         }
-        catch { }
-        
-        // Fall back to old format
-        try
-        {
-            var data = JsonUtility.FromJson<SelectionData>(json);
-            
-            if (allFoundPrefabs == null) LoadAllPrefabs();
-            
-            var guidToDataMap = data.entries.ToDictionary(e => e.guid);
-            
-            foreach (var prefab in allFoundPrefabs)
-            {
-                string guid = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(prefab));
-                if (guidToDataMap.TryGetValue(guid, out var entry))
-                {
-                    prefabToggles[prefab] = entry.isEnabled;
-                    prefabLikelihoods[prefab] = entry.likelihood;
-                }
-            }
-            
-            DebugLogger.LogProceduralGeneration($"Loaded legacy preset (selections only): {Path.GetFileNameWithoutExtension(path)}");
-        }
-        catch
+        catch 
         {
             DebugLogger.LogErrorProceduralGeneration($"Failed to load preset: {path}");
         }
@@ -2289,16 +2266,11 @@ public class ProceduralCaveGenerator : EditorWindow
 [System.Serializable]
 public class SelectionEntry
 {
-    public string guid;
+    public string modelName;
     public bool isEnabled;
     public int likelihood;
 }
 
-[System.Serializable]
-public class SelectionData
-{
-    public List<SelectionEntry> entries = new List<SelectionEntry>();
-}
 
 [System.Serializable]
 public class CavePresetData
