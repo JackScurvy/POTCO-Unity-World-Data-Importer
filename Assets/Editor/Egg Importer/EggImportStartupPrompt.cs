@@ -632,7 +632,21 @@ public class EggImportStartupWindow : EditorWindow
         }
         catch (System.Exception e)
         {
-            GUILayout.Label($"Settings error: {e.Message}");
+            // End any open layout groups in case of exception
+            // Try to close up to 5 potential open groups
+            for (int i = 0; i < 5; i++)
+            {
+                try
+                {
+                    EditorGUILayout.EndVertical();
+                }
+                catch { break; }
+            }
+            
+            // Display error in a safe container
+            EditorGUILayout.BeginVertical("box");
+            GUILayout.Label($"Settings error: {e.Message}", EditorStyles.helpBox);
+            EditorGUILayout.EndVertical();
         }
     }
     
